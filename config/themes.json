@@ -1,0 +1,66 @@
+{
+  "active_override": null,
+  "themes": {
+    "default": {
+      "name": "Default Gemini Blue",
+      "date_range": null,
+      "header_bg": "linear-gradient(135deg, #1a73e8 0%, #4285f4 100%)",
+      "banner_text": "SREYAS AI Assistant",
+      "greeting": "Hello! 👋 Welcome to SREYAS Assistant.\n\nAsk me anything about admissions, courses, fees, placements, and campus facilities. 😊",
+      "badge": "🎓",
+      "animation": "none",
+      "chips": ["courses", "placements", "fees", "admissions", "hostel", "contact"]
+    },
+    "independence_day": {
+      "name": "Independence Day",
+      "date_range": { "start_month": 8, "start_day": 15, "end_month": 8, "end_day": 15 },
+      "header_bg": "linear-gradient(135deg, #ff9933 0%, #ffffff 50%, #138808 100%)",
+      "header_text_color": "#0b3d91",
+      "banner_text": " Happy Independence Day! 🇮🇳",
+      "greeting": "Happy Independence Day! 🇮🇳 Welcome to Sreyas Institute.\n\nCelebrating freedom, education, and innovation! How can I assist you today? 🎓",
+      "badge": "🇮🇳",
+      "animation": "flag_float",
+      "chips": ["admissions", "placements", "scholarships", "courses", "contact"]
+    },
+    "republic_day": {
+      "name": "Republic Day",
+      "date_range": { "start_month": 1, "start_day": 24, "end_month": 1, "end_day": 27 },
+      "header_bg": "linear-gradient(135deg, #ff9933 0%, #000080 50%, #138808 100%)",
+      "banner_text": "Happy Republic Day! 🇮🇳",
+      "greeting": "Happy Republic Day! 🇮🇳 Welcome to Sreyas Assistant.\n\nHonoring the Constitution and empowerment through knowledge. What would you like to know? 🎓",
+      "badge": "🇮🇳",
+      "animation": "flag_float",
+      "chips": ["admissions", "courses", "fees", "placements", "scholarships"]
+    },
+    "christmas": {
+      "name": "Christmas",
+      "date_range": { "start_month": 12, "start_day": 20, "end_month": 12, "end_day": 26 },
+      "header_bg": "linear-gradient(135deg, #d32f2f 0%, #1976d2 50%, #388e3c 100%)",
+      "banner_text": "Merry Christmas! 🎄✨",
+      "greeting": "Merry Christmas & Season's Greetings! 🎄✨ Welcome to Sreyas Institute.\n\nHow can I help you explore courses, admissions, or campus updates today? 🎁",
+      "badge": "🎄",
+      "animation": "snowfall",
+      "chips": ["admissions", "courses", "fees", "placements", "facilities"]
+    },
+    "new_year": {
+      "name": "New Year",
+      "date_range": { "start_month": 12, "start_day": 31, "end_month": 1, "end_day": 3 },
+      "header_bg": "linear-gradient(135deg, #4a148c 0%, #ff6f00 100%)",
+      "banner_text": "Happy New Year! 🎆",
+      "greeting": "Happy New Year! 🎆✨ Welcome to Sreyas Assistant.\n\nStart your academic journey with Sreyas Institute this year! How can I assist you? 🚀",
+      "badge": "✨",
+      "animation": "confetti",
+      "chips": ["admissions", "courses", "placements", "fees", "contact"]
+    },
+    "annual_fest": {
+      "name": "Sreyas Annual Fest",
+      "date_range": { "start_month": 3, "start_day": 10, "end_month": 3, "end_day": 15 },
+      "header_bg": "linear-gradient(135deg, #8e24aa 0%, #00acc1 100%)",
+      "banner_text": "Sreyas Annual Fest 🥳🎉",
+      "greeting": "Welcome to Sreyas Annual Fest Celebrations! 🥳🎉\n\nAsk about events, cultural activities, competitions, or academic details! 🎶",
+      "badge": "🎉",
+      "animation": "confetti",
+      "chips": ["about", "facilities", "courses", "placements", "contact"]
+    }
+  }
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "timestamp": "11 Oct 2026, 11:22 PM",
+    "success": true,
+    "pages_scanned": 19,
+    "sections_updated": 0,
+    "kb_changed": false,
+    "rag_rebuilt": false,
+    "duration": 48.64,
+    "error": null
+  }
+]

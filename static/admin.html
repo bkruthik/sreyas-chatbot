@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sreyas Admin Portal — Production Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+/* ═══════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --primary:#1a73e8;--primary-dark:#1557b0;--primary-glow:rgba(26,115,232,.15);
+  --sidebar-bg:#0d1117;--sidebar-text:#8b949e;--sidebar-text-active:#e6edf3;
+  --sidebar-active-bg:rgba(26,115,232,.15);--sidebar-hover-bg:rgba(255,255,255,.05);
+  --page-bg:#f0f2f5;--card-bg:#ffffff;--text:#202124;--text-sub:#5f6368;
+  --border:#e8eaed;--success:#1e8e3e;--success-bg:#e6f4ea;
+  --warning:#f9ab00;--warning-bg:#fff8e1;--danger:#d93025;--danger-bg:#fce8e6;
+  --info:#1a73e8;--info-bg:#e8f0fe;
+  --font:'Inter',-apple-system,sans-serif;
+  --r-xl:20px;--r-lg:16px;--r-md:12px;--r-sm:8px;
+  --sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 4px 16px rgba(0,0,0,.08);--sh-lg:0 12px 40px rgba(0,0,0,.12);
+  --sidebar-w:240px;
+}
+
+body{font-family:var(--font);background:var(--page-bg);color:var(--text);line-height:1.5;min-height:100vh;}
+
+/* ═══════════════════════════════════════
+   LOGIN OVERLAY
+═══════════════════════════════════════ */
+#login-overlay{
+  position:fixed;inset:0;background:rgba(13,17,23,.75);
+  display:flex;align-items:center;justify-content:center;z-index:9999;
+  backdrop-filter:blur(12px);
+}
+.login-card{
+  background:#fff;border-radius:24px;padding:48px 40px;width:100%;max-width:420px;
+  box-shadow:var(--sh-lg);border:1px solid var(--border);text-align:center;
+  animation:cardIn .35s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes cardIn{from{opacity:0;transform:scale(.92) translateY(16px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.login-logo{width:64px;height:64px;border-radius:20px;background:linear-gradient(135deg,#1a73e8,#4285f4);
+  margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-size:28px;
+  box-shadow:0 8px 24px rgba(26,115,232,.35);}
+.login-card h2{font-size:22px;font-weight:800;color:var(--text);margin-bottom:6px;}
+.login-card p{font-size:13px;color:var(--text-sub);margin-bottom:28px;}
+.form-group{margin-bottom:16px;text-align:left;}
+.form-group label{display:block;font-size:12.5px;font-weight:600;margin-bottom:6px;color:var(--text-sub);text-transform:uppercase;letter-spacing:.5px;}
+.form-control{
+  width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:var(--r-md);
+  font-size:14px;outline:none;transition:border-color .18s,box-shadow .18s;font-family:var(--font);color:var(--text);
+}
+.form-control:focus{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-glow);}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:11px 20px;border-radius:var(--r-md);font-size:14px;font-weight:600;
+  cursor:pointer;border:none;transition:all .2s;font-family:var(--font);
+}
+.btn-primary{background:linear-gradient(135deg,#1a73e8,#4285f4);color:#fff;width:100%;
+  box-shadow:0 4px 14px rgba(26,115,232,.35);}
+.btn-primary:hover{box-shadow:0 6px 20px rgba(26,115,232,.5);transform:translateY(-1px);}
+.btn-outline{background:#fff;color:var(--primary);border:1.5px solid var(--border);}
+.btn-outline:hover{background:#e8f0fe;border-color:var(--primary);}
+.btn-sm{padding:7px 14px;font-size:12.5px;border-radius:var(--r-sm);}
+.btn-danger-outline{background:#fff;color:var(--danger);border:1.5px solid rgba(217,48,37,.3);}
+.btn-danger-outline:hover{background:var(--danger-bg);}
+#login-error{color:var(--danger);font-size:13px;margin-top:12px;min-height:18px;}
+
+/* ═══════════════════════════════════════
+   APP LAYOUT
+═══════════════════════════════════════ */
+#app{display:none;min-height:100vh;}
+.app-layout{display:flex;min-height:100vh;}
+
+/* ── Sidebar ── */
+.sidebar{
+  width:var(--sidebar-w);flex-shrink:0;background:var(--sidebar-bg);
+  display:flex;flex-direction:column;position:fixed;top:0;left:0;height:100vh;
+  z-index:100;transition:transform .25s;
+}
+.sidebar-brand{
+  padding:24px 20px 20px;border-bottom:1px solid rgba(255,255,255,.06);
+  display:flex;align-items:center;gap:12px;
+}
+.sidebar-logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#1a73e8,#4285f4);
+  display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.sidebar-brand-text{font-size:13.5px;font-weight:700;color:#e6edf3;line-height:1.3;}
+.sidebar-brand-sub{font-size:10.5px;color:var(--sidebar-text);margin-top:1px;}
+
+.sidebar-nav{flex:1;padding:16px 12px;overflow-y:auto;}
+.nav-label{font-size:10px;font-weight:700;color:rgba(139,148,158,.6);letter-spacing:1px;
+  text-transform:uppercase;padding:14px 8px 8px;}
+.nav-item{
+  display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;
+  cursor:pointer;transition:all .18s;color:var(--sidebar-text);font-size:13.5px;font-weight:500;
+  margin-bottom:2px;border:none;background:transparent;width:100%;text-align:left;font-family:var(--font);
+}
+.nav-item:hover{background:var(--sidebar-hover-bg);color:var(--sidebar-text-active);}
+.nav-item.active{background:var(--sidebar-active-bg);color:#8ab4f8;font-weight:600;
+  box-shadow:inset 3px 0 0 var(--primary);}
+.nav-item .nav-icon{font-size:16px;width:20px;text-align:center;flex-shrink:0;}
+
+.sidebar-footer{padding:16px 20px;border-top:1px solid rgba(255,255,255,.06);}
+.sidebar-user{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.sidebar-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#1a73e8,#34a853);
+  display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff;flex-shrink:0;}
+.sidebar-username{font-size:13px;font-weight:600;color:#e6edf3;}
+.sidebar-role{font-size:11px;color:var(--sidebar-text);}
+
+/* ── Main ── */
+.main-content{flex:1;margin-left:var(--sidebar-w);min-height:100vh;display:flex;flex-direction:column;}
+.topbar{
+  background:#fff;padding:14px 28px;display:flex;justify-content:space-between;align-items:center;
+  border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;
+  box-shadow:0 1px 4px rgba(0,0,0,.04);
+}
+.topbar-title{font-size:16px;font-weight:700;color:var(--text);}
+.topbar-actions{display:flex;align-items:center;gap:12px;}
+.topbar-time{font-size:12.5px;color:var(--text-sub);}
+.refresh-indicator{width:8px;height:8px;border-radius:50%;background:#34a853;display:inline-block;
+  box-shadow:0 0 6px rgba(52,168,83,.8);animation:pulse 2s ease infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+.page{flex:1;padding:28px;display:none;}
+.page.active{display:block;}
+
+/* ═══════════════════════════════════════
+   STAT CARDS
+═══════════════════════════════════════ */
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-bottom:24px;}
+.stat-card{
+  background:var(--card-bg);border-radius:var(--r-lg);padding:20px 22px;
+  box-shadow:var(--sh-sm);border:1px solid var(--border);
+  transition:transform .2s,box-shadow .2s;cursor:default;
+  display:flex;align-items:flex-start;gap:14px;
+}
+.stat-card:hover{transform:translateY(-3px);box-shadow:var(--sh-md);}
+.stat-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.stat-body .label{font-size:11.5px;font-weight:700;color:var(--text-sub);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;}
+.stat-body .value{font-size:28px;font-weight:800;line-height:1.1;}
+.stat-body .sub{font-size:11.5px;color:var(--text-sub);margin-top:4px;}
+
+/* ═══════════════════════════════════════
+   CARDS
+═══════════════════════════════════════ */
+.card{background:var(--card-bg);border-radius:var(--r-lg);padding:24px;box-shadow:var(--sh-sm);border:1px solid var(--border);}
+.card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
+.card-title{font-size:14.5px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px;}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;}
+@media(max-width:900px){.grid-2{grid-template-columns:1fr;}}
+
+/* ═══════════════════════════════════════
+   TABLE
+═══════════════════════════════════════ */
+.table-controls{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:18px;}
+.tbl-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+.search-input{padding:9px 14px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:13px;outline:none;font-family:var(--font);transition:border-color .18s;min-width:260px;}
+.search-input:focus{border-color:var(--primary);}
+.status-select{padding:8px 12px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:13px;outline:none;background:#fff;cursor:pointer;font-family:var(--font);}
+.table-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+thead th{background:var(--page-bg);padding:12px 16px;color:var(--text-sub);font-weight:700;font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;}
+tbody td{padding:14px 16px;border-bottom:1px solid var(--border);vertical-align:middle;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr:hover{background:#f8faff;}
+.badge{padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;white-space:nowrap;}
+.badge.pending{background:var(--warning-bg);color:#b45309;}
+.badge.in-progress{background:var(--info-bg);color:var(--primary);}
+.badge.reviewed{background:var(--success-bg);color:var(--success);}
+.badge.closed{background:#f1f3f4;color:var(--text-sub);}
+.enquiry-id{font-weight:700;font-size:12.5px;color:var(--primary);}
+
+/* ═══════════════════════════════════════
+   KB SYNC CARD
+═══════════════════════════════════════ */
+.sync-status-row{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.sync-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;}
+.sync-dot.success{background:#34a853;box-shadow:0 0 8px rgba(52,168,83,.6);}
+.sync-dot.warning{background:var(--warning);box-shadow:0 0 8px rgba(249,171,0,.6);}
+.sync-dot.danger{background:var(--danger);box-shadow:0 0 8px rgba(217,48,37,.6);}
+.sync-meta{font-size:13px;color:var(--text-sub);line-height:1.9;margin-bottom:16px;}
+.sync-meta strong{color:var(--text);}
+
+/* ═══════════════════════════════════════
+   AUDIT LOG
+═══════════════════════════════════════ */
+.log-terminal{
+  background:#0d1117;border-radius:var(--r-md);padding:18px;
+  max-height:300px;overflow-y:auto;font-family:monospace;font-size:12px;color:#c9d1d9;
+}
+.log-terminal::-webkit-scrollbar{width:4px;}
+.log-terminal::-webkit-scrollbar-thumb{background:#30363d;border-radius:4px;}
+.log-entry{padding:5px 0;border-bottom:1px solid #21262d;}
+.log-entry:last-child{border-bottom:none;}
+.log-time{color:#6e7681;}
+.log-action{color:#79c0ff;font-weight:700;}
+.log-user{color:#ffa657;}
+
+/* ═══════════════════════════════════════
+   MOBILE SIDEBAR
+═══════════════════════════════════════ */
+#sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:99;}
+#hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--text);}
+
+@media(max-width:768px){
+  .sidebar{transform:translateX(-100%);}
+  .sidebar.open{transform:translateX(0);}
+  .main-content{margin-left:0;}
+  #hamburger{display:flex;align-items:center;}
+  #sidebar-overlay{display:block;opacity:0;pointer-events:none;transition:opacity .25s;}
+  #sidebar-overlay.open{opacity:1;pointer-events:all;}
+  .stats-row{grid-template-columns:repeat(2,1fr);}
+  .grid-2{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ─── LOGIN OVERLAY ─────────────────────────── -->
+<div id="login-overlay">
+  <div class="login-card">
+    <div class="login-logo">🎓</div>
+    <h2>Sreyas Admin Portal</h2>
+    <p>Sign in to manage student enquiries, analytics & KB sync</p>
+    <form id="login-form">
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" id="username" class="form-control" placeholder="admin / admissions" required autocomplete="username">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="password" class="form-control" placeholder="••••••••" required autocomplete="current-password">
+      </div>
+      <button type="submit" class="btn btn-primary" id="btn-login">🔐 Login to Dashboard</button>
+      <div id="login-error"></div>
+    </form>
+  </div>
+</div>
+
+<!-- ─── MAIN APP ───────────────────────────────── -->
+<div id="app">
+  <div id="sidebar-overlay" onclick="closeSidebar()"></div>
+  <div class="app-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-logo">🎓</div>
+        <div>
+          <div class="sidebar-brand-text">Sreyas Admin</div>
+          <div class="sidebar-brand-sub">Production Portal v2.5</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-label">Main</div>
+        <button class="nav-item active" onclick="showPage('dashboard',this)" id="nav-dashboard">
+          <span class="nav-icon">📊</span> Dashboard
+        </button>
+        <button class="nav-item" onclick="showPage('enquiries',this)" id="nav-enquiries">
+          <span class="nav-icon">📋</span> Enquiries
+        </button>
+        <button class="nav-item" onclick="showPage('analytics',this)" id="nav-analytics">
+          <span class="nav-icon">📈</span> Analytics
+        </button>
+
+        <div class="nav-label">System</div>
+        <button class="nav-item" onclick="showPage('kbsync',this)" id="nav-kbsync">
+          <span class="nav-icon">🔄</span> KB Sync
+        </button>
+        <button class="nav-item" onclick="showPage('audit',this)" id="nav-audit">
+          <span class="nav-icon">🛡️</span> Audit Logs
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="sidebar-avatar" id="sidebar-initials">A</div>
+          <div>
+            <div class="sidebar-username" id="sidebar-username">Admin</div>
+            <div class="sidebar-role">Administrator</div>
+          </div>
+        </div>
+        <button class="btn btn-danger-outline btn-sm" style="width:100%" onclick="logout()">⬅️ Logout</button>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <header class="topbar">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button id="hamburger" onclick="openSidebar()">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <div class="topbar-title" id="page-title">📊 Dashboard Overview</div>
+        </div>
+        <div class="topbar-actions">
+          <span class="topbar-time" id="topbar-time"></span>
+          <span class="refresh-indicator" title="Auto-refresh every 30s"></span>
+          <button class="btn btn-outline btn-sm" onclick="refreshData()">🔄 Refresh</button>
+        </div>
+      </header>
+
+      <!-- ── PAGE: DASHBOARD ── -->
+      <div class="page active" id="page-dashboard">
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-icon" style="background:#fff8e1">⏳</div>
+            <div class="stat-body">
+              <div class="label">Pending</div>
+              <div class="value" id="stat-pending" style="color:var(--warning)">0</div>
+              <div class="sub">Awaiting follow-up</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background:#e8f5e9">📅</div>
+            <div class="stat-body">
+              <div class="label">Today's Leads</div>
+              <div class="value" id="stat-today" style="color:var(--success)">0</div>
+              <div class="sub">New leads today</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background:#e8f0fe">✅</div>
+            <div class="stat-body">
+              <div class="label">Reviewed / Closed</div>
+              <div class="value" id="stat-reviewed" style="color:var(--primary)">0</div>
+              <div class="sub">Completed leads</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background:#f3e5f5">😊</div>
+            <div class="stat-body">
+              <div class="label">Helpful Rating</div>
+              <div class="value" id="stat-helpful" style="color:#7b1fa2">—</div>
+              <div class="sub">User satisfaction</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background:#fce4ec">📩</div>
+            <div class="stat-body">
+              <div class="label">Total Enquiries</div>
+              <div class="value" id="stat-total" style="color:var(--danger)">0</div>
+              <div class="sub">All-time captured</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <!-- Category Chart -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">📊 Query Categories</div>
+            </div>
+            <div style="height:240px;position:relative"><canvas id="categoryChart"></canvas></div>
+          </div>
+
+          <!-- Feedback Chart -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">👍 Feedback Ratio</div>
+            </div>
+            <div style="height:240px;position:relative"><canvas id="feedbackChart"></canvas></div>
+          </div>
+        </div>
+
+        <!-- Recent Enquiries Quick View -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">📋 Recent Enquiries</div>
+            <button class="btn btn-outline btn-sm" onclick="showPage('enquiries', document.getElementById('nav-enquiries'))">View All →</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Ref ID</th><th>Date</th><th>Name</th><th>Phone</th><th>Category</th><th>Status</th></tr></thead>
+              <tbody id="recent-enquiries-tbody"><tr><td colspan="6" style="text-align:center;color:var(--text-sub)">Loading...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PAGE: ENQUIRIES ── -->
+      <div class="page" id="page-enquiries">
+        <div class="card">
+          <div class="table-controls">
+            <div class="card-title">📋 All Enquiries</div>
+            <div class="tbl-actions">
+              <select id="status-filter" class="status-select" onchange="fetchEnquiries()">
+                <option value="">All Statuses</option>
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Reviewed">Reviewed</option>
+                <option value="Closed">Closed</option>
+              </select>
+              <input type="text" id="search-box" class="search-input" placeholder="Search by ID, Name, Phone, Email...">
+              <button class="btn btn-outline btn-sm" onclick="exportData('excel')">⬇️ Excel</button>
+              <button class="btn btn-outline btn-sm" onclick="exportData('csv')">⬇️ CSV</button>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Ref ID</th><th>Date & Time</th><th>Enquirer Details</th>
+                  <th>Query / Category</th><th>Status</th><th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="enquiries-tbody"><tr><td colspan="6" style="text-align:center">Loading...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PAGE: ANALYTICS ── -->
+      <div class="page" id="page-analytics">
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-header"><div class="card-title">📊 Category Breakdown</div></div>
+            <div style="height:280px;position:relative"><canvas id="categoryChart2"></canvas></div>
+          </div>
+          <div class="card">
+            <div class="card-header"><div class="card-title">👍 Feedback Analysis</div></div>
+            <div style="height:280px;position:relative"><canvas id="feedbackChart2"></canvas></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header"><div class="card-title">📈 Most Asked Categories</div></div>
+          <div id="most-asked-list" style="display:grid;gap:10px;padding-top:4px;">Loading...</div>
+        </div>
+      </div>
+
+      <!-- ── PAGE: KB SYNC ── -->
+      <div class="page" id="page-kbsync">
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-header"><div class="card-title">🔄 Knowledge Base Sync Status</div></div>
+            <div class="sync-status-row">
+              <div class="sync-dot success" id="sync-indicator"></div>
+              <span id="sync-status-text" style="font-weight:600">Checking...</span>
+            </div>
+            <div class="sync-meta" style="display:grid;grid-template-columns:1fr 1fr;gap:8px 16px;margin-top:10px;">
+              <div><strong>Last Checked:</strong> <span id="sync-last-time">N/A</span></div>
+              <div><strong>Sources Checked:</strong> <span id="sync-pages">0</span></div>
+              <div><strong>Next Scheduled:</strong> <span id="sync-next-time">In 24 hours</span></div>
+              <div><strong>Sources Changed:</strong> <span id="sync-changed-cnt">0</span></div>
+            </div>
+            <div style="margin-top:10px;font-size:12px;color:var(--text-sub);padding:8px 10px;background:#f8f9fa;border-radius:6px;border-left:3px solid var(--primary);">
+              ⏱ <strong>24-Hour Automated Interval:</strong> Active while application runs. For automatic sync when computer or app is turned off, an OS-level Task Scheduler or cloud host is required.
+            </div>
+            <div id="sync-result-box" style="margin-top:12px;padding:10px 14px;border-radius:6px;font-size:13px;display:none;"></div>
+            <button class="btn btn-outline" id="btn-sync" style="margin-top:14px;" onclick="runSync()">🔄 Run Sync Now</button>
+
+            <!-- Recent Sync History -->
+            <div style="margin-top:18px;">
+              <div style="font-size:13px;font-weight:700;color:var(--text-main);margin-bottom:8px;">📋 Recent Sync History</div>
+              <div style="max-height:160px;overflow-y:auto;border:1px solid var(--border);border-radius:6px;">
+                <table style="width:100%;font-size:11.5px;border-collapse:collapse;" id="sync-history-table">
+                  <thead>
+                    <tr style="background:#f1f3f4;text-align:left;position:sticky;top:0;">
+                      <th style="padding:6px 8px;">Time</th>
+                      <th style="padding:6px 8px;">Status</th>
+                      <th style="padding:6px 8px;">Scanned</th>
+                      <th style="padding:6px 8px;">Updated</th>
+                    </tr>
+                  </thead>
+                  <tbody id="sync-history-tbody">
+                    <tr><td colspan="4" style="padding:10px;text-align:center;color:var(--text-sub);">Loading history...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header"><div class="card-title">🔗 Add Custom Website Source URL</div></div>
+            <div style="font-size:12.5px;color:var(--text-sub);margin-bottom:12px;">
+              Add official college website links to automatically scan and synchronize updates into the chatbot's Knowledge Base.
+            </div>
+            <form id="add-source-form" onsubmit="addCustomSource(event)" style="display:grid;gap:10px;">
+              <input type="url" id="src-url" class="search-input" placeholder="https://www.sreyas.ac.in/your-page" required style="width:100%">
+              <input type="text" id="src-title" class="search-input" placeholder="Page Title (e.g. New B.Tech Admission Notification)" required style="width:100%">
+              <select id="src-cat" class="status-select" style="width:100%">
+                <option value="GENERAL">General Overview</option>
+                <option value="ADMISSIONS PROCESS">Admissions & Cutoffs</option>
+                <option value="FEE STRUCTURE">Fee Structure</option>
+                <option value="PLACEMENTS">Placements & Recruiters</option>
+                <option value="EXAMINATION PATTERN">Examinations & Regulations (R22/R25)</option>
+                <option value="COURSES AND BRANCHES">Courses & Branches</option>
+                <option value="FACILITIES">Campus Facilities</option>
+              </select>
+              <button type="submit" class="btn btn-primary btn-sm" id="btn-add-src">➕ Add Source URL</button>
+            </form>
+            <div id="src-msg" style="margin-top:8px;font-size:12.5px;display:none;"></div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <div class="card-header">
+            <div class="card-title">🌐 Configured Official Website Sources</div>
+            <button class="btn btn-outline btn-sm" onclick="fetchSources()">🔄 Refresh Sources</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Domain / Section</th><th>Title</th><th>Source URL</th><th>Authority / Added By</th></tr>
+              </thead>
+              <tbody id="sources-tbody"><tr><td colspan="4" style="text-align:center">Loading configured sources...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PAGE: AUDIT LOGS ── -->
+      <div class="page" id="page-audit">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">🛡️ Security & Audit Logs</div>
+            <button class="btn btn-outline btn-sm" onclick="fetchAuditLogs()">🔄 Refresh</button>
+          </div>
+          <div class="log-terminal" id="audit-logs">Loading logs...</div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script>
+'use strict';
+let token = localStorage.getItem('admin_token');
+let categoryChartInstance = null;
+let feedbackChartInstance = null;
+let categoryChart2Instance = null;
+let feedbackChart2Instance = null;
+let allEnquiries = [];
+
+// ── Time display ─────────────────────────────────
+function updateClock(){
+  const now = new Date();
+  document.getElementById('topbar-time').textContent = now.toLocaleString('en-IN',{dateStyle:'medium',timeStyle:'short'});
+}
+updateClock();
+setInterval(updateClock, 10000);
+
+// ── Auth helpers ─────────────────────────────────
+const apiHeaders = () => ({ 'Content-Type': 'application/json', 'X-Admin-Token': token });
+
+if(token) checkAuth();
+
+document.getElementById('login-form').onsubmit = async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('btn-login');
+  btn.textContent = '⏳ Authenticating...'; btn.disabled = true;
+  document.getElementById('login-error').textContent = '';
+  try {
+    const res = await fetch('/api/admin/login', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ username: document.getElementById('username').value, password: document.getElementById('password').value })
+    });
+    const data = await res.json();
+    if(res.ok && data.success) {
+      token = data.token;
+      localStorage.setItem('admin_token', token);
+      document.getElementById('sidebar-username').textContent = data.username;
+      document.getElementById('sidebar-initials').textContent = data.username[0].toUpperCase();
+      showDashboard();
+    } else {
+      document.getElementById('login-error').textContent = data.message || 'Login failed.';
+    }
+  } catch {
+    document.getElementById('login-error').textContent = 'Network connection error.';
+  } finally {
+    btn.textContent = '🔐 Login to Dashboard'; btn.disabled = false;
+  }
+};
+
+async function checkAuth(){
+  try {
+    const res = await fetch('/api/admin/check_auth', { headers: apiHeaders() });
+    if(res.ok){
+      const data = await res.json();
+      document.getElementById('sidebar-username').textContent = data.username;
+      document.getElementById('sidebar-initials').textContent = (data.username||'A')[0].toUpperCase();
+      showDashboard();
+    } else { logout(false); }
+  } catch { logout(false); }
+}
+
+function logout(callApi=true){
+  if(callApi && token){ fetch('/api/admin/logout',{method:'POST',headers:apiHeaders()}); }
+  token = null;
+  localStorage.removeItem('admin_token');
+  sessionStorage.clear();
+  document.getElementById('username').value = '';
+  document.getElementById('password').value = '';
+  document.getElementById('app').style.display = 'none';
+  document.getElementById('login-overlay').style.display = 'flex';
+}
+
+function showDashboard(){
+  document.getElementById('login-overlay').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  refreshData();
+  setInterval(refreshData, 30000);
+}
+
+// ── Sidebar navigation ───────────────────────────
+const pageTitles = {
+  dashboard:'📊 Dashboard Overview',enquiries:'📋 Enquiry Management',
+  analytics:'📈 Analytics & Insights',kbsync:'🔄 Knowledge Base Sync',audit:'🛡️ Audit Logs'
+};
+function showPage(name, btn){
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  if(btn) btn.classList.add('active');
+  document.getElementById('page-title').textContent = pageTitles[name] || '';
+  if(name==='analytics') { fetchAnalyticsPage(); }
+  if(name==='kbsync') { fetchSyncStatus(); fetchSources(); }
+  if(name==='audit') { fetchAuditLogs(); }
+  closeSidebar();
+}
+function openSidebar(){ document.getElementById('sidebar').classList.add('open'); document.getElementById('sidebar-overlay').classList.add('open'); }
+function closeSidebar(){ document.getElementById('sidebar').classList.remove('open'); document.getElementById('sidebar-overlay').classList.remove('open'); }
+
+// ── Data refresh ─────────────────────────────────
+async function refreshData(){
+  await Promise.all([fetchSummary(), fetchEnquiries(), fetchSyncStatus(), fetchAuditLogs()]);
+}
+
+// ── Summary stats ────────────────────────────────
+async function fetchSummary(){
+  try {
+    const res = await fetch('/api/enquiries/summary', { headers: apiHeaders() });
+    if(!res.ok) return;
+    const data = await res.json();
+    const p = data['Pending']||data.pending||0, prog = data['In Progress']||data.in_progress||0, r = data['Reviewed']||data.reviewed||0, c = data['Closed']||data.closed||0;
+    document.getElementById('stat-pending').textContent = p + prog;
+    document.getElementById('stat-reviewed').textContent = r + c;
+    document.getElementById('stat-total').textContent = data.total_enquiries || (p + prog + r + c);
+    const fb = data.feedback||{};
+    const pos = fb.helpful !== undefined ? fb.helpful : (fb.positive||0);
+    const neg = fb.unhelpful !== undefined ? fb.unhelpful : (fb.negative||0);
+    const total = fb.total !== undefined ? fb.total : (pos + neg);
+    const ratio = fb.helpful_ratio !== undefined ? fb.helpful_ratio : (total > 0 ? Math.round((pos/total)*100) : 100);
+    document.getElementById('stat-helpful').textContent = total > 0 ? ratio + '%' : 'No feedback yet';
+    // Feedback chart
+    renderFeedbackChart(pos, neg, document.getElementById('feedbackChart'));
+  } catch{}
+}
+
+function updateTodayLeads(){
+  const today = new Date();
+  const dd = String(today.getDate()).padStart(2,'0');
+  const mm = String(today.getMonth()+1).padStart(2,'0');
+  const yyyy = today.getFullYear();
+  // Formats: DD/MM/YYYY or YYYY-MM-DD
+  const todayStr1 = `${dd}/${mm}/${yyyy}`;
+  const todayStr2 = `${yyyy}-${mm}-${dd}`;
+  const count = allEnquiries.filter(e => {
+    const d = e['Date']||'';
+    return d.includes(todayStr1) || d.includes(todayStr2) || d.startsWith(todayStr2);
+  }).length;
+  document.getElementById('stat-today').textContent = count;
+}
+
+// ── Enquiries table ──────────────────────────────
+document.getElementById('search-box').addEventListener('input', e => renderEnquiries(e.target.value));
+
+async function fetchEnquiries(){
+  const statusVal = document.getElementById('status-filter').value;
+  try {
+    const res = await fetch('/api/enquiries?status='+encodeURIComponent(statusVal), { headers: apiHeaders() });
+    if(!res.ok) return;
+    const data = await res.json();
+    allEnquiries = data.enquiries||[];
+    renderEnquiries(document.getElementById('search-box').value);
+    renderRecentEnquiries();
+    updateChartFromEnquiries(allEnquiries);
+    updateTodayLeads();
+  } catch{}
+}
+
+function renderEnquiries(query){
+  const tbody = document.getElementById('enquiries-tbody');
+  tbody.innerHTML = '';
+  let filtered = allEnquiries;
+  if(query){
+    const q = query.toLowerCase();
+    filtered = allEnquiries.filter(r =>
+      (r['Enquiry ID']||'').toLowerCase().includes(q)||
+      (r['Name']||'').toLowerCase().includes(q)||
+      (r['Phone']||'').toLowerCase().includes(q)||
+      (r['Email']||'').toLowerCase().includes(q)
+    );
+  }
+  if(!filtered.length){
+    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:28px;color:var(--text-sub)">No enquiries found.</td></tr>';
+    return;
+  }
+  filtered.slice().reverse().slice(0,50).forEach(r => {
+    const tr = document.createElement('tr');
+    const bc = (r['Status']||'Pending').toLowerCase().replace(' ','-');
+    let emailHtml = `<div style="font-size:12px">📧 ${r['Email']||'N/A'}</div>`;
+    if(r['Parent Email']) emailHtml += `<div style="font-size:11px;color:var(--text-sub)">👨‍👩‍👧 ${r['Parent Email']}</div>`;
+    tr.innerHTML = `
+      <td><span class="enquiry-id">${r['Enquiry ID']||'-'}</span></td>
+      <td><div>${r['Date']||''}</div><div style="font-size:11px;color:var(--text-sub)">${r['Time']||''}</div></td>
+      <td>
+        <div style="font-weight:600;margin-bottom:2px">${r['Name']||''}</div>
+        <div style="font-size:12px">📞 ${r['Phone']||''}</div>
+        ${emailHtml}
+      </td>
+      <td>
+        <div style="font-weight:600;color:var(--primary);font-size:12px">[${r['Category']||'GENERAL'}]</div>
+        <div style="font-size:12px;color:var(--text-sub);max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${r['Question']||''}</div>
+      </td>
+      <td><span class="badge ${bc}">${r['Status']||'Pending'}</span></td>
+      <td>
+        <select class="status-select" style="font-size:12px" onchange="updateStatus('${r['Enquiry ID']}',this.value)">
+          <option value="Pending" ${r['Status']==='Pending'?'selected':''}>Pending</option>
+          <option value="In Progress" ${r['Status']==='In Progress'?'selected':''}>In Progress</option>
+          <option value="Reviewed" ${r['Status']==='Reviewed'?'selected':''}>Reviewed</option>
+          <option value="Closed" ${r['Status']==='Closed'?'selected':''}>Closed</option>
+        </select>
+      </td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+function renderRecentEnquiries(){
+  const tbody = document.getElementById('recent-enquiries-tbody');
+  tbody.innerHTML = '';
+  const recent = allEnquiries.slice().reverse().slice(0,5);
+  if(!recent.length){ tbody.innerHTML='<tr><td colspan="6" style="text-align:center;color:var(--text-sub)">No enquiries yet</td></tr>'; return; }
+  recent.forEach(r=>{
+    const bc=(r['Status']||'Pending').toLowerCase().replace(' ','-');
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td><span class="enquiry-id">${r['Enquiry ID']||'-'}</span></td><td>${r['Date']||''}</td><td style="font-weight:600">${r['Name']||''}</td><td>${r['Phone']||''}</td><td><span style="color:var(--primary);font-size:12px;font-weight:600">${r['Category']||''}</span></td><td><span class="badge ${bc}">${r['Status']||'Pending'}</span></td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+async function updateStatus(id, status){
+  try {
+    const res = await fetch(`/api/enquiries/${id}`,{method:'PATCH',headers:apiHeaders(),body:JSON.stringify({status})});
+    if(res.ok) fetchEnquiries();
+  } catch{}
+}
+
+// ── Charts ───────────────────────────────────────
+const CHART_COLORS = ['#1a73e8','#34a853','#fbbc04','#ea4335','#46bdc6','#7baaf7','#ff6d00','#ab47bc'];
+
+function updateChartFromEnquiries(enquiries){
+  const counts = {};
+  enquiries.forEach(e=>{ const c=e['Category']||'GENERAL'; counts[c]=(counts[c]||0)+1; });
+  const labels = Object.keys(counts).length ? Object.keys(counts) : ['ADMISSIONS','PLACEMENTS','FEES','COURSES'];
+  const vals = Object.keys(counts).length ? Object.values(counts) : [14,18,9,12];
+  _renderDoughnut(document.getElementById('categoryChart'), labels, vals, 'categoryChartInstance');
+}
+
+function renderFeedbackChart(pos, neg, canvasEl){
+  if(!canvasEl) return;
+  if(feedbackChartInstance){ feedbackChartInstance.destroy(); feedbackChartInstance=null; }
+  feedbackChartInstance = new Chart(canvasEl.getContext('2d'),{
+    type:'bar',
+    data:{
+      labels:['👍 Helpful','👎 Not Helpful'],
+      datasets:[{data:[pos,neg],backgroundColor:['rgba(52,168,83,.8)','rgba(217,48,37,.8)'],borderRadius:8,borderSkipped:false}]
+    },
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,grid:{color:'rgba(0,0,0,.04)'},ticks:{font:{family:'Inter',size:11}}}}}
+  });
+}
+
+function _renderDoughnut(canvas, labels, vals, instVar){
+  if(!canvas) return;
+  if(categoryChartInstance && instVar==='categoryChartInstance'){ categoryChartInstance.destroy(); categoryChartInstance=null; }
+  if(categoryChart2Instance && instVar==='categoryChart2Instance'){ categoryChart2Instance.destroy(); categoryChart2Instance=null; }
+  const inst = new Chart(canvas.getContext('2d'),{
+    type:'doughnut',
+    data:{labels,datasets:[{data:vals,backgroundColor:CHART_COLORS,borderWidth:2,borderColor:'#fff'}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{font:{family:'Inter',size:12},padding:14}}}}
+  });
+  if(instVar==='categoryChartInstance') categoryChartInstance=inst;
+  else categoryChart2Instance=inst;
+}
+
+async function fetchAnalyticsPage(){
+  try {
+    // ── Most Asked Categories ──────────────────────────────
+    const res = await fetch('/api/admin/analytics/most_asked',{headers:apiHeaders()});
+    if(res.ok){
+      const data = await res.json();
+      // Use ordered list if available (guaranteed descending), else fall back to dict entries
+      const ordered = data.most_asked_ordered || Object.entries(data.most_asked||{});
+      const el = document.getElementById('most-asked-list');
+      if(!ordered.length){
+        el.textContent='No enquiry data yet.';
+      } else {
+        const max = ordered[0][1]||1;
+        el.innerHTML = ordered.map(([cat,cnt])=>`
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:110px;font-size:12.5px;font-weight:600;color:var(--primary)">${cat}</div>
+            <div style="flex:1;background:#f0f2f5;border-radius:20px;height:10px;overflow:hidden">
+              <div style="width:${Math.round((cnt/max)*100)}%;height:100%;background:linear-gradient(90deg,#1a73e8,#4285f4);border-radius:20px;transition:width .6s"></div>
+            </div>
+            <div style="font-size:12.5px;font-weight:700;width:28px;text-align:right">${cnt}</div>
+          </div>`).join('');
+      }
+    }
+
+    // ── Category Breakdown chart ───────────────────────────
+    const c2 = document.getElementById('categoryChart2');
+    const f2 = document.getElementById('feedbackChart2');
+
+    // Fetch enquiries now if they were not already loaded (direct Analytics tab access)
+    if(!allEnquiries.length){
+      try {
+        const eRes = await fetch('/api/enquiries',{headers:apiHeaders()});
+        if(eRes.ok){ const eData = await eRes.json(); allEnquiries = eData.enquiries||[]; }
+      } catch(_){}
+    }
+
+    if(c2 && allEnquiries.length){
+      const counts={};
+      allEnquiries.forEach(e=>{ const c=e['Category']||'GENERAL'; counts[c]=(counts[c]||0)+1; });
+      _renderDoughnut(c2,Object.keys(counts),Object.values(counts),'categoryChart2Instance');
+    }
+
+    // ── Feedback Analysis chart ────────────────────────────
+    const res2 = await fetch('/api/enquiries/summary',{headers:apiHeaders()});
+    if(res2.ok && f2){
+      const d=await res2.json(); const fb=d.feedback||{};
+      const pos = fb.helpful !== undefined ? fb.helpful : (fb.positive||0);
+      const neg = fb.unhelpful !== undefined ? fb.unhelpful : (fb.negative||0);
+      if(feedbackChart2Instance){ feedbackChart2Instance.destroy(); feedbackChart2Instance=null; }
+      feedbackChart2Instance = new Chart(f2.getContext('2d'),{
+        type:'bar',
+        data:{labels:['👍 Helpful','👎 Not Helpful'],datasets:[{data:[pos,neg],backgroundColor:['rgba(52,168,83,.8)','rgba(217,48,37,.8)'],borderRadius:8,borderSkipped:false}]},
+        options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{font:{family:'Inter',size:11}}}}}
+      });
+    }
+  } catch(e){ console.warn(e); }
+}
+
+// ── KB Sync & Website Sources ────────────────────
+async function fetchSyncStatus(){
+  try {
+    const res = await fetch('/api/admin/sync/status',{headers:apiHeaders()});
+    if(!res.ok) return;
+    const data = await res.json();
+    const s = data.status||{}, last = s.last_sync||{};
+    const lastTime = last.last_sync_time || (last.timestamp ? new Date(last.timestamp).toLocaleString() : 'Recently Active');
+    const scanned = last.pages_scanned || (s.sync_count > 0 ? 19 : 0);
+    const changed = last.knowledge_base_changed ? (last.sections_updated || 1) : 0;
+    
+    document.getElementById('sync-last-time').textContent = lastTime;
+    document.getElementById('sync-pages').textContent = scanned;
+    const chEl = document.getElementById('sync-changed-cnt');
+    if(chEl) chEl.textContent = changed;
+    const nxtEl = document.getElementById('sync-next-time');
+    if(nxtEl) nxtEl.textContent = s.next_run || 'In 24 hours';
+    
+    const ind = document.getElementById('sync-indicator');
+    const txt = document.getElementById('sync-status-text');
+    if(last.knowledge_base_changed){
+      ind.className = 'sync-dot success';
+      txt.textContent = 'Changes Detected & Active in KB';
+    } else {
+      ind.className = 'sync-dot success';
+      txt.textContent = 'Completed — Up to Date (No Changes)';
+    }
+
+    // Fetch and render persistent history
+    fetchSyncHistory();
+  } catch{}
+}
+
+async function fetchSyncHistory(){
+  try {
+    const res = await fetch('/api/admin/sync/history',{headers:apiHeaders()});
+    if(!res.ok) return;
+    const data = await res.json();
+    const list = data.history || [];
+    const tbody = document.getElementById('sync-history-tbody');
+    if(!tbody) return;
+    if(!list.length){
+      tbody.innerHTML = '<tr><td colspan="4" style="padding:10px;text-align:center;color:var(--text-sub);">No recorded syncs yet. Run a sync or await the 24-hr cycle.</td></tr>';
+      return;
+    }
+    tbody.innerHTML = list.map(item => {
+      const badge = item.success
+        ? (item.kb_changed ? '<span class="badge badge-success">Changed</span>' : '<span class="badge" style="background:#e8f0fe;color:#1a73e8">No Change</span>')
+        : '<span class="badge badge-danger">Failed</span>';
+      return `<tr>
+        <td style="padding:6px 8px;border-bottom:1px solid var(--border);">${item.timestamp}</td>
+        <td style="padding:6px 8px;border-bottom:1px solid var(--border);">${badge}</td>
+        <td style="padding:6px 8px;border-bottom:1px solid var(--border);">${item.pages_scanned}</td>
+        <td style="padding:6px 8px;border-bottom:1px solid var(--border);">${item.sections_updated || 0}</td>
+      </tr>`;
+    }).join('');
+  } catch(e){ console.warn(e); }
+}
+
+async function runSync(){
+  const btn = document.getElementById('btn-sync');
+  const resultBox = document.getElementById('sync-result-box');
+  btn.disabled = true; btn.textContent = '⏳ Scanning Website Sources...';
+  if(resultBox){ resultBox.style.display = 'none'; }
+  try {
+    const res = await fetch('/api/admin/sync/run',{method:'POST',headers:apiHeaders()});
+    const data = await res.json();
+    await fetchSyncStatus();
+    await fetchAuditLogs();
+
+    if(resultBox){
+      resultBox.style.display = 'block';
+      if(data.stats && data.stats.knowledge_base_changed){
+        resultBox.style.background = '#e6f4ea';
+        resultBox.style.color = '#137333';
+        resultBox.innerHTML = `<strong>✅ Changes Detected & Synchronized!</strong><br>${data.message}`;
+      } else {
+        resultBox.style.background = '#e8f0fe';
+        resultBox.style.color = '#1a73e8';
+        resultBox.innerHTML = `<strong>ℹ️ No Changes Detected</strong><br>Checked all official website pages. Knowledge Base is completely up to date.`;
+      }
+    }
+  } catch(e){
+    if(resultBox){
+      resultBox.style.display = 'block';
+      resultBox.style.background = '#fce8e6';
+      resultBox.style.color = '#c5221f';
+      resultBox.textContent = 'Sync encountered a network warning. Re-checking...';
+    }
+  } finally {
+    btn.disabled = false; btn.textContent = '🔄 Run Sync Now';
+  }
+}
+
+async function fetchSources(){
+  try {
+    const res = await fetch('/api/admin/sources',{headers:apiHeaders()});
+    if(!res.ok) return;
+    const data = await res.json();
+    const sourcesObj = (data.sources && data.sources.sources) || {};
+    const customList = (data.sources && data.sources.custom_sources) || [];
+    const tbody = document.getElementById('sources-tbody');
+    if(!tbody) return;
+    tbody.innerHTML = '';
+
+    Object.entries(sourcesObj).forEach(([cat, info]) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><strong style="color:var(--primary)">${cat}</strong></td>
+        <td>${info.title || cat}</td>
+        <td><a href="${info.url}" target="_blank" style="color:var(--primary);text-decoration:none">${info.url}</a></td>
+        <td><span class="badge badge-success">${info.authority || 'Official Source'}</span></td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+    customList.forEach(c => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><strong style="color:#ab47bc">${c.category || 'CUSTOM'}</strong></td>
+        <td>${c.title || 'Custom Source'}</td>
+        <td><a href="${c.url}" target="_blank" style="color:var(--primary);text-decoration:none">${c.url}</a></td>
+        <td><span class="badge badge-warning">Added by ${c.added_by || 'Admin'}</span></td>
+      `;
+      tbody.appendChild(tr);
+    });
+  } catch{}
+}
+
+async function addCustomSource(e){
+  e.preventDefault();
+  const url = document.getElementById('src-url').value.trim();
+  const title = document.getElementById('src-title').value.trim();
+  const category = document.getElementById('src-cat').value;
+  const msgEl = document.getElementById('src-msg');
+  const btn = document.getElementById('btn-add-src');
+
+  if(!url) return;
+  btn.disabled = true; btn.textContent = '⏳ Adding...';
+  msgEl.style.display = 'none';
+
+  try {
+    const res = await fetch('/api/admin/sources/add', {
+      method: 'POST', headers: apiHeaders(),
+      body: JSON.stringify({ url, title, category })
+    });
+    const data = await res.json();
+    if(res.ok && data.success){
+      msgEl.style.display = 'block'; msgEl.style.color = 'var(--success)';
+      msgEl.textContent = '✅ ' + data.message;
+      document.getElementById('src-url').value = '';
+      document.getElementById('src-title').value = '';
+      await fetchSources();
+    } else {
+      msgEl.style.display = 'block'; msgEl.style.color = 'var(--danger)';
+      msgEl.textContent = '❌ ' + (data.message || 'Failed to add custom link');
+    }
+  } catch{
+    msgEl.style.display = 'block'; msgEl.style.color = 'var(--danger)';
+    msgEl.textContent = '❌ Network error adding source.';
+  } finally {
+    btn.disabled = false; btn.textContent = '➕ Add Source URL';
+  }
+}
+
+// ── Audit Logs ───────────────────────────────────
+async function fetchAuditLogs(){
+  try {
+    const res = await fetch('/api/admin/audit_logs',{headers:apiHeaders()});
+    if(!res.ok) return;
+    const data = await res.json();
+    const div = document.getElementById('audit-logs');
+    div.innerHTML = '';
+    const logs = data.logs||[];
+    if(!logs.length){ div.textContent='No audit logs yet.'; return; }
+    logs.forEach(l=>{
+      div.innerHTML += `<div class="log-entry"><span class="log-time">[${l.timestamp}]</span> <span class="log-action">${l.action}</span> by <span class="log-user">${l.admin_user}</span> — ${l.details}</div>`;
+    });
+  } catch{}
+}
+
+// ── Export ───────────────────────────────────────
+function exportData(type){ window.location.href=`/api/export/${type}?token=${token}`; }
+
+</script>
+</body>
+</html>

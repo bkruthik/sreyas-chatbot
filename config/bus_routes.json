@@ -1,0 +1,362 @@
+{
+  "_source": "Official Sreyas Institute Bus Routes Details Sheet (verified from photo, Oct 2026)",
+  "_note": "Routes RT-13, RT-18, RT-23 not present in source images. RT-17 and RT-22 names partially obscured; labelled by primary stop.",
+  "routes": [
+    {
+      "id": "RT-1",
+      "name": "Kukatpally",
+      "timing": "07:00",
+      "stops": [
+        "JNTU",
+        "Kukatpally Y Junction",
+        "ESI",
+        "S R Ngr",
+        "Ameerpet",
+        "Begumpet",
+        "Paradise",
+        "Tarnaka",
+        "Uppal",
+        "Nagole X Roads",
+        "College"
+      ]
+    },
+    {
+      "id": "RT-2",
+      "name": "Mehdipatnam",
+      "timing": "07:15",
+      "stops": [
+        "Mehdipatnam",
+        "Masabtank",
+        "Lakdikapool",
+        "Nampally",
+        "Ghandhi Bhavan",
+        "Afjalgunj",
+        "MGBS",
+        "Chaderghat",
+        "College"
+      ]
+    },
+    {
+      "id": "RT-3",
+      "name": "Dammaiguda",
+      "timing": "07:15",
+      "stops": [
+        "NLG X Roads",
+        "Moosaram Bagh X Roads",
+        "Dilsukh Nagar",
+        "Kothapet",
+        "Omini Hospital",
+        "Mohan Nagar",
+        "Nagole X Roads",
+        "Dammaiguda",
+        "Sainathpuram",
+        "Krupa Complex",
+        "Anand Bagh",
+        "Anutex",
+        "Mirjalguda",
+        "Malkajgiri",
+        "Mettuguda",
+        "Tarnaka",
+        "Uppal X Roads",
+        "Nagole X Roads",
+        "College"
+      ]
+    },
+    {
+      "id": "RT-4",
+      "name": "Pedda Amberpet",
+      "timing": "07:30",
+      "stops": [
+        "Pedda Amberpet",
+        "Hayat Nagar",
+        "Bhagyalatha",
+        "Vanastalipuram",
+        "Rythubazar",
+        "Vaidehi Nagar",
+        "N G O Colony",
+        "Red Tank",
+        "Ganesh Temple",
+        "Panama",
+        "Sushma",
+        "College"
+      ]
+    },
+    {
+      "id": "RT-5",
+      "name": "Himayat Nagar",
+      "timing": "07:20",
+      "stops": [
+        "Mansoorabad",
+        "Sahara",
+        "South End Park",
+        "Anand Nagar",
+        "Himayat Nagar",
+        "Ashok Nagar",
+        "Ghandhi Nagar",
+        "Kalpana Theater",
+        "Kawadiguda",
+        "Golkonda X Roads",
+        "RTC X Roads",
+        "College"
+      ]
+    },
+    {
+      "id": "RT-6",
+      "name": "I S Sadan",
+      "timing": "07:45",
+      "stops": [
+        "VST",
+        "Ramnagar",
+        "Ramnagargundu",
+        "Vidya Nagar",
+        "O U Gate",
+        "6 No Roads",
+        "Uppal X Roads",
+        "Nagole X Roads",
+        "College"
+      ]
+    },
+    {
+      "id": "RT-7",
+      "name": "Chaitanyapuri",
+      "timing": "07:50",
+      "stops": [
+        "I S Sadan",
+        "Bharat Gardens",
+        "Chempapet",
+        "Karmanghat",
+        "Bairamalguda",
+        "Sagar X Roads",
+        "Sushma",
+        "Chaitanyapuri",
+        "Ramalayam",
+        "Babu Complex",
+        "Jain Mandir",
+        "New Maruthi Nagar",
+        "Nagole X Roads",
+        "College"
+      ]
+    },
+    {
+      "id": "RT-8",
+      "name": "IDPL-Balnagar",
+      "timing": "07:00",
+      "stops": [
+        "IDPL",
+        "Chintal",
+        "Shapur",
+        "Suchithra",
+        "Alwal",
+        "Tirumalgiri",
+        "JBS",
+        "Secunderabad Stn",
+        "Chilkalguda",
+        "Sitafal Mandi",
+        "Tarnaka",
+        "Uppal X Roads",
+        "Nagole X Roads",
+        "College"
+      ]
+    },
+    {
+      "id": "RT-9",
+      "name": "Narapally",
+      "timing": "07:45",
+      "stops": [
+        "Narapally",
+        "Medipally",
+        "Boduppal Depo",
+        "Pirzadiguda",
+        "Uppal Bus Stand",
+        "Uppal X Roads",
+        "Nagole X Roads",
+        "College"
+      ]
+    },
+    {
+      "id": "RT-10",
+      "name": "Barkatpura",
+      "timing": "07:40",
+      "stops": [
+        "Barkatpura Chaman",
+        "YMCA Narayanguda",
+        "Nallakunta Fever Hospital",
+        "6 No X Roads",
+        "Uppal X Roads",
+        "Nagole X Roads",
+        "College"
+      ]
+    },
+    {
+      "id": "RT-11",
+      "name": "Chandrayangutta",
+      "timing": "07:15",
+      "stops": [
+        "Laldarwaza Mode",
+        "Falaknuma",
+        "Chandrayangutta",
+        "Midhani Bus Depot",
+        "Balapur X Roads",
+        "Badangpet Village",
+        "Almasguda",
+        "Jillelguda",
+        "Meerpet",
+        "Gayatri Nagar",
+        "TKR Kaman",
+        "Sagar X Roads",
+        "LB Nagar",
+        "Kamineni",
+        "Nagole X Roads",
+        "College"
+      ]
+    },
+    {
+      "id": "RT-12",
+      "name": "Dilsukh Nagar",
+      "timing": "08:00",
+      "stops": [
+        "Dilsukhnagar",
+        "Chaitanyapuri",
+        "Kothapet X Roads",
+        "Mohan Nagar",
+        "Nagole X Roads",
+        "College"
+      ]
+    },
+    {
+      "id": "RT-14",
+      "name": "Nalgonda X Roads",
+      "timing": "07:45",
+      "stops": [
+        "Nalgonda X Roads",
+        "Dilsukh Nagar",
+        "R R Dist Court",
+        "LB Nagar",
+        "Kamineni Hospital",
+        "Nagole X Roads",
+        "College"
+      ]
+    },
+    {
+      "id": "RT-15",
+      "name": "Saidabad",
+      "timing": "07:45",
+      "stops": [
+        "Saidabad",
+        "SBH Colony",
+        "Ganga Theater",
+        "Saroor Nagar Katta",
+        "Saroor Nagar Post Office",
+        "M R O Office",
+        "Kothapet X Roads",
+        "Telephone Colony",
+        "R K Puram",
+        "College"
+      ]
+    },
+    {
+      "id": "RT-16",
+      "name": "Neredmet",
+      "timing": "07:30",
+      "stops": [
+        "Neredmet",
+        "A S Rao Nagar",
+        "Radhika",
+        "ECIL",
+        "Moulali H B Colony",
+        "Mallapur",
+        "Nacharam",
+        "HMT Nagar",
+        "Habsiguda X Roads",
+        "Uppal X Roads",
+        "College"
+      ]
+    },
+    {
+      "id": "RT-17",
+      "name": "Omkar Nagar",
+      "timing": "08:00",
+      "stops": [
+        "Omkar Nagar",
+        "Chintal Kunta",
+        "Vishnu Theater",
+        "Panama",
+        "Sushma",
+        "College"
+      ]
+    },
+    {
+      "id": "RT-19",
+      "name": "Chilka Nagar",
+      "timing": "07:40",
+      "stops": [
+        "Mansoorabad Road",
+        "Sahara",
+        "South End Park",
+        "Anand Nagar",
+        "Boduppal Kaman",
+        "NTR Statue",
+        "Chilka Nagar",
+        "Little Flowre",
+        "Uppal X Roads",
+        "Nagole X Roads",
+        "College"
+      ]
+    },
+    {
+      "id": "RT-20",
+      "name": "Gurramguda",
+      "timing": "07:45",
+      "stops": [
+        "Injapur Main Road",
+        "Gurramguda",
+        "B N Reddy X Roads",
+        "Hastinapuram",
+        "Sagar X Roads",
+        "LB Nagar",
+        "Chintalkunta",
+        "Panama",
+        "Sushma",
+        "Mansoorabad",
+        "South End Park",
+        "Anand Nagar",
+        "College"
+      ]
+    },
+    {
+      "id": "RT-21",
+      "name": "Huda Complex",
+      "timing": "07:50",
+      "stops": [
+        "M R O Office",
+        "Huda Complex",
+        "Kothpet X Roads",
+        "Astalakshmi Arch",
+        "Alkapuri",
+        "Alkapuri Sai Baba Temple",
+        "Alkapuri Signals",
+        "Nagole X Roads",
+        "College"
+      ]
+    },
+    {
+      "id": "RT-22",
+      "name": "Balapur X Roads",
+      "timing": "07:45",
+      "stops": [
+        "Dathu Nagar",
+        "Balapur X Roads",
+        "Badangpet Kakatiya School",
+        "Badangpet Ganesh Temple",
+        "Meerpet Bus Stop",
+        "Gayatri Nagar",
+        "Alekhya Towers",
+        "Sagar X Roads",
+        "LB Nagar",
+        "Nagole X Roads",
+        "Anand Nagar",
+        "College"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "college": "Sreyas Institute of Engineering and Technology",
+  "code": "SREY",
+  "official_website": "https://www.sreyas.ac.in",
+  "last_updated": "2026-08-20",
+  "sources": {
+    "COURSES": {
+      "title": "Undergraduate B.Tech Degree Programmes",
+      "url": "https://www.sreyas.ac.in/courses/",
+      "authority": "SIET Academic Council & AICTE",
+      "regulations": [
+        "R22",
+        "R25"
+      ]
+    },
+    "ADMISSIONS": {
+      "title": "Admissions, Eligibility & Cutoff Ranks",
+      "url": "https://www.sreyas.ac.in/admissions/",
+      "authority": "TSCHE / TG EAPCET Convenor (Code: SREY)"
+    },
+    "FEES": {
+      "title": "Tuition Fees & Regulatory Charges",
+      "url": "https://www.sreyas.ac.in/fee-structure/",
+      "authority": "TAFRC (Telangana Admission & Fee Regulatory Committee)"
+    },
+    "PLACEMENTS": {
+      "title": "Training & Placements (T&P Cell)",
+      "url": "https://www.sreyas.ac.in/placements/",
+      "authority": "SIET T&P Cell (Academic Year 2025-26)"
+    },
+    "SCHOLARSHIPS": {
+      "title": "Scholarships & Financial Assistance",
+      "url": "https://epass.cgg.gov.in",
+      "authority": "Telangana ePASS Govt Scheme & SIET"
+    },
+    "EXAMINATIONS": {
+      "title": "Academic Calendar, Exam Branch & Regulations (R22/R25)",
+      "url": "https://www.sreyas.ac.in/academics/",
+      "authority": "SIET Autonomous Examination Cell & JNTUH",
+      "regulations": {
+        "R22": "Autonomous Regulations 2022-2024 (40 Internal / 60 External)",
+        "R25": "Autonomous Regulations 2025 Onwards (30 Internal / 70 External)"
+      }
+    },
+    "TRANSPORT": {
+      "title": "Transportation Fleet & 23 Bus Routes",
+      "url": "https://www.sreyas.ac.in/transportation/",
+      "authority": "SIET Transport Department"
+    },
+    "FACILITIES": {
+      "title": "Campus Facilities, Labs & Infrastructure",
+      "url": "https://www.sreyas.ac.in/campus-life/",
+      "authority": "SIET Campus Operations & Administration"
+    }
+  },
+  "custom_sources": [
+    {
+      "title": "Sreyas Academic Regulations 2026",
+      "url": "https://www.sreyas.ac.in/academic-regulations-2026",
+      "category": "EXAMINATION PATTERN",
+      "added_by": "admin",
+      "added_at": "2026-08-21 22:11:25"
+    }
+  ]
+}

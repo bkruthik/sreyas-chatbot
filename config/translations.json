@@ -1,0 +1,1714 @@
+{
+  "template_phrases": {
+    "no_information": {
+      "te": "క్షమించండి, ఈ విషయం గురించి అధికారిక కళాశాల సమాచారంలో నాకు వివరాలు దొరకలేదు.\n\nదయచేసి నేరుగా సంప్రదించండి:\n📞 9246323444\n✉️ info@sreyas.ac.in",
+      "hi": "क्षमा करें, इस बारे में मुझे आधिकारिक कॉलेज जानकारी में विवरण नहीं मिला।\n\nकृपया सीधे संपर्क करें:\n📞 9246323444\n✉️ info@sreyas.ac.in"
+    },
+    "would_you_like_more": {
+      "te": "ప్రవేశాలు, ఫీజులు లేదా ప్లేస్‌మెంట్ల గురించి మరింత సమాచారం కావాలా?",
+      "hi": "क्या आप प्रवेश, फीस या प्लेसमेंट के बारे में अधिक जानकारी चाहते हैं?"
+    },
+    "reputation_intro": {
+      "te": "అధికారిక కళాశాల సమాచారం ఆధారంగా శ్రేయస్ ఇన్‌స్టిట్యూట్ గురించి కొన్ని వాస్తవాలు ఇక్కడ ఉన్నాయి:",
+      "hi": "आधिकारिक कॉलेज जानकारी के आधार पर श्रेयस इंस्टिट्यूट के बारे में कुछ तथ्य यहां दिए गए हैं:"
+    },
+    "reputation_fallback": {
+      "te": "అందుబాటులో ఉన్న అధికారిక సమాచారం ప్రకారం, శ్రేయస్ ఇన్‌స్టిట్యూట్‌కు NAAC 'A' గ్రేడ్ గుర్తింపు ఉంది, ఇది UGC అటానమస్ మరియు AICTE ఆమోదించబడింది. మరిన్ని వివరాల కోసం దయచేసి సంప్రదించండి 📞 9246323444.",
+      "hi": "उपलब्ध आधिकारिक जानकारी के अनुसार, श्रेयस इंस्टिट्यूट को NAAC 'A' ग्रेड मान्यता प्राप्त है, यह UGC स्वायत्त है और AICTE द्वारा अनुमोदित है। अधिक विवरण के लिए कृपया संपर्क करें 📞 9246323444."
+    },
+    "contact_us": {
+      "te": "మరింత సమాచారం కోసం మమ్మల్ని నేరుగా సంప్రదించండి:",
+      "hi": "अधिक जानकारी के लिए हमसे सीधे संपर्क करें:"
+    },
+    "pillar_accreditations": {
+      "te": "🎓 గుర్తింపులు",
+      "hi": "🎓 मान्यताएं"
+    },
+    "pillar_rankings": {
+      "te": "🏆 ర్యాంకింగ్‌లు",
+      "hi": "🏆 रैंकिंग"
+    },
+    "pillar_placements": {
+      "te": "💼 ప్లేస్‌మెంట్లు",
+      "hi": "💼 प्लेसमेंट"
+    },
+    "pillar_infrastructure": {
+      "te": "🏛️ మౌలిక సదుపాయాలు",
+      "hi": "🏛️ बुनियादी ढांचा"
+    },
+    "pillar_partnerships": {
+      "te": "🤝 పరిశ్రమ భాగస్వామ్యాలు",
+      "hi": "🤝 उद्योग साझेदारी"
+    },
+    "greeting_reply": {
+      "te": "నమస్కారం! 👋 SREYAS Assistant కు స్వాగతం.\n\nకోర్సులు, ఫీజులు, అడ్మిషన్లు, ప్లేస్‌మెంట్లు, సౌకర్యాలు మరియు మరిన్ని విషయాలలో నేను మీకు సహాయం చేయగలను.\n\nమీకు ఎలా సహాయం చేయగలను? 😊",
+      "hi": "नमस्ते! 👋 SREYAS Assistant में आपका स्वागत है।\n\nमैं कोर्स, फीस, प्रवेश, प्लेसमेंट, सुविधाएं और अन्य जानकारी में आपकी मदद कर सकता हूं।\n\nमैं आपकी कैसे मदद कर सकता हूं? 😊"
+    },
+    "who_are_you": {
+      "te": "నేను SREYAS AI Assistant — శ్రేయస్ ఇన్‌స్టిట్యూట్ ఆఫ్ ఇంజినీరింగ్ అండ్ టెక్నాలజీ అధికారిక సహాయకుడిని. అడ్మిషన్లు, కోర్సులు, ఫీజులు, ప్లేస్‌మెంట్లు, రవాణా మరియు క్యాంపస్ వివరాల గురించి నేను సమాచారం అందించగలను. 😊",
+      "hi": "मैं SREYAS AI Assistant हूँ — श्रेयस इंस्टीट्यूट ऑफ इंजीनियरिंग एंड टेक्नोलॉजी का आधिकारिक सहायक। मैं प्रवेश, पाठ्यक्रम, फीस, प्लेसमेंट, परिवहन और परिसर विवरण में आपकी सहायता कर सकता हूँ। 😊"
+    },
+    "thanks_reply": {
+      "te": "స్వాగతం! 😊 Sreyas Institute గురించి మరింత అడగడానికి సంకోచించకండి. 🎓",
+      "hi": "आपका स्वागत है! 😊 Sreyas Institute के बारे में और पूछने के लिए बेझिझक पूछें। 🎓"
+    },
+    "bye_reply": {
+      "te": "మమ్మల్ని సంప్రదించినందుకు ధన్యవాదాలు! 👋 అన్ని శుభాకాంక్షలు! 🎓",
+      "hi": "संपर्क करने के लिए धन्यवाद! 👋 शुभकामनाएं! 🎓"
+    },
+    "empty_message": {
+      "te": "దయచేసి ఒక ప్రశ్న టైప్ చేయండి.",
+      "hi": "कृपया एक प्रश्न टाइप करें।"
+    },
+    "out_of_domain_parking": {
+      "te": "విద్యార్థుల బైక్ పార్కింగ్ లేదా వాహన అనుమతుల గురించి అధికారిక కళాశాల సమాచారం నాకు లభించలేదు.\n\nమా అడ్మిషన్ల టీమ్ మిమ్మల్ని సంప్రదించాలా? దయచేసి కింద ఉన్న ఎన్‌క్వైరీ ఫారమ్ నింపండి. 👇",
+      "hi": "छात्रों की बाइक पार्किंग या वाहन अनुमति के संबंध में आधिकारिक कॉलेज जानकारी मुझे नहीं मिली।\n\nक्या आप चाहते हैं कि हमारी एडमिशन टीम आपसे संपर्क करे? कृपया नीचे दिया गया पूछताछ फॉर्म भरें। 👇"
+    },
+    "out_of_domain_generic": {
+      "te": "ఈ విషయానికి సంబంధించిన అధికారిక సమాచారం కళాశాల డేటాబేస్‌లో లభించలేదు.\n\nమరిన్ని వివరాలకు దయచేసి కింద ఉన్న ఎన్‌క్వైరీ ఫారమ్‌ను నింపండి. 👇",
+      "hi": "इस विषय से संबंधित आधिकारिक जानकारी कॉलेज डेटाबेस में नहीं मिली।\n\nअधिक विवरण के लिए कृपया नीचे दिया गया पूछताछ फॉर्म भरें। 👇"
+    },
+    "error_generic": {
+      "te": "ఏదో తప్పు జరిగింది. దయచేసి నేరుగా మమ్మల్ని సంప్రదించండి.\n\n📞 9246323444",
+      "hi": "कुछ गलत हो गया। कृपया सीधे हमसे संपर्क करें।\n\n📞 9246323444"
+    },
+    "answer_intro": {
+      "te": "మీరు అభ్యర్థించిన సమాచారం ఇక్కడ ఉంది:",
+      "hi": "आपके द्वारा अनुरोधित जानकारी यहां है:"
+    },
+    "contact_footer": {
+      "te": "📞 మరింత వివరాల కోసం: 9246323444\n✉️ info@sreyas.ac.in",
+      "hi": "📞 अधिक जानकारी के लिए: 9246323444\n✉️ info@sreyas.ac.in"
+    },
+    "enquiry_fallback": {
+      "te": "ఈ ప్రశ్నకు నాకు స్పష్టమైన సమాధానం లేదు. మా బృందంతో మిమ్మల్ని కనెక్ట్ చేద్దాం! 👇",
+      "hi": "इस प्रश्न का स्पष्ट उत्तर मेरे पास नहीं है। मैं आपको हमारी टीम से जोड़ता हूं! 👇"
+    },
+    "ood_refusal": {
+      "te": "నేను శ్రేయస్ ఇన్‌స్టిట్యూట్ ఆఫ్ ఇంజినీరింగ్ అండ్ టెక్నాలజీకి సంబంధించిన అధికారిక ప్రశ్నలకు మాత్రమే సమాధానం ఇవ్వడానికి డిజైన్ చేయబడ్డాను. అడ్మిషన్లు, కోర్సులు, ఫీజులు, ప్లేస్‌మెంట్లు, అకాడమిక్స్, సౌకర్యాలు, రవాణా మరియు స్కాలర్‌షిప్‌ల గురించి అడగండి.",
+      "hi": "मुझे केवल श्रेयस इंस्टीट्यूट ऑफ इंजीनियरिंग एंड टेक्नोलॉजी से संबंधित आधिकारिक प्रश्नों का उत्तर देने के लिए डिज़ाइन किया गया है। मैं प्रवेश, पाठ्यक्रम, फीस, प्लेसमेंट, शिक्षा, सुविधाओं, परिवहन और छात्रवृत्ति के बारे में सहायता कर सकता हूं।"
+    },
+    "dynamic_limitation": {
+      "te": "క్షమించండి, నేటి మెనూ, రేపటి సెలవులు లేదా ప్రస్తుత బస్సు/ప్లేస్‌మెంట్ అప్‌డేట్‌ల వంటి ప్రత్యక్ష లేదా రోజువారీ కళాశాల కార్యకలాపాల సమాచారం నాకు అందుబాటులో లేదు. దయచేసి కళాశాల కార్యాలయాన్ని లేదా అధికారిక ఛానెల్‌లను సంప్రదించండి.",
+      "hi": "क्षमा करें, मेरे पास आज के मेनू, कल की छुट्टियों या वर्तमान बस/प्लेसमेंट अपडेट जैसी लाइव या दैनिक कॉलेज संचालन की जानकारी तक पहुंच नहीं है। कृपया कॉलेज कार्यालय या आधिकारिक चैनलों से संपर्क करें।"
+    },
+    "session_goodbye": {
+      "te": "శ్రేయస్ ఇన్‌స్టిట్యూట్ ఆఫ్ ఇంజినీరింగ్ అండ్ టెక్నాలజీ అసిస్టెంట్‌ని సందర్శించినందుకు ధన్యవాదాలు. మీకు మంచి రోజు కలగాలని కోరుకుంటున్నాము! 🎓",
+      "hi": "श्रेयस इंस्टीट्यूट ऑफ इंजीनियरिंग एंड टेक्नोलॉजी विजिट करने के लिए धन्यवाद। आपका दिन शुभ हो! 🎓"
+    },
+    "feedback_pos_msg": {
+      "te": "ధన్యవాదాలు! నేను మీకు సహాయం చేయగలిగినందుకు సంతోషంగా ఉంది. మీకు ఏవైనా ఇతర ప్రశ్నలు ఉంటే చెప్పండి.",
+      "hi": "धन्यवाद! मुझे खुशी है कि मैं आपकी मदद कर सका। यदि आपके पास कोई अन्य प्रश्न हैं तो मुझे बताएं।"
+    },
+    "feedback_neg_msg": {
+      "te": "మీ ప్రశ్నకు సరిగ్గా సమాధానం ఇవ్వలేకపోయినందుకు క్షమించండి. దయచేసి మీ విచారణను సమర్పించండి, మా బృందం మీకు సహాయం చేస్తుంది.",
+      "hi": "क्षमा करें, मैं आपके प्रश्न का ठीक से उत्तर नहीं दे सका। कृपया अपनी पूछताछ सबमिट करें और हमारी टीम आपकी मदद करेगी।"
+    },
+    "timeout_prompt": {
+      "te": "మీ అనుమానాలను నివృత్తి చేయగలిగానని భావిస్తున్నాను. మీకు ఇంకా ఏవైనా ప్రశ్నలు ఉన్నాయా?",
+      "hi": "मुझे उम्मीद है कि मैं आपकी शंकाओं को दूर करने में सक्षम था। क्या आपके पास कोई अन्य प्रश्न हैं?"
+    },
+    "btn_continue_chat": {
+      "te": "చాట్ కొనసాగించండి",
+      "hi": "चैट जारी रखें"
+    },
+    "btn_end_chat": {
+      "te": "చాట్ ముగించండి",
+      "hi": "चैट समाप्त करें"
+    }
+  },
+  "label_translations": {
+    "tuition fee structure (per annum)": {
+      "te": "ట్యూషన్ ఫీజు వివరాలు (ఏడాదికి)",
+      "hi": "ट्यूशन फीस संरचना (प्रति वर्ष)"
+    },
+    "tuition fee structure": {
+      "te": "ట్యూషన్ ఫీజు వివరాలు",
+      "hi": "ट्यूशन फीस संरचना"
+    },
+    "cse tuition fee": {
+      "te": "CSE ట్యూషన్ ఫీజు",
+      "hi": "CSE ट्यूशन फीस"
+    },
+    "cse (ai & ml) tuition fee": {
+      "te": "CSE (AI & ML) ట్యూషన్ ఫీజు",
+      "hi": "CSE (AI & ML) ट्यूशन फीस"
+    },
+    "ece tuition fee": {
+      "te": "ECE ట్యూషన్ ఫీజు",
+      "hi": "ECE ट्यूशन फीस"
+    },
+    "additional annual fees": {
+      "te": "అదనపు వార్షిక ఫీజులు",
+      "hi": "अतिरिक्त वार्षिक फीस"
+    },
+    "accounts office contact": {
+      "te": "అకౌంట్స్ ఆఫీస్ సంప్రదింపులు",
+      "hi": "लेखा कार्यालय संपर्क"
+    },
+    "email": {
+      "te": "ఇమెయిల్",
+      "hi": "ईमेल"
+    },
+    "phone": {
+      "te": "ఫోన్",
+      "hi": "फोन"
+    },
+    "placement overview (academic year 2025-26)": {
+      "te": "ప్లేస్‌మెంట్ అవలోకనం (అకాడమిక్ ఇయర్ 2025-26)",
+      "hi": "प्लेसमेंट अवलोकन (अकादमिक वर्ष 2025-26)"
+    },
+    "placement overview": {
+      "te": "ప్లేస్‌మెంట్ అవలోకనం",
+      "hi": "प्लेसमेंट अवलोकन"
+    },
+    "highest salary package": {
+      "te": "అత్యధిక జీతం ప్యాకేజీ",
+      "hi": "उच्चतम वेतन पैकेज"
+    },
+    "average salary package": {
+      "te": "సగటు జీతం ప్యాకేజీ",
+      "hi": "औसत वेतन पैकेज"
+    },
+    "total offers / students placed": {
+      "te": "మొత్తం ఆఫర్లు / ప్లేస్ అయిన విద్యార్థులు",
+      "hi": "कुल ऑफर / प्लेस्ड छात्र"
+    },
+    "placement success rate": {
+      "te": "ప్లేస్‌మెంట్ విజయవంతమైన శాతం",
+      "hi": "प्लेसमेंट सफलता दर"
+    },
+    "placement season starts": {
+      "te": "ప్లేస్‌మెంట్ సీజన్ ప్రారంభం",
+      "hi": "प्लेसमेंट सीजन की शुरुआत"
+    },
+    "top recruiting companies": {
+      "te": "ప్రధాన రిక్రూటింగ్ కంపెనీలు",
+      "hi": "प्रमुख भर्ती कंपनियां"
+    },
+    "it & software giants": {
+      "te": "IT & సాఫ్ట్‌వేర్ దిగ్గజాలు",
+      "hi": "आईटी और सॉफ्टवेयर दिग्गज"
+    },
+    "core & product companies": {
+      "te": "కోర్ & ప్రొడక్ట్ కంపెనీలు",
+      "hi": "कोर और प्रोडक्ट कंपनियां"
+    },
+    "placement training program (crt - campus recruitment training)": {
+      "te": "ప్లేస్‌మెంట్ శిక్షణ ప్రోగ్రామ్ (CRT)",
+      "hi": "प्लेसमेंट प्रशिक्षण कार्यक्रम (CRT)"
+    },
+    "placement cell contact": {
+      "te": "ప్లేస్‌మెంట్ సెల్ సంప్రదింపులు",
+      "hi": "प्लेसमेंट सेल संपर्क"
+    },
+    "placement director": {
+      "te": "ప్లేస్‌మెంట్ డైరెక్టర్",
+      "hi": "प्लेसमेंट निदेशक"
+    },
+    "main admission helpline": {
+      "te": "ప్రధాన అడ్మిషన్ హెల్ప్‌లైన్",
+      "hi": "मुख्य प्रवेश हेल्पलाइन"
+    },
+    "general information email": {
+      "te": "సాధారణ సమాచారం ఇమెయిల్",
+      "hi": "सामान्य जानकारी ईमेल"
+    },
+    "official website": {
+      "te": "అధికారిక వెబ్‌సైట్",
+      "hi": "आधिकारिक वेबसाइट"
+    },
+    "principal email": {
+      "te": "ప్రిన్సిపాల్ ఇమెయిల్",
+      "hi": "प्राचार्य ईमेल"
+    },
+    "accounts email": {
+      "te": "అకౌంట్స్ ఇమెయిల్",
+      "hi": "लेखा ईमेल"
+    },
+    "scholarship email": {
+      "te": "స్కాలర్‌షిప్ ఇమెయిల్",
+      "hi": "छात्रवृत्ति ईमेल"
+    },
+    "examination branch email": {
+      "te": "పరీక్షల విభాగం ఇమెయిల్",
+      "hi": "परीक्षा शाखा ईमेल"
+    },
+    "training & placements email": {
+      "te": "ట్రైనింగ్ & ప్లేస్‌మెంట్స్ ఇమెయిల్",
+      "hi": "प्रशिक्षण और प्लेसमेंट ईमेल"
+    },
+    "postal address": {
+      "te": "తపాలా చిరునామా",
+      "hi": "डाक पता"
+    },
+    "b.tech total fee range": {
+      "te": "బి.టెక్ మొత్తం ఫీజు పరిధి",
+      "hi": "बी.टेक कुल फीस सीमा"
+    },
+    "annual fee approximate": {
+      "te": "వార్షిక ఫీజు సుమారు",
+      "hi": "वार्षिक फीस लगभग"
+    },
+    "fee note": {
+      "te": "ఫీజు గమనిక",
+      "hi": "फीस टिप्पणी"
+    },
+    "highest package": {
+      "te": "అత్యధిక ప్యాకేజీ",
+      "hi": "उच्चतम पैकेज"
+    },
+    "average package": {
+      "te": "సగటు ప్యాకేజీ",
+      "hi": "औसत पैकेज"
+    },
+    "total students placed": {
+      "te": "మొత్తం ప్లేస్ అయిన విద్యార్థులు",
+      "hi": "कुल प्लेस्ड छात्र"
+    },
+    "top recruiters": {
+      "te": "ప్రధాన రిక్రూటర్లు",
+      "hi": "प्रमुख भर्तीकर्ता"
+    },
+    "placement cell": {
+      "te": "ప్లేస్‌మెంట్ సెల్",
+      "hi": "प्लेसमेंट सेल"
+    },
+    "placement contact": {
+      "te": "ప్లేస్‌మెంట్ సంప్రదింపు",
+      "hi": "प्लेसमेंट संपर्क"
+    },
+    "main phone": {
+      "te": "ప్రధాన ఫోన్",
+      "hi": "मुख्य फोन"
+    },
+    "main email": {
+      "te": "ప్రధాన ఇమెయిల్",
+      "hi": "मुख्य ईमेल"
+    },
+    "website": {
+      "te": "వెబ్‌సైట్",
+      "hi": "वेबसाइट"
+    },
+    "address": {
+      "te": "చిరునామా",
+      "hi": "पता"
+    },
+    "admission helpline": {
+      "te": "ప్రవేశ హెల్ప్‌లైన్",
+      "hi": "प्रवेश हेल्पलाइन"
+    },
+    "admission email": {
+      "te": "అడ్మిషన్ ఇమెయిల్",
+      "hi": "प्रवेश ईमेल"
+    },
+    "eapcet cutoff rank 2024": {
+      "te": "EAPCET కటాఫ్ ర్యాంక్ 2024",
+      "hi": "EAPCET कटऑफ रैंक 2024"
+    },
+    "general eligibility": {
+      "te": "సాధారణ అర్హత",
+      "hi": "सामान्य पात्रता"
+    },
+    "scholarship contact": {
+      "te": "స్కాలర్‌షిప్ సంప్రదింపు",
+      "hi": "छात्रवृत्ति संपर्क"
+    },
+    "scholarship phone": {
+      "te": "స్కాలర్‌షిప్ ఫోన్",
+      "hi": "छात्रवृत्ति फोन"
+    },
+    "government scholarships available": {
+      "te": "అందుబాటులో ఉన్న ప్రభుత్వ స్కాలర్‌షిప్‌లు",
+      "hi": "उपलब्ध सरकारी छात्रवृत्तियां"
+    },
+    "merit scholarship": {
+      "te": "మెరిట్ స్కాలర్‌షిప్",
+      "hi": "मेरिट छात्रवृत्ति"
+    },
+    "bus service": {
+      "te": "బస్ సేవ",
+      "hi": "बस सेवा"
+    },
+    "transport contact": {
+      "te": "రవాణా సంప్రదింపు",
+      "hi": "परिवहन संपर्क"
+    },
+    "class hours": {
+      "te": "తరగతి సమయాలు",
+      "hi": "कक्षा का समय"
+    },
+    "working days": {
+      "te": "పని దినాలు",
+      "hi": "कार्य दिवस"
+    },
+    "course duration": {
+      "te": "కోర్సు వ్యవధి",
+      "hi": "पाठ्यक्रम अवधि"
+    },
+    "lateral entry": {
+      "te": "లేటరల్ ఎంట్రీ",
+      "hi": "लेटरल एंट्री"
+    },
+    "minimum attendance required": {
+      "te": "కనీస హాజరు అవసరం",
+      "hi": "न्यूनतम उपस्थिति आवश्यक"
+    },
+    "principal": {
+      "te": "ప్రిన్సిపాల్",
+      "hi": "प्राचार्य"
+    },
+    "chairman": {
+      "te": "చైర్మన్",
+      "hi": "अध्यक्ष"
+    },
+    "hostel contact": {
+      "te": "హాస్టల్ సంప్రదింపు",
+      "hi": "छात्रावास संपर्क"
+    },
+    "library": {
+      "te": "గ్రంథాలయం",
+      "hi": "पुस्तकालय"
+    },
+    "accreditation": {
+      "te": "గుర్తింపు",
+      "hi": "मान्यता"
+    },
+    "founded": {
+      "te": "స్థాపించబడింది",
+      "hi": "स्थापित"
+    },
+    "location": {
+      "te": "ప్రాంతం",
+      "hi": "स्थान"
+    },
+    "full name": {
+      "te": "పూర్తి పేరు",
+      "hi": "पूरा नाम"
+    },
+    "affiliated to": {
+      "te": "అనుబంధం",
+      "hi": "संबद्ध"
+    },
+    "approved by": {
+      "te": "ఆమోదించిన సంస్థ",
+      "hi": "द्वारा अनुमोदित"
+    },
+    "type": {
+      "te": "రకం",
+      "hi": "प्रकार"
+    },
+    "accounts contact": {
+      "te": "అకౌంట్స్ సంప్రదింపు",
+      "hi": "लेखा संपर्क"
+    },
+    "accounts phone": {
+      "te": "అకౌంట్స్ ఫోన్",
+      "hi": "लेखा फोन"
+    },
+    "placement year": {
+      "te": "ప్లేస్‌మెంట్ సంవత్సరం",
+      "hi": "प्लेसमेंट वर्ष"
+    },
+    "placement training": {
+      "te": "ప్లేస్‌మెంట్ శిక్షణ",
+      "hi": "प्लेसमेंट प्रशिक्षण"
+    },
+    "placement start": {
+      "te": "ప్లేస్‌మెంట్ ప్రారంభం",
+      "hi": "प्लेसमेंट शुरुआत"
+    },
+    "regular b.tech admission": {
+      "te": "సాధారణ బి.టెక్ ప్రవేశం",
+      "hi": "नियमित बी.टेक प्रवेश"
+    },
+    "lateral entry admission": {
+      "te": "లేటరల్ ఎంట్రీ ప్రవేశం",
+      "hi": "लेटरल एंट्री प्रवेश"
+    },
+    "management quota admission": {
+      "te": "మ్యానేజ్‌మెంట్ కోటా ప్రవేశం",
+      "hi": "प्रबंधन कोटा प्रवेश"
+    },
+    "sports facilities": {
+      "te": "క్రీడా సౌకర్యాలు",
+      "hi": "खेल सुविधाएं"
+    },
+    "cafeteria": {
+      "te": "కాఫెటీరియా",
+      "hi": "कैफेटेरिया"
+    },
+    "green campus": {
+      "te": "ఆకుపచ్చ క్యాంపస్",
+      "hi": "हरित परिसर"
+    },
+    "cctv": {
+      "te": "సిసిటివి",
+      "hi": "सीसीटीवी"
+    },
+    "classrooms": {
+      "te": "తరగతి గదులు",
+      "hi": "कक्षाएं"
+    },
+    "laboratories": {
+      "te": "ప్రయోగశాలలు",
+      "hi": "प्रयोगशालाएं"
+    },
+    "auditorium": {
+      "te": "ఆడిటోరియం",
+      "hi": "सभागार"
+    },
+    "wifi": {
+      "te": "వైఫై",
+      "hi": "वाईफाई"
+    },
+    "education loan": {
+      "te": "విద్యా రుణం",
+      "hi": "शिक्षा ऋण"
+    },
+    "hostel availability": {
+      "te": "హాస్టల్ అందుబాటు",
+      "hi": "छात्रावास उपलब्धता"
+    },
+    "nearby accommodation": {
+      "te": "సమీపంలోని వసతి",
+      "hi": "निकटतम आवास"
+    },
+    "pg options": {
+      "te": "PG ఎంపికలు",
+      "hi": "PG विकल्प"
+    },
+    "transport coverage": {
+      "te": "రవాణా పరిధి",
+      "hi": "परिवहन कवरेज"
+    },
+    "exam timings": {
+      "te": "పరీక్ష సమయాలు",
+      "hi": "परीक्षा समय"
+    },
+    "examination system": {
+      "te": "పరీక్ష విధానం",
+      "hi": "परीक्षा प्रणाली"
+    },
+    "internal assessment marks": {
+      "te": "అంతర్గత మూల్యాంకన మార్కులు",
+      "hi": "आंतरिक मूल्यांकन अंक"
+    },
+    "external examination marks": {
+      "te": "బాహ్య పరీక్ష మార్కులు",
+      "hi": "बाहरी परीक्षा अंक"
+    },
+    "total marks per subject": {
+      "te": "ప్రతి సబ్జెక్ట్‌కు మొత్తం మార్కులు",
+      "hi": "प्रति विषय कुल अंक"
+    },
+    "supplementary exams": {
+      "te": "సప్లిమెంటరీ పరీక్షలు",
+      "hi": "पूरक परीक्षाएं"
+    },
+    "results": {
+      "te": "ఫలితాలు",
+      "hi": "परिणाम"
+    },
+    "mid exams": {
+      "te": "మిడ్ పరీక్షలు",
+      "hi": "मिड परीक्षाएं"
+    },
+    "practical exams": {
+      "te": "ప్రాక్టికల్ పరీక్షలు",
+      "hi": "प्रैक्टिकल परीक्षाएं"
+    },
+    "exam branch contact": {
+      "te": "పరీక్ష విభాగం సంప్రదింపు",
+      "hi": "परीक्षा शाखा संपर्क"
+    },
+    "exam branch phone": {
+      "te": "పరీక్ష విభాగం ఫోన్",
+      "hi": "परीक्षा शाखा फोन"
+    },
+    "faculty qualification": {
+      "te": "అధ్యాపక అర్హత",
+      "hi": "संकाय योग्यता"
+    },
+    "teaching approach": {
+      "te": "బోధన విధానం",
+      "hi": "शिक्षण दृष्टिकोण"
+    },
+    "mentoring": {
+      "te": "మెంటారింగ్",
+      "hi": "मेंटरिंग"
+    },
+    "experience": {
+      "te": "అనుభవం",
+      "hi": "अनुभव"
+    },
+    "security": {
+      "te": "భద్రత",
+      "hi": "सुरक्षा"
+    },
+    "anti ragging": {
+      "te": "యాంటీ ర్యాగింగ్",
+      "hi": "एंटी रैगिंग"
+    },
+    "girls safety": {
+      "te": "బాలికల భద్రత",
+      "hi": "लड़कियों की सुरक्षा"
+    },
+    "icc": {
+      "te": "ఐసిసి",
+      "hi": "आईसीसी"
+    },
+    "nba accreditation": {
+      "te": "NBA గుర్తింపు",
+      "hi": "NBA मान्यता"
+    },
+    "google cloud partner": {
+      "te": "Google Cloud భాగస్వామి",
+      "hi": "Google Cloud पार्टनर"
+    },
+    "iit bombay rating": {
+      "te": "IIT బాంబే రేటింగ్",
+      "hi": "IIT बॉम्बे रेटिंग"
+    },
+    "times ranking": {
+      "te": "Times ర్యాంకింగ్",
+      "hi": "Times रैंकिंग"
+    },
+    "iso certification": {
+      "te": "ISO ధృవీకరణ",
+      "hi": "ISO प्रमाणन"
+    },
+    "ugc status": {
+      "te": "UGC హోదా",
+      "hi": "UGC स्थिति"
+    },
+    "affiliation": {
+      "te": "అనుబంధం",
+      "hi": "संबद्धता"
+    },
+    "annual fest": {
+      "te": "వార్షిక ఉత్సవం",
+      "hi": "वार्षिक उत्सव"
+    },
+    "sports day": {
+      "te": "క్రీడా దినం",
+      "hi": "खेल दिवस"
+    },
+    "nss": {
+      "te": "NSS",
+      "hi": "NSS"
+    },
+    "clubs": {
+      "te": "క్లబ్‌లు",
+      "hi": "क्लब"
+    },
+    "guest lectures": {
+      "te": "అతిథి ఉపన్యాసాలు",
+      "hi": "अतिथि व्याख्यान"
+    },
+    "industrial visits": {
+      "te": "పారిశ్రామిక సందర్శనలు",
+      "hi": "औद्योगिक दौरे"
+    },
+    "internships": {
+      "te": "ఇంటర్న్‌షిప్‌లు",
+      "hi": "इंटर्नशिप"
+    },
+    "workshops": {
+      "te": "వర్క్‌షాప్‌లు",
+      "hi": "कार्यशालाएं"
+    },
+    "google cloud": {
+      "te": "Google Cloud",
+      "hi": "Google Cloud"
+    },
+    "secretary": {
+      "te": "కార్యదర్శి",
+      "hi": "सचिव"
+    },
+    "treasurer": {
+      "te": "కోశాధికారి",
+      "hi": "कोषाध्यक्ष"
+    },
+    "vice chairman": {
+      "te": "వైస్ చైర్మన్",
+      "hi": "उपाध्यक्ष"
+    },
+    "administrative officer": {
+      "te": "పరిపాలన అధికారి",
+      "hi": "प्रशासनिक अधिकारी"
+    },
+    "distance from airport": {
+      "te": "విమానాశ్రయం నుండి దూరం",
+      "hi": "हवाई अड्डे से दूरी"
+    },
+    "distance from secunderabad railway": {
+      "te": "సికింద్రాబాద్ రైల్వే నుండి దూరం",
+      "hi": "सिकंदराबाद रेलवे से दूरी"
+    },
+    "distance from mg bus station": {
+      "te": "MG బస్ స్టేషన్ నుండి దూరం",
+      "hi": "MG बस स्टेशन से दूरी"
+    },
+    "admin email": {
+      "te": "అడ్మిన్ ఇమెయిల్",
+      "hi": "एडमिन ईमेल"
+    },
+    "times engineering ranking": {
+      "te": "Times ఇంజినీరింగ్ ర్యాంకింగ్",
+      "hi": "Times इंजीनियरिंग रैंकिंग"
+    },
+    "naac": {
+      "te": "NAAC",
+      "hi": "NAAC"
+    },
+    "nba": {
+      "te": "NBA",
+      "hi": "NBA"
+    },
+    "iso": {
+      "te": "ISO",
+      "hi": "ISO"
+    },
+    "duration": {
+      "te": "వ్యవధి",
+      "hi": "अवधि"
+    },
+    "focus": {
+      "te": "ప్రధాన అంశాలు",
+      "hi": "मुख्य विषय"
+    },
+    "career opportunities": {
+      "te": "కెరీర్ అవకాశాలు",
+      "hi": "करियर के अवसर"
+    },
+    "examination fee": {
+      "te": "పరీక్ష ఫీజు",
+      "hi": "परीक्षा शुल्क"
+    },
+    "transport fee": {
+      "te": "రవాణా ఫీజు",
+      "hi": "परिवहन शुल्क"
+    },
+    "note": {
+      "te": "గమనిక",
+      "hi": "नोट"
+    },
+    "college bus fleet": {
+      "te": "కళాశాల బస్సు ఫ్లీట్",
+      "hi": "कॉलेज बस बेड़ा"
+    },
+    "complete 23 transport bus routes & pickup zones": {
+      "te": "పూర్తి 23 రవాణా బస్సు రూట్లు & పికప్ జోన్లు",
+      "hi": "पूर्ण 23 परिवहन बस मार्ग और पिकअप क्षेत्र"
+    },
+    "transport guidelines": {
+      "te": "రవాణా మార్గదర్శకాలు",
+      "hi": "परिवहन दिशानिर्देश"
+    },
+    "transport helpline": {
+      "te": "రవాణా హెల్ప్‌లైన్",
+      "hi": "परिवहन हेल्पलाइन"
+    },
+    "helpdesk phone": {
+      "te": "హెల్ప్‌డెస్క్ ఫోన్",
+      "hi": "हेल्पडेस्क फोन"
+    },
+    "helpdesk": {
+      "te": "హెల్ప్‌డెస్క్",
+      "hi": "हेल्पडेस्क"
+    },
+    "offered by": {
+      "te": "ఆఫర్ చేసిన సంస్థ",
+      "hi": "प्रस्तावित कंपनी"
+    },
+    "accreditation & recognitions": {
+      "te": "గుర్తింపులు & ఆమోదాలు",
+      "hi": "मान्यता और मान्यताएं"
+    },
+    "accreditation & ratings": {
+      "te": "గుర్తింపులు & రేటింగ్‌లు",
+      "hi": "मान्यता और रेटिंग"
+    },
+    "admission helpline phone": {
+      "te": "అడ్మిషన్ హెల్ప్‌లైన్ ఫోన్",
+      "hi": "प्रवेश हेल्पलाइन फोन"
+    },
+    "scholarship desk contact": {
+      "te": "స్కాలర్‌షిప్ డెస్క్ సంప్రదింపులు",
+      "hi": "छात्रवृत्ति डेस्क संपर्क"
+    },
+    "library infrastructure": {
+      "te": "లైబ్రరీ మౌలిక సదుపాయాలు",
+      "hi": "पुस्तकालय बुनियादी ढांचा"
+    },
+    "area": {
+      "te": "విస్తీర్ణం",
+      "hi": "क्षेत्रफल"
+    },
+    "book stock": {
+      "te": "పుస్తకాల సంఖ్య",
+      "hi": "पुस्तक भंडार"
+    },
+    "titles": {
+      "te": "శీర్షికలు",
+      "hi": "शीर्षक"
+    },
+    "journals": {
+      "te": "జర్నల్స్",
+      "hi": "पत्रिकाएं"
+    },
+    "digital library": {
+      "te": "డిజిటల్ లైబ్రరీ",
+      "hi": "डिजिटल पुस्तकालय"
+    },
+    "e-resources access": {
+      "te": "ఇ-వనరుల యాక్సెస్",
+      "hi": "ई-संसाधन पहुंच"
+    },
+    "automation": {
+      "te": "ఆటోమేషన్",
+      "hi": "स्वचालन"
+    },
+    "faculty strength": {
+      "te": "అధ్యాపక బలం",
+      "hi": "संकाय शक्ति"
+    },
+    "total teaching faculty": {
+      "te": "మొత్తం అధ్యాపకులు",
+      "hi": "कुल शिक्षण संकाय"
+    },
+    "ph.d holders": {
+      "te": "Ph.D పట్టభద్రులు",
+      "hi": "Ph.D धारक"
+    },
+    "industry-experienced faculty": {
+      "te": "పరిశ్రమ అనుభవం కలిగిన అధ్యాపకులు",
+      "hi": "उद्योग-अनुभवी संकाय"
+    },
+    "college code": {
+      "te": "కళాశాల కోడ్",
+      "hi": "कॉलेज कोड"
+    },
+    "eligibility": {
+      "te": "అర్హత",
+      "hi": "पात्रता"
+    },
+    "admission path": {
+      "te": "ప్రవేశ మార్గం",
+      "hi": "प्रवेश मार्ग"
+    },
+    "registration": {
+      "te": "రిజిస్ట్రేషన్",
+      "hi": "पंजीकरण"
+    },
+    "internship programme": {
+      "te": "ఇంటర్న్‌షిప్ ప్రోగ్రామ్",
+      "hi": "इंटर्नशिप कार्यक्रम"
+    },
+    "internship credit": {
+      "te": "ఇంటర్న్‌షిప్ క్రెడిట్",
+      "hi": "इंटर्नशिप क्रेडिट"
+    },
+    "popular internship partners": {
+      "te": "ప్రముఖ ఇంటర్న్‌షిప్ పార్టనర్లు",
+      "hi": "लोकप्रिय इंटर्नशिप पार्टनर"
+    },
+    "on-campus hostel status": {
+      "te": "ఆన్-క్యాంపస్ హాస్టల్ స్థితి",
+      "hi": "ऑन-कैंपस छात्रावास स्थिति"
+    },
+    "off-campus accommodation options for students": {
+      "te": "విద్యార్థులకు ఆఫ్-క్యాంపస్ వసతి ఎంపికలు",
+      "hi": "छात्रों के लिए ऑफ-कैंपस आवास विकल्प"
+    },
+    "pg facilities": {
+      "te": "PG సౌకర్యాలు",
+      "hi": "PG सुविधाएं"
+    },
+    "pg rent range": {
+      "te": "PG అద్దె పరిధి",
+      "hi": "PG किराया सीमा"
+    },
+    "accommodation guidance desk": {
+      "te": "వసతి మార్గదర్శన డెస్క్",
+      "hi": "आवास मार्गदर्शन डेस्क"
+    },
+    "eapcet cutoff rank": {
+      "te": "EAPCET కటాఫ్ ర్యాంక్",
+      "hi": "EAPCET कटऑफ रैंक"
+    },
+    "cse branch cutoff rank": {
+      "te": "CSE బ్రాంచ్ కటాఫ్ ర్యాంక్",
+      "hi": "CSE शाखा कटऑफ रैंक"
+    },
+    "cse ai&ml branch cutoff rank": {
+      "te": "CSE AI&ML బ్రాంచ్ కటాఫ్ ర్యాంక్",
+      "hi": "CSE AI&ML शाखा कटऑफ रैंक"
+    },
+    "ece branch cutoff rank": {
+      "te": "ECE బ్రాంచ్ కటాఫ్ ర్యాంక్",
+      "hi": "ECE शाखा कटऑफ रैंक"
+    },
+    "total 4-year b.tech fee range": {
+      "te": "మొత్తం 4 ఏళ్ల బి.టెక్ ఫీజు పరిధి",
+      "hi": "कुल 4-वर्षीय बी.टेक फीस सीमा"
+    },
+    "distance from mgbs bus station": {
+      "te": "MGBS బస్ స్టేషన్ నుండి దూరం",
+      "hi": "MGBS बस स्टेशन से दूरी"
+    },
+    "distance from secunderabad railway station": {
+      "te": "సికింద్రాబాద్ రైల్వే స్టేషన్ నుండి దూరం",
+      "hi": "सिकंदराबाद रेलवे स्टेशन से दूरी"
+    },
+    "distance from rajiv gandhi international airport (rgia shamshabad)": {
+      "te": "రాజీవ్ గాంధీ అంతర్జాతీయ విమానాశ్రయం నుండి దూరం",
+      "hi": "राजीव गांधी अंतर्राष्ट्रीय हवाई अड्डे से दूरी"
+    }
+  },
+  "override_translations": {
+    "HOSTEL": {
+      "te": "శ్రేయస్ ఇన్‌స్టిట్యూట్‌లో ప్రస్తుతం క్యాంపస్‌లో హాస్టల్ సదుపాయం లేదు. విద్యార్థులు సాధారణంగా క్యాంపస్‌కు సమీపంలో నాగోల్ మరియు బండ్లగూడ ప్రాంతంలోని ప్రైవేట్ పీజీ వసతిలో ఉంటారు.\n\nపీజీ సిఫార్సుల కోసం దయచేసి ప్రవేశాల కార్యాలయాన్ని సంప్రదించండి:\n📞 9246323444\n✉️ info@sreyas.ac.in",
+      "hi": "श्रेयस इंस्टिट्यूट में वर्तमान में कैंपस में छात्रावास की सुविधा नहीं है। छात्र आमतौर पर कैंपस के पास नागोले और बंडलागुडा क्षेत्र में निजी पीजी आवास में रहते हैं।\n\nपीजी सिफारिशों के लिए कृपया प्रवेश कार्यालय से संपर्क करें:\n📞 9246323444\n✉️ info@sreyas.ac.in"
+    }
+  },
+  "_value_translations_comment": "Value-level phrase translations for knowledge-base answer content. This is what actually fixes the multilingual bug: previously only label text (before the colon) was translated, while the value text (after the colon) and plain-text lines stayed in English. These phrases are applied longest-first by Localizer.translate_answer_body() AFTER label translation, so every KB value that has an entry here appears in the selected language. Phrases not listed here pass through in English (honest dictionary approach, same as label_translations). To add coverage: add the English value phrase exactly as it appears in knowledge_base.txt as the key, and the Telugu/Hindi translation as the value.",
+  "value_translations": {
+    "te": {
+      "Sreyas Institute of Engineering and Technology (SIET)": "శ్రేయస్ ఇన్‌స్టిట్యూట్ ఆఫ్ ఇంజినీరింగ్ అండ్ టెక్నాలజీ (SIET)",
+      "Private Autonomous Engineering College": "ప్రైవేట్ స్వయంప్రతిపత్తి ఇంజినీరింగ్ కళాశాల",
+      "College Timings": "కళాశాల సమయాలు",
+      "Working Days: Monday to Saturday": "పని దినాలు: సోమవారం నుండి శనివారం వరకు",
+      "Working Days:": "పని దినాలు:",
+      "Yes - Google Cloud Career Readiness Program": "అవును - Google Cloud కెరీర్ రెడీనెస్ ప్రోగ్రామ్",
+      "Tuition Fee Structure (Per Annum):": "ట్యూషన్ ఫీజు వివరాలు (ఏడాదికి):",
+      "CSE Tuition Fee:": "CSE ట్యూషన్ ఫీజు:",
+      "CSE (AI & ML) Tuition Fee:": "CSE (AI & ML) ట్యూషన్ ఫీజు:",
+      "ECE Tuition Fee:": "ECE ట్యూషన్ ఫీజు:",
+      "Total 4-Year B.Tech Fee Range:": "మొత్తం 4 ఏళ్ల బి.టెక్ ఫీజు పరిధి:",
+      "Additional Annual Fees:": "అదనపు వార్షిక ఫీజులు:",
+      "Accounts Office Contact:": "అకౌంట్స్ ఆఫీస్ సంప్రదింపులు:",
+      "5-star rating - First in Telangana from IIT Bombay Spoken Tutorials": "5-స్టార్ రేటింగ్ - తెలంగాణలో IIT బాంబే స్పోకెన్ ట్యుటోరియల్స్ నుండి మొదటిది",
+      "Number 93 in Times Engineering Rankings 2025": "Times ఇంజినీరింగ్ ర్యాంకింగ్స్ 2025లో 93వ స్థానం",
+      "ISO 9001:2015 Certified": "ISO 9001:2015 ధృవీకరించబడింది",
+      "UGC Autonomous": "UGC స్వయంప్రతిపత్తి",
+      "NAAC A Grade": "NAAC A గ్రేడ్",
+      "ECE branch": "ECE బ్రాంచ్",
+      "Available at college office": "కళాశాల కార్యాలయంలో అందుబాటులో",
+      "B.Tech Programs offered at Sreyas:": "Sreyas లో అందించబడుతున్న B.Tech ప్రోగ్రామ్‌లు:",
+      "CSE - Computer Science and Engineering": "CSE - కంప్యూటర్ సైన్స్ అండ్ ఇంజినీరింగ్",
+      "CSE AI ML - Computer Science with Artificial Intelligence and Machine Learning": "CSE AI ML - ఆర్టిఫిషియల్ ఇంటెలిజెన్స్ మరియు మెషిన్ లెర్నింగ్‌తో కంప్యూటర్ సైన్స్",
+      "ECE - Electronics and Communication Engineering": "ECE - ఎలక్ట్రానిక్స్ అండ్ కమ్యూనికేషన్ ఇంజినీరింగ్",
+      "4 years full time": "4 సంవత్సరాలు పూర్తి సమయం",
+      "3 years available for Diploma and BSc holders": "డిప్లొమా మరియు BSc హోల్డర్ల కోసం 3 సంవత్సరాలు అందుబాటులో",
+      "All programs affiliated to JNTU Hyderabad": "అన్ని ప్రోగ్రామ్‌లు JNTU హైదరాబాద్‌కు అనుబంధించబడ్డాయి",
+      "Through TG EAPCET rank and counselling": "TG EAPCET ర్యాంక్ మరియు కౌన్సెలింగ్ ద్వారా",
+      "Through TG ECET counselling": "TG ECET కౌన్సెలింగ్ ద్వారా",
+      "Direct admission with minimum 45 percent marks in 12th standard": "12వ తరగతిలో కనీసం 45 శాతం మార్కులతో నేరుగా ప్రవేశం",
+      "10 plus 2 with 50 percent marks in Physics Chemistry Mathematics": "ఫిజిక్స్ కెమిస్ట్రీ మ్యాథమెటిక్స్‌లో 50 శాతం మార్కులతో 10+2",
+      "Between 35103 and 46265": "35103 మరియు 46265 మధ్య",
+      "Rs 1.86 Lakhs to Rs 4.3 Lakhs for full 4 year course": "పూర్తి 4 సంవత్సరాల కోర్సుకు Rs 1.86 లక్షలు నుండి Rs 4.3 లక్షలు",
+      "Fees vary by branch and admission category": "బ్రాంచ్ మరియు ప్రవేశ వర్గం ప్రకారం ఫీజులు మారుతాయి",
+      "Rs 46500 to Rs 107500 per year depending on branch": "బ్రాంచ్ ప్రకారం సంవత్సరానికి Rs 46,500 నుండి Rs 1,07,500",
+      "BC SC ST EBC Minority scholarships": "BC SC ST EBC మైనారిటీ స్కాలర్‌షిప్‌లు",
+      "Merit based fee concessions for top rankers": "టాప్ ర్యాంకర్లకు మెరిట్ ఆధారిత ఫీజు రాయితీలు",
+      "Available through SBI and partner banks": "SBI మరియు భాగస్వామ్య బ్యాంకుల ద్వారా అందుబాటులో",
+      "Rs 21.18 LPA offered by Atomic Works": "Atomic Works అందించిన Rs 21.18 LPA",
+      "Rs 4 to 5 LPA": "Rs 4 నుండి 5 LPA",
+      "558 plus students": "558 కంటే ఎక్కువ మంది విద్యార్థులు",
+      "From 3rd year itself": "3వ సంవత్సరం నుండే",
+      "Dedicated placement cell on campus": "క్యాంపస్‌లో అంకిత ప్లేస్‌మెంట్ సెల్",
+      "Full training mock interviews aptitude preparation provided": "పూర్తి శిక్షణ మాక్ ఇంటర్వ్యూలు ఆప్టిట్యూడ్ తయారీ అందించబడుతుంది",
+      "1000 plus e-books IEEE and NPTEL access 110 plus journals": "1000 కంటే ఎక్కువ ఈ-పుస్తకాలు IEEE మరియు NPTEL యాక్సెస్ 110 కంటే ఎక్కువ జర్నల్స్",
+      "11 plus department specific labs": "11 కంటే ఎక్కువ విభాగ నిర్దిష్ట ల్యాబ్‌లు",
+      "Smart classrooms with audio visual facilities": "ఆడియో విజువల్ సౌకర్యాలతో స్మార్ట్ తరగతి గదులు",
+      "Air conditioned auditorium and seminar halls": "ఎయిర్ కండిషన్డ్ ఆడిటోరియం మరియు సెమినార్ హాల్స్",
+      "Cricket Football Basketball Badminton Table Tennis Chess": "క్రికెట్ ఫుట్‌బాల్ బాస్కెట్‌బాల్ బ్యాడ్మింటన్ టేబుల్ టెన్నిస్ చెస్",
+      "Multi cuisine cafeteria on campus": "క్యాంపస్‌లో మల్టీ క్యుజిన్ కాఫెటీరియా",
+      "WiFi across entire campus": "మొత్తం క్యాంపస్‌లో WiFi",
+      "Approximately 200 neem trees green campus": "సుమారు 200 వేప చెట్లతో ఆకుపచ్చ క్యాంపస్",
+      "CCTV surveillance throughout campus": "మొత్తం క్యాంపస్‌లో CCTV నిఘా",
+      "No on-campus hostel facility is currently available at Sreyas Institute": "Sreyas ఇన్‌స్టిట్యూట్‌లో ప్రస్తుతం క్యాంపస్‌లో హాస్టల్ సదుపాయం అందుబాటులో లేదు",
+      "Students stay in nearby private PG accommodations close to campus": "విద్యార్థులు క్యాంపస్‌కు సమీపంలో ప్రైవేట్ PG వసతులలో ఉంటారు",
+      "Multiple paying guest accommodations available near Nagole and Bandlaguda area": "నాగోల్ మరియు బండ్లగూడ ప్రాంతంలో అనేక పేయింగ్ గెస్ట్ వసతులు అందుబాటులో",
+      "For PG recommendations contact 9246323444": "PG సిఫార్సుల కోసం 9246323444 సంప్రదించండి",
+      "College buses across multiple Hyderabad routes": "హైదరాబాద్‌లో అనేక మార్గాల్లో కళాశాల బస్సులు",
+      "Multiple areas of Hyderabad covered": "హైదరాబాద్‌లోని అనేక ప్రాంతాలు కవర్ చేయబడ్డాయి",
+      "for routes timings and bus fees": "మార్గాలు సమయాలు మరియు బస్ ఫీజుల కోసం",
+      "Monday to Saturday": "సోమవారం నుండి శనివారం",
+      "May vary during examination period": "పరీక్ష కాలంలో మారవచ్చు",
+      "JNTU Hyderabad affiliated examination pattern": "JNTU హైదరాబాద్ అనుబంధ పరీక్ష విధానం",
+      "30 marks per subject": "ప్రతి సబ్జెక్ట్‌కు 30 మార్కులు",
+      "70 marks per subject": "ప్రతి సబ్జెక్ట్‌కు 70 మార్కులు",
+      "100 marks": "100 మార్కులు",
+      "75 percent attendance mandatory": "75 శాతం హాజరు తప్పనిసరి",
+      "Available for students who fail in external exams": "బాహ్య పరీక్షలలో ఫెయిల్ అయిన విద్యార్థులకు అందుబాటులో",
+      "Published on JNTU portal": "JNTU పోర్టల్‌లో ప్రచురించబడుతుంది",
+      "Two mid term exams per semester for internal marks": "అంతర్గత మార్కుల కోసం సెమిస్టర్‌కు రెండు మిడ్ టర్మ్ పరీక్షలు",
+      "Lab practical exams conducted at end of semester": "సెమిస్టర్ చివరలో ల్యాబ్ ప్రాక్టికల్ పరీక్షలు నిర్వహించబడతాయి",
+      "Nearly 30 percent of faculty hold PhD degrees": "దాదాపు 30 శాతం అధ్యాపకులు PhD డిగ్రీలు కలిగి ఉన్నారు",
+      "Industry oriented and research focused": "పరిశ్రమ ఆధారిత మరియు పరిశోధన కేంద్రిత",
+      "Dedicated student mentoring system": "అంకిత విద్యార్థి మెంటారింగ్ వ్యవస్థ",
+      "Average 18 plus years teaching experience in senior faculty": "సీనియర్ అధ్యాపకులలో సగటున 18 సంవత్సరాలకు పైగా బోధన అనుభవం",
+      "24 by 7 security on campus": "క్యాంపస్‌లో 24 గంటలూ 7 రోజులూ భద్రత",
+      "Surveillance throughout campus": "మొత్తం క్యాంపస్‌లో నిఘా",
+      "Active anti ragging committee": "క్రియాశీల యాంటీ ర్యాగింగ్ కమిటీ",
+      "Safe environment for female students with dedicated transport": "అంకిత రవాణాతో మహిళా విద్యార్థులకు సురక్షిత వాతావరణం",
+      "Internal Complaints Committee in place": "ఇంటర్నల్ కంప్లయింట్స్ కమిటీ ఏర్పాటు చేయబడింది",
+      "Annual cultural and technical fests conducted": "వార్షిక సాంస్కృతిక మరియు సాంకేతిక ఉత్సవాలు నిర్వహించబడతాయి",
+      "Inter college sports competitions": "ఇంటర్ కళాశాల క్రీడా పోటీలు",
+      "National Service Scheme activities": "నేషనల్ సర్వీస్ స్కీమ్ కార్యక్రమాలు",
+      "Coding club technical clubs cultural clubs": "కోడింగ్ క్లబ్ టెక్నికల్ క్లబ్‌లు సాంస్కృతిక క్లబ్‌లు",
+      "Regular guest lecture series and seminars": "నియమిత అతిథి ఉపన్యాస శ్రేణులు మరియు సెమినార్లు",
+      "Regular industrial visits arranged": "నియమిత పారిశ్రామిక సందర్శనలు ఏర్పాటు చేయబడతాయి",
+      "Internship opportunities provided": "ఇంటర్న్‌షిప్ అవకాశాలు అందించబడతాయి",
+      "Regular workshops and certification programs": "నియమిత వర్క్‌షాప్‌లు మరియు సర్టిఫికేషన్ ప్రోగ్రామ్‌లు",
+      "Google Cloud Career Readiness Program partner": "Google Cloud కెరీర్ రెడీనెస్ ప్రోగ్రామ్ భాగస్వామి",
+      "Number 93 in 2025": "2025లో 93వ స్థానం",
+      "5 star rating first in Telangana": "తెలంగాణలో 5-స్టార్ రేటింగ్ మొదటిది",
+      "A Grade accreditation": "A గ్రేడ్ గుర్తింపు",
+      "ECE branch accredited": "ECE బ్రాంచ్ గుర్తింపు పొందింది",
+      "Career readiness program partner": "కెరీర్ రెడీనెస్ ప్రోగ్రామ్ భాగస్వామి",
+      "9001 2015 certified": "9001:2015 ధృవీకరించబడింది",
+      "Sreyas Institute offers 4-Year Full-Time Bachelor of Technology (B.Tech) Degree Programmes:": "Sreyas ఇన్‌స్టిట్యూట్ 4 సంవత్సరాల పూర్తి-సమయం బి.టెక్ డిగ్రీ ప్రోగ్రామ్‌లను అందిస్తుంది:",
+      "4 Years (Regular Full-Time) / 3 Years (Lateral Entry)": "4 సంవత్సరాలు (రెగ్యులర్ పూర్తి-సమయం) / 3 సంవత్సరాలు (లేటరల్ ఎంట్రీ)",
+      "Choice Based Credit System (CBCS) under Autonomous Regulations": "స్వయంప్రతిపత్తి నిబంధనల కింద ఛాయిస్ బేస్డ్ క్రెడిట్ సిస్టమ్ (CBCS)",
+      "Intake: 240 Seats": "సీట్లు: 240",
+      "Intake: 180 Seats": "సీట్లు: 180",
+      "Intake: 120 Seats": "సీట్లు: 120",
+      "4 Years (8 Semesters)": "4 సంవత్సరాలు (8 సెమిస్టర్లు)",
+      "4 Years (8 Semesters) — NBA Accredited Branch": "4 సంవత్సరాలు (8 సెమిస్టర్లు) — NBA గుర్తింపు పొందిన బ్రాంచ్",
+      "Software Developer, System Architect, Full Stack Developer, Data Engineer, Cloud Solutions Architect": "సాఫ్ట్‌వేర్ డెవలపర్, సిస్టమ్ ఆర్కిటెక్ట్, ఫుల్ స్టాక్ డెవలపర్, డేటా ఇంజినీర్, క్లౌడ్ సొల్యూషన్స్ ఆర్కిటెక్ట్",
+      "AI Engineer, ML Engineer, Data Scientist, Prompt Engineer, Robotics Software Specialist": "AI ఇంజినీర్, ML ఇంజినీర్, డేటా సైంటిస్ట్, ప్రాంప్ట్ ఇంజినీర్, రోబోటిక్స్ సాఫ్ట్‌వేర్ స్పెషలిస్ట్",
+      "Embedded System Hardware/Software Engineer, VLSI Design Engineer, Telecom Engineer, Signal Processing Engineer, Core Electronics Specialist": "ఎంబెడెడ్ సిస్టమ్ హార్డ్‌వేర్/సాఫ్ట్‌వేర్ ఇంజినీర్, VLSI డిజైన్ ఇంజినీర్, టెలికామ్ ఇంజినీర్, సిగ్నల్ ప్రాసెసింగ్ ఇంజినీర్",
+      "Through TG EAPCET (Telangana Engineering, Agriculture and Pharmacy Common Entrance Test) Counselling conducted by TSCHE": "TSCHE నిర్వహించే TG EAPCET కౌన్సెలింగ్ ద్వారా",
+      "Pass in 10+2 / Intermediate examination with Mathematics, Physics, and Chemistry (MPC) as optional subjects with minimum 45% aggregate marks": "గణితం, భౌతిక శాస్త్రం, రసాయనిక శాస్త్రంతో (MPC) కనీసం 45% మార్కులతో 10+2 / ఇంటర్మీడియట్ పాస్",
+      "Direct Admission based on Merit in 10+2 / Intermediate marks or TG EAPCET / JEE Mains Rank": "10+2 / ఇంటర్ మార్కులు లేదా TG EAPCET / JEE మెయిన్స్ ర్యాంక్ ఆధారంగా నేరుగా ప్రవేశం",
+      "Applications invited through college portal and official notification": "కళాశాల పోర్టల్ మరియు అధికారిక నోటిఫికేషన్ ద్వారా దరఖాస్తులు స్వీకరించబడతాయి",
+      "Direct admission into 2nd Year B.Tech (3rd Semester) through TG ECET Counselling": "TG ECET కౌన్సెలింగ్ ద్వారా నేరుగా 2వ సంవత్సరం బి.టెక్ (3వ సెమిస్టర్)లో ప్రవేశం",
+      "Diploma in Engineering / Technology or B.Sc (Mathematics) degree with minimum 45% marks": "కనీసం 45% మార్కులతో ఇంజినీరింగ్ / టెక్నాలజీ డిప్లొమా లేదా B.Sc (గణితం) డిగ్రీ",
+      "CSE Branch Cutoff Rank: 35,103 to 42,150": "CSE బ్రాంచ్ కటాఫ్ ర్యాంక్: 35,103 నుండి 42,150",
+      "CSE AI&ML Branch Cutoff Rank: 38,200 to 45,500": "CSE AI&ML బ్రాంచ్ కటాఫ్ ర్యాంక్: 38,200 నుండి 45,500",
+      "ECE Branch Cutoff Rank: 42,000 to 48,265": "ECE బ్రాంచ్ కటాఫ్ ర్యాంక్: 42,000 నుండి 48,265",
+      "Approximately Rs 95,000 to Rs 1,07,500 per year": "సుమారు రూ. 95,000 నుండి రూ. 1,07,500 ఏడాదికి",
+      "Approximately Rs 85,000 to Rs 95,000 per year": "సుమారు రూ. 85,000 నుండి రూ. 95,000 ఏడాదికి",
+      "Rs 1.86 Lakhs to Rs 4.30 Lakhs depending on branch and admission category (Convenor vs Management)": "బ్రాంచ్ మరియు ప్రవేశ వర్గం ప్రకారం రూ. 1.86 లక్షలు నుండి రూ. 4.30 లక్షలు",
+      "Tuition fees are fixed by Telangana Admission and Fee Regulatory Committee (TAFRC) and subject to government revision": "ట్యూషన్ ఫీజులు TAFRC నిర్ణయిస్తుంది మరియు ప్రభుత్వ సవరణకు లోబడి ఉంటాయి",
+      "As per JNTUH norms": "JNTUH నిబంధనల ప్రకారం",
+      "Paid per semester based on number of theory and lab papers": "సెమిస్టర్‌కు సిద్ధాంత మరియు ల్యాబ్ పేపర్ల సంఖ్య ఆధారంగా చెల్లింపు",
+      "Optional, based on pickup route distance (Rs 18,000 to Rs 26,000 per annum)": "ఐచ్ఛికం, పికప్ రూట్ దూరం ఆధారంగా (రూ. 18,000 నుండి రూ. 26,000 సంవత్సరానికి)",
+      "JNTUH University Recognition & Registration Fee": "JNTUH విశ్వవిద్యాలయ గుర్తింపు & రిజిస్ట్రేషన్ ఫీజు",
+      "Eligible Categories: SC, ST, BC, EBC, Minority, and Differently Abled students domiciled in Telangana": "అర్హత వర్గాలు: SC, ST, BC, EBC, మైనారిటీ మరియు వికలాంగ విద్యార్థులు (తెలంగాణ నివాసులు)",
+      "Annual family income below Rs 1.50 Lakhs (Rural) / Rs 2.00 Lakhs (Urban) for BC/EBC/Minority": "BC/EBC/మైనారిటీ కోసం వార్షిక కుటుంబ ఆదాయం రూ. 1.50 లక్షలు (గ్రామీణ) / రూ. 2.00 లక్షలు (పట్టణ) కంటే తక్కువ",
+      "Full Fee Reimbursement available for rank holders below 10,000 in EAPCET": "EAPCET లో 10,000 లోపు ర్యాంక్ పొందినవారికి పూర్తి ఫీజు రీఇంబర్స్‌మెంట్",
+      "Fee concessions awarded to top EAPCET rankers joining Sreyas": "Sreyas చేరే టాప్ EAPCET ర్యాంకర్లకు ఫీజు రాయితీలు",
+      "Special awards for semester toppers in each department": "ప్రతి విభాగంలో సెమిస్టర్ టాపర్లకు ప్రత్యేక బహుమతులు",
+      "Collateral-free education loan guidance supported by SBI, Canara Bank, Union Bank, and HDFC Credila": "SBI, కెనరా బ్యాంక్, యూనియన్ బ్యాంక్ మరియు HDFC క్రెడిలా మద్దతుతో జమానత్ లేని విద్యా రుణ మార్గదర్శనం",
+      "Rs 21.18 LPA (Lakhs Per Annum) offered by Atomic Works": "Atomic Works అందించిన రూ. 21.18 LPA",
+      "Rs 4.0 LPA to Rs 5.0 LPA": "రూ. 4.0 LPA నుండి రూ. 5.0 LPA",
+      "558+ Placement Offers secured by graduating batch": "558 కంటే ఎక్కువ ప్లేస్‌మెంట్ ఆఫర్లు",
+      "Over 85% of eligible registered students placed in reputed MNCs": "అర్హత కలిగిన 85% కంటే ఎక్కువ మంది విద్యార్థులు ప్రతిష్ఠాత్మక కంపెనీలలో ప్లేస్ అయ్యారు",
+      "6th Semester (3rd Year onwards)": "6వ సెమిస్టర్ (3వ సంవత్సరం నుండి)",
+      "Aptitude & Quantitative Ability Training from 2nd Year onwards": "2వ సంవత్సరం నుండి అప్టిట్యూడ్ & క్వాంటిటేటివ్ ఎబిలిటీ శిక్షణ",
+      "Programming & Data Structures Coding Bootcamps in C, Java, Python": "C, Java, Python లో ప్రోగ్రామింగ్ & డేటా స్ట్రక్చర్స్ కోడింగ్ బూట్‌క్యాంప్‌లు",
+      "Full-Stack Web Development & Cloud Certification Workshops": "ఫుల్-స్టాక్ వెబ్ డెవలప్‌మెంట్ & క్లౌడ్ సర్టిఫికేషన్ వర్క్‌షాప్‌లు",
+      "Mock Technical Interviews & HR Group Discussion sessions": "మాక్ టెక్నికల్ ఇంటర్వ్యూలు & HR గ్రూప్ డిస్కషన్ సెషన్లు",
+      "Soft Skills, Resume Building, & Corporate Etiquette Training": "సాఫ్ట్ స్కిల్స్, రెజ్యుమే బిల్డింగ్, & కార్పొరేట్ ఎటికెట్ శిక్షణ",
+      "Head of Training & Placements": "ట్రైనింగ్ & ప్లేస్‌మెంట్స్ హెడ్",
+      "Sreyas Institute does **not** have an official on-campus hostel building inside the college premises": "Sreyas ఇన్‌స్టిట్యూట్ కళాశాల ప్రాంగణంలో అధికారిక క్యాంపస్ హాస్టల్ లేదు",
+      "Multiple private Boys and Girls Paying Guest (PG) Accommodations and Hostels are located within 1 to 2 km of the campus": "క్యాంపస్ నుండి 1 నుండి 2 కి.మీ. దూరంలో అనేక ప్రైవేట్ బాయ్స్ మరియు గర్ల్స్ PG వసతులు ఉన్నాయి",
+      "Generally include Wi-Fi, Food (3 meals), Hot Water, Security, Washing Machines, and AC/Non-AC rooms": "సాధారణంగా Wi-Fi, భోజనం (3 పూటలు), వేడి నీళ్ళు, భద్రత, వాషింగ్ మిషన్లు, AC/Non-AC గదులు ఉంటాయి",
+      "Approximately Rs 5,500 to Rs 9,000 per month depending on sharing type (2/3/4 sharing) and food inclusion": "భాగస్వామ్య రకం మరియు భోజనం ఆధారంగా నెలకు సుమారు రూ. 5,500 నుండి రూ. 9,000",
+      "College administrative office assists outstation students with verified PG landlord contact numbers": "కళాశాల అడ్మినిస్ట్రేటివ్ ఆఫీస్ ఔట్‌స్టేషన్ విద్యార్థులకు ధృవీకరించబడిన PG లాండ్‌లార్డ్ నంబర్లు ఇస్తుంది",
+      "Fleet of 25+ Comfortable Air-Conditioned and Non-AC Buses operating on 23 comprehensive routes across Hyderabad and Secunderabad": "హైదరాబాద్ మరియు సికింద్రాబాద్‌లో 23 మార్గాల్లో 25+ AC మరియు నాన్-AC బస్సులు నడుస్తున్నాయి",
+      "Dedicated bus drivers, GPS tracking system enabled on all buses for real-time tracking and student safety": "అన్ని బస్సులపై GPS ట్రాకింగ్ సిస్టమ్ మరియు అంకిత బస్సు డ్రైవర్లు - విద్యార్థుల భద్రత కోసం",
+      "Annual transport fee depends on pickup distance (Rs 18,000 to Rs 26,000 per annum)": "పికప్ దూరం ఆధారంగా వార్షిక రవాణా ఫీజు (రూ. 18,000 నుండి రూ. 26,000 సంవత్సరానికి)",
+      "ICT-enabled Classrooms equipped with Overhead LCD Projectors, Smart Interactive Boards, and Audio Systems": "ఓవర్‌హెడ్ LCD ప్రొజెక్టర్లు, స్మార్ట్ ఇంటరాక్టివ్ బోర్డులు మరియు ఆడియో సిస్టమ్‌లతో ICT-ఎనేబుల్డ్ తరగతి గదులు",
+      "Air-Conditioned Central Auditorium with 800+ Seating Capacity": "800+ సీటింగ్ కెపాసిటీతో ఎయిర్ కండిషన్డ్ సెంట్రల్ ఆడిటోరియం",
+      "1 Gbps Dedicated Leased Line Internet Bandwidth provided across campus": "క్యాంపస్ అంతటా 1 Gbps డెడికేటెడ్ లీజ్డ్ లైన్ ఇంటర్నెట్",
+      "Secure Campus-Wide Wi-Fi access for students and faculty": "విద్యార్థులు మరియు అధ్యాపకుల కోసం సురక్షిత క్యాంపస్-వైడ్ Wi-Fi",
+      "Multi-Cuisine Clean Canteen serving hygienic South Indian, North Indian food, snacks, fresh juices, and beverages": "పరిశుభ్రమైన దక్షిణాది, ఉత్తరాది భోజనం, స్నాక్స్, జ్యూస్‌లతో మల్టీ-క్యుజిన్ కాఫెటీరియా",
+      "200+ Mature Neem Trees providing natural oxygenation and cool micro-climate": "200 కంటే ఎక్కువ నేమ్ చెట్లు - సహజ ఆక్సిజన్ మరియు చల్లని వాతావరణం",
+      "Over 1,000 Square Meters spacious air-conditioned Reading Hall": "1,000+ చదరపు మీటర్ల విశాలమైన AC రీడింగ్ హాల్",
+      "30,000+ Volumes of Textbooks and Reference Books across all engineering branches": "అన్ని ఇంజినీరింగ్ బ్రాంచ్‌లలో 30,000+ పాఠ్యపుస్తకాలు మరియు రిఫరెన్స్ పుస్తకాలు",
+      "4,500+ Unique Book Titles": "4,500 కంటే ఎక్కువ ప్రత్యేక పుస్తక శీర్షికలు",
+      "110+ National and International Printed Journals": "110 కంటే ఎక్కువ జాతీయ మరియు అంతర్జాతీయ పత్రికలు",
+      "30+ Computer Systems with High-speed Gigabit Internet": "హై-స్పీడ్ ఇంటర్నెట్‌తో 30+ కంప్యూటర్ సిస్టమ్‌లు",
+      "IEEE Xplore Digital Library, NPTEL Video Lectures, ScienceDirect, Springer, DELNET Subscription": "IEEE Xplore డిజిటల్ లైబ్రరీ, NPTEL వీడియో లెక్చర్లు, ScienceDirect, Springer, DELNET",
+      "Fully Automated Library Management System with RFID / Barcode Scanning": "RFID / బార్‌కోడ్ స్కానింగ్‌తో పూర్తి ఆటోమేటెడ్ లైబ్రరీ మేనేజ్‌మెంట్ సిస్టమ్",
+      "Round-the-clock trained security personnel at all gates and campus entry points": "అన్ని గేట్లు మరియు క్యాంపస్ ప్రవేశ బిందువుల వద్ద 24 గంటలూ శిక్షణ పొందిన భద్రతా సిబ్బంది",
+      "200+ CCTV Cameras monitoring all corridors, classrooms, labs, library, and campus grounds": "అన్ని కారిడార్లు, తరగతి గదులు, ల్యాబ్‌లు, లైబ్రరీ మరియు క్యాంపస్ మైదానాలను పర్యవేక్షించే 200+ CCTV కెమెరాలు",
+      "Strict Zero-Tolerance Policy towards ragging in compliance with AICTE / UGC / Supreme Court guidelines": "AICTE / UGC / సుప్రీం కోర్ట్ మార్గదర్శకాల ప్రకారం ర్యాగింగ్‌పై కఠిన జీరో-టాలరెన్స్ విధానం",
+      "Two Semesters per academic year (Odd Semester: July-December; Even Semester: January-June)": "విద్యా సంవత్సరంలో రెండు సెమిస్టర్లు (బేసి: జూలై-డిసెంబర్; సరి: జనవరి-జూన్)",
+      "Choice Based Credit System (CBCS) with continuous evaluation": "నిరంతర మూల్యాంకనంతో ఛాయిస్ బేస్డ్ క్రెడిట్ సిస్టమ్ (CBCS)",
+      "Internal Continuous Assessment (Mid Exams & Assignments): 30 Marks per subject": "అంతర్గత నిరంతర మూల్యాంకనం (మిడ్ పరీక్షలు & అసైన్‌మెంట్లు): ప్రతి సబ్జెక్ట్‌కు 30 మార్కులు",
+      "End-Semester External University Examination: 70 Marks per subject": "సెమిస్టర్ అంత్య బాహ్య విశ్వవిద్యాలయ పరీక్ష: ప్రతి సబ్జెక్ట్‌కు 70 మార్కులు",
+      "Total Marks per Subject: 100 Marks (Credits assigned per paper)": "ప్రతి సబ్జెక్ట్‌కు మొత్తం మార్కులు: 100 మార్కులు",
+      "Two Mid-Term examinations conducted per semester": "సెమిస్టర్‌కు రెండు మిడ్-టర్మ్ పరీక్షలు",
+      "End-semester practical evaluation conducted by Internal and External Examiners": "అంతర్గత మరియు బాహ్య పరీక్షకులచే సెమిస్టర్ అంత్య ప్రాక్టికల్ మూల్యాంకనం",
+      "Minimum 75% Attendance mandatory to appear for End-Semester Examinations": "సెమిస్టర్ అంత్య పరీక్షలకు హాజరు కావడానికి కనీసం 75% హాజరు తప్పనిసరి",
+      "Condonation of shortage of attendance between 65% and 75% allowed on genuine medical grounds": "65% మరియు 75% మధ్య హాజరు లోటుకు వాస్తవిక వైద్య కారణాలపై మన్నింపు",
+      "Students below 65% attendance are detained and must repeat the semester": "65% కంటే తక్కువ హాజరు ఉన్న విద్యార్థులను నిలిపివేస్తారు మరియు సెమిస్టర్ పునరావృతం చేయాలి",
+      "16 km": "16 కి.మీ.",
+      "16.8 km": "16.8 కి.మీ.",
+      "26.7 km": "26.7 కి.మీ.",
+      "100+ qualified faculty members across all departments": "అన్ని విభాగాలలో 100 కంటే ఎక్కువ అర్హత కలిగిన అధ్యాపకులు",
+      "30+ faculty members with doctoral degrees from reputed universities": "ప్రతిష్ఠాత్మక విశ్వవిద్యాలయాల నుండి PhD డిగ్రీలు కలిగిన 30 కంటే ఎక్కువ అధ్యాపకులు",
+      "All faculty hold minimum M.Tech / M.E. or equivalent Post-Graduate degree in relevant discipline": "అన్ని అధ్యాపకులు సంబంధిత విభాగంలో కనీసం M.Tech / M.E. లేదా సమకక్షమైన పోస్ట్-గ్రాడ్యుయేట్ డిగ్రీ కలిగి ఉన్నారు",
+      "🏛️ Telangana Government Fee Reimbursement:": "🏛️ తెలంగాణ ప్రభుత్వ ఫీజు రీయింబర్స్‌మెంట్:",
+      "Full or partial tuition fee reimbursement provided by TG State Govt for eligible SC/ST/BC/EBC/Minority students admitted under EAPCET Convenor Quota (Category-A), subject to parental income limits and government norms.": "EAPCET కన్వీనర్ కోటా (కేటగిరీ-A) కింద చేరిన అర్హులైన SC/ST/BC/EBC/మైనారిటీ విద్యార్థులకు తెలంగాణ ప్రభుత్వం పూర్తి లేదా పాక్షిక ట్యూషన్ ఫీజు రీయింబర్స్‌మెంట్ అందిస్తుంది (తల్లిదండ్రుల ఆదాయ పరిమితులు మరియు ప్రభుత్వ నిబంధనలకు లోబడి).",
+      "🏅 College Merit Scholarships:": "🏅 కళాశాల మెరిట్ స్కాలర్‌షిప్‌లు:",
+      "Special tuition fee concessions and merit scholarships awarded to top EAPCET rankers and academic toppers during admission.": "అడ్మిషన్ సమయంలో అత్యుత్తమ EAPCET ర్యాంకర్లు మరియు అకడమిక్ టాపర్లకు ప్రత్యేక ట్యూషన్ ఫీజు రాయితీలు మరియు మెరిట్ స్కాలర్‌షిప్‌లు అందించబడతాయి.",
+      "🏦 Education Loan Assistance:": "🏦 విద్యా రుణ సహాయం:",
+      "The college provides official bonafide certificates, fee structure documents, and bank loan application assistance for students applying for education loans from nationalised and private banks.": "జాతీయం చేయబడిన మరియు ప్రైవేట్ బ్యాంకుల నుండి విద్యా రుణాల కోసం దరఖాస్తు చేసుకునే విద్యార్థులకు కళాశాల అధికారిక బోనఫైడ్ సర్టిఫికెట్లు, ఫీజు నిర్మాణ పత్రాలు మరియు బ్యాంక్ లోన్ దరఖాస్తు సహాయాన్ని అందిస్తుంది.",
+      "📞 Scholarship Desk Contact:": "📞 స్కాలర్‌షిప్ డెస్క్ సంప్రదింపులు:",
+      "Scholarship Desk Contact:": "స్కాలర్‌షిప్ డెస్క్ సంప్రదింపులు:",
+      "🎓 Scholarships & Financial Assistance:": "🎓 స్కాలర్‌షిప్‌లు & ఆర్థిక సహాయం:",
+      "Sreyas provides:": "శ్రేయస్ అందిస్తుంది:",
+      "• Telangana Government fee reimbursement support for eligible students": "• అర్హులైన విద్యార్థులకు తెలంగాణ ప్రభుత్వ ఫీజు రీయింబర్స్‌మెంట్ మద్దతు",
+      "• College merit-based fee concessions": "• కళాశాల మెరిట్ ఆధారిత ఫీజు రాయితీలు",
+      "• Scholarship & education loan assistance documentation support": "• స్కాలర్‌షిప్ & విద్యా రుణ సహాయ డాక్యుమెంటేషన్ మద్దతు",
+      "Telangana Government fee reimbursement support for eligible students": "అర్హులైన విద్యార్థులకు తెలంగాణ ప్రభుత్వ ఫీజు రీయింబర్స్‌మెంట్ మద్దతు",
+      "College merit-based fee concessions": "కళాశాల మెరిట్ ఆధారిత ఫీజు రాయితీలు",
+      "Scholarship & education loan assistance documentation support": "స్కాలర్‌షిప్ & విద్యా రుణ సహాయ డాక్యుమెంటేషన్ మద్దతు",
+      "📊 Placements Overview (2025-26):": "📊 ప్లేస్‌మెంట్స్ అవలోకనం (2025-26):",
+      "• Highest Salary Package: Rs 21.18 LPA (Atomic Works)": "• అత్యధిక జీతం ప్యాకేజీ: Rs 21.18 LPA (Atomic Works)",
+      "• Average Salary Package: Rs 4.0 LPA – Rs 5.0 LPA": "• సగటు జీతం ప్యాకేజీ: Rs 4.0 LPA – Rs 5.0 LPA",
+      "• 558+ Placement Offers secured (85%+ eligible students placed)": "• 558+ ప్లేస్‌మెంట్ ఆఫర్లు సాధించబడ్డాయి (85%+ అర్హులైన విద్యార్థులు ప్లేస్ అయ్యారు)",
+      "• Placement season starts in 6th Semester (3rd Year onwards)": "• ప్లేస్‌మెంట్ సీజన్ 6వ సెమిస్టర్‌లో ప్రారంభమవుతుంది (3వ సంవత్సరం నుండి)",
+      "🏆 Highest Salary Package (2025-26):": "🏆 అత్యధిక జీతం ప్యాకేజీ (2025-26):",
+      "💼 Average Salary Package (2025-26):": "💼 సగటు జీతం ప్యాకేజీ (2025-26):",
+      "🏢 Top Recruiting Companies:": "🏢 ప్రధాన రిక్రూటింగ్ కంపెనీలు:",
+      "🎯 Placement Training (CRT):": "🎯 ప్లేస్‌మెంట్ శిక్షణ (CRT):",
+      "• Aptitude & Quantitative Ability Training from 2nd Year onwards": "• 2వ సంవత్సరం నుండి ఆప్టిట్యూడ్ & క్వాంటిటేటివ్ ఎబిలిటీ శిక్షణ",
+      "• Coding Bootcamps in C, Java, Python & Data Structures": "• C, Java, Python & డేటా స్ట్రక్చర్స్‌లో కోడింగ్ బూట్‌క్యాంప్‌లు",
+      "• Web Development & Cloud Certification Workshops": "• వెబ్ డెవలప్‌మెంట్ & క్లౌడ్ సర్టిఫికేషన్ వర్క్‌షాప్‌లు",
+      "• Mock Technical Interviews & HR Group Discussion sessions": "• మాక్ టెక్నికల్ ఇంటర్వ్యూలు & HR గ్రూప్ డిస్కషన్ సెషన్లు",
+      "• Soft Skills, Resume Building, & Corporate Etiquette Training": "• సాఫ్ట్ స్కిల్స్, రెజ్యూమ్ బిల్డింగ్ & కార్పొరేట్ ఎటికెట్ శిక్షణ",
+      "Which branch fee would you like in detail?": "మీరు ఏ బ్రాంచ్ ఫీజు వివరాలను తెలుసుకోవాలనుకుంటున్నారు?",
+      "Which course would you like to know more about?": "మీరు ఏ కోర్సు గురించి మరింత తెలుసుకోవాలనుకుంటున్నారు?",
+      "🎓 Undergraduate Programmes Offered (B.Tech):": "🎓 అందించే అండర్ గ్రాడ్యుయేట్ కోర్సులు (B.Tech):",
+      "Undergraduate Programmes Offered (B.Tech)": "అందించే అండర్ గ్రాడ్యుయేట్ కోర్సులు (B.Tech)",
+      "• B.Tech CSE (Total Intake: 240 seats)": "• B.Tech CSE (మొత్తం సీట్లు: 240)",
+      "• B.Tech CSE (AI & ML) (Total Intake: 180 seats)": "• B.Tech CSE (AI & ML) (మొత్తం సీట్లు: 180)",
+      "• B.Tech ECE (Total Intake: 120 seats)": "• B.Tech ECE (మొత్తం సీట్లు: 120)",
+      "Total Intake: 240 seats": "మొత్తం సీట్లు: 240",
+      "Total Intake: 180 seats": "మొత్తం సీట్లు: 180",
+      "Total Intake: 120 seats": "మొత్తం సీట్లు: 120",
+      "B.Tech CSE (Artificial Intelligence & Machine Learning)": "B.Tech CSE (ఆర్టిఫిషియల్ ఇంటెలిజెన్స్ & మెషిన్ లెర్నింగ్)",
+      "B.Tech Computer Science and Engineering (CSE)": "B.Tech కంప్యూటర్ సైన్స్ అండ్ ఇంజనీరింగ్ (CSE)",
+      "B.Tech Electronics and Communication Engineering (ECE)": "B.Tech ఎలక్ట్రానిక్స్ అండ్ కమ్యూనికేషన్ ఇంజనీరింగ్ (ECE)",
+      "Total Branch Intake: 180 Seats (across all sections)": "మొత్తం బ్రాంచ్ సీట్లు: 180 (అన్ని సెక్షన్లలో కలిపి)",
+      "Total Branch Intake: 240 Seats (across all sections)": "మొత్తం బ్రాంచ్ సీట్లు: 240 (అన్ని సెక్షన్లలో కలిపి)",
+      "Total Branch Intake: 120 Seats (across all sections)": "మొత్తం బ్రాంచ్ సీట్లు: 120 (అన్ని సెక్షన్లలో కలిపి)",
+      "Duration: 4 Years (8 Semesters)": "వ్యవధి: 4 సంవత్సరాలు (8 సెమిస్టర్లు)",
+      "Focus: AI Algorithms, Machine Learning, Deep Learning, NLP & Computer Vision": "ముఖ్యాంశాలు: AI అల్గారిథమ్స్, మెషిన్ లెర్నింగ్, డీప్ లెర్నింగ్, NLP & కంప్యూటర్ విజన్",
+      "Focus: Software Engineering, Data Structures, Web Technologies, Databases & Cloud Computing": "ముఖ్యాంశాలు: సాఫ్ట్‌వేర్ ఇంజనీరింగ్, డేటా స్ట్రక్చర్స్, వెబ్ టెక్నాలజీస్, డేటాబేసెస్ & క్లౌడ్ కంప్యూటింగ్",
+      "Focus: Embedded Systems, VLSI Design, IoT, Robotics & Communication Systems": "ముఖ్యాంశాలు: ఎంబెడెడ్ సిస్టమ్స్, VLSI డిజైన్, IoT, రోబోటిక్స్ & కమ్యూనికేషన్ సిస్టమ్స్",
+      "💰 CSE Tuition Fee:": "💰 CSE ట్యూషన్ ఫీజు:",
+      "💰 CSE (AI & ML) Tuition Fee:": "💰 CSE (AI & ML) ట్యూషన్ ఫీజు:",
+      "💰 ECE Tuition Fee:": "💰 ECE ట్యూషన్ ఫీజు:",
+      "• Approximately ₹95,000 – ₹1,07,500 per year": "• సంవత్సరానికి సుమారు ₹95,000 – ₹1,07,500",
+      "• Approximately ₹85,000 – ₹95,000 per year": "• సంవత్సరానికి సుమారు ₹85,000 – ₹95,000",
+      "Approximately ₹95,000 – ₹1,07,500 per year": "సంవత్సరానికి సుమారు ₹95,000 – ₹1,07,500",
+      "Approximately ₹85,000 – ₹95,000 per year": "సంవత్సరానికి సుమారు ₹85,000 – ₹95,000",
+      "• Fee fixed by TAFRC (Telangana Admission & Fee Regulatory Committee).": "• ఫీజు TAFRC (తెలంగాణ అడ్మిషన్ & ఫీ రెగ్యులేటరీ కమిటీ) ద్వారా నిర్ణయించబడుతుంది.",
+      "Fee fixed by TAFRC (Telangana Admission & Fee Regulatory Committee).": "ఫీజు TAFRC (తెలంగాణ అడ్మిషన్ & ఫీ రెగ్యులేటరీ కమిటీ) ద్వారా నిర్ణయించబడుతుంది.",
+      "• Subject to annual revision by TAFRC.": "• TAFRC వార్షిక సమీక్షకు లోబడి ఉంటుంది.",
+      "Subject to annual revision by TAFRC.": "TAFRC వార్షిక సమీక్షకు లోబడి ఉంటుంది.",
+      "💰 Tuition Fee Structure (Per Annum):": "💰 ట్యూషన్ ఫీజు వివరాలు (సంవత్సరానికి):",
+      "• CSE: ₹95,000 – ₹1,07,500 per year": "• CSE: సంవత్సరానికి ₹95,000 – ₹1,07,500",
+      "• CSE (AI & ML): ₹95,000 – ₹1,07,500 per year": "• CSE (AI & ML): సంవత్సరానికి ₹95,000 – ₹1,07,500",
+      "• ECE: ₹85,000 – ₹95,000 per year": "• ECE: సంవత్సరానికి ₹85,000 – ₹95,000",
+      "• Total 4-Year Range: ₹1.86 Lakhs – ₹4.30 Lakhs (varies by branch & quota)": "• మొత్తం 4 సంవత్సరాల ఫీజు పరిధి: ₹1.86 లక్షలు – ₹4.30 లక్షలు (బ్రాంచ్ & కోటాను బట్టి మారుతుంది)",
+      "Total 4-Year Range: ₹1.86 Lakhs – ₹4.30 Lakhs (varies by branch & quota)": "మొత్తం 4 సంవత్సరాల ఫీజు పరిధి: ₹1.86 లక్షలు – ₹4.30 లక్షలు (బ్రాంచ్ & కోటాను బట్టి మారుతుంది)",
+      "📋 Additional Annual Fees:": "📋 అదనపు వార్షిక ఫీజులు:",
+      "• JNTUH University Recognition & Registration Fee: As per JNTUH norms": "• JNTUH విశ్వవిద్యాలయ గుర్తింపు & రిజిస్ట్రేషన్ ఫీజు: JNTUH నిబంధనల ప్రకారం",
+      "• Examination Fee: Per semester, based on number of papers": "• పరీక్ష ఫీజు: సెమిస్టర్‌కు, పేపర్ల సంఖ్య ఆధారంగా",
+      "• Transport Fee: ₹18,000 – ₹26,000 per annum (optional, route-based)": "• రవాణా ఫీజు: సంవత్సరానికి ₹18,000 – ₹26,000 (ఐచ్ఛికం, రూట్ దూరం ఆధారంగా)",
+      "1. Telangana Government Fee Reimbursement Scheme (Jagananna / Epass):": "1. తెలంగాణ ప్రభుత్వ ఫీజు రీయింబర్స్‌మెంట్ పథకం (ఈపాస్):",
+      "- Eligible Categories: SC, ST, BC, EBC, Minority, and Differently Abled students domiciled in Telangana.": "- అర్హత గల వర్గాలు: తెలంగాణ నివాసితులైన SC, ST, BC, EBC, మైనారిటీ మరియు దివ్యాంగ విద్యార్థులు.",
+      "- Income Criteria: Annual family income below Rs 1.50 Lakhs (Rural) / Rs 2.00 Lakhs (Urban) for BC/EBC/Minority; Rs 2.00 Lakhs for SC/ST.": "- ఆదాయ ప్రమాణాలు: BC/EBC/మైనారిటీలకు వార్షిక కుటుంబ ఆదాయం రూ. 1.50 లక్షలు (గ్రామీణ) / రూ. 2.00 లక్షలు (పట్టణ) లోపు; SC/ST లకు రూ. 2.00 లక్షలు.",
+      "- Full Fee Reimbursement available for rank holders below 10,000 in EAPCET.": "- EAPCET లో 10,000 లోపు ర్యాంక్ సాధించిన వారికి పూర్తి ఫీజు రీయింబర్స్‌మెంట్ లభిస్తుంది.",
+      "2. College Merit Scholarships:": "2. కళాశాల మెరిట్ స్కాలర్‌షిప్‌లు:",
+      "- Fee concessions awarded to top EAPCET rankers joining Sreyas.": "- శ్రేయస్‌లో చేరే అత్యుత్తమ EAPCET ర్యాంకర్లకు ఫీజు రాయితీలు అందించబడతాయి.",
+      "- Special awards for semester toppers in each department.": "- ప్రతి విభాగంలో సెమిస్టర్ టాపర్లకు ప్రత్యేక పురస్కారాలు ఇవ్వబడతాయి.",
+      "3. Bank Education Loan Assistance:": "3. బ్యాంక్ ఎడ్యుకేషన్ లోన్ సహాయం:",
+      "- Collateral-free education loan guidance supported by SBI, Canara Bank, Union Bank, and HDFC Credila.": "- SBI, కెనరా బ్యాంక్, యూనియన్ బ్యాంక్ మరియు HDFC క్రెడిలా సహకారంతో హామీ లేని విద్యా రుణ మార్గదర్శకత్వం.",
+      "- Documentation support provided by administrative office.": "- అడ్మినిస్ట్రేటివ్ కార్యాలయం ద్వారా డాక్యుమెంటేషన్ మద్దతు అందించబడుతుంది.",
+      "🚌 Bus covering that area:": "🚌 ఆ ప్రాంతాన్ని కవర్ చేసే బస్సు:",
+      "Bus covering that area:": "ఆ ప్రాంతాన్ని కవర్ చేసే బస్సు:",
+      "• Pickup Time:": "• పికప్ సమయం:",
+      "Pickup Time:": "పికప్ సమయం:",
+      "• Stops:": "• స్టాప్‌లు:",
+      "Stops:": "స్టాప్‌లు:",
+      "Pickup:": "పికప్:",
+      "🚌 Routes covering that area:": "🚌 ఆ ప్రాంతాన్ని కవర్ చేసే రూట్‌లు:",
+      "Routes covering that area:": "ఆ ప్రాంతాన్ని కవర్ చేసే రూట్‌లు:",
+      "Ask for a specific route (e.g. 'show RT-5') or area (e.g. 'bus for Kukatpally') for full stop details.": "పూర్తి స్టాప్‌ల వివరాల కోసం నిర్దిష్ట రూట్ (ఉదా: 'RT-5 చూపించు') లేదా ప్రాంతం (ఉదా: 'కూకట్‌పల్లి బస్సు') అడగండి.",
+      "🚌 Sreyas Bus Routes (20 official routes):": "🚌 శ్రేయస్ బస్సు రూట్‌లు (20 అధికారిక రూట్‌లు):",
+      "🚌 Transport Fee Structure:": "🚌 రవాణా ఫీజు వివరాలు:",
+      "• Annual Bus Fee: Rs 18,000 to Rs 26,000 per annum (depending on pickup route distance).": "• వార్షిక బస్సు ఫీజు: సంవత్సరానికి రూ. 18,000 నుండి రూ. 26,000 (రూట్ దూరం ఆధారంగా).",
+      "• Fleet: 25+ Air-Conditioned & Non-AC Buses across Hyderabad & Secunderabad.": "• వాహనాలు: హైదరాబాద్ & సికింద్రాబాద్ అంతటా 25+ AC & నాన్-AC బస్సులు.",
+      "• Helpline: 9246323444": "• హెల్ప్‌లైన్: 9246323444",
+      "📜 R22 Academic Regulations (B.Tech 2022-2024):": "📜 R22 అకడమిక్ నిబంధనలు (B.Tech 2022-2024):",
+      "📜 R25 Academic Regulations (B.Tech 2025 Onwards):": "📜 R25 అకడమిక్ నిబంధనలు (B.Tech 2025 నుండి):",
+      "• Internal Evaluation: 40 Marks (Mid Exams & Continuous Assessment)": "• ఇంటర్నల్ మూల్యాంకనం: 40 మార్కులు (మిడ్ పరీక్షలు & నిరంతర అసెస్‌మెంట్)",
+      "• Internal Evaluation: 30 Marks (Mid Exams, Assignments & Quizzes)": "• ఇంటర్నల్ మూల్యాంకనం: 30 మార్కులు (మిడ్ పరీక్షలు, అసైన్‌మెంట్లు & క్విజ్‌లు)",
+      "• External Exam: 60 Marks (End-Semester Exam)": "• ఎక్స్‌టర్నల్ పరీక్ష: 60 మార్కులు (సెమిస్టర్ ముగింపు పరీక్ష)",
+      "• External Exam: 70 Marks (End-Semester Exam)": "• ఎక్స్‌టర్నల్ పరీక్ష: 70 మార్కులు (సెమిస్టర్ ముగింపు పరీక్ష)",
+      "• Total Marks: 100 Marks per subject": "• మొత్తం మార్కులు: ఒక్కో సబ్జెక్టుకు 100 మార్కులు",
+      "Total Marks: 100 Marks per subject": "మొత్తం మార్కులు: ఒక్కో సబ్జెక్టుకు 100 మార్కులు",
+      "• Minimum Passing Criteria: 35% in External Exam (21/60) and 40% Overall Aggregate (40/100)": "• కనీస ఉత్తీర్ణత ప్రమాణాలు: ఎక్స్‌టర్నల్ పరీక్షలో 35% (21/60) మరియు మొత్తం అగ్రిగేట్‌లో 40% (40/100)",
+      "• Minimum Passing Criteria: 35% in External Exam (25/70) and 40% Overall Aggregate (40/100)": "• కనీస ఉత్తీర్ణత ప్రమాణాలు: ఎక్స్‌టర్నల్ పరీక్షలో 35% (25/70) మరియు మొత్తం అగ్రిగేట్‌లో 40% (40/100)",
+      "📚 Academic Regulations & Exam Pattern:": "📚 అకడమిక్ నిబంధనలు & పరీక్ష విధానం:",
+      "Which regulation would you like to check?": "మీరు ఏ నిబంధనలను తనిఖీ చేయాలనుకుంటున్నారు?",
+      "• R25 Regulations (2025 Onwards: 30 Internal / 70 External)": "• R25 నిబంధనలు (2025 నుండి: 30 ఇంటర్నల్ / 70 ఎక్స్‌టర్నల్)",
+      "• R22 Regulations (2022–2024: 40 Internal / 60 External)": "• R22 నిబంధనలు (2022–2024: 40 ఇంటర్నల్ / 60 ఎక్స్‌టర్నల్)",
+      "• Marks & Evaluation Distribution": "• మార్కులు & మూల్యాంకన పంపిణీ",
+      "• Attendance Regulations (75% mandatory)": "• హాజరు నిబంధనలు (75% తప్పనిసరి)",
+      "📝 Examination Marks Distribution:": "📝 పరీక్ష మార్కుల పంపిణీ:",
+      "• Internal Assessment: 30–40 Marks (Mid exams & assignments)": "• ఇంటర్నల్ అసెస్‌మెంట్: 30–40 మార్కులు (మిడ్ పరీక్షలు & అసైన్‌మెంట్లు)",
+      "• External End-Semester Exam: 60–70 Marks": "• ఎక్స్‌టర్నల్ సెమిస్టర్ ముగింపు పరీక్ష: 60–70 మార్కులు",
+      "• Total Marks per subject: 100 Marks": "• ఒక్కో సబ్జెక్టుకు మొత్తం మార్కులు: 100 మార్కులు",
+      "📅 Attendance Regulations:": "📅 హాజరు నిబంధనలు:",
+      "• Minimum Mandatory Attendance: 75% overall per semester.": "• కనీస తప్పనిసరి హాజరు: సెమిస్టర్‌కు మొత్తం 75%.",
+      "• Condonation: 65% to 75% shortage allowed on medical grounds with doctor certificate and fee.": "• కొండోనేషన్: డాక్టర్ సర్టిఫికేట్ మరియు ఫీజుతో వైద్య కారణాలపై 65% నుండి 75% వరకు కొరత అనుమతించబడుతుంది.",
+      "• Detention: Below 65% attendance results in detention.": "• డిటెన్షన్: 65% కంటే తక్కువ హాజరు ఉంటే డిటెన్షన్ జరుగుతుంది.",
+      "✅ Passing Criteria:": "✅ ఉత్తీర్ణత ప్రమాణాలు:",
+      "• External Exam: Minimum 35% marks required (25/70 in R25, 21/60 in R22)": "• ఎక్స్‌టర్నల్ పరీక్ష: కనీసం 35% మార్కులు అవసరం (R25 లో 25/70, R22 లో 21/60)",
+      "• Overall Aggregate: Minimum 40% total marks per subject (40/100)": "• మొత్తం అగ్రిగేట్: ఒక్కో సబ్జెక్టుకు కనీసం 40% మొత్తం మార్కులు (40/100)",
+      "Sreyas Institute currently does not provide on-campus hostel facilities. Students generally stay in nearby private PG (paying-guest) accommodations close to the campus in Nagole and Bandlaguda area.": "శ్రేయస్ ఇన్‌స్టిట్యూట్‌లో ప్రస్తుతం క్యాంపస్ లోపల హాస్టల్ సౌకర్యాలు లేవు. విద్యార్థులు సాధారణంగా నాగోల్ మరియు బండ్లగూడ ప్రాంతంలో క్యాంపస్ సమీపంలోని ప్రైవేట్ PG (పేయింగ్ గెస్ట్) వసతి గృహాలలో ఉంటారు.",
+      "For PG recommendations, please contact the admissions office:": "PG సిఫార్సుల కోసం దయచేసి అడ్మిషన్ల కార్యాలయాన్ని సంప్రదించండి:",
+      "🛡️ Campus Safety & Security:": "🛡️ క్యాంపస్ భద్రత & సెక్యూరిటీ:",
+      "• 24x7 security personnel at all gates.": "• అన్ని గేట్ల వద్ద 24x7 సెక్యూరిటీ సిబ్బంది.",
+      "• 200+ CCTV surveillance cameras monitoring classrooms, labs, library, and grounds.": "• తరగతి గదులు, ల్యాబ్‌లు, లైబ్రరీ మరియు గ్రౌండ్‌లను పర్యవేక్షించే 200+ CCTV కెమెరాలు.",
+      "• Active Anti-Ragging squad & Women Internal Complaints Committee (ICC).": "• చురుకైన యాంటీ-ర్యాగింగ్ స్క్వాడ్ & మహిళల అంతర్గత ఫిర్యాదుల కమిటీ (ICC).",
+      "Main Admission Helpline:": "ప్రధాన అడ్మిషన్ హెల్ప్‌లైన్:",
+      "General Information Email:": "సాధారణ సమాచార ఇమెయిల్:",
+      "Official Website:": "అధికారిక వెబ్‌సైట్:",
+      "Principal Email:": "ప్రిన్సిపాల్ ఇమెయిల్:",
+      "Accounts Email:": "అకౌంట్స్ ఇమెయిల్:",
+      "Scholarship Email:": "స్కాలర్‌షిప్ ఇమెయిల్:",
+      "Examination Branch Email:": "పరీక్ష విభాగం ఇమెయిల్:",
+      "Training & Placements Email:": "ట్రైనింగ్ & ప్లేస్‌మెంట్స్ ఇమెయిల్:",
+      "Postal Address:": "చిరునామా:",
+      "Distance from MGBS Bus Station:": "MGBS బస్ స్టేషన్ నుండి దూరం:",
+      "Distance from Secunderabad Railway Station:": "సికింద్రాబాద్ రైల్వే స్టేషన్ నుండి దూరం:",
+      "Distance from Rajiv Gandhi International Airport (RGIA Shamshabad):": "రాజీవ్ గాంధీ అంతర్జాతీయ విమానాశ్రయం (RGIA శంషాబాద్) నుండి దూరం:"
+    },
+    "hi": {
+      "Sreyas Institute of Engineering and Technology (SIET)": "श्रेयस इंस्टिट्यूट ऑफ इंजीनियरिंग एंड टेक्नोलॉजी (SIET)",
+      "Private Autonomous Engineering College": "निजी स्वायत्त इंजीनियरिंग कॉलेज",
+      "Yes - Google Cloud Career Readiness Program": "हां - Google Cloud करियर रेडीनेस प्रोग्राम",
+      "5-star rating - First in Telangana from IIT Bombay Spoken Tutorials": "5-स्टार रेटिंग - तेलंगाना में IIT बॉम्बे स्पोकन ट्यूटोरियल्स से प्रथम",
+      "Number 93 in Times Engineering Rankings 2025": "Times इंजीनियरिंग रैंकिंग 2025 में 93वां स्थान",
+      "ISO 9001:2015 Certified": "ISO 9001:2015 प्रमाणित",
+      "UGC Autonomous": "UGC स्वायत्त",
+      "NAAC A Grade": "NAAC A ग्रेड",
+      "ECE branch": "ECE शाखा",
+      "Available at college office": "कॉलेज कार्यालय में उपलब्ध",
+      "B.Tech Programs offered at Sreyas:": "Sreyas में उपलब्ध B.Tech कार्यक्रम:",
+      "CSE - Computer Science and Engineering": "CSE - कंप्यूटर साइंस एंड इंजीनियरिंग",
+      "CSE AI ML - Computer Science with Artificial Intelligence and Machine Learning": "CSE AI ML - आर्टिफिशियल इंटेलिजेंस और मशीन लर्निंग के साथ कंप्यूटर साइंस",
+      "ECE - Electronics and Communication Engineering": "ECE - इलेक्ट्रॉनिक्स एंड कम्युनिकेशन इंजीनियरिंग",
+      "4 years full time": "4 वर्ष पूर्णकालिक",
+      "3 years available for Diploma and BSc holders": "डिप्लोमा और BSc धारकों के लिए 3 वर्ष उपलब्ध",
+      "All programs affiliated to JNTU Hyderabad": "सभी कार्यक्रम JNTU हैदराबाद से संबद्ध",
+      "Through TG EAPCET rank and counselling": "TG EAPCET रैंक और काउंसलिंग के माध्यम से",
+      "Through TG ECET counselling": "TG ECET काउंसलिंग के माध्यम से",
+      "Direct admission with minimum 45 percent marks in 12th standard": "12वीं कक्षा में न्यूनतम 45 प्रतिशत अंकों के साथ सीधा प्रवेश",
+      "10 plus 2 with 50 percent marks in Physics Chemistry Mathematics": "फिजिक्स कैमिस्ट्री मैथमेटिक्स में 50 प्रतिशत अंकों के साथ 10+2",
+      "Between 35103 and 46265": "35103 और 46265 के बीच",
+      "Rs 1.86 Lakhs to Rs 4.3 Lakhs for full 4 year course": "पूरे 4 साल के कोर्स के लिए Rs 1.86 लाख से Rs 4.3 लाख",
+      "Fees vary by branch and admission category": "शाखा और प्रवेश श्रेणी के अनुसार फीस भिन्न होती है",
+      "Rs 46500 to Rs 107500 per year depending on branch": "शाखा के अनुसार प्रति वर्ष Rs 46,500 से Rs 1,07,500",
+      "BC SC ST EBC Minority scholarships": "BC SC ST EBC अल्पसंख्यक छात्रवृत्तियां",
+      "Merit based fee concessions for top rankers": "शीर्ष रैंकर्स के लिए मेरिट आधारित फीस छूट",
+      "Available through SBI and partner banks": "SBI और पार्टनर बैंकों के माध्यम से उपलब्ध",
+      "Rs 21.18 LPA offered by Atomic Works": "Atomic Works द्वारा प्रस्तावित Rs 21.18 LPA",
+      "Rs 4 to 5 LPA": "Rs 4 से 5 LPA",
+      "558 plus students": "558 से अधिक छात्र",
+      "From 3rd year itself": "तीसरे वर्ष से ही",
+      "Dedicated placement cell on campus": "कैंपस में समर्पित प्लेसमेंट सेल",
+      "Full training mock interviews aptitude preparation provided": "पूर्ण प्रशिक्षण मॉक इंटरव्यू एप्टीट्यूड तैयारी प्रदान की जाती है",
+      "1000 plus e-books IEEE and NPTEL access 110 plus journals": "1000 से अधिक ई-बुक्स IEEE और NPTEL एक्सेस 110 से अधिक जर्नल्स",
+      "11 plus department specific labs": "11 से अधिक विभागीय विशिष्ट प्रयोगशालाएं",
+      "Smart classrooms with audio visual facilities": "ऑडियो विजुअल सुविधाओं के साथ स्मार्ट कक्षाएं",
+      "Air conditioned auditorium and seminar halls": "वातानुकूलित सभागार और सेमिनार हॉल",
+      "Cricket Football Basketball Badminton Table Tennis Chess": "क्रिकेट फुटबॉल बास्केटबॉल बैडमिंटन टेबल टेनिस शतरंज",
+      "Multi cuisine cafeteria on campus": "कैंपस में मल्टी कुजीन कैफेटेरिया",
+      "WiFi across entire campus": "पूरे कैंपस में WiFi",
+      "Approximately 200 neem trees green campus": "लगभग 200 नीम के पेड़ों वाला हरित परिसर",
+      "CCTV surveillance throughout campus": "पूरे कैंपस में CCTV निगरानी",
+      "No on-campus hostel facility is currently available at Sreyas Institute": "Sreyas इंस्टिट्यूट में वर्तमान में कैंपस में छात्रावास सुविधा उपलब्ध नहीं है",
+      "Students stay in nearby private PG accommodations close to campus": "छात्र कैंपस के पास निजी PG आवास में रहते हैं",
+      "Multiple paying guest accommodations available near Nagole and Bandlaguda area": "नागोले और बंडलागुडा क्षेत्र में कई पेइंग गेस्ट आवास उपलब्ध",
+      "For PG recommendations contact 9246323444": "PG सिफारिशों के लिए 9246323444 पर संपर्क करें",
+      "College buses across multiple Hyderabad routes": "हैदराबाद के कई मार्गों पर कॉलेज बसें",
+      "Multiple areas of Hyderabad covered": "हैदराबाद के कई क्षेत्र कवर किए गए",
+      "for routes timings and bus fees": "मार्ग, समय और बस शुल्क के लिए",
+      "Monday to Saturday": "सोमवार से शनिवार",
+      "May vary during examination period": "परीक्षा अवधि के दौरान भिन्न हो सकता है",
+      "JNTU Hyderabad affiliated examination pattern": "JNTU हैदराबाद संबद्ध परीक्षा पैटर्न",
+      "30 marks per subject": "प्रति विषय 30 अंक",
+      "70 marks per subject": "प्रति विषय 70 अंक",
+      "100 marks": "100 अंक",
+      "75 percent attendance mandatory": "75 प्रतिशत उपस्थिति अनिवार्य",
+      "Available for students who fail in external exams": "बाहरी परीक्षा में असफल छात्रों के लिए उपलब्ध",
+      "Published on JNTU portal": "JNTU पोर्टल पर प्रकाशित",
+      "Two mid term exams per semester for internal marks": "आंतरिक अंकों के लिए प्रति सेमेस्टर दो मिड टर्म परीक्षाएं",
+      "Lab practical exams conducted at end of semester": "सेमेस्टर के अंत में लैब प्रैक्टिकल परीक्षाएं आयोजित की जाती हैं",
+      "Nearly 30 percent of faculty hold PhD degrees": "लगभग 30 प्रतिशत संकाय सदस्य PhD डिग्री धारक हैं",
+      "Industry oriented and research focused": "उद्योग उन्मुख और अनुसंधान केंद्रित",
+      "Dedicated student mentoring system": "समर्पित छात्र मेंटरिंग प्रणाली",
+      "Average 18 plus years teaching experience in senior faculty": "वरिष्ठ संकाय में औसतन 18 वर्ष से अधिक शिक्षण अनुभव",
+      "24 by 7 security on campus": "कैंपस में 24/7 सुरक्षा",
+      "Surveillance throughout campus": "पूरे कैंपस में निगरानी",
+      "Active anti ragging committee": "सक्रिय एंटी रैगिंग कमेटी",
+      "Safe environment for female students with dedicated transport": "समर्पित परिवहन के साथ महिला छात्रों के लिए सुरक्षित वातावरण",
+      "Internal Complaints Committee in place": "आंतरिक शिकायत समिति स्थापित",
+      "Annual cultural and technical fests conducted": "वार्षिक सांस्कृतिक और तकनीकी उत्सव आयोजित किए जाते हैं",
+      "Inter college sports competitions": "इंटर कॉलेज खेल प्रतियोगिताएं",
+      "National Service Scheme activities": "राष्ट्रीय सेवा योजना गतिविधियां",
+      "Coding club technical clubs cultural clubs": "कोडिंग क्लब तकनीकी क्लब सांस्कृतिक क्लब",
+      "Regular guest lecture series and seminars": "नियमित अतिथि व्याख्यान श्रृंखला और सेमिनार",
+      "Regular industrial visits arranged": "नियमित औद्योगिक दौरे आयोजित किए जाते हैं",
+      "Internship opportunities provided": "इंटर्नशिप के अवसर प्रदान किए जाते हैं",
+      "Regular workshops and certification programs": "नियमित कार्यशालाएं और प्रमाणन कार्यक्रम",
+      "Google Cloud Career Readiness Program partner": "Google Cloud करियर रेडीनेस प्रोग्राम पार्टनर",
+      "College Timings": "कॉलेज का समय",
+      "Working Days: Monday to Saturday": "कार्य दिवस: सोमवार से शनिवार",
+      "Working Days:": "कार्य दिवस:",
+      "Number 93 in 2025": "2025 में 93वां स्थान",
+      "5 star rating first in Telangana": "तेलंगाना में 5-स्टार रेटिंग प्रथम",
+      "A Grade accreditation": "A ग्रेड मान्यता",
+      "ECE branch accredited": "ECE शाखा मान्यता प्राप्त",
+      "Tuition Fee Structure (Per Annum):": "ट्यूशन फीस संरचना (प्रति वर्ष):",
+      "CSE Tuition Fee:": "CSE ट्यूशन फीस:",
+      "CSE (AI & ML) Tuition Fee:": "CSE (AI & ML) ट्यूशन फीस:",
+      "ECE Tuition Fee:": "ECE ट्यूशन फीस:",
+      "Total 4-Year B.Tech Fee Range:": "कुल 4-वर्षीय बी.टेक फीस सीमा:",
+      "Additional Annual Fees:": "अतिरिक्त वार्षिक शुल्क:",
+      "Accounts Office Contact:": "लेखा कार्यालय संपर्क:",
+      "9001 2015 certified": "9001:2015 प्रमाणित",
+      "Sreyas Institute offers 4-Year Full-Time Bachelor of Technology (B.Tech) Degree Programmes:": "Sreyas Institute 4 वर्षीय पूर्णकालिक बी.टेक डिग्री प्रोग्राम प्रदान करता है:",
+      "4 Years (Regular Full-Time) / 3 Years (Lateral Entry)": "4 वर्ष (नियमित पूर्णकालिक) / 3 वर्ष (लेटरल एंट्री)",
+      "Choice Based Credit System (CBCS) under Autonomous Regulations": "स्वायत्त विनियमों के तहत चॉइस बेस्ड क्रेडिट सिस्टम (CBCS)",
+      "Intake: 240 Seats": "सीटें: 240",
+      "Intake: 180 Seats": "सीटें: 180",
+      "Intake: 120 Seats": "सीटें: 120",
+      "4 Years (8 Semesters)": "4 वर्ष (8 सेमेस्टर)",
+      "4 Years (8 Semesters) — NBA Accredited Branch": "4 वर्ष (8 सेमेस्टर) — NBA मान्यता प्राप्त शाखा",
+      "Software Developer, System Architect, Full Stack Developer, Data Engineer, Cloud Solutions Architect": "सॉफ्टवेयर डेवलपर, सिस्टम आर्किटेक्ट, फुल स्टैक डेवलपर, डेटा इंजीनियर, क्लाउड सॉल्यूशंस आर्किटेक्ट",
+      "AI Engineer, ML Engineer, Data Scientist, Prompt Engineer, Robotics Software Specialist": "AI इंजीनियर, ML इंजीनियर, डेटा साइंटिस्ट, प्रॉम्प्ट इंजीनियर, रोबोटिक्स सॉफ्टवेयर स्पेशलिस्ट",
+      "Embedded System Hardware/Software Engineer, VLSI Design Engineer, Telecom Engineer, Signal Processing Engineer, Core Electronics Specialist": "एंबेडेड सिस्टम इंजीनियर, VLSI डिज़ाइन इंजीनियर, टेलीकॉम इंजीनियर, सिग्नल प्रोसेसिंग इंजीनियर",
+      "Through TG EAPCET (Telangana Engineering, Agriculture and Pharmacy Common Entrance Test) Counselling conducted by TSCHE": "TSCHE द्वारा आयोजित TG EAPCET काउंसलिंग के माध्यम से",
+      "Pass in 10+2 / Intermediate examination with Mathematics, Physics, and Chemistry (MPC) as optional subjects with minimum 45% aggregate marks": "गणित, भौतिकी, रसायन विज्ञान (MPC) के साथ 10+2 / इंटरमीडिएट में न्यूनतम 45% अंक",
+      "Direct Admission based on Merit in 10+2 / Intermediate marks or TG EAPCET / JEE Mains Rank": "10+2 / इंटर अंकों या TG EAPCET / JEE मेन्स रैंक के आधार पर सीधा प्रवेश",
+      "Applications invited through college portal and official notification": "कॉलेज पोर्टल और आधिकारिक अधिसूचना के माध्यम से आवेदन",
+      "Direct admission into 2nd Year B.Tech (3rd Semester) through TG ECET Counselling": "TG ECET काउंसलिंग के माध्यम से सीधे बी.टेक 2nd वर्ष में प्रवेश",
+      "CSE Branch Cutoff Rank: 35,103 to 42,150": "CSE शाखा कटऑफ रैंक: 35,103 से 42,150",
+      "CSE AI&ML Branch Cutoff Rank: 38,200 to 45,500": "CSE AI&ML शाखा कटऑफ रैंक: 38,200 से 45,500",
+      "ECE Branch Cutoff Rank: 42,000 to 48,265": "ECE शाखा कटऑफ रैंक: 42,000 से 48,265",
+      "Approximately Rs 95,000 to Rs 1,07,500 per year": "लगभग रु. 95,000 से रु. 1,07,500 प्रति वर्ष",
+      "Approximately Rs 85,000 to Rs 95,000 per year": "लगभग रु. 85,000 से रु. 95,000 प्रति वर्ष",
+      "Rs 1.86 Lakhs to Rs 4.30 Lakhs depending on branch and admission category (Convenor vs Management)": "शाखा और प्रवेश श्रेणी के अनुसार रु. 1.86 लाख से रु. 4.30 लाख",
+      "Tuition fees are fixed by Telangana Admission and Fee Regulatory Committee (TAFRC) and subject to government revision": "ट्यूशन फीस TAFRC द्वारा निर्धारित की जाती है और सरकारी संशोधन के अधीन है",
+      "As per JNTUH norms": "JNTUH मानदंडों के अनुसार",
+      "Paid per semester based on number of theory and lab papers": "प्रति सेमेस्टर सिद्धांत और लैब पेपरों की संख्या के आधार पर भुगतान",
+      "Optional, based on pickup route distance (Rs 18,000 to Rs 26,000 per annum)": "वैकल्पिक, पिकअप रूट दूरी के आधार पर (रु. 18,000 से रु. 26,000 प्रति वर्ष)",
+      "JNTUH University Recognition & Registration Fee": "JNTUH विश्वविद्यालय मान्यता और पंजीकरण शुल्क",
+      "Eligible Categories: SC, ST, BC, EBC, Minority, and Differently Abled students domiciled in Telangana": "पात्र श्रेणियां: SC, ST, BC, EBC, अल्पसंख्यक और विकलांग छात्र (तेलंगाना निवासी)",
+      "Full Fee Reimbursement available for rank holders below 10,000 in EAPCET": "EAPCET में 10,000 से कम रैंक वालों के लिए पूर्ण शुल्क प्रतिपूर्ति",
+      "Fee concessions awarded to top EAPCET rankers joining Sreyas": "Sreyas में शामिल होने वाले शीर्ष EAPCET रैंकर्स को शुल्क रियायत",
+      "Special awards for semester toppers in each department": "प्रत्येक विभाग में सेमेस्टर टॉपर्स को विशेष पुरस्कार",
+      "Collateral-free education loan guidance supported by SBI, Canara Bank, Union Bank, and HDFC Credila": "SBI, केनरा बैंक, यूनियन बैंक और HDFC क्रेडिला द्वारा जमानत-मुक्त शिक्षा ऋण मार्गदर्शन",
+      "Rs 21.18 LPA (Lakhs Per Annum) offered by Atomic Works": "Atomic Works द्वारा प्रस्तावित रु. 21.18 LPA",
+      "Rs 4.0 LPA to Rs 5.0 LPA": "रु. 4.0 LPA से रु. 5.0 LPA",
+      "558+ Placement Offers secured by graduating batch": "558+ प्लेसमेंट ऑफर",
+      "Over 85% of eligible registered students placed in reputed MNCs": "पात्र 85% से अधिक छात्र प्रतिष्ठित कंपनियों में नियुक्त",
+      "6th Semester (3rd Year onwards)": "6वां सेमेस्टर (3rd वर्ष से)",
+      "Aptitude & Quantitative Ability Training from 2nd Year onwards": "2nd वर्ष से एप्टीट्यूड & क्वांटिटेटिव एबिलिटी प्रशिक्षण",
+      "Full-Stack Web Development & Cloud Certification Workshops": "फुल-स्टैक वेब डेवलपमेंट & क्लाउड सर्टिफिकेशन वर्कशॉप",
+      "Mock Technical Interviews & HR Group Discussion sessions": "मॉक टेक्निकल इंटरव्यू & HR ग्रुप डिस्कशन सेशन",
+      "Soft Skills, Resume Building, & Corporate Etiquette Training": "सॉफ्ट स्किल्स, रेज़्यूमे बिल्डिंग, & कॉर्पोरेट एटिकेट प्रशिक्षण",
+      "Head of Training & Placements": "ट्रेनिंग & प्लेसमेंट्स प्रमुख",
+      "Sreyas Institute does **not** have an official on-campus hostel building inside the college premises": "Sreyas Institute के परिसर में कोई आधिकारिक ऑन-कैंपस छात्रावास नहीं है",
+      "Multiple private Boys and Girls Paying Guest (PG) Accommodations and Hostels are located within 1 to 2 km of the campus": "कैंपस से 1 से 2 किमी के भीतर कई प्राइवेट बॉयज और गर्ल्स PG आवास उपलब्ध हैं",
+      "Generally include Wi-Fi, Food (3 meals), Hot Water, Security, Washing Machines, and AC/Non-AC rooms": "सामान्यतः Wi-Fi, भोजन (3 बार), गर्म पानी, सुरक्षा, वॉशिंग मशीन, AC/Non-AC कमरे",
+      "Approximately Rs 5,500 to Rs 9,000 per month depending on sharing type (2/3/4 sharing) and food inclusion": "शेयरिंग प्रकार और भोजन के अनुसार लगभग रु. 5,500 से रु. 9,000 प्रति माह",
+      "College administrative office assists outstation students with verified PG landlord contact numbers": "कॉलेज प्रशासनिक कार्यालय आउटस्टेशन छात्रों को सत्यापित PG मकान मालिक नंबर देता है",
+      "Fleet of 25+ Comfortable Air-Conditioned and Non-AC Buses operating on 23 comprehensive routes across Hyderabad and Secunderabad": "हैदराबाद और सिकंदराबाद में 23 मार्गों पर 25+ AC और Non-AC बसें संचालित होती हैं",
+      "Annual transport fee depends on pickup distance (Rs 18,000 to Rs 26,000 per annum)": "पिकअप दूरी के आधार पर वार्षिक परिवहन शुल्क (रु. 18,000 से रु. 26,000)",
+      "ICT-enabled Classrooms equipped with Overhead LCD Projectors, Smart Interactive Boards, and Audio Systems": "LCD प्रोजेक्टर, स्मार्ट इंटरएक्टिव बोर्ड और ऑडियो सिस्टम से लैस ICT-सक्षम कक्षाएं",
+      "Air-Conditioned Central Auditorium with 800+ Seating Capacity": "800+ बैठने की क्षमता वाला एयर-कंडीशन्ड केंद्रीय सभागार",
+      "1 Gbps Dedicated Leased Line Internet Bandwidth provided across campus": "कैंपस में 1 Gbps डेडिकेटेड लीज्ड लाइन इंटरनेट",
+      "Multi-Cuisine Clean Canteen serving hygienic South Indian, North Indian food, snacks, fresh juices, and beverages": "स्वच्छ दक्षिण भारतीय, उत्तर भारतीय भोजन, स्नैक्स, जूस के साथ मल्टी-क्यूजिन कैंटीन",
+      "200+ Mature Neem Trees providing natural oxygenation and cool micro-climate": "200+ नीम के पेड़ — प्राकृतिक ऑक्सीजन और ठंडा माहौल",
+      "Over 1,000 Square Meters spacious air-conditioned Reading Hall": "1,000+ वर्ग मीटर का विशाल AC रीडिंग हॉल",
+      "30,000+ Volumes of Textbooks and Reference Books across all engineering branches": "सभी इंजीनियरिंग शाखाओं में 30,000+ पाठ्यपुस्तकें और संदर्भ पुस्तकें",
+      "4,500+ Unique Book Titles": "4,500+ अद्वितीय पुस्तक शीर्षक",
+      "110+ National and International Printed Journals": "110+ राष्ट्रीय और अंतरराष्ट्रीय पत्रिकाएं",
+      "Fully Automated Library Management System with RFID / Barcode Scanning": "RFID / बारकोड स्कैनिंग के साथ पूरी तरह स्वचालित पुस्तकालय प्रबंधन प्रणाली",
+      "Round-the-clock trained security personnel at all gates and campus entry points": "सभी गेटों पर चौबीसों घंटे प्रशिक्षित सुरक्षा कर्मचारी",
+      "200+ CCTV Cameras monitoring all corridors, classrooms, labs, library, and campus grounds": "200+ CCTV कैमरे — सभी गलियारों, कक्षाओं, लैब, पुस्तकालय और परिसर की निगरानी",
+      "Strict Zero-Tolerance Policy towards ragging in compliance with AICTE / UGC / Supreme Court guidelines": "AICTE / UGC / सुप्रीम कोर्ट दिशानिर्देशों के अनुसार रैगिंग के प्रति कड़ी शून्य-सहिष्णुता नीति",
+      "Two Semesters per academic year (Odd Semester: July-December; Even Semester: January-June)": "प्रति शैक्षणिक वर्ष दो सेमेस्टर (विषम: जुलाई-दिसंबर; सम: जनवरी-जून)",
+      "Internal Continuous Assessment (Mid Exams & Assignments): 30 Marks per subject": "आंतरिक निरंतर मूल्यांकन (मिड परीक्षा और असाइनमेंट): प्रति विषय 30 अंक",
+      "End-Semester External University Examination: 70 Marks per subject": "सेमेस्टर-अंत बाहरी विश्वविद्यालय परीक्षा: प्रति विषय 70 अंक",
+      "Total Marks per Subject: 100 Marks (Credits assigned per paper)": "प्रति विषय कुल अंक: 100 अंक",
+      "Minimum 75% Attendance mandatory to appear for End-Semester Examinations": "सेमेस्टर-अंत परीक्षाओं के लिए न्यूनतम 75% उपस्थिति अनिवार्य",
+      "Condonation of shortage of attendance between 65% and 75% allowed on genuine medical grounds": "65% और 75% के बीच उपस्थिति कमी के लिए वास्तविक चिकित्सा आधार पर माफी",
+      "Students below 65% attendance are detained and must repeat the semester": "65% से कम उपस्थिति वाले छात्रों को रोका जाता है और सेमेस्टर दोहराना होगा",
+      "16 km": "16 किमी",
+      "16.8 km": "16.8 किमी",
+      "26.7 km": "26.7 किमी",
+      "100+ qualified faculty members across all departments": "सभी विभागों में 100+ योग्य संकाय सदस्य",
+      "30+ faculty members with doctoral degrees from reputed universities": "प्रतिष्ठित विश्वविद्यालयों से PhD डिग्री वाले 30+ संकाय सदस्य",
+      "All faculty hold minimum M.Tech / M.E. or equivalent Post-Graduate degree in relevant discipline": "सभी संकाय सदस्य संबंधित अनुशासन में न्यूनतम M.Tech / M.E. डिग्री रखते हैं",
+      "🏛️ Telangana Government Fee Reimbursement:": "🏛️ तेलंगाना सरकार फीस प्रतिपूर्ति:",
+      "Full or partial tuition fee reimbursement provided by TG State Govt for eligible SC/ST/BC/EBC/Minority students admitted under EAPCET Convenor Quota (Category-A), subject to parental income limits and government norms.": "EAPCET कन्वीनर कोटा (श्रेणी-A) के तहत प्रवेश पाने वाले पात्र SC/ST/BC/EBC/अल्पसंख्यक छात्रों के लिए तेलंगाना राज्य सरकार द्वारा पूर्ण या आंशिक ट्यूशन फीस प्रतिपूर्ति प्रदान की जाती है (माता-पिता की आय सीमा और सरकारी नियमों के अधीन)।",
+      "🏅 College Merit Scholarships:": "🏅 कॉलेज मेरिट छात्रवृत्ति:",
+      "Special tuition fee concessions and merit scholarships awarded to top EAPCET rankers and academic toppers during admission.": "प्रवेश के दौरान शीर्ष EAPCET रैंक धारकों और अकादमिक टॉपर्स को विशेष ट्यूशन फीस रियायतें और मेरिट छात्रवृत्ति प्रदान की जाती हैं।",
+      "🏦 Education Loan Assistance:": "🏦 शिक्षा ऋण सहायता:",
+      "The college provides official bonafide certificates, fee structure documents, and bank loan application assistance for students applying for education loans from nationalised and private banks.": "कॉलेज राष्ट्रीयकृत और निजी बैंकों से शिक्षा ऋण के लिए आवेदन करने वाले छात्रों के लिए आधिकारिक वास्तविक प्रमाण पत्र, फीस संरचना दस्तावेज और बैंक ऋण आवेदन सहायता प्रदान करता है।",
+      "📞 Scholarship Desk Contact:": "📞 छात्रवृत्ति डेस्क संपर्क:",
+      "Scholarship Desk Contact:": "छात्रवृत्ति डेस्क संपर्क:",
+      "🎓 Scholarships & Financial Assistance:": "🎓 छात्रवृत्ति और वित्तीय सहायता:",
+      "Sreyas provides:": "श्रेयस प्रदान करता है:",
+      "• Telangana Government fee reimbursement support for eligible students": "• पात्र छात्रों के लिए तेलंगाना सरकार फीस प्रतिपूर्ति सहायता",
+      "• College merit-based fee concessions": "• कॉलेज मेरिट-आधारित फीस रियायतें",
+      "• Scholarship & education loan assistance documentation support": "• छात्रवृत्ति और शिक्षा ऋण सहायता दस्तावेज सहायता",
+      "Telangana Government fee reimbursement support for eligible students": "पात्र छात्रों के लिए तेलंगाना सरकार फीस प्रतिपूर्ति सहायता",
+      "College merit-based fee concessions": "कॉलेज मेरिट-आधारित फीस रियायतें",
+      "Scholarship & education loan assistance documentation support": "छात्रवृत्ति और शिक्षा ऋण सहायता दस्तावेज सहायता",
+      "📊 Placements Overview (2025-26):": "📊 प्लेसमेंट अवलोकन (2025-26):",
+      "• Highest Salary Package: Rs 21.18 LPA (Atomic Works)": "• उच्चतम वेतन पैकेज: Rs 21.18 LPA (Atomic Works)",
+      "• Average Salary Package: Rs 4.0 LPA – Rs 5.0 LPA": "• औसत वेतन पैकेज: Rs 4.0 LPA – Rs 5.0 LPA",
+      "• 558+ Placement Offers secured (85%+ eligible students placed)": "• 558+ प्लेसमेंट ऑफ़र प्राप्त (85%+ पात्र छात्र प्लेस्ड)",
+      "• Placement season starts in 6th Semester (3rd Year onwards)": "• प्लेसमेंट सीजन छठे सेमेस्टर से शुरू होता है (तीसरे वर्ष से)",
+      "🏆 Highest Salary Package (2025-26):": "🏆 उच्चतम वेतन पैकेज (2025-26):",
+      "💼 Average Salary Package (2025-26):": "💼 औसत वेतन पैकेज (2025-26):",
+      "🏢 Top Recruiting Companies:": "🏢 प्रमुख भर्ती कंपनियां:",
+      "🎯 Placement Training (CRT):": "🎯 प्लेसमेंट प्रशिक्षण (CRT):",
+      "• Aptitude & Quantitative Ability Training from 2nd Year onwards": "• दूसरे वर्ष से एप्टीट्यूड और क्वांटिटेटिव एबिलिटी प्रशिक्षण",
+      "• Coding Bootcamps in C, Java, Python & Data Structures": "• C, Java, Python & डेटा स्ट्रक्चर्स में कोडिंग बूटकैंप",
+      "• Web Development & Cloud Certification Workshops": "• वेब डेवलपमेंट और क्लाउड सर्टिफिकेशन कार्यशालाएं",
+      "• Mock Technical Interviews & HR Group Discussion sessions": "• मॉक टेक्निकल इंटरव्यू और HR ग्रुप डिस्कशन सत्र",
+      "• Soft Skills, Resume Building, & Corporate Etiquette Training": "• सॉफ्ट स्किल्स, बायोडाटा निर्माण, और कॉर्पोरेट शिष्टाचार प्रशिक्षण",
+      "Which branch fee would you like in detail?": "आप किस शाखा की फीस विस्तार से जानना चाहते हैं?",
+      "Which course would you like to know more about?": "आप किस पाठ्यक्रम के बारे में अधिक जानना चाहते हैं?",
+      "🎓 Undergraduate Programmes Offered (B.Tech):": "🎓 उपलब्ध अंडरग्रेजुएट पाठ्यक्रम (B.Tech):",
+      "Undergraduate Programmes Offered (B.Tech)": "उपलब्ध अंडरग्रेजुएट पाठ्यक्रम (B.Tech)",
+      "• B.Tech CSE (Total Intake: 240 seats)": "• B.Tech CSE (कुल सीटें: 240)",
+      "• B.Tech CSE (AI & ML) (Total Intake: 180 seats)": "• B.Tech CSE (AI & ML) (कुल सीटें: 180)",
+      "• B.Tech ECE (Total Intake: 120 seats)": "• B.Tech ECE (कुल सीटें: 120)",
+      "Total Intake: 240 seats": "कुल सीटें: 240",
+      "Total Intake: 180 seats": "कुल सीटें: 180",
+      "Total Intake: 120 seats": "कुल सीटें: 120",
+      "B.Tech CSE (Artificial Intelligence & Machine Learning)": "B.Tech CSE (आर्टिफिशियल इंटेलिजेंस और मशीन लर्निंग)",
+      "B.Tech Computer Science and Engineering (CSE)": "B.Tech कंप्यूटर साइंस एंड इंजीनियरिंग (CSE)",
+      "B.Tech Electronics and Communication Engineering (ECE)": "B.Tech इलेक्ट्रॉनिक्स एंड कम्युनिकेशन इंजीनियरिंग (ECE)",
+      "Total Branch Intake: 180 Seats (across all sections)": "कुल शाखा सीटें: 180 (सभी सेक्शन मिलाकर)",
+      "Total Branch Intake: 240 Seats (across all sections)": "कुल शाखा सीटें: 240 (सभी सेक्शन मिलाकर)",
+      "Total Branch Intake: 120 Seats (across all sections)": "कुल शाखा सीटें: 120 (सभी सेक्शन मिलाकर)",
+      "Duration: 4 Years (8 Semesters)": "अवधि: 4 वर्ष (8 सेमेस्टर)",
+      "Focus: AI Algorithms, Machine Learning, Deep Learning, NLP & Computer Vision": "प्रमुख विषय: AI एल्गोरिदम, मशीन लर्निंग, डीप लर्निंग, NLP और कंप्यूटर विज़न",
+      "Focus: Software Engineering, Data Structures, Web Technologies, Databases & Cloud Computing": "प्रमुख विषय: सॉफ्टवेयर इंजीनियरिंग, डेटा स्ट्रक्चर, वेब टेक्नोलॉजीज, डेटाबेस और क्लाउड कंप्यूटिंग",
+      "Focus: Embedded Systems, VLSI Design, IoT, Robotics & Communication Systems": "प्रमुख विषय: एम्बेडेड सिस्टम, VLSI डिजाइन, IoT, रोबोटिक्स और संचार प्रणाली",
+      "💰 CSE Tuition Fee:": "💰 CSE ट्यूशन फीस:",
+      "💰 CSE (AI & ML) Tuition Fee:": "💰 CSE (AI & ML) ट्यूशन फीस:",
+      "💰 ECE Tuition Fee:": "💰 ECE ट्यूशन फीस:",
+      "• Approximately ₹95,000 – ₹1,07,500 per year": "• प्रति वर्ष लगभग ₹95,000 – ₹1,07,500",
+      "• Approximately ₹85,000 – ₹95,000 per year": "• प्रति वर्ष लगभग ₹85,000 – ₹95,000",
+      "Approximately ₹95,000 – ₹1,07,500 per year": "प्रति वर्ष लगभग ₹95,000 – ₹1,07,500",
+      "Approximately ₹85,000 – ₹95,000 per year": "प्रति वर्ष लगभग ₹85,000 – ₹95,000",
+      "• Fee fixed by TAFRC (Telangana Admission & Fee Regulatory Committee).": "• फीस TAFRC (तेलंगाना प्रवेश एवं शुल्क नियामक समिति) द्वारा निर्धारित की जाती है।",
+      "Fee fixed by TAFRC (Telangana Admission & Fee Regulatory Committee).": "फीस TAFRC (तेलंगाना प्रवेश एवं शुल्क नियामक समिति) द्वारा निर्धारित की जाती है।",
+      "• Subject to annual revision by TAFRC.": "• TAFRC के वार्षिक संशोधन के अधीन।",
+      "Subject to annual revision by TAFRC.": "TAFRC के वार्षिक संशोधन के अधीन।",
+      "💰 Tuition Fee Structure (Per Annum):": "💰 ट्यूशन फीस विवरण (प्रति वर्ष):",
+      "• CSE: ₹95,000 – ₹1,07,500 per year": "• CSE: प्रति वर्ष ₹95,000 – ₹1,07,500",
+      "• CSE (AI & ML): ₹95,000 – ₹1,07,500 per year": "• CSE (AI & ML): प्रति वर्ष ₹95,000 – ₹1,07,500",
+      "• ECE: ₹85,000 – ₹95,000 per year": "• ECE: प्रति वर्ष ₹85,000 – ₹95,000",
+      "• Total 4-Year Range: ₹1.86 Lakhs – ₹4.30 Lakhs (varies by branch & quota)": "• कुल 4 वर्ष की सीमा: ₹1.86 लाख – ₹4.30 लाख (शाखा और कोटे के अनुसार भिन्न)",
+      "Total 4-Year Range: ₹1.86 Lakhs – ₹4.30 Lakhs (varies by branch & quota)": "कुल 4 वर्ष की सीमा: ₹1.86 लाख – ₹4.30 लाख (शाखा और कोटे के अनुसार भिन्न)",
+      "📋 Additional Annual Fees:": "📋 अतिरिक्त वार्षिक फीस:",
+      "• JNTUH University Recognition & Registration Fee: As per JNTUH norms": "• JNTUH विश्वविद्यालय मान्यता एवं पंजीकरण शुल्क: JNTUH मानदंडों के अनुसार",
+      "• Examination Fee: Per semester, based on number of papers": "• परीक्षा शुल्क: प्रति सेमेस्टर, प्रश्नपत्रों की संख्या के आधार पर",
+      "• Transport Fee: ₹18,000 – ₹26,000 per annum (optional, route-based)": "• परिवहन शुल्क: ₹18,000 – ₹26,000 प्रति वर्ष (वैकल्पिक, रूट की दूरी के आधार पर)",
+      "1. Telangana Government Fee Reimbursement Scheme (Jagananna / Epass):": "1. तेलंगाना सरकार फीस प्रतिपूर्ति योजना (ईपास):",
+      "- Eligible Categories: SC, ST, BC, EBC, Minority, and Differently Abled students domiciled in Telangana.": "- पात्र श्रेणियां: तेलंगाना के मूल निवासी SC, ST, BC, EBC, अल्पसंख्यक और दिव्यांग छात्र।",
+      "- Income Criteria: Annual family income below Rs 1.50 Lakhs (Rural) / Rs 2.00 Lakhs (Urban) for BC/EBC/Minority; Rs 2.00 Lakhs for SC/ST.": "- आय मानदंड: BC/EBC/अल्पसंख्यकों के लिए वार्षिक पारिवारिक आय रु 1.50 लाख (ग्रामीण) / रु 2.00 लाख (शहरी) से कम; SC/ST के लिए रु 2.00 लाख।",
+      "- Full Fee Reimbursement available for rank holders below 10,000 in EAPCET.": "- EAPCET में 10,000 से कम रैंक धारकों के लिए पूर्ण फीस प्रतिपूर्ति उपलब्ध है।",
+      "2. College Merit Scholarships:": "2. कॉलेज मेरिट छात्रवृत्ति:",
+      "- Fee concessions awarded to top EAPCET rankers joining Sreyas.": "- श्रेयस में प्रवेश लेने वाले शीर्ष EAPCET रैंक धारकों को फीस में रियायत दी जाती है।",
+      "- Special awards for semester toppers in each department.": "- प्रत्येक विभाग में सेमेस्टर टॉपर्स के लिए विशेष पुरस्कार।",
+      "3. Bank Education Loan Assistance:": "3. बैंक शिक्षा ऋण सहायता:",
+      "- Collateral-free education loan guidance supported by SBI, Canara Bank, Union Bank, and HDFC Credila.": "- SBI, केनरा बैंक, यूनियन बैंक और HDFC क्रेडिला के सहयोग से संपार्श्विक-मुक्त (collateral-free) शिक्षा ऋण मार्गदर्शन।",
+      "- Documentation support provided by administrative office.": "- प्रशासनिक कार्यालय द्वारा दस्तावेज सहायता प्रदान की जाती है।",
+      "🚌 Bus covering that area:": "🚌 उस क्षेत्र को कवर करने वाली बस:",
+      "Bus covering that area:": "उस क्षेत्र को कवर करने वाली बस:",
+      "• Pickup Time:": "• पिकअप समय:",
+      "Pickup Time:": "पिकअप समय:",
+      "• Stops:": "• स्टॉप:",
+      "Stops:": "स्टॉप:",
+      "Pickup:": "पिकअप:",
+      "🚌 Routes covering that area:": "🚌 उस क्षेत्र को कवर करने वाले रूट:",
+      "Routes covering that area:": "उस क्षेत्र को कवर करने वाले रूट:",
+      "Ask for a specific route (e.g. 'show RT-5') or area (e.g. 'bus for Kukatpally') for full stop details.": "पूरे स्टॉप विवरण के लिए किसी विशिष्ट रूट (उदा. 'RT-5 दिखाएं') या क्षेत्र (उदा. 'कूकटपल्ली के लिए बस') के बारे में पूछें।",
+      "🚌 Sreyas Bus Routes (20 official routes):": "🚌 श्रेयस बस रूट (20 आधिकारिक रूट):",
+      "🚌 Transport Fee Structure:": "🚌 परिवहन फीस संरचना:",
+      "• Annual Bus Fee: Rs 18,000 to Rs 26,000 per annum (depending on pickup route distance).": "• वार्षिक बस फीस: रु 18,000 से रु 26,000 प्रति वर्ष (रूट दूरी के आधार पर)।",
+      "• Fleet: 25+ Air-Conditioned & Non-AC Buses across Hyderabad & Secunderabad.": "• बसें: हैदराबाद और सिकंदराबाद भर में 25+ एसी और नॉन-एसी बसें।",
+      "• Helpline: 9246323444": "• हेल्पलाइन: 9246323444",
+      "📜 R22 Academic Regulations (B.Tech 2022-2024):": "📜 R22 शैक्षणिक नियम (B.Tech 2022-2024):",
+      "📜 R25 Academic Regulations (B.Tech 2025 Onwards):": "📜 R25 शैक्षणिक नियम (B.Tech 2025 से):",
+      "• Internal Evaluation: 40 Marks (Mid Exams & Continuous Assessment)": "• आंतरिक मूल्यांकन: 40 अंक (मिड परीक्षा और सतत मूल्यांकन)",
+      "• Internal Evaluation: 30 Marks (Mid Exams, Assignments & Quizzes)": "• आंतरिक मूल्यांकन: 30 अंक (मिड परीक्षा, असाइनमेंट और क्विज़)",
+      "• External Exam: 60 Marks (End-Semester Exam)": "• बाह्य परीक्षा: 60 अंक (सेमेस्टर अंत परीक्षा)",
+      "• External Exam: 70 Marks (End-Semester Exam)": "• बाह्य परीक्षा: 70 अंक (सेमेस्टर अंत परीक्षा)",
+      "• Total Marks: 100 Marks per subject": "• कुल अंक: प्रति विषय 100 अंक",
+      "Total Marks: 100 Marks per subject": "कुल अंक: प्रति विषय 100 अंक",
+      "• Minimum Passing Criteria: 35% in External Exam (21/60) and 40% Overall Aggregate (40/100)": "• न्यूनतम उत्तीर्ण मानदंड: बाह्य परीक्षा में 35% (21/60) और कुल मिलाकर 40% (40/100)",
+      "• Minimum Passing Criteria: 35% in External Exam (25/70) and 40% Overall Aggregate (40/100)": "• न्यूनतम उत्तीर्ण मानदंड: बाह्य परीक्षा में 35% (25/70) and कुल मिलाकर 40% (40/100)",
+      "📚 Academic Regulations & Exam Pattern:": "📚 शैक्षणिक नियम और परीक्षा पैटर्न:",
+      "Which regulation would you like to check?": "आप कौन से नियम देखना चाहते हैं?",
+      "• R25 Regulations (2025 Onwards: 30 Internal / 70 External)": "• R25 नियम (2025 से: 30 आंतरिक / 70 बाह्य)",
+      "• R22 Regulations (2022–2024: 40 Internal / 60 External)": "• R22 नियम (2022–2024: 40 आंतरिक / 60 बाह्य)",
+      "• Marks & Evaluation Distribution": "• अंक और मूल्यांकन वितरण",
+      "• Attendance Regulations (75% mandatory)": "• उपस्थिति नियम (75% अनिवार्य)",
+      "📝 Examination Marks Distribution:": "📝 परीक्षा अंक वितरण:",
+      "• Internal Assessment: 30–40 Marks (Mid exams & assignments)": "• आंतरिक मूल्यांकन: 30–40 अंक (मिड परीक्षा और असाइनमेंट)",
+      "• External End-Semester Exam: 60–70 Marks": "• बाह्य सेमेस्टर परीक्षा: 60–70 अंक",
+      "• Total Marks per subject: 100 Marks": "• प्रति विषय कुल अंक: 100 अंक",
+      "📅 Attendance Regulations:": "📅 उपस्थिति नियम:",
+      "• Minimum Mandatory Attendance: 75% overall per semester.": "• न्यूनतम अनिवार्य उपस्थिति: प्रति सेमेस्टर कुल 75%।",
+      "• Condonation: 65% to 75% shortage allowed on medical grounds with doctor certificate and fee.": "• छूट (Condonation): डॉक्टर प्रमाण पत्र और शुल्क के साथ चिकित्सा आधार पर 65% से 75% तक की कमी की अनुमति।",
+      "• Detention: Below 65% attendance results in detention.": "• डिटेंशन: 65% से कम उपस्थिति होने पर डिटेंशन होता है।",
+      "✅ Passing Criteria:": "✅ उत्तीर्ण मानदंड:",
+      "• External Exam: Minimum 35% marks required (25/70 in R25, 21/60 in R22)": "• बाह्य परीक्षा: न्यूनतम 35% अंक आवश्यक (R25 में 25/70, R22 में 21/60)",
+      "• Overall Aggregate: Minimum 40% total marks per subject (40/100)": "• कुल योग: प्रति विषय न्यूनतम 40% कुल अंक (40/100)",
+      "Sreyas Institute currently does not provide on-campus hostel facilities. Students generally stay in nearby private PG (paying-guest) accommodations close to the campus in Nagole and Bandlaguda area.": "श्रेयस इंस्टीट्यूट वर्तमान में परिसर में छात्रावास की सुविधा प्रदान नहीं करता है। छात्र आमतौर पर नागोले और बंदलागुडा क्षेत्र में परिसर के पास निजी पीजी (पेइंग-गेस्ट) आवास में रहते हैं।",
+      "For PG recommendations, please contact the admissions office:": "पीजी की सिफारिशों के लिए कृपया प्रवेश कार्यालय से संपर्क करें:",
+      "🛡️ Campus Safety & Security:": "🛡️ परिसर सुरक्षा एवं अनुशासन:",
+      "• 24x7 security personnel at all gates.": "• सभी फाटकों पर 24x7 सुरक्षा कर्मी।",
+      "• 200+ CCTV surveillance cameras monitoring classrooms, labs, library, and grounds.": "• कक्षाओं, प्रयोगशालाओं, पुस्तकालय और मैदानों की निगरानी करने वाले 200+ सीसीटीवी कैमरे।",
+      "• Active Anti-Ragging squad & Women Internal Complaints Committee (ICC).": "• सक्रिय एंटी-रैगिंग दस्ता और महिला आंतरिक शिकायत समिति (ICC)।",
+      "Main Admission Helpline:": "मुख्य प्रवेश हेल्पलाइन:",
+      "General Information Email:": "सामान्य जानकारी ईमेल:",
+      "Official Website:": "आधिकारिक वेबसाइट:",
+      "Principal Email:": "प्रिंसिपल ईमेल:",
+      "Accounts Email:": "अकाउंट्स ईमेल:",
+      "Scholarship Email:": "छात्रवृत्ति ईमेल:",
+      "Examination Branch Email:": "परीक्षा शाखा ईमेल:",
+      "Training & Placements Email:": "प्रशिक्षण एवं प्लेसमेंट ईमेल:",
+      "Postal Address:": "डाक पता:",
+      "Distance from MGBS Bus Station:": "MGBS बस स्टेशन से दूरी:",
+      "Distance from Secunderabad Railway Station:": "सिकंदराबाद रेलवे स्टेशन से दूरी:",
+      "Distance from Rajiv Gandhi International Airport (RGIA Shamshabad):": "राजीव गांधी अंतर्राष्ट्रीय हवाई अड्डे (RGIA शमशाबाद) से दूरी:"
+    }
+  },
+  "_query_translation_comment": "Word-level Telugu/Hindi -> English domain vocabulary. This is what actually fixes retrieval on non-English queries: rag.py runs the raw query through this BEFORE TextNormalizer/Tokenizer/CategoryDetector/TypoCorrector, so those files never need to know any Telugu/Hindi at all -- they just see English words like 'fee', 'hostel', 'admission' like always. This is a fixed domain dictionary (~80 terms), not a general translator: an unlisted word or a typo'd Telugu word simply passes through unchanged. Swap QueryTranslator's lookup for a real MT API later without touching rag.py if broader coverage is needed.",
+  "query_translation": {
+    "te": {
+      "ఫీజు": "fee",
+      "ఫీజులు": "fees",
+      "ఫీజు వివరాలు": "fee structure",
+      "హాస్టల్": "hostel",
+      "వసతి": "accommodation",
+      "అడ్మిషన్": "admission",
+      "ప్రవేశం": "admission",
+      "ప్రవేశాలు": "admissions",
+      "స్కాలర్‌షిప్": "scholarship",
+      "స్కాలర్‌షిప్‌లు": "scholarships",
+      "ఉపకారవేతనం": "scholarship",
+      "కోర్సు": "course",
+      "కోర్సులు": "courses",
+      "బ్రాంచ్": "branch",
+      "ప్లేస్‌మెంట్": "placement",
+      "ప్లేస్‌మెంట్స్": "placements",
+      "ఉద్యోగం": "job",
+      "ప్రిన్సిపాల్": "principal",
+      "చైర్మన్": "chairman",
+      "సంప్రదించండి": "contact",
+      "సంప్రదింపు": "contact",
+      "ఫోన్": "phone",
+      "నంబర్": "number",
+      "చిరునామా": "address",
+      "వెబ్‌సైట్": "website",
+      "రవాణా": "transport",
+      "బస్": "bus",
+      "పరీక్ష": "exam",
+      "పరీక్షలు": "exams",
+      "పరీక్ష విధానం": "exam pattern",
+      "సమయాలు": "timings",
+      "సమయం": "timing",
+      "గ్రంథాలయం": "library",
+      "లైబ్రరీ": "library",
+      "సౌకర్యాలు": "facilities",
+      "మౌలిక సదుపాయాలు": "infrastructure",
+      "భద్రత": "safety",
+      "సెక్యూరిటీ": "security",
+      "గురించి": "about",
+      "కళాశాల": "college",
+      "ఇన్‌స్టిట్యూట్": "institute",
+      "మంచిది": "good",
+      "ఉత్తమమైన": "best",
+      "ర్యాంకింగ్": "ranking",
+      "ఎంత": "how much",
+      "ఎప్పుడు": "when",
+      "ఎక్కడ": "where",
+      "ఎవరు": "who",
+      "ప్రవేశ పరీక్ష": "entrance exam",
+      "సీట్లు": "seats",
+      "అర్హత": "eligibility",
+      "డాక్యుమెంట్లు": "documents",
+      "కటాఫ్": "cutoff",
+      "కౌన్సెలింగ్": "counselling",
+      "యాజమాన్య కోటా": "management quota",
+      "వార్షిక ఫీజు": "annual fee",
+      "మొత్తం ఫీజు": "total fee",
+      "కిస్తీలు": "installments",
+      "నాలుగేళ్ల": "four year",
+      "సంవత్సరాల": "years",
+      "నాలుగు": "four",
+      "మెరిట్": "merit",
+      "రాయితీ": "concession",
+      "విద్యా రుణం": "education loan",
+      "ఉద్యోగాలు": "jobs",
+      "కంపెనీలు": "companies",
+      "వేతనం": "salary",
+      "ఇంటర్న్‌షిప్": "internship",
+      "నియామకాలు": "recruitment",
+      "శిక్షణ": "training",
+      "బస్సు మార్గం": "bus route",
+      "పికప్": "pickup",
+      "మార్గాలు": "routes",
+      "గది": "room",
+      "వసతి గృహం": "hostel",
+      "వైఫై": "wifi",
+      "ప్రయోగశాల": "laboratory",
+      "ఆటస్థలం": "sports ground",
+      "కాంటీన్": "canteen",
+      "ఆడిటోరియం": "auditorium",
+      "హాజరు": "attendance",
+      "మార్కులు": "marks",
+      "సెమిస్టర్": "semester",
+      "ఫలితాలు": "results",
+      "మిడ్ పరీక్షలు": "mid exams",
+      "మెయిల్": "email",
+      "ఉంది": "is",
+      "ఉన్నాయి": "are",
+      "కావాలి": "need",
+      "చెప్పండి": "tell me",
+      "ఏమిటి": "what",
+      "దయచేసి": "please",
+      "కంప్యూటర్ సైన్స్": "computer science",
+      "ఎలక్ట్రానిక్స్": "electronics",
+      "సివిల్": "civil",
+      "మెకానికల్": "mechanical",
+      "డేటా సైన్స్": "data science",
+      "ఆర్టిఫిషియల్ ఇంటెలిజెన్స్": "artificial intelligence",
+      "సిసి కెమెరా": "cctv"
+    },
+    "hi": {
+      "फीस": "fee",
+      "फीस विवरण": "fee structure",
+      "शुल्क": "fee",
+      "छात्रावास": "hostel",
+      "आवास": "accommodation",
+      "प्रवेश": "admission",
+      "दाखिला": "admission",
+      "छात्रवृत्ति": "scholarship",
+      "स्कॉलरशिप": "scholarship",
+      "कोर्स": "course",
+      "कोर्सेज़": "courses",
+      "पाठ्यक्रम": "course",
+      "शाखा": "branch",
+      "प्लेसमेंट": "placement",
+      "नौकरी": "job",
+      "प्रिंसिपल": "principal",
+      "प्राचार्य": "principal",
+      "अध्यक्ष": "chairman",
+      "संपर्क": "contact",
+      "फोन": "phone",
+      "नंबर": "number",
+      "पता": "address",
+      "वेबसाइट": "website",
+      "परिवहन": "transport",
+      "बस": "bus",
+      "परीक्षा": "exam",
+      "परीक्षा पैटर्न": "exam pattern",
+      "टाइमिंग": "timings",
+      "समय": "timing",
+      "पुस्तकालय": "library",
+      "लाइब्रेरी": "library",
+      "सुविधाएं": "facilities",
+      "बुनियादी ढांचा": "infrastructure",
+      "सुरक्षा": "safety",
+      "बारे में": "about",
+      "कॉलेज": "college",
+      "संस्थान": "institute",
+      "अच्छा": "good",
+      "सबसे अच्छा": "best",
+      "रैंकिंग": "ranking",
+      "कितना": "how much",
+      "कब": "when",
+      "कहाँ": "where",
+      "कौन": "who",
+      "प्रवेश परीक्षा": "entrance exam",
+      "सीटें": "seats",
+      "पात्रता": "eligibility",
+      "दस्तावेज़": "documents",
+      "कटऑफ": "cutoff",
+      "काउंसलिंग": "counselling",
+      "प्रबंधन कोटा": "management quota",
+      "लेटरल एंट्री": "lateral entry",
+      "वार्षिक फीस": "annual fee",
+      "कुल फीस": "total fee",
+      "किस्तें": "installments",
+      "चार साल": "four years",
+      "साल": "year",
+      "चार": "four",
+      "मेरिट": "merit",
+      "छूट": "concession",
+      "शिक्षा ऋण": "education loan",
+      "नौकरियां": "jobs",
+      "कंपनियां": "companies",
+      "वेतन": "salary",
+      "इंटर्नशिप": "internship",
+      "भर्ती": "recruitment",
+      "प्रशिक्षण": "training",
+      "बस रूट": "bus route",
+      "पिकअप": "pickup",
+      "मार्ग": "routes",
+      "कमरा": "room",
+      "वाईफाई": "wifi",
+      "प्रयोगशाला": "laboratory",
+      "खेल का मैदान": "sports ground",
+      "कैंटीन": "canteen",
+      "सभागार": "auditorium",
+      "उपस्थिति": "attendance",
+      "अंक": "marks",
+      "सेमेस्टर": "semester",
+      "परिणाम": "results",
+      "मेल": "email",
+      "है": "is",
+      "हैं": "are",
+      "चाहिए": "need",
+      "बताएं": "tell me",
+      "क्या": "what",
+      "कृपया": "please",
+      "कंप्यूटर साइंस": "computer science",
+      "इलेक्ट्रॉनिक्स": "electronics",
+      "सिविल": "civil",
+      "मैकेनिकल": "mechanical",
+      "डेटा साइंस": "data science",
+      "आर्टिफिशियल इंटेलिजेंस": "artificial intelligence",
+      "सीसीटीवी": "cctv"
+    }
+  }
+}

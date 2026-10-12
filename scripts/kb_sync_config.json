@@ -1,0 +1,398 @@
+{
+  "_comment": "SREYAS Assistant \u2014 Knowledge Base Sync Configuration",
+  "_version": "1.0",
+  "_instructions": "Set 'managed': true for sections updated automatically. Set 'managed': false to protect hand-curated content.",
+  "base_url": "https://sreyas.ac.in",
+  "allowed_domains": [
+    "sreyas.ac.in"
+  ],
+  "http": {
+    "timeout_seconds": 15,
+    "max_retries": 3,
+    "backoff_base": 1.6,
+    "user_agent": "Mozilla/5.0 (compatible; SreyasKBSync/2.0; +https://sreyas.ac.in)"
+  },
+  "schedule": {
+    "interval_hours": 6,
+    "run_on_startup": true
+  },
+  "backup": {
+    "enabled": true,
+    "max_backups": 10,
+    "directory": "data/backups"
+  },
+  "sections": [
+    {
+      "name": "INSTITUTION OVERVIEW",
+      "managed": true,
+      "urls": [
+        "/",
+        "https://www.sreyas.ac.in/academic-regulations-2026"
+      ],
+      "keywords": [
+        "naac",
+        "autonomous",
+        "aicte",
+        "jntu",
+        "established",
+        "founded",
+        "iso",
+        "ugc"
+      ],
+      "field_patterns": {
+        "Accreditation": [
+          "naac\\s*[:\\.\\-]?\\s*([a-z'\\s]+grade)",
+          "accreditation[:\\s]+([a-z'\\s]+grade)"
+        ],
+        "Times Ranking": [
+          "times\\s+ranking[:\\s]+([^\\n]+)",
+          "ranked\\s+(\\d+(?:st|nd|rd|th)[^\\n]+times)"
+        ],
+        "IIT Bombay Rating": [
+          "iit\\s+bombay[^\\n]*five.star|five.star[^\\n]*iit\\s+bombay"
+        ]
+      }
+    },
+    {
+      "name": "UNDERGRADUATE DEGREE PROGRAMMES (B.TECH)",
+      "managed": true,
+      "urls": [
+        "/admissions/courses-offered",
+        "/admissions",
+        "/"
+      ],
+      "keywords": [
+        "cse",
+        "ece",
+        "computer science",
+        "electronics",
+        "b.tech",
+        "btech",
+        "course",
+        "branch",
+        "program"
+      ],
+      "field_patterns": {
+        "B.Tech Programs": [
+          "b\\.?tech[^\\n]*\\n([\\s\\S]{0,600}?)(?:\\n\\n|intake|fee)"
+        ]
+      }
+    },
+    {
+      "name": "ADMISSIONS AND ELIGIBILITY CRITERIA",
+      "managed": true,
+      "urls": [
+        "/admissions",
+        "/admissions/process"
+      ],
+      "keywords": [
+        "eapcet",
+        "ecet",
+        "cutoff",
+        "eligibility",
+        "counselling",
+        "rank",
+        "lateral",
+        "management quota"
+      ],
+      "field_patterns": {
+        "EAPCET Cutoff Rank": [
+          "cutoff\\s*rank[:\\s]*(\\d[\\d,\\s\\-]+\\d)",
+          "eapcet[^\\n]*rank[:\\s]*(\\d[\\d,\\s\\-]+\\d)"
+        ],
+        "Lateral Entry": [
+          "lateral\\s+entry[^\\n]+"
+        ]
+      }
+    },
+    {
+      "name": "TUITION FEES AND OTHER CHARGES",
+      "managed": true,
+      "urls": [
+        "/admissions/fee-structure",
+        "/admissions",
+        "/"
+      ],
+      "keywords": [
+        "fee",
+        "tuition",
+        "payment",
+        "annual",
+        "lakh",
+        "rupees"
+      ],
+      "field_patterns": {
+        "B.Tech Total Fee Range": [
+          "(?:fee|tuition)[^\\n]*(?:rs\\.?|\u20b9)\\s*([\\d,.]+\\s*(?:lakhs?|lpa|lakh)[^\\n]*)"
+        ]
+      }
+    },
+    {
+      "name": "TRAINING AND PLACEMENTS (T&P CELL)",
+      "managed": true,
+      "urls": [
+        "/training-placement-cell/",
+        "/placements",
+        "/"
+      ],
+      "keywords": [
+        "placed",
+        "package",
+        "lpa",
+        "recruiters",
+        "offers",
+        "placement",
+        "671",
+        "21.18"
+      ],
+      "field_patterns": {
+        "Highest Package": [
+          "highest\\s+package[:\\s]*(rs\\.?\\s*[\\d.]+\\s*lpa[^\\n]*)",
+          "([\\d.]+\\s*lpa)[^\\n]*highest|highest[^\\n]*([\\d.]+\\s*lpa)"
+        ],
+        "Total Students Placed": [
+          "(\\d+\\s*\\+?\\s*(?:students?\\s+placed|job\\s+offers?|offers?))",
+          "offers?\\s+in[^\\n]*\\n?(\\d+\\+?)"
+        ],
+        "Top Recruiters": [
+          "(?:top\\s+)?recruiters?[:\\s]+([a-z,\\s&]+(?:\\n[a-z,\\s&]+)?)"
+        ]
+      }
+    },
+    {
+      "name": "SCHOLARSHIPS AND FINANCIAL ASSISTANCE",
+      "managed": true,
+      "urls": [
+        "/scholarship",
+        "/admissions/scholarships",
+        "/admissions"
+      ],
+      "keywords": [
+        "scholarship",
+        "bc",
+        "sc",
+        "st",
+        "ebc",
+        "minority",
+        "financial",
+        "loan",
+        "merit",
+        "concession"
+      ],
+      "field_patterns": {
+        "Government Scholarships Available": [
+          "government\\s+scholarships?[^\\n]+"
+        ],
+        "Education Loan": [
+          "(?:education|sbi)\\s+loan[^\\n]+"
+        ]
+      }
+    },
+    {
+      "name": "CAMPUS FACILITIES AND INFRASTRUCTURE",
+      "managed": true,
+      "urls": [
+        "/facilities",
+        "/infrastructure",
+        "/"
+      ],
+      "keywords": [
+        "library",
+        "laboratory",
+        "wifi",
+        "auditorium",
+        "cafeteria",
+        "sports",
+        "neem",
+        "cctv",
+        "smart classroom"
+      ],
+      "field_patterns": {
+        "Library": [
+          "library[:\\s]+([^\\n]+)"
+        ],
+        "Laboratories": [
+          "laborator(?:y|ies)[:\\s]+([^\\n]+)"
+        ],
+        "WiFi": [
+          "wi-?fi[:\\s]+([^\\n]+)"
+        ]
+      }
+    },
+    {
+      "name": "TRANSPORTATION AND BUS ROUTES",
+      "managed": true,
+      "urls": [
+        "/facilities/transport",
+        "/transport",
+        "/facilities"
+      ],
+      "keywords": [
+        "bus",
+        "route",
+        "transport",
+        "shuttle",
+        "pickup",
+        "drop",
+        "hyderabad"
+      ],
+      "field_patterns": {
+        "Bus Service": [
+          "bus\\s+service[:\\s]+([^\\n]+)"
+        ],
+        "Transport Coverage": [
+          "transport[^\\n]*coverage[:\\s]+([^\\n]+)",
+          "routes?[:\\s]+([^\\n]+)"
+        ]
+      }
+    },
+    {
+      "name": "OFFICIAL CONTACT DETAILS",
+      "managed": true,
+      "urls": [
+        "/contact",
+        "/"
+      ],
+      "keywords": [
+        "phone",
+        "email",
+        "address",
+        "contact",
+        "helpline",
+        "nagole"
+      ],
+      "field_patterns": {
+        "Main Phone": [
+          "(?:phone|helpline|contact)[:\\s]+([6-9]\\d{9})",
+          "tel:([6-9]\\d{9})"
+        ],
+        "Main Email": [
+          "(?:email|mail)[:\\s]+([\\w.+-]+@[\\w-]+\\.[a-z]{2,})",
+          "mailto:([\\w.+-]+@[\\w-]+\\.[a-z]{2,})"
+        ]
+      }
+    },
+    {
+      "name": "ACADEMIC CALENDAR AND EXAMINATIONS",
+      "managed": true,
+      "urls": [
+        "/academics/examinations",
+        "/academics",
+        "/",
+        "https://www.sreyas.ac.in/academic-regulations-2026"
+      ],
+      "keywords": [
+        "internal",
+        "external",
+        "attendance",
+        "marks",
+        "jntu",
+        "semester",
+        "result",
+        "portal"
+      ],
+      "field_patterns": {
+        "Minimum Attendance Required": [
+          "(\\d{2,3}%\\s*attendance)",
+          "attendance[^\\d]*(\\d{2,3}%)"
+        ]
+      }
+    },
+    {
+      "name": "ACADEMIC RANKINGS & ACHIEVEMENTS",
+      "managed": true,
+      "urls": [
+        "/rankings",
+        "/about/rankings",
+        "/"
+      ],
+      "keywords": [
+        "times",
+        "ranking",
+        "dataquest",
+        "iit bombay",
+        "award",
+        "iste",
+        "ieee",
+        "naac",
+        "nba"
+      ],
+      "field_patterns": {
+        "Times Engineering Ranking": [
+          "times[^\\n]*engineering[^\\n]*ranking[:\\s]+([^\\n]+)"
+        ],
+        "IIT Bombay": [
+          "iit\\s+bombay[:\\s]+([^\\n]+)"
+        ]
+      }
+    },
+    {
+      "name": "EVENTS AND ACTIVITIES",
+      "managed": true,
+      "urls": [
+        "/events",
+        "/student-activities",
+        "/"
+      ],
+      "keywords": [
+        "fest",
+        "hackathon",
+        "nss",
+        "ieee",
+        "iste",
+        "club",
+        "workshop",
+        "seminar",
+        "internship"
+      ],
+      "field_patterns": {
+        "Annual Fest": [
+          "annual\\s+(?:technical\\s+)?fest[:\\s]+([^\\n]+)"
+        ],
+        "Hackathons": [
+          "hackathon[s]?[:\\s]+([^\\n]+)"
+        ]
+      }
+    },
+    {
+      "name": "LEADERSHIP AND MANAGEMENT",
+      "managed": false,
+      "_reason": "Leadership changes require official announcement \u2014 never auto-update.",
+      "urls": [],
+      "keywords": [],
+      "field_patterns": {}
+    },
+    {
+      "name": "HOSTEL",
+      "managed": false,
+      "_reason": "College does NOT have on-campus hostel. Hard override must remain.",
+      "urls": [],
+      "keywords": [],
+      "field_patterns": {}
+    },
+    {
+      "name": "FACULTY",
+      "managed": false,
+      "_reason": "Faculty data is sensitive and changes frequently \u2014 manual update only.",
+      "urls": [],
+      "keywords": [],
+      "field_patterns": {}
+    },
+    {
+      "name": "SAFETY AND SECURITY",
+      "managed": false,
+      "_reason": "Safety policies are hand-curated. Auto-update not required.",
+      "urls": [],
+      "keywords": [],
+      "field_patterns": {}
+    },
+    {
+      "name": "COLLEGE TIMINGS",
+      "managed": false,
+      "_reason": "Timings rarely change and are confirmed manually.",
+      "urls": [],
+      "keywords": [],
+      "field_patterns": {}
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "highest package": {
+    "title": "🏆 Highest Package",
+    "value": "Rs 21.18 LPA",
+    "subtitle": "Offered by Atomic Works (2025-26)",
+    "formatted": "🏆 **Highest Package**\n━━━━━━━━━━━━━━━━━━━━\n💰 **Rs 21.18 LPA**\n🏢 Offered by **Atomic Works** (2025-26)"
+  },
+  "average package": {
+    "title": "📊 Average Package",
+    "value": "Rs 4.0 to 5.0 LPA",
+    "subtitle": "Across all Engineering Disciplines",
+    "formatted": "📊 **Average Package**\n━━━━━━━━━━━━━━━━━━━━\n💰 **Rs 4.0 - 5.0 LPA**\n🏢 Top Recruiters: Capgemini, Accenture, TCS, Wipro, Infosys"
+  },
+  "principal": {
+    "title": "👨‍🏫 Principal",
+    "value": "Dr. C. Udaya Kiran",
+    "subtitle": "Sreyas Institute of Engineering & Technology",
+    "formatted": "👨‍🏫 **Principal**\n━━━━━━━━━━━━━━━━━━━━\n👤 **Dr. C. Udaya Kiran**\n🎓 Principal, Sreyas Institute of Engineering and Technology"
+  },
+  "chairman": {
+    "title": "👔 Chairman",
+    "value": "Sri A. Vinay Kumar Reddy",
+    "subtitle": "Sreyas Educational Society",
+    "formatted": "👔 **Chairman**\n━━━━━━━━━━━━━━━━━━━━\n👤 **Sri A. Vinay Kumar Reddy**\n🏛️ Chairman, Sreyas Educational Society"
+  },
+  "secretary": {
+    "title": "👔 Secretary",
+    "value": "Sri Ch. Ravindranath",
+    "subtitle": "Sreyas Educational Society",
+    "formatted": "👔 **Secretary**\n━━━━━━━━━━━━━━━━━━━━\n👤 **Sri Ch. Ravindranath**\n🏛️ Secretary, Sreyas Educational Society"
+  },
+  "treasurer": {
+    "title": "👔 Treasurer",
+    "value": "Sri N. Sharath Reddy",
+    "subtitle": "Sreyas Educational Society",
+    "formatted": "👔 **Treasurer**\n━━━━━━━━━━━━━━━━━━━━\n👤 **Sri N. Sharath Reddy**\n🏛️ Treasurer, Sreyas Educational Society"
+  },
+  "vice chairman": {
+    "title": "👔 Vice Chairman",
+    "value": "Sri A. Hriday Reddy",
+    "subtitle": "Sreyas Educational Society",
+    "formatted": "👔 **Vice Chairman**\n━━━━━━━━━━━━━━━━━━━━\n👤 **Sri A. Hriday Reddy**\n🏛️ Vice Chairman, Sreyas Educational Society"
+  },
+  "college timings": {
+    "title": "⏰ College Timings",
+    "value": "9:00 AM - 4:00 PM",
+    "subtitle": "Monday to Saturday",
+    "formatted": "⏰ **College Timings**\n━━━━━━━━━━━━━━━━━━━━\n🕒 **9:00 AM to 4:00 PM**\n📅 Working Days: Monday to Saturday"
+  },
+  "annual fee": {
+    "title": "💳 Annual Fee Structure",
+    "value": "Rs 46,500 - Rs 1,07,500 / year",
+    "subtitle": "Varies by branch & quota (Total 4-Yr: Rs 1.86L - 4.3L)",
+    "formatted": "💳 **Annual Fee Structure**\n━━━━━━━━━━━━━━━━━━━━\n💰 **Rs 46,500 – Rs 1,07,500** per year\nℹ️ Total 4-Year B.Tech: Rs 1.86 Lakhs to Rs 4.3 Lakhs depending on branch and category."
+  },
+  "hostel": {
+    "title": "🏠 Hostel Facility",
+    "value": "No On-Campus Hostel",
+    "subtitle": "Private PGs available near campus (Nagole/Bandlaguda)",
+    "formatted": "🏠 **Hostel Facility**\n━━━━━━━━━━━━━━━━━━━━\nℹ️ Sreyas does **not** have an on-campus hostel.\n🏡 Multiple verified private PG accommodations are available close to campus in Nagole & Bandlaguda.\n📞 Helpdesk: 9246323444"
+  },
+  "accreditation": {
+    "title": "⭐ Accreditation & Ratings",
+    "value": "NAAC 'A' Grade | UGC Autonomous",
+    "subtitle": "NBA Accredited (ECE), Times Ranking #93",
+    "formatted": "⭐ **Accreditation & Recognitions**\n━━━━━━━━━━━━━━━━━━━━\n🏆 **NAAC 'A' Grade** Accredited\n🏛️ **UGC Autonomous** Status\n🥇 **Times Engineering Ranking #93** (2025)\n⭐ **IIT Bombay 5-Star Rating** (1st in Telangana)\n📜 ISO 9001:2015 Certified"
+  }
+}

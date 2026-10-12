@@ -1,0 +1,466 @@
+SREYAS INSTITUTE OF ENGINEERING AND TECHNOLOGY — OFFICIAL COMPREHENSIVE KNOWLEDGE BASE
+
+== INSTITUTION OVERVIEW ==
+Full Name: Sreyas Institute of Engineering and Technology (SIET)
+Short Name: Sreyas / SIET
+Established: 2011
+Motto: Empowering Excellence in Technical Education
+Location: 9-39, Sy No. 107, Tattiannaram, GSI Road, Beside Indu Aranya, Bandlaguda, Nagole, Hyderabad, Telangana - 500068
+Affiliation: Permanently Affiliated to Jawaharlal Nehru Technological University Hyderabad (JNTUH)
+Approval: Approved by All India Council for Technical Education (AICTE), New Delhi
+Accreditation: Grade
+NBA Accreditation: ECE (Electronics & Communication Engineering) Branch Accredited by National Board of Accreditation
+Autonomous Status: UGC Autonomous Status Granted
+ISO Certification: ISO 9001:2015 Certified Institution
+Type: Private Co-educational Autonomous Engineering College
+Official Website: www.sreyas.ac.in
+Campus Size: 10+ Acres Greenery-filled Eco-friendly Campus
+Neem Trees: Over 200 Neem Trees contributing to a pollution-free green environment
+
+== ACADEMIC RANKINGS & ACHIEVEMENTS ==
+Times Engineering Ranking 2025: Ranked Number 93 among Top Engineering Colleges in India by Times Engineering Survey
+IIT Bombay Rating: 5-Star Rating from IIT Bombay Spoken Tutorials (First college in Telangana to achieve 5-star rating)
+Google Cloud Partner: Official Partner in Google Cloud Career Readiness Program
+NPTEL Local Chapter: Active NPTEL Local Chapter with AAA/AA ratings in online certifications
+Spoken Tutorial Center: Recognized Resource Center for IIT Bombay Spoken Tutorial Training
+T-Hub Association: Institutional Partner with T-Hub Hyderabad for Student Innovation and Entrepreneurship
+TGCET / EAPCET Code: SREY
+
+== VISION AND MISSION ==
+Vision: To be a premier engineering institution striving for excellence in technical education, research, and innovation, producing socially responsible and globally competent engineers.
+Mission 1: To impart quality education through state-of-the-art infrastructure, experienced faculty, and industry-aligned curriculum.
+Mission 2: To foster research, innovation, and entrepreneurship skills among students through collaboration with industry and academia.
+Mission 3: To inculcate ethical values, leadership qualities, and social commitment in young minds to serve society effectively.
+
+== GOVERNING BODY AND MANAGEMENT ==
+Management Society: Sreyas Educational Society
+Chairman: Sri A. Vinay Kumar Reddy (Visionary leader & philanthropist)
+Secretary: Sri Ch. Ravindranath (Eminent educationalist)
+Treasurer: Sri N. Sharath Reddy (Administrator & strategist)
+Vice Chairman: Sri A. Hriday Reddy (Young dynamic administrator)
+Principal: Dr. C. Udaya Kiran (M.Tech, Ph.D in Mechanical Engineering, 25+ years academic & research experience)
+Dean Academics: Head of Academic Affairs & Curriculum Development
+Dean R&D: Head of Research, Consultancy & Sponsored Projects
+Head of Examination Cell: Controller of Examinations
+Administrative Officer (AO): Head of Campus Operations & General Administration
+
+== UNDERGRADUATE DEGREE PROGRAMMES (B.TECH) ==
+Sreyas Institute offers 4-Year Full-Time Bachelor of Technology (B.Tech) Degree Programmes:
+
+1. B.Tech Computer Science and Engineering (CSE)
+- Intake: 240 Seats
+- Duration: 4 Years (8 Semesters)
+- Focus: Software Engineering, Data Structures, Algorithms, Web Technologies, Database Systems, Cloud Computing, System Security, Operating Systems.
+- Career Opportunities: Software Developer, System Architect, Full Stack Developer, Data Engineer, Cloud Solutions Architect.
+
+2. B.Tech Computer Science and Engineering - Artificial Intelligence & Machine Learning (CSE AI&ML)
+- Intake: 180 Seats
+- Duration: 4 Years (8 Semesters)
+- Focus: Machine Learning Algorithms, Deep Learning, Neural Networks, Natural Language Processing, Computer Vision, Python for Data Science, AI Ethics.
+- Career Opportunities: AI Engineer, ML Engineer, Data Scientist, Prompt Engineer, Robotics Software Specialist.
+
+3. B.Tech Electronics and Communication Engineering (ECE)
+- Intake: 120 Seats
+- Duration: 4 Years (8 Semesters) — NBA Accredited Branch
+- Focus: Embedded Systems, Very Large Scale Integration (VLSI), Digital Signal Processing, Wireless Communication, Internet of Things (IoT), Robotics, Antenna Design.
+- Career Opportunities: Embedded System Hardware/Software Engineer, VLSI Design Engineer, Telecom Engineer, Signal Processing Engineer, Core Electronics Specialist.
+
+Course Duration: 4 Years (Regular Full-Time) / 3 Years (Lateral Entry)
+Medium of Instruction: English
+Academic Regulation: Choice Based Credit System (CBCS) under Autonomous Regulations
+B.Tech Programs: Duration
+
+== ADMISSIONS AND ELIGIBILITY CRITERIA ==
+1. Category-A Seats (Convenor Quota - 70% of total intake):
+- Admission Path: Through TG EAPCET (Telangana Engineering, Agriculture and Pharmacy Common Entrance Test) Counselling conducted by TSCHE.
+- Eligibility: Pass in 10+2 / Intermediate examination with Mathematics, Physics, and Chemistry (MPC) as optional subjects with minimum 45% aggregate marks (40% for reserved categories SC/ST/BC).
+- College Code: SREY
+
+2. Category-B Seats (Management / NRI Quota - 30% of total intake):
+- Admission Path: Direct Admission based on Merit in 10+2 / Intermediate marks or TG EAPCET / JEE Mains Rank.
+- Eligibility: Minimum 45% aggregate marks in PCM at 10+2 level.
+- Registration: Applications invited through college portal and official notification.
+
+3. B.Tech Lateral Entry Admission (ECET Quota):
+- Admission Path: Direct admission into 2nd Year B.Tech (3rd Semester) through TG ECET Counselling.
+- Eligibility: Diploma in Engineering / Technology or B.Sc (Mathematics) degree with minimum 45% marks (40% for reserved categories).
+
+EAPCET Cutoff Rank 2024:
+- CSE Branch Cutoff Rank: 35,103 to 42,150
+- CSE AI&ML Branch Cutoff Rank: 38,200 to 45,500
+- ECE Branch Cutoff Rank: 42,000 to 48,265
+
+Admission Helpline Phone: 9246323444
+Admission Email: info@sreyas.ac.in / admissions@sreyas.ac.in
+Lateral Entry: Lateral Entry Quota (ECET)
+
+== TUITION FEES AND OTHER CHARGES ==
+Tuition Fee Structure (Per Annum):
+- CSE Tuition Fee: Approximately Rs 95,000 to Rs 1,07,500 per year
+- CSE (AI & ML) Tuition Fee: Approximately Rs 95,000 to Rs 1,07,500 per year
+- ECE Tuition Fee: Approximately Rs 85,000 to Rs 95,000 per year
+- Total 4-Year B.Tech Fee Range: Rs 1.86 Lakhs to Rs 4.30 Lakhs depending on branch and admission category (Convenor vs Management).
+- Note: Tuition fees are fixed by Telangana Admission and Fee Regulatory Committee (TAFRC) and subject to government revision.
+
+Additional Annual Fees:
+- JNTUH University Recognition & Registration Fee: As per JNTUH norms
+- Examination Fee: Paid per semester based on number of theory and lab papers
+- Transport Fee: Optional, based on pickup route distance (Rs 18,000 to Rs 26,000 per annum)
+
+Accounts Office Contact:
+- Email: accounts@sreyas.ac.in
+- Phone: 9246323444
+
+== SCHOLARSHIPS AND FINANCIAL ASSISTANCE ==
+1. Telangana Government Fee Reimbursement Scheme (Jagananna / Epass):
+- Eligible Categories: SC, ST, BC, EBC, Minority, and Differently Abled students domiciled in Telangana.
+- Income Criteria: Annual family income below Rs 1.50 Lakhs (Rural) / Rs 2.00 Lakhs (Urban) for BC/EBC/Minority; Rs 2.00 Lakhs for SC/ST.
+- Full Fee Reimbursement available for rank holders below 10,000 in EAPCET.
+
+2. College Merit Scholarships:
+- Fee concessions awarded to top EAPCET rankers joining Sreyas.
+- Special awards for semester toppers in each department.
+
+3. Bank Education Loan Assistance:
+- Collateral-free education loan guidance supported by SBI, Canara Bank, Union Bank, and HDFC Credila.
+- Documentation support provided by administrative office.
+
+Scholarship Desk Contact:
+- Email: scholarship@sreyas.ac.in
+- Phone: 9246323444
+
+== TRAINING AND PLACEMENTS (T&P CELL) ==
+Placement Overview (Academic Year 2025-26):
+- Highest Salary Package: Rs 21.18 LPA (Lakhs Per Annum) offered by Atomic Works
+- Average Salary Package: Rs 4.0 LPA to Rs 5.0 LPA
+- Total Offers / Students Placed: 558+ Placement Offers secured by graduating batch
+- Placement Success Rate: Over 85% of eligible registered students placed in reputed MNCs
+- Placement Season Starts: 6th Semester (3rd Year onwards)
+
+Top Recruiting Companies:
+- IT & Software Giants: Capgemini, Accenture, Tata Consultancy Services (TCS), Wipro, Infosys, Cognizant, Hexaware Technologies, Mphasis, ITC Infotech, Mindtree, Tech Mahindra.
+- Core & Product Companies: Atomic Works, Virtusa, Wiley Edge, ValueLabs, Modak Analytics, ZenQ, Genpact, Amazon, Medha Servo Drives.
+
+Placement Training Program (CRT - Campus Recruitment Training):
+- Aptitude & Quantitative Ability Training from 2nd Year onwards
+- Programming & Data Structures Coding Bootcamps in C, Java, Python
+- Full-Stack Web Development & Cloud Certification Workshops
+- Mock Technical Interviews & HR Group Discussion sessions
+- Soft Skills, Resume Building, & Corporate Etiquette Training
+
+Placement Cell Contact:
+- Placement Director: Head of Training & Placements
+- Email: placements@sreyas.ac.in
+- Phone: 9246323444
+Total Students Placed: 5 Offer
+Top Recruiters: diversity across domains Product companies, IT services firms, and core engineering brands all appear here to create a fuller placement story
+
+== DEPARTMENTS AND LABORATORIES ==
+1. Department of Computer Science & Engineering (CSE):
+- Labs: High-Performance Computing Lab, Advanced Java & Python Lab, Cloud Computing Lab, Database Management Systems Lab, Web Technologies Lab.
+- Hardware & Software: 500+ Intel i5/i7 Workstations, High-speed Dedicated Internet, Linux & Windows Servers, Licensed Software & Open Source Tools.
+
+2. Department of CSE (AI & ML):
+- Labs: Artificial Intelligence Lab, Machine Learning & Deep Learning Lab, Data Science & Analytics Lab, GPU Acceleration Workstation Lab.
+- Infrastructure: NVIDIA GPU-enabled systems for deep neural network training, Python Anaconda Environment, TensorFlow, PyTorch, Keras libraries.
+
+3. Department of Electronics & Communication Engineering (ECE):
+- Labs: VLSI Design Lab, Embedded Systems & IoT Lab, Microwave & Optical Communication Lab, Digital Signal Processing (DSP) Lab, Analog & Digital Communications Lab, Electronic Devices & Circuits (EDC) Lab.
+- Equipment & Software: Cadence VLSI Suite, Xilinx Vivado, MATLAB with Simulink, Texas Instruments Embedded Kits, Spectrum Analyzers, Digital Storage Oscilloscopes (DSO).
+
+4. Department of Humanities & Sciences (H&S):
+- Labs: English Language Communication Skills (ELCS) Advanced Lab, Engineering Physics Lab, Engineering Chemistry Lab, Computer Aided Engineering Drawing (CAED) Lab.
+- Role: Teaches 1st Year B.Tech foundational courses in Mathematics, Physics, Chemistry, Professional English, and Environmental Studies.
+
+== CENTRAL LIBRARY AND E-LEARNING RESOURCES ==
+Library Infrastructure:
+- Area: Over 1,000 Square Meters spacious air-conditioned Reading Hall
+- Book Stock: 30,000+ Volumes of Textbooks and Reference Books across all engineering branches
+- Titles: 4,500+ Unique Book Titles
+- Journals: 110+ National and International Printed Journals
+- Digital Library: 30+ Computer Systems with High-speed Gigabit Internet
+- E-Resources Access: IEEE Xplore Digital Library, NPTEL Video Lectures, ScienceDirect, Springer, DELNET Subscription, Directory of Open Access Journals (DOAJ).
+- Automation: Fully Automated Library Management System with RFID / Barcode Scanning for quick book check-in and check-out.
+
+== CAMPUS FACILITIES AND INFRASTRUCTURE ==
+1. Smart Classrooms & Seminar Halls:
+- ICT-enabled Classrooms equipped with Overhead LCD Projectors, Smart Interactive Boards, and Audio Systems.
+- Air-Conditioned Central Auditorium with 800+ Seating Capacity for National Conferences, Annual Fests, and Cultural Events.
+- 3 Seminar Halls (200+ Capacity each) for departmental guest lectures and workshops.
+
+2. High-Speed Internet & Wi-Fi:
+- 1 Gbps Dedicated Leased Line Internet Bandwidth provided across campus.
+- Secure Campus-Wide Wi-Fi access for students and faculty.
+
+3. Campus Canteen & Cafeteria:
+- Multi-Cuisine Clean Canteen serving hygienic South Indian, North Indian food, snacks, fresh juices, and beverages.
+- FSSAI Certified food preparation standards, subsidized student pricing.
+
+4. Sports & Games Infrastructure:
+- Outdoor Sports Ground: Full-size Cricket Ground, Football Field, Volleyball Courts, Basketball Court, Throwball Court.
+- Indoor Games Facility: Table Tennis, Carroms, Chess, Gymnasium / Fitness Equipment.
+- Annual Sports Meet: Inter-departmental and Inter-collegiate tournaments held annually.
+
+5. Green Campus & Environmental Sustainability:
+- 200+ Mature Neem Trees providing natural oxygenation and cool micro-climate.
+- Solar Power Generation Plant installed on campus rooftops.
+- Rainwater Harvesting Pits and Sewage Treatment Plant (STP) for water conservation.
+Library: Departments
+Laboratories: Auditorium
+
+== HOSTEL AND ACCOMMODATION INFORMATION ==
+On-Campus Hostel Status:
+- Sreyas Institute does **not** have an official on-campus hostel building inside the college premises.
+
+Off-Campus Accommodation Options for Students:
+- Multiple private Boys and Girls Paying Guest (PG) Accommodations and Hostels are located within 1 to 2 km of the campus in Bandlaguda, Nagole, and Tattiannaram areas.
+- PG Facilities: Generally include Wi-Fi, Food (3 meals), Hot Water, Security, Washing Machines, and AC/Non-AC rooms.
+- PG Rent Range: Approximately Rs 5,500 to Rs 9,000 per month depending on sharing type (2/3/4 sharing) and food inclusion.
+- Accommodation Guidance Desk: College administrative office assists outstation students with verified PG landlord contact numbers.
+- Helpdesk Phone: 9246323444
+
+== TRANSPORTATION AND BUS ROUTES ==
+College Bus Fleet:
+- Fleet of 25+ Comfortable Air-Conditioned and Non-AC Buses operating across Hyderabad and Secunderabad.
+- Transport Fee: Annual transport fee depends on pickup distance (Rs 18,000 to Rs 26,000 per annum).
+- Transport Helpline: 9246323444
+
+Official Bus Routes (Source: Sreyas Bus Routes Details Sheet):
+
+RT-1 | Kukatpally | 07:00 AM
+Stops: JNTU, Kukatpally Y Junction, ESI, S R Ngr, Ameerpet, Begumpet, Paradise, Tarnaka, Uppal, Nagole X Roads, College
+
+RT-2 | Mehdipatnam | 07:15 AM
+Stops: Mehdipatnam, Masabtank, Lakdikapool, Nampally, Ghandhi Bhavan, Afjalgunj, MGBS, Chaderghat, College
+
+RT-3 | Dammaiguda | 07:15 AM
+Stops: NLG X Roads, Moosaram Bagh X Roads, Dilsukh Nagar, Kothapet, Omini Hospital, Mohan Nagar, Nagole X Roads, Dammaiguda, Sainathpuram, Krupa Complex, Anand Bagh, Anutex, Mirjalguda, Malkajgiri, Mettuguda, Tarnaka, Uppal X Roads, Nagole X Roads, College
+
+RT-4 | Pedda Amberpet | 07:30 AM
+Stops: Pedda Amberpet, Hayat Nagar, Bhagyalatha, Vanastalipuram, Rythubazar, Vaidehi Nagar, N G O Colony, Red Tank, Ganesh Temple, Panama, Sushma, College
+
+RT-5 | Himayat Nagar | 07:20 AM
+Stops: Mansoorabad, Sahara, South End Park, Anand Nagar, Himayat Nagar, Ashok Nagar, Ghandhi Nagar, Kalpana Theater, Kawadiguda, Golkonda X Roads, RTC X Roads, College
+
+RT-6 | I S Sadan | 07:45 AM
+Stops: VST, Ramnagar, Ramnagargundu, Vidya Nagar, O U Gate, 6 No Roads, Uppal X Roads, Nagole X Roads, College
+
+RT-7 | Chaitanyapuri | 07:50 AM
+Stops: I S Sadan, Bharat Gardens, Chempapet, Karmanghat, Bairamalguda, Sagar X Roads, Sushma, Chaitanyapuri, Ramalayam, Babu Complex, Jain Mandir, New Maruthi Nagar, Nagole X Roads, College
+
+RT-8 | IDPL-Balnagar | 07:00 AM
+Stops: IDPL, Chintal, Shapur, Suchithra, Alwal, Tirumalgiri, JBS, Secunderabad Stn, Chilkalguda, Sitafal Mandi, Tarnaka, Uppal X Roads, Nagole X Roads, College
+
+RT-9 | Narapally | 07:45 AM
+Stops: Narapally, Medipally, Boduppal Depo, Pirzadiguda, Uppal Bus Stand, Uppal X Roads, Nagole X Roads, College
+
+RT-10 | Barkatpura | 07:40 AM
+Stops: Barkatpura Chaman, YMCA Narayanguda, Nallakunta Fever Hospital, 6 No X Roads, Uppal X Roads, Nagole X Roads, College
+
+RT-11 | Chandrayangutta | 07:15 AM
+Stops: Laldarwaza Mode, Falaknuma, Chandrayangutta, Midhani Bus Depot, Balapur X Roads, Badangpet Village, Almasguda, Jillelguda, Meerpet, Gayatri Nagar, TKR Kaman, Sagar X Roads, LB Nagar, Kamineni, Nagole X Roads, College
+
+RT-12 | Dilsukh Nagar | 08:00 AM
+Stops: Dilsukhnagar, Chaitanyapuri, Kothapet X Roads, Mohan Nagar, Nagole X Roads, College
+
+RT-14 | Nalgonda X Roads | 07:45 AM
+Stops: Nalgonda X Roads, Dilsukh Nagar, R R Dist Court, LB Nagar, Kamineni Hospital, Nagole X Roads, College
+
+RT-15 | Saidabad | 07:45 AM
+Stops: Saidabad, SBH Colony, Ganga Theater, Saroor Nagar Katta, Saroor Nagar Post Office, M R O Office, Kothapet X Roads, Telephone Colony, R K Puram, College
+
+RT-16 | Neredmet | 07:30 AM
+Stops: Neredmet, A S Rao Nagar, Radhika, ECIL, Moulali H B Colony, Mallapur, Nacharam, HMT Nagar, Habsiguda X Roads, Uppal X Roads, College
+
+RT-17 | Omkar Nagar | 08:00 AM
+Stops: Omkar Nagar, Chintal Kunta, Vishnu Theater, Panama, Sushma, College
+
+RT-19 | Chilka Nagar | 07:40 AM
+Stops: Mansoorabad Road, Sahara, South End Park, Anand Nagar, Boduppal Kaman, NTR Statue, Chilka Nagar, Little Flowre, Uppal X Roads, Nagole X Roads, College
+
+RT-20 | Gurramguda | 07:45 AM
+Stops: Injapur Main Road, Gurramguda, B N Reddy X Roads, Hastinapuram, Sagar X Roads, LB Nagar, Chintalkunta, Panama, Sushma, Mansoorabad, South End Park, Anand Nagar, College
+
+RT-21 | Huda Complex | 07:50 AM
+Stops: M R O Office, Huda Complex, Kothpet X Roads, Astalakshmi Arch, Alkapuri, Alkapuri Sai Baba Temple, Alkapuri Signals, Nagole X Roads, College
+
+RT-22 | Balapur X Roads | 07:45 AM
+Stops: Dathu Nagar, Balapur X Roads, Badangpet Kakatiya School, Badangpet Ganesh Temple, Meerpet Bus Stop, Gayatri Nagar, Alekhya Towers, Sagar X Roads, LB Nagar, Nagole X Roads, Anand Nagar, College
+
+Transport Helpline: 9246323444
+
+== CAMPUS SAFETY, SECURITY AND DISCIPLINE ==
+1. 24x7 Campus Security & Surveillance:
+- Round-the-clock trained security personnel at all gates and campus entry points.
+- 200+ CCTV Cameras monitoring all corridors, classrooms, labs, library, and campus grounds.
+
+2. Anti-Ragging Committee & Discipline:
+- Strict Zero-Tolerance Policy towards ragging in compliance with AICTE / UGC / Supreme Court guidelines.
+- Active Anti-Ragging Squad conducting surprise checks inside campus and nearby bus stops.
+- Anti-Ragging Toll-Free Helpline and Online Complaint Portal.
+
+3. Women's Protection & Internal Complaints Committee (ICC):
+- Active Women Empowerment Cell and Gender Sensitization Committee.
+- ICC handles any grievances related to female student or staff safety.
+
+4. Medical Facilities & First Aid:
+- Dedicated Medical Room on campus with full-time qualified Nurse and first-aid amenities.
+- Tie-up with nearby Multi-Specialty Hospitals (Kamineni Hospital, LB Nagar) for emergency ambulance support.
+
+== ACADEMIC CALENDAR AND EXAMINATIONS ==
+1. Academic Pattern:
+- Two Semesters per academic year (Odd Semester: July-December; Even Semester: January-June).
+- Choice Based Credit System (CBCS) under Autonomous Regulations.
+
+2. R25 Academic Regulations (B.Tech 2025 Onwards Batches):
+- Internal Continuous Assessment (Mid Exams, Assignments & Quizzes): 30 Marks per subject.
+- End-Semester External Examination: 70 Marks per subject.
+- Total Marks per Subject: 100 Marks.
+- Minimum Passing Criteria: 35% in External Exam (25/70) and 40% Aggregate Overall (40/100).
+
+3. R22 Academic Regulations (B.Tech 2022-2024 Batches):
+- Internal Continuous Assessment (Mid Exams & Continuous Evaluation): 40 Marks per subject.
+- End-Semester External Examination: 60 Marks per subject.
+- Total Marks per Subject: 100 Marks.
+- Minimum Passing Criteria: 35% in External Exam (21/60) and 40% Aggregate Overall (40/100).
+
+4. General Exam Marks & Evaluation:
+- Internal Marks: 30 to 40 Marks (depending on R25 / R22 regulation).
+- External Marks: 60 to 70 Marks (depending on R22 / R25 regulation).
+- Total Marks per Paper: 100 Marks.
+- Mid Examinations: Two Mid-Term examinations conducted per semester.
+- Lab Practical Exams: End-semester practical evaluation conducted by Internal and External Examiners.
+
+5. Attendance Regulations:
+- Minimum 75% Attendance mandatory to appear for End-Semester Examinations.
+- Condonation of shortage between 65% and 75% allowed on genuine medical grounds with doctor certificate and fee payment.
+- Students below 65% attendance are detained and must repeat the semester.
+
+6. Examination Branch Contact:
+- Controller of Examinations (CoE)
+- Email: exambranch@sreyas.ac.in
+- Phone: 9246323444
+
+== STUDENT CLUBS AND CO-CURRICULAR ACTIVITIES ==
+1. Technical Clubs:
+- Sreyas Coding Club (Coding competitions, Hackathons, LeetCode challenges)
+- Google Developer Student Club (GDSC Sreyas)
+- Robotics & Embedded Systems Club
+- IEEE Student Branch Sreyas
+- CSI (Computer Society of India) Student Chapter
+
+2. Cultural & Creative Clubs:
+- Sreyas Beats (Music & Band Club)
+- Natya Sreyas (Dance & Drama Club)
+- Photography & Film Making Club
+- Literary & Debating Society
+
+3. Social Service & Extension Activities:
+- National Service Scheme (NSS) Sreyas Unit — Blood donation camps, village adoption, tree plantation drives.
+- Youth Red Cross Unit
+
+== FREQUENTLY ASKED QUESTIONS (FAQ) ==
+Q: Is Sreyas Institute autonomous?
+A: Yes, Sreyas Institute of Engineering and Technology is a UGC Autonomous institution affiliated to JNTUH.
+
+Q: What is the NAAC grade of Sreyas?
+A: Sreyas Institute is accredited with 'A' Grade by NAAC.
+
+Q: Which B.Tech branches are available at Sreyas?
+A: B.Tech in CSE (Computer Science & Engineering), B.Tech in CSE (AI & ML), and B.Tech in ECE (Electronics & Communication Engineering).
+
+Q: Does Sreyas offer M.Tech, MBA, MCA, or Diploma courses?
+A: No. Sreyas Institute currently offers undergraduate 4-year B.Tech degree programmes only.
+
+Q: What was the highest package at Sreyas in 2025?
+A: The highest package was Rs 21.18 LPA offered by Atomic Works.
+
+Q: Where is Sreyas college located?
+A: Nagole, Bandlaguda, GSI Road, Tattiannaram, Hyderabad - 500068 (Near Indu Aranya Township).
+
+Q: Is hostel facility available inside Sreyas campus?
+A: No, on-campus hostel is not available, but multiple private PG hostels for boys and girls operate near the college with full amenities.
+
+Q: How to apply for admission in Sreyas?
+A: Via TG EAPCET Convenor Counselling (Code: SREY) or directly under Management Quota by contacting 9246323444 / info@sreyas.ac.in.
+
+Q: What is the college timing?
+A: 9:00 AM to 4:00 PM, Monday through Saturday.
+
+Q: What is MSAT at Sreyas?
+A: MSAT stands for Management Scholastic Aptitude Test. It is Sreyas Institute's own internal entrance test conducted for students seeking admission under the Management / Category-B quota. Students who appear for MSAT and score well may be eligible for fee concessions and merit seats. MSAT covers topics in Mathematics, Physics, Chemistry, General Aptitude, and Logical Reasoning. Contact: 9246323444 or info@sreyas.ac.in.
+
+Q: Is MSAT compulsory for admission?
+A: MSAT is optional for Management Quota (Category-B) admission. Students with valid TG EAPCET / JEE Mains rank can directly apply. However, students without an entrance rank can appear for MSAT to qualify for merit-based Category-B admission. Students with good 12th Intermediate marks (above 80%) may also be considered without MSAT.
+
+Q: What is the MSAT test pattern?
+A: MSAT (Management Scholastic Aptitude Test) consists of approximately 60 to 80 multiple-choice questions. Sections include: Mathematics (25 marks), Physics (20 marks), Chemistry (15 marks), and General Aptitude / Reasoning (20 marks). Duration: 90 minutes. No negative marking. The test is conducted at Sreyas campus. For schedule and registration: 9246323444.
+
+Q: Can I get admission without EAPCET rank?
+A: Yes. Under Category-B (Management Quota), students who do not have a TG EAPCET rank can apply directly with 12th Intermediate marks (MPC). Students with 12th marks above 60% are generally eligible. Appearing for MSAT (Sreyas internal test) strengthens your application. Contact admissions desk: 9246323444 for direct application.
+
+Q: What documents are required for admission?
+A: Required documents include: (1) 10th / SSC Marks Memo & Certificate, (2) 12th / Intermediate Marks Memo (all subjects), (3) Transfer Certificate (TC) from previous institution, (4) Migration Certificate (from board / university), (5) TG EAPCET Rank Card (if applicable), (6) Aadhar Card (student and parent), (7) Caste Certificate (for SC/ST/BC/OBC), (8) Income Certificate (for scholarship), (9) Passport-size photographs (6 copies), (10) Community Certificate (where applicable).
+
+Q: What is the campus working schedule?
+A: College working hours: 9:00 AM to 4:00 PM, Monday to Saturday. Administrative office: 9:00 AM to 5:00 PM, Monday to Saturday. Closed on Sundays and government gazette holidays.
+
+Q: Does Sreyas have a placement guarantee?
+A: Sreyas Institute does not offer a formal placement guarantee. However, the Training & Placements Cell has achieved 85%+ placement rates consistently. Students who complete the CRT (Campus Recruitment Training) program and maintain good academic performance have a significantly higher placement success rate. Multiple companies visit campus every year for on-campus hiring.
+
+== OFFICIAL CONTACT DETAILS ==
+Main Admission Helpline: 9246323444
+General Information Email: info@sreyas.ac.in
+Official Website: www.sreyas.ac.in
+Principal Email: principal@sreyas.ac.in
+Accounts Email: accounts@sreyas.ac.in
+Scholarship Email: scholarship@sreyas.ac.in
+Examination Branch Email: exambranch@sreyas.ac.in
+Training & Placements Email: placements@sreyas.ac.in
+Postal Address: 9-39, Sy No. 107, Tattiannaram, GSI Road, Beside Indu Aranya, Bandlaguda, Nagole, Hyderabad, Telangana - 500068
+Distance from MGBS Bus Station: 16 km
+Distance from Secunderabad Railway Station: 16.8 km
+Distance from Rajiv Gandhi International Airport (RGIA Shamshabad): 26.7 km
+
+== INTERNSHIPS AND INDUSTRY COLLABORATIONS ==
+Internship Programme:
+- Mandatory Internship in 3rd Year (5th/6th Semester) for all B.Tech students.
+- Duration: Minimum 4 to 6 weeks in a registered industry or research organisation.
+- Internship Credit: Internship credits are counted toward graduation under autonomous regulations.
+- Popular Internship Partners: TCS iON, Wipro WILP, Infosys Springboard, NASSCOM FutureSkills, AWS Academy, Coursera for Campus, local Hyderabad IT startups.
+
+Industry MOUs and Tie-Ups:
+- Amazon Web Services (AWS) Academy — Cloud computing curriculum integration.
+- Cisco Networking Academy — Network fundamentals and CCNA preparation.
+- Microsoft Azure Fundamentals — Cloud and AI learning tracks.
+- Oracle Academy — Java and Database certification programs.
+- NASSCOM FutureSkills Prime — Emerging technology training.
+- Wadhwani Foundation — Entrepreneurship and startup mentoring.
+- Infosys Springboard — Online learning and industry exposure programs.
+
+== FACULTY AND ACADEMIC STAFF ==
+Faculty Strength:
+- Total Teaching Faculty: 100+ qualified faculty members across all departments.
+- Ph.D Holders: 30+ faculty members with doctoral degrees from reputed universities.
+- Industry-Experienced Faculty: Many faculty members have prior industry experience in IT, Electronics, and Research sectors.
+- Faculty Qualification: All faculty hold minimum M.Tech / M.E. or equivalent Post-Graduate degree in relevant discipline.
+- Guest Lectures: Regular industry expert and alumni guest lectures are conducted.
+
+Research Activity:
+- Faculty members publish research papers in IEEE, Scopus-indexed, and UGC-CARE listed journals.
+- Active consultancy and funded research projects from DST, AICTE, and JNTUH.
+- Faculty participate in international and national conferences annually.
+
+== STUDENT ACHIEVEMENTS AND EVENTS ==
+Annual Events:
+- Sreyas Techfest: Annual inter-collegiate technical symposium with events including coding contests, robotics, paper presentations, and project exhibitions.
+- Sreyas Culturals (WAVES): Annual cultural fest with music, dance, drama, fine arts, and literary competitions.
+- Freshers' Day (Welcome Day): Celebration event for new first-year students.
+- Farewell (Graduation Dinner): Grand valedictory function for final-year graduating batch.
+- Industry Visits: Organized industrial tours to IT parks, manufacturing plants, and research facilities in Hyderabad.
+
+National and International Achievements:
+- Students have qualified for Smart India Hackathon (SIH) national rounds.
+- IEEE student branch conducts technical workshops, talks, and project competitions.
+- NPTEL SWAYAM online certification achievers — several students have earned AAA/AA/A grade certifications.
+- Students have presented research papers at national-level engineering conferences.

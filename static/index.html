@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SREYAS AI Assistant — Sreyas Institute of Engineering & Technology</title>
+<meta name="description" content="Chat with SREYAS AI — Get instant answers on admissions, courses, fees, placements & campus life at Sreyas Institute of Engineering & Technology, Nagole Hyderabad.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --primary:#1a73e8;
+  --primary-dark:#1557b0;
+  --primary-glow:rgba(26,115,232,.18);
+  --surface:#ffffff;
+  --surface-2:#f1f5f9;
+  --surface-3:#e2e8f0;
+  --border:#cbd5e1;
+  --border-subtle:#e2e8f0;
+  --text:#0f172a;
+  --text-sub:#475569;
+  --text-muted:#94a3b8;
+  --success:#15803d;
+  --success-bg:#f0fdf4;
+  --danger:#dc2626;
+  --font:'Google Sans','Inter',-apple-system,sans-serif;
+  --r-xl:24px;--r-lg:18px;--r-md:12px;--r-sm:8px;
+  --sh-sm:0 1px 3px rgba(15,23,42,.06);
+  --sh-md:0 4px 14px rgba(15,23,42,.08);
+  --sh-lg:0 20px 60px rgba(15,23,42,.12);
+  --sh-xl:0 24px 70px rgba(15,23,42,.18);
+}
+
+body{
+  font-family:var(--font);
+  background:linear-gradient(145deg,#e2e8f0 0%,#e0e7ff 40%,#dbeafe 100%);
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  overflow-x:hidden;
+}
+
+/* ═══════════════════════════════════════════════
+   LANDING HERO CARD
+═══════════════════════════════════════════════ */
+.demo-card{
+  background:rgba(255,255,255,.94);backdrop-filter:blur(20px);
+  border-radius:28px;padding:40px 32px;max-width:520px;width:90%;
+  box-shadow:var(--sh-lg);border:1px solid rgba(255,255,255,.8);text-align:center;z-index:1;position:relative;
+}
+.demo-card-logo{
+  width:68px;height:68px;border-radius:22px;
+  background:linear-gradient(135deg,#1a73e8,#3b82f6);
+  margin:0 auto 18px;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px rgba(26,115,232,.35);font-size:32px;color:#fff;
+}
+.demo-card h2{color:var(--text);font-size:24px;font-weight:700;margin-bottom:8px;}
+.demo-card p{color:var(--text-sub);font-size:14px;line-height:1.6;}
+.badge-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px;}
+.badge-pill{background:#eff6ff;color:var(--primary);font-size:12px;padding:6px 14px;border-radius:20px;font-weight:600;border:1px solid rgba(26,115,232,.2);}
+.demo-arrow{margin-top:22px;font-size:13.5px;color:var(--primary);font-weight:600;animation:bounce 1.4s ease-in-out infinite;display:flex;align-items:center;justify-content:center;gap:6px;}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* ═══════════════════════════════════════════════
+   FLOATING LAUNCHER
+═══════════════════════════════════════════════ */
+#sr-launcher{
+  position:fixed!important;right:24px!important;bottom:24px!important;
+  width:62px!important;height:62px!important;border-radius:50%!important;
+  background:linear-gradient(135deg,#1a73e8,#2563eb)!important;
+  box-shadow:0 6px 24px rgba(26,115,232,.45)!important;border:none!important;
+  cursor:pointer!important;z-index:2147483647!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  transition:transform .22s cubic-bezier(.34,1.56,.64,1),box-shadow .2s!important;outline:none!important;
+}
+#sr-launcher:hover{transform:scale(1.08)!important;box-shadow:0 10px 32px rgba(26,115,232,.55)!important;}
+#sr-launcher svg{width:28px;height:28px;pointer-events:none;}
+#sr-badge{
+  position:absolute;top:-4px;right:-4px;background:linear-gradient(135deg,#ef4444,#f59e0b);
+  color:#fff;font-size:8.5px;font-weight:800;padding:3px 7px;border-radius:10px;
+  pointer-events:none;letter-spacing:.4px;box-shadow:0 2px 6px rgba(0,0,0,.2);
+}
+
+/* ═══════════════════════════════════════════════
+   CHATBOT PANEL
+═══════════════════════════════════════════════ */
+#sr-panel{
+  position:fixed!important;right:24px!important;bottom:96px!important;
+  width:420px!important;max-width:calc(100vw - 28px)!important;
+  height:650px!important;max-height:calc(100vh - 112px)!important;
+  background:var(--surface)!important;border-radius:var(--r-xl)!important;
+  box-shadow:var(--sh-xl)!important;border:1px solid rgba(226,232,240,.9)!important;
+  flex-direction:column!important;overflow:hidden!important;
+  z-index:2147483646!important;display:none!important;
+}
+#sr-panel.sr-open{display:flex!important;animation:panelPop .3s cubic-bezier(.34,1.56,.64,1);}
+@keyframes panelPop{from{opacity:0;transform:scale(.88) translateY(24px)}to{opacity:1;transform:scale(1) translateY(0)}}
+
+/* ═══════════════════════════════════════════════
+   HEADER
+═══════════════════════════════════════════════ */
+#sr-header{
+  background:linear-gradient(135deg,#1e40af 0%,#2563eb 100%);
+  padding:14px 18px;display:flex;align-items:center;gap:10px;flex-shrink:0;
+  position:relative;overflow:hidden;transition:background .4s;
+  box-shadow:0 2px 8px rgba(30,64,175,.2);
+}
+#sr-header-overlay{position:absolute;inset:0;pointer-events:none;z-index:1;}
+
+.sr-avatar{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.22);border:2px solid rgba(255,255,255,.45);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex-shrink:0;color:#fff;position:relative;z-index:2;}
+.sr-hinfo{flex:1;min-width:0;position:relative;z-index:2;}
+.sr-name{font-weight:700;font-size:14.5px;color:#fff;letter-spacing:-.1px;}
+.sr-status{font-size:11px;opacity:.92;display:flex;align-items:center;gap:5px;margin-top:2px;color:#fff;}
+.sr-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;display:inline-block;box-shadow:0 0 6px rgba(34,197,94,.8);animation:dotPulse 2s ease-in-out infinite;}
+@keyframes dotPulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+.sr-header-btns{display:flex;gap:5px;align-items:center;position:relative;z-index:2;}
+.sr-hbtn{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.30);color:#fff;font-size:10.5px;padding:4px 10px;border-radius:20px;cursor:pointer;font-family:var(--font);transition:background .18s;white-space:nowrap;font-weight:600;display:none;}
+.sr-hbtn:hover{background:rgba(255,255,255,.32);}
+#sr-close{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.30);color:rgba(255,255,255,.95);width:32px;height:32px;border-radius:50%;font-size:16px;cursor:pointer;padding:0;line-height:1;display:flex;align-items:center;justify-content:center;transition:background .18s;flex-shrink:0;position:relative;z-index:2;}
+#sr-close:hover{background:rgba(255,255,255,.35);}
+
+/* ═══════════════════════════════════════════════
+   LANGUAGE & MODE SELECTION SCREENS
+═══════════════════════════════════════════════ */
+.sr-select-screen{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:24px 20px;background:var(--surface-2);gap:14px;
+}
+.sr-screen-title{font-size:18px;font-weight:700;color:var(--text);text-align:center;line-height:1.4;letter-spacing:-.2px;}
+.sr-screen-sub{font-size:13px;color:var(--text-sub);text-align:center;line-height:1.5;}
+
+.sr-lang-opts,.sr-mode-opts{display:flex;flex-direction:column;gap:10px;width:100%;max-width:290px;}
+
+.sr-select-opt{
+  display:flex;align-items:center;gap:14px;background:var(--surface);
+  border:1.5px solid var(--border-subtle);border-radius:var(--r-md);padding:14px 16px;
+  cursor:pointer;transition:all .2s;font-family:var(--font);box-shadow:var(--sh-sm);
+}
+.sr-select-opt:hover{border-color:var(--primary);background:#eff6ff;transform:translateY(-2px);box-shadow:var(--sh-md);}
+.sr-select-opt .opt-icon{font-size:26px;flex-shrink:0;}
+.sr-select-opt .opt-main{font-size:14px;font-weight:600;color:var(--text);}
+.sr-select-opt .opt-sub{font-size:11.5px;color:var(--text-sub);margin-top:2px;}
+
+/* ═══════════════════════════════════════════════
+   MESSAGES
+═══════════════════════════════════════════════ */
+#sr-msgs{
+  flex:1;overflow-y:auto;padding:16px 14px;
+  background:linear-gradient(180deg,#eef2f9 0%,#f0f4fb 60%,#e8edf6 100%);
+  display:flex;flex-direction:column;gap:14px;scroll-behavior:smooth;
+}
+#sr-msgs::-webkit-scrollbar{width:5px;}
+#sr-msgs::-webkit-scrollbar-track{background:transparent;}
+#sr-msgs::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:4px;}
+
+.sr-msg{
+  max-width:90%;padding:12px 16px 8px;border-radius:18px;
+  font-size:13.5px;line-height:1.65;word-break:break-word;
+  font-family:var(--font);animation:msgIn .24s cubic-bezier(.34,1.56,.64,1);
+  position:relative;
+}
+@keyframes msgIn{from{opacity:0;transform:translateY(10px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+.sr-msg.bot{
+  align-self:flex-start;background:#ffffff;color:#1e293b;
+  border:1px solid #dde4f0;border-bottom-left-radius:4px;
+  border-left:3px solid #dbeafe;
+  box-shadow:0 2px 10px rgba(15,23,42,.06);
+}
+.sr-msg.user{
+  align-self:flex-end;background:linear-gradient(135deg,#1d4ed8 0%,#2563eb 100%);color:#ffffff;
+  border-bottom-right-radius:4px;box-shadow:0 3px 12px rgba(29,78,216,.28);
+}
+
+/* Message timestamp */
+.sr-ts{
+  font-size:10px;color:rgba(100,116,139,.7);text-align:right;
+  margin-top:6px;font-weight:500;letter-spacing:.2px;
+  border-top:1px solid rgba(226,232,240,.6);padding-top:4px;
+}
+.sr-msg.user .sr-ts{ color:rgba(255,255,255,.6); border-top-color:rgba(255,255,255,.2); }
+
+/* Formatted Message Elements */
+.sr-msg-title{
+  font-size:14.5px;font-weight:700;color:#0f172a;margin-bottom:8px;
+  display:flex;align-items:center;gap:6px;padding-bottom:6px;border-bottom:1px solid #f1f5f9;
+}
+.sr-msg-p{margin-bottom:8px;}
+.sr-msg-p:last-child{margin-bottom:0;}
+.sr-msg-list{display:flex;flex-direction:column;gap:6px;margin:8px 0;}
+.sr-msg-item{display:flex;align-items:flex-start;gap:8px;line-height:1.55;}
+.sr-bullet{color:var(--primary);font-weight:800;font-size:14px;line-height:1.4;flex-shrink:0;}
+.sr-msg-notice{
+  background:#f8fafc;border:1px solid #e2e8f0;border-left:3.5px solid var(--primary);
+  border-radius:8px;padding:9px 13px;margin-top:10px;font-size:12px;color:var(--text-sub);line-height:1.55;
+}
+
+/* Bus Routes UI Grid & Cards */
+.sr-route-grid{
+  display:grid;grid-template-columns:repeat(auto-fill, minmax(160px, 1fr));gap:8px;margin:10px 0;width:100%;
+}
+.sr-route-card{
+  background:#ffffff;border:1.5px solid #e2e8f0;border-radius:10px;padding:10px;
+  cursor:pointer;transition:all .18s ease;display:flex;flex-direction:column;gap:4px;
+  box-shadow:0 1px 3px rgba(15,23,42,.03);
+}
+.sr-route-card:hover{
+  border-color:var(--primary);background:#eff6ff;transform:translateY(-2px);
+  box-shadow:0 4px 12px rgba(26,115,232,.15);
+}
+.sr-route-card:active{transform:scale(.98);}
+.sr-route-header{display:flex;align-items:center;justify-content:space-between;}
+.sr-route-id{
+  background:#eff6ff;color:var(--primary-dark);font-weight:700;font-size:11.5px;
+  padding:2px 8px;border-radius:12px;display:inline-block;
+}
+.sr-route-time{font-size:11px;font-weight:600;color:#64748b;}
+.sr-route-name{font-size:13px;font-weight:700;color:#1e293b;margin-top:2px;}
+.sr-route-areas{
+  font-size:11px;color:#64748b;line-height:1.4;overflow:hidden;
+  text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
+}
+.sr-route-click{font-size:10px;font-weight:600;color:var(--primary);margin-top:2px;display:flex;align-items:center;gap:2px;}
+
+/* Route Detail Card */
+.sr-detail-card{
+  background:#ffffff;border:1.5px solid #bfdbfe;border-radius:12px;padding:14px;
+  box-shadow:0 4px 14px rgba(26,115,232,.08);margin:8px 0;width:100%;
+}
+.sr-detail-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #e2e8f0;}
+.sr-detail-title{font-size:15px;font-weight:700;color:#0f172a;display:flex;align-items:center;gap:6px;}
+.sr-detail-badge{background:#e0f2fe;color:#0369a1;font-size:11px;font-weight:700;padding:3px 10px;border-radius:14px;}
+.sr-detail-time{font-size:12px;font-weight:600;color:#475569;margin-bottom:8px;display:flex;align-items:center;gap:4px;}
+
+/* Stop sequence timeline */
+.sr-timeline{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:8px;}
+.sr-stop-badge{
+  background:#f1f5f9;color:#334155;font-size:11px;font-weight:600;padding:4px 9px;
+  border-radius:6px;border:1px solid #e2e8f0;display:inline-flex;align-items:center;
+}
+.sr-stop-arrow{color:#94a3b8;font-size:11px;user-select:none;}
+
+/* Fact Card */
+.sr-fact-card{
+  background:linear-gradient(135deg,#fff,#f8fafc);border:1.5px solid rgba(26,115,232,.25);
+  border-radius:var(--r-lg);padding:16px;max-width:92%;align-self:flex-start;
+  box-shadow:var(--sh-md);border-bottom-left-radius:4px;animation:msgIn .24s ease;
+}
+.sr-fact-header{font-size:12.5px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;}
+.sr-fact-divider{height:1px;background:linear-gradient(90deg,var(--primary),transparent);margin:6px 0 10px;opacity:.3;}
+.sr-fact-val{font-size:20px;font-weight:800;color:var(--text);margin-bottom:4px;}
+.sr-fact-sub{font-size:12px;color:var(--text-sub);line-height:1.5;}
+
+/* ═══════════════════════════════════════════════
+   SUGGESTION CHIPS
+═══════════════════════════════════════════════ */
+.sr-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:2px;}
+.sr-chip{
+  background:#ffffff;border:1.5px solid #cbd5e1;color:#1d4ed8;
+  font-size:12px;padding:6px 14px;border-radius:20px;cursor:pointer;
+  font-family:var(--font);font-weight:600;transition:all .18s;box-shadow:0 1px 3px rgba(15,23,42,.05);
+  display:inline-flex;align-items:center;gap:4px;
+}
+.sr-chip:hover{background:#eff6ff;border-color:#2563eb;color:#1e40af;transform:translateY(-1px);box-shadow:0 4px 10px rgba(37,99,235,.15);}
+.sr-chip:active{transform:translateY(0);box-shadow:0 1px 3px rgba(15,23,42,.05);}
+.sr-chip:focus-visible{outline:2px solid var(--primary);outline-offset:2px;}
+.sr-chip.enq-chip{
+  background:linear-gradient(135deg,#eff6ff,#f1f5f9);
+  border-color:#3b82f6;color:#1d4ed8;font-weight:700;
+}
+.sr-chip.enq-chip:hover{background:#dbeafe;border-color:#2563eb;}
+.sr-chip.adm-chip{
+  background:linear-gradient(135deg,#fefce8,#fffbeb);
+  border-color:#eab308;color:#a16207;font-weight:700;
+}
+.sr-chip.adm-chip:hover{background:#fef08a;border-color:#ca8a04;}
+
+/* ═══════════════════════════════════════════════
+   TYPING INDICATOR
+═══════════════════════════════════════════════ */
+.sr-typing{
+  display:flex;gap:6px;padding:8px 12px;align-items:center;align-self:flex-start;
+  background:var(--surface);border:1px solid var(--border);border-radius:18px;
+  border-bottom-left-radius:4px;box-shadow:var(--sh-sm);
+}
+.sr-typing span{width:8px;height:8px;border-radius:50%;background:#bdc1c6;animation:gemDot 1.2s ease-in-out infinite;display:inline-block;}
+.sr-typing span:nth-child(1){animation-delay:0s}
+.sr-typing span:nth-child(2){animation-delay:.2s}
+.sr-typing span:nth-child(3){animation-delay:.4s}
+@keyframes gemDot{0%,60%,100%{transform:translateY(0);background:#bdc1c6}30%{transform:translateY(-7px);background:var(--primary)}}
+
+/* ═══════════════════════════════════════════════
+   FEEDBACK BUTTONS & RESPONSES
+═══════════════════════════════════════════════ */
+.sr-feedback-wrap{display:flex;flex-direction:column;gap:6px;align-self:flex-start;}
+.sr-feedback{display:flex;gap:6px;}
+.sr-fbtn{
+  background:#ffffff;border:1.5px solid var(--border);color:var(--text-sub);
+  font-size:11.5px;padding:5px 12px;border-radius:16px;cursor:pointer;
+  font-family:var(--font);transition:all .18s;font-weight:600;
+  box-shadow:0 1px 2px rgba(15,23,42,.04);
+}
+.sr-fbtn:hover{border-color:var(--primary);color:var(--primary);background:#eff6ff;}
+.sr-fbtn:active{transform:scale(.97);}
+.sr-fbtn.sr-fbtn-pos{background:#f0fdf4;color:var(--success);border-color:rgba(21,128,61,.3);cursor:default;}
+.sr-fbtn.sr-fbtn-neg{background:#fef2f2;color:var(--danger);border-color:rgba(220,38,38,.3);cursor:default;}
+
+.sr-fb-response{
+  font-size:12px;padding:9px 13px;border-radius:var(--r-md);
+  animation:msgIn .2s ease;align-self:flex-start;max-width:92%;
+}
+.sr-fb-response.positive{background:var(--success-bg);color:var(--success);border:1px solid rgba(21,128,61,.2);}
+.sr-fb-response.negative{background:#fef2f2;color:var(--danger);border:1px solid rgba(220,38,38,.2);}
+
+/* ═══════════════════════════════════════════════
+   CARDS (ENQUIRY & ADMISSION FORMS)
+═══════════════════════════════════════════════ */
+.sr-form-card{
+  background:#ffffff;border:1.5px solid #cbd5e1;border-radius:var(--r-lg);
+  padding:18px;border-bottom-left-radius:4px;box-shadow:0 4px 16px rgba(15,23,42,.07);
+  max-width:98%;animation:msgIn .24s ease;align-self:flex-start;width:100%;
+}
+.sr-form-card.adm-card{
+  border-color:#fde047;background:linear-gradient(135deg,#ffffff,#fffdf5);
+}
+
+.sr-form-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px;display:flex;align-items:center;gap:6px;}
+.sr-form-sub{font-size:12px;color:var(--text-sub);margin-bottom:14px;line-height:1.5;}
+
+.sr-form-field{
+  width:100%;border:1.5px solid #cbd5e1;border-radius:var(--r-sm);
+  padding:9px 12px;font-size:12.5px;font-family:var(--font);color:var(--text);
+  margin-bottom:9px;outline:none;transition:border-color .18s,box-shadow .18s;background:#ffffff;
+}
+.sr-form-field:focus{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-glow);}
+.sr-form-field::placeholder{color:var(--text-muted);}
+
+.sr-form-error{background:#fef2f2;border:1px solid rgba(220,38,38,.3);border-radius:var(--r-sm);padding:8px 12px;font-size:12px;color:var(--danger);margin-bottom:9px;display:none;}
+.sr-form-btn{
+  width:100%;background:linear-gradient(135deg,#1d4ed8,#2563eb);color:#fff;
+  border:none;border-radius:var(--r-sm);padding:11px;font-size:13.5px;font-weight:600;
+  cursor:pointer;font-family:var(--font);transition:all .18s;margin-top:4px;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  box-shadow:0 2px 8px rgba(29,78,216,.28);
+}
+.sr-form-btn.adm-btn{
+  background:linear-gradient(135deg,#d97706,#f59e0b);
+  box-shadow:0 2px 8px rgba(217,119,6,.32);
+}
+.sr-form-btn:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(29,78,216,.36);}
+.sr-form-btn:disabled{opacity:.65;cursor:not-allowed;transform:none;}
+.sr-form-success{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1.5px solid rgba(21,128,61,.3);border-radius:var(--r-md);padding:18px;font-size:13px;color:#15803d;text-align:center;white-space:pre-line;line-height:1.7;box-shadow:var(--sh-sm);}
+.sr-ref-badge{font-size:17px;font-weight:800;color:var(--primary);letter-spacing:1px;background:#eff6ff;padding:6px 18px;border-radius:var(--r-sm);display:inline-block;margin:10px 0;border:1px solid rgba(26,115,232,.25);}
+
+/* ═══════════════════════════════════════════════
+   INPUT BAR
+═══════════════════════════════════════════════ */
+#sr-bar{
+  display:flex;align-items:center;gap:8px;padding:12px 14px 14px;
+  border-top:1px solid var(--border-subtle);background:#ffffff;flex-shrink:0;
+}
+#sr-input{
+  flex:1;border:1.5px solid #cbd5e1;border-radius:24px;padding:10px 16px;
+  font-size:13.5px;outline:none;font-family:var(--font);color:var(--text);
+  transition:border-color .18s,box-shadow .18s;background:#f8fafc;
+}
+#sr-input:focus{border-color:var(--primary);background:#ffffff;box-shadow:0 0 0 3px var(--primary-glow);}
+#sr-input::placeholder{color:var(--text-muted);}
+#sr-input:disabled{background:var(--surface-3);color:var(--text-muted);cursor:not-allowed;}
+#sr-send{
+  background:linear-gradient(135deg,#1d4ed8,#2563eb);border:none;color:#fff;
+  width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:all .18s;box-shadow:0 2px 8px rgba(29,78,216,.30);
+}
+#sr-send:hover{transform:scale(1.06);box-shadow:0 4px 14px rgba(29,78,216,.45);}
+#sr-send:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none;}
+#sr-send svg{width:16px;height:16px;}
+#sr-foot{text-align:center;font-size:10.5px;color:var(--text-muted);padding:2px 0 8px;background:var(--surface);display:none;font-family:var(--font);}
+.sr-suggest-label{font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;width:100%;}
+
+
+/* ═══════════════════════════════════════════════
+   THEME ANIMATIONS
+═══════════════════════════════════════════════ */
+/* Snowfall */
+.anim-snowfall::before,.anim-snowfall::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:
+    radial-gradient(circle,rgba(255,255,255,.9) 1px,transparent 1px),
+    radial-gradient(circle,rgba(255,255,255,.7) 1.5px,transparent 1.5px),
+    radial-gradient(circle,rgba(255,255,255,.5) 1px,transparent 1px);
+  background-size:30px 30px,50px 50px,20px 20px;
+  animation:snowDrift 6s linear infinite,snowDrift2 9s linear infinite;
+  opacity:.7;
+}
+.anim-snowfall::after{animation-delay:-3s;animation-duration:8s;}
+@keyframes snowDrift{0%{background-position:0 -40px}100%{background-position:0 40px}}
+@keyframes snowDrift2{0%{background-position:0 -60px}100%{background-position:0 60px}}
+
+/* Confetti */
+.anim-confetti{
+  background-image:none!important;
+  overflow:visible;
+}
+.anim-confetti::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:
+    radial-gradient(circle,rgba(255,215,0,.9) 2px,transparent 2px),
+    radial-gradient(circle,rgba(255,80,80,.8) 1.5px,transparent 1.5px),
+    radial-gradient(circle,rgba(80,200,255,.8) 2px,transparent 2px),
+    radial-gradient(circle,rgba(255,160,80,.9) 1.5px,transparent 1.5px);
+  background-size:28px 28px,40px 40px,22px 22px,36px 36px;
+  animation:confettiFall 4s linear infinite;
+  opacity:.8;
+}
+@keyframes confettiFall{0%{background-position:0 -50px,10px -30px,5px -20px,15px -40px}100%{background-position:0 60px,10px 50px,5px 40px,15px 60px}}
+
+/* Flag float */
+.anim-flag_float::before{
+  content:"🇮🇳";position:absolute;right:16px;top:8px;font-size:22px;
+  animation:flagWave 1.8s ease-in-out infinite;
+  pointer-events:none;z-index:3;
+}
+@keyframes flagWave{0%,100%{transform:rotate(-6deg) scale(1)}50%{transform:rotate(6deg) scale(1.05)}}
+
+/* ═══════════════════════════════════════════════
+   MOBILE
+═══════════════════════════════════════════════ */
+@media(max-width:440px){
+  #sr-panel{right:10px!important;left:10px!important;width:auto!important;bottom:84px!important;height:calc(100vh - 96px)!important;}
+  #sr-launcher{right:14px!important;bottom:16px!important;}
+}
+</style>
+</head>
+<body>
+
+<!-- Hero Card -->
+<div class="demo-card">
+  <div class="demo-card-logo">🎓</div>
+  <h2>SREYAS AI Assistant</h2>
+  <p>Your official AI guide for Sreyas Institute of Engineering &amp; Technology. Ask anything — admissions, fees, placements, courses, campus life.</p>
+  <div class="badge-row">
+    <span class="badge-pill">🔍 RAG Engine</span>
+    <span class="badge-pill">🛡️ Guardrails</span>
+    <span class="badge-pill">🌐 3 Languages</span>
+    <span class="badge-pill">📋 General Enquiry Form</span>
+    <span class="badge-pill">🎓 B.Tech Admission Form</span>
+  </div>
+  <div class="demo-arrow">💬 Chat opens automatically ↘️</div>
+</div>
+
+<!-- Launcher Button -->
+<button id="sr-launcher" aria-label="Open SREYAS Assistant">
+  <span id="sr-badge">ASK</span>
+  <svg viewBox="0 0 24 24" fill="none">
+    <path d="M4 4h16v12H7l-3 3V4z" stroke="white" stroke-width="2" stroke-linejoin="round" fill="rgba(255,255,255,.12)"/>
+    <circle cx="8.5" cy="10" r="1.3" fill="white"/>
+    <circle cx="12" cy="10" r="1.3" fill="white"/>
+    <circle cx="15.5" cy="10" r="1.3" fill="white"/>
+  </svg>
+</button>
+
+<!-- Chatbot Panel -->
+<div id="sr-panel">
+
+  <!-- Header -->
+  <div id="sr-header">
+    <div id="sr-header-overlay"></div>
+    <div class="sr-avatar" id="sr-avatar">🎓</div>
+    <div class="sr-hinfo">
+      <div class="sr-name" id="sr-banner-title">SREYAS AI Assistant</div>
+      <div class="sr-status"><span class="sr-dot"></span><span id="sr-stxt">Online • Powered by AI</span></div>
+    </div>
+    <div class="sr-header-btns">
+      <button class="sr-hbtn" id="btn-lang" onclick="showLangReselect()">🌐 Lang</button>
+      <button class="sr-hbtn" id="btn-mode" onclick="showModeReselect()">👤 Mode</button>
+    </div>
+    <button id="sr-close" aria-label="Close">&times;</button>
+  </div>
+
+  <!-- ── STEP 1: Language Selection ── -->
+  <div id="sr-lang-screen" class="sr-select-screen">
+    <div class="sr-screen-title">Choose Your Language</div>
+    <div class="sr-screen-sub">Select the language you're comfortable with<br>మీ భాషను ఎంచుకోండి • अपनी भाषा चुनें</div>
+    <div class="sr-lang-opts">
+      <button class="sr-select-opt" onclick="setLang('en')">
+        <span class="opt-icon">🇬🇧</span>
+        <div><div class="opt-main">English</div><div class="opt-sub">Continue in English</div></div>
+      </button>
+      <button class="sr-select-opt" onclick="setLang('te')">
+        <span class="opt-icon">🇮🇳</span>
+        <div><div class="opt-main">తెలుగు</div><div class="opt-sub">తెలుగులో కొనసాగండి</div></div>
+      </button>
+      <button class="sr-select-opt" onclick="setLang('hi')">
+        <span class="opt-icon">🇮🇳</span>
+        <div><div class="opt-main">हिन्दी</div><div class="opt-sub">हिन्दी में जारी रखें</div></div>
+      </button>
+    </div>
+  </div>
+
+  <!-- ── STEP 2: Mode Selection ── -->
+  <div id="sr-mode-screen" class="sr-select-screen" style="display:none">
+    <div class="sr-screen-title" id="mode-title">Who are you?</div>
+    <div class="sr-screen-sub" id="mode-sub">We'll personalise your experience</div>
+    <div class="sr-mode-opts">
+      <button class="sr-select-opt" onclick="selectMode('student')">
+        <span class="opt-icon">🎓</span>
+        <div><div class="opt-main" id="mopt-student">I am a Student</div><div class="opt-sub" id="mopt-student-sub">Courses, placements, exams, clubs</div></div>
+      </button>
+      <button class="sr-select-opt" onclick="selectMode('parent')">
+        <span class="opt-icon">👨‍👩‍👧</span>
+        <div><div class="opt-main" id="mopt-parent">I am a Parent</div><div class="opt-sub" id="mopt-parent-sub">Fees, safety, hostel, transport</div></div>
+      </button>
+      <button class="sr-select-opt" onclick="selectMode('general')">
+        <span class="opt-icon">🙋</span>
+        <div><div class="opt-main" id="mopt-general">Just Exploring</div><div class="opt-sub" id="mopt-general-sub">General information about Sreyas</div></div>
+      </button>
+    </div>
+  </div>
+
+  <!-- Messages -->
+  <div id="sr-msgs" style="display:none"></div>
+
+  <!-- Input Bar -->
+  <div id="sr-bar" style="display:none">
+    <input id="sr-input" type="text" autocomplete="off"/>
+    <button id="sr-send" aria-label="Send">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>
+    </button>
+  </div>
+  <div id="sr-foot">SREYAS AI Assistant • Sreyas Institute of Engineering &amp; Technology, Nagole</div>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+var BACKEND = window.SREYAS_BACKEND_URL || "";
+var currentLang = "en";
+var currentMode = "general";
+var isSending = false;
+var panelOpen = false;
+var feedbackCounter = 0;
+var ratedMessages = {};
+
+/* ─── CHIP MAP ─────────────────────────────────── */
+var CHIP_QUERY_MAP = {
+  courses:"courses",
+  placements:"placements",
+  fees:"fees",
+  admissions:"admissions",
+  scholarships:"scholarships",
+  hostel:"hostel",
+  transport:"transport",
+  contact:"contact",
+  safety:"safety",
+  facilities:"facilities",
+  about:"about sreyas",
+  exams:"exam pattern",
+  principal:"principal"
+};
+
+var CHIP_SETS = {
+  student:["courses","placements","exams","scholarships","facilities","transport","contact"],
+  parent: ["admissions","fees","scholarships","transport","safety","hostel","placements","contact"],
+  general:["about","courses","fees","placements","facilities","contact","admissions"]
+};
+
+/* ─── I18N ──────────────────────────────────────── */
+var T = {
+  en:{
+    status:"Online • AI Powered",
+    placeholder:"Ask anything about Sreyas...",
+    modeTitle:"Who are you?",
+    modeSub:"We'll personalise your experience",
+    modeStudent:"I am a Student",
+    modeStudentSub:"Courses, placements, exams, clubs",
+    modeParent:"I am a Parent",
+    modeParentSub:"Fees, safety, hostel, transport",
+    modeGeneral:"Just Exploring",
+    modeGeneralSub:"General information about Sreyas",
+    welcome:{
+      student:"Hello! 👋 Welcome, Student!\n\nI can help you with courses, placements, exam patterns, scholarships, and more.\n\nWhat would you like to know? 😊",
+      parent:"Hello! 👋 Welcome!\n\nI'm here to help parents understand fees, safety, hostel options, transport, and admission process.\n\nWhat would you like to know? 😊",
+      general:"Hello! 👋 Welcome to SREYAS AI Assistant!\n\nAsk me anything about Sreyas Institute of Engineering & Technology. 😊"
+    },
+    fbThanks:"Thank you! I'm glad I could help. Let me know if you have any other questions. 😊",
+    fbSorry:"I'm sorry I couldn't answer your question properly. Please submit your enquiry below and our team will help you directly.",
+    fbSorryBtn:"📋 General Enquiry Form",
+    genericErr:"Something went wrong. Please try again.",
+    lowConfMsg:"I couldn't find a specific answer for that query. Let me connect you with our team who can help you better! 👇",
+    timeoutPrompt:"I hope I was able to clear your doubts. Do you have any other questions?",
+    btnContChat:"Continue Chat",
+    btnEndChat:"End Chat",
+    sessionGoodbye:"Thank you for visiting Sreyas Institute of Engineering & Technology. Have a wonderful day! 🎓",
+    chipLabels:{
+      courses:"Courses Offered",placements:"Placements",fees:"Fee Structure",
+      admissions:"Admissions",scholarships:"Scholarships",hostel:"Hostel",
+      transport:"Transport",contact:"Contact Us",safety:"Safety",
+      facilities:"Facilities",about:"About Sreyas",exams:"Exam Pattern",principal:"Principal"
+    },
+    enqFormChip:"📋 General Enquiry Form",
+    admFormChip:"🎓 Apply for B.Tech Admission",
+    suggestLabel:"Related topics:"
+  },
+  te:{
+    status:"ఆన్‌లైన్ • AI సహాయం",
+    placeholder:"Sreyas గురించి అడగండి...",
+    modeTitle:"మీరు ఎవరు?",
+    modeSub:"మీ అనుభవాన్ని వ్యక్తిగతంగా మారుస్తాము",
+    modeStudent:"నేను విద్యార్థిని",
+    modeStudentSub:"కోర్సులు, ప్లేస్‌మెంట్స్, పరీక్షలు",
+    modeParent:"నేను తల్లిదండ్రి",
+    modeParentSub:"ఫీజులు, భద్రత, హాస్టల్",
+    modeGeneral:"సమాచారం కోసం",
+    modeGeneralSub:"Sreyas గురించి సాధారణ సమాచారం",
+    welcome:{
+      student:"నమస్కారం! 👋 విద్యార్థికి స్వాగతం!\n\nకోర్సులు, ప్లేస్‌మెంట్స్, స్కాలర్‌షిప్‌లు గురించి నేను సహాయం చేస్తాను.\n\nమీకు ఏమి అవసరం? 😊",
+      parent:"నమస్కారం! 👋 తల్లిదండ్రులకు స్వాగతం!\n\nఫీజులు, భద్రత, హాస్టల్, రవాణా గురించి అడగండి.\n\nఏమి కావాలి? 😊",
+      general:"నమస్కారం! 👋 SREYAS AI Assistant కు స్వాగతం!\n\nSreyas ఇన్‌స్టిట్యూట్ గురించి ఏదైనా అడగండి. 😊"
+    },
+    fbThanks:"ధన్యవాదాలు! నేను మీకు సహాయం చేయగలిగినందుకు సంతోషంగా ఉంది. మీకు ఏవైనా ఇతర ప్రశ్నలు ఉంటే చెప్పండి. 😊",
+    fbSorry:"మీ ప్రశ్నకు సరిగ్గా సమాధానం ఇవ్వలేకపోయినందుకు క్షమించండి. దయచేసి కింద విచారణ సమర్పించండి.",
+    fbSorryBtn:"📋 విచారణ ఫారం",
+    genericErr:"క్షమించండి, ఏదో తప్పు జరిగింది. మళ్ళీ ప్రయత్నించండి.",
+    lowConfMsg:"ఈ ప్రశ్నకు నా వద్ద నిర్దిష్ట సమాధానం లేదు. మా అడ్మిషన్ బృందంతో కనెక్ట్ అవుదాం! 👇",
+    timeoutPrompt:"మీ అనుమానాలను నివృత్తి చేయగలిగానని భావిస్తున్నాను. మీకు ఇంకా ఏవైనా ప్రశ్నలు ఉన్నాయా?",
+    btnContChat:"చాట్ కొనసాగించండి",
+    btnEndChat:"చాట్ ముగించండి",
+    sessionGoodbye:"శ్రేయస్ ఇన్‌స్టిట్యూట్ ఆఫ్ ఇంజినీరింగ్ అండ్ టెక్నాలజీ అసిస్టెంట్‌ని సందర్శించినందుకు ధన్యవాదాలు. మీకు మంచి రోజు కలగాలని కోరుకుంటున్నాము! 🎓",
+    chipLabels:{
+      courses:"కోర్సులు",placements:"ప్లేస్‌మెంట్స్",fees:"ఫీజు వివరాలు",
+      admissions:"అడ్మిషన్",scholarships:"స్కాలర్‌షిప్",hostel:"హాస్టల్",
+      transport:"రవాణా",contact:"సంప్రదింపులు",safety:"భద్రత",
+      facilities:"సౌకర్యాలు",about:"Sreyas గురించి",exams:"పరీక్ష విధానం",principal:"ప్రిన్సిపాల్"
+    },
+    enqFormChip:"📋 సాధారణ విచారణ ఫారం",
+    admFormChip:"🎓 బి.టెక్ అడ్మిషన్ అప్లికేషన్",
+    suggestLabel:"సంబంధిత విషయాలు:"
+  },
+  hi:{
+    status:"ऑनलाइन • AI सहायता",
+    placeholder:"Sreyas के बारे में पूछें...",
+    modeTitle:"आप कौन हैं?",
+    modeSub:"हम आपका अनुभव व्यक्तिगत बनाएंगे",
+    modeStudent:"मैं एक छात्र हूं",
+    modeStudentSub:"कोर्सेज़, प्लेसमेंट, परीक्षा, क्लब",
+    modeParent:"मैं एक अभिभावक हूं",
+    modeParentSub:"फीस, सुरक्षा, छात्रावास, परिवहन",
+    modeGeneral:"जानकारी के लिए",
+    modeGeneralSub:"Sreyas के बारे में जानकारी",
+    welcome:{
+      student:"नमस्ते! 👋 छात्र, आपका स्वागत है!\n\nकोर्सेज़, प्लेसमेंट, छात्रवृत्ति के बारे में पूछें।\n\nआपकी क्या जिज्ञासा है? 😊",
+      parent:"नमस्ते! 👋 अभिभावक, आपका स्वागत है!\n\nफीस, सुरक्षा, छात्रावास और प्रवेश प्रक्रिया के बारे में पूछें।\n\nआपकी क्या जिज्ञासा है? 😊",
+      general:"नमस्ते! 👋 SREYAS AI Assistant में आपका स्वागत है!\n\nSreyas Institute के बारे में कुछ भी पूछें। 😊"
+    },
+    fbThanks:"धन्यवाद! मुझे खुशी है कि मैं आपकी मदद कर सका। यदि आपके पास कोई अन्य प्रश्न हैं तो मुझे बताएं। 😊",
+    fbSorry:"क्षमा करें, मैं आपके प्रश्न का ठीक से उत्तर नहीं दे सका। कृपया नीचे अपनी पूछताछ सबमिट करें।",
+    fbSorryBtn:"📋 पूछताछ फॉर्म",
+    genericErr:"क्षमा करें, कुछ गलत हो गया। पुनः प्रयास करें।",
+    lowConfMsg:"इस प्रश्न का उत्तर मेरे पास नहीं है। आइए हमारी टीम से जोड़ते हैं! 👇",
+    timeoutPrompt:"मुझे उम्मीद है कि मैं आपकी शंकाओं को दूर करने में सक्षम था। क्या आपके पास कोई अन्य प्रश्न हैं?",
+    btnContChat:"चैट जारी रखें",
+    btnEndChat:"चैट समाप्त करें",
+    sessionGoodbye:"श्रेयस इंस्टीट्यूट ऑफ इंजीनियरिंग एंड टेक्नोलॉजी विजिट करने के लिए धन्यवाद। आपका दिन शुभ हो! 🎓",
+    chipLabels:{
+      courses:"कोर्सेज़",placements:"प्लेसमेंट",fees:"फीस विवरण",
+      admissions:"प्रवेश",scholarships:"छात्रवृत्ति",hostel:"छात्रावास",
+      transport:"परिवहन",contact:"संपर्क करें",safety:"सुरक्षा",
+      facilities:"सुविधाएं",about:"Sreyas के बारे में",exams:"परीक्षा पैटर्न",principal:"प्रिंसिपल"
+    },
+    enqFormChip:"📋 सामान्य पूछताछ फॉर्म",
+    admFormChip:"🎓 बी.टेक एडमिशन फॉर्म",
+    suggestLabel:"संबंधित विषय:"
+  }
+};
+
+function t(){ return T[currentLang] || T.en; }
+
+/* ─── RELATED SUGGESTIONS MAP (kept for fallback only) ──── */
+var RELATED_MAP = {
+  PLACEMENTS:["highest package","average package","top recruiters","placement training"],
+  FEES:["scholarships","admissions","courses","hostel"],
+  ADMISSIONS:["fees","courses","placements","scholarships"],
+  COURSES:["placements","fees","admissions","facilities"],
+  HOSTEL:["transport","fees","safety","contact"],
+  TRANSPORT:["hostel","contact","fees","facilities"],
+  FACILITIES:["courses","hostel","transport","contact"],
+  SCHOLARSHIPS:["fees","admissions","courses","contact"],
+  EXAMS:["courses","admissions","contact","facilities"],
+  FACULTY:["courses","admissions","contact","about"],
+  CONTACT:["admissions","fees","placements","courses"],
+  FACTS:["placements","courses","admissions","fees"],
+  GENERAL:["about","courses","placements","fees"]
+};
+
+/* ─── DOM REFS ──────────────────────────────────── */
+var elPanel      = document.getElementById("sr-panel");
+var elLauncher   = document.getElementById("sr-launcher");
+var elClose      = document.getElementById("sr-close");
+var elHeader     = document.getElementById("sr-header");
+var elOverlay    = document.getElementById("sr-header-overlay");
+var elBannerTitle= document.getElementById("sr-banner-title");
+var elAvatar     = document.getElementById("sr-avatar");
+var elStxt       = document.getElementById("sr-stxt");
+var elLangScreen = document.getElementById("sr-lang-screen");
+var elModeScreen = document.getElementById("sr-mode-screen");
+var elMsgs       = document.getElementById("sr-msgs");
+var elBar        = document.getElementById("sr-bar");
+var elFoot       = document.getElementById("sr-foot");
+var elInput      = document.getElementById("sr-input");
+var elSend       = document.getElementById("sr-send");
+var elBadge      = document.getElementById("sr-badge");
+var elBtnLang    = document.getElementById("btn-lang");
+var elBtnMode    = document.getElementById("btn-mode");
+
+/* ─── PANEL OPEN/CLOSE ──────────────────────────── */
+function openPanel(){ elPanel.classList.add("sr-open"); elBadge.style.display="none"; panelOpen=true; }
+function closePanel(){ elPanel.classList.remove("sr-open"); panelOpen=false; }
+elLauncher.onclick = function(){ panelOpen ? closePanel() : openPanel(); };
+elClose.onclick    = closePanel;
+
+/* Auto-open */
+setTimeout(openPanel, 800);
+
+/* ─── THEME ─────────────────────────────────────── */
+function loadTheme(){
+  fetch(BACKEND + "/api/theme")
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      if(!d || !d.theme) return;
+      var t2 = d.theme;
+      if(t2.header_bg) elHeader.style.background = t2.header_bg;
+      if(t2.banner_text) elBannerTitle.textContent = t2.banner_text;
+      if(t2.badge) elAvatar.textContent = t2.badge;
+      if(t2.animation && t2.animation !== "none") elOverlay.className = "anim-" + t2.animation;
+    }).catch(function(){});
+}
+loadTheme();
+
+/* ─── LANGUAGE SELECTION (STEP 1) ───────────────── */
+window.setLang = function(code){
+  currentLang = code;
+  applyLangUI();
+  showModeScreen();
+};
+
+function applyLangUI(){
+  var u = t();
+  elStxt.textContent = u.status;
+  elInput.placeholder = u.placeholder;
+  document.getElementById("mode-title").textContent    = u.modeTitle;
+  document.getElementById("mode-sub").textContent      = u.modeSub;
+  document.getElementById("mopt-student").textContent  = u.modeStudent;
+  document.getElementById("mopt-student-sub").textContent = u.modeStudentSub;
+  document.getElementById("mopt-parent").textContent   = u.modeParent;
+  document.getElementById("mopt-parent-sub").textContent  = u.modeParentSub;
+  document.getElementById("mopt-general").textContent  = u.modeGeneral;
+  document.getElementById("mopt-general-sub").textContent = u.modeGeneralSub;
+}
+
+/* ─── MODE SELECTION (STEP 2) ───────────────────── */
+function showModeScreen(){
+  elLangScreen.style.display = "none";
+  elModeScreen.style.display = "flex";
+}
+
+window.selectMode = function(m){
+  currentMode = m;
+  elModeScreen.style.display = "none";
+  elMsgs.style.display       = "flex";
+  elBar.style.display        = "flex";
+  elFoot.style.display       = "block";
+  elBtnLang.style.display    = "inline-block";
+  elBtnMode.style.display    = "inline-block";
+  applyLangUI();
+
+  elMsgs.innerHTML = "";
+  var u = t();
+  addMsg(u.welcome[m] || u.welcome.general, "bot");
+  addChips(CHIP_SETS[m] || CHIP_SETS.general);
+};
+
+/* Reselect via header buttons */
+window.showLangReselect = function(){
+  elMsgs.style.display    = "none";
+  elBar.style.display     = "none";
+  elFoot.style.display    = "none";
+  elBtnLang.style.display = "none";
+  elBtnMode.style.display = "none";
+  elLangScreen.style.display = "flex";
+  elModeScreen.style.display = "none";
+};
+window.showModeReselect = function(){
+  elMsgs.style.display    = "none";
+  elBar.style.display     = "none";
+  elFoot.style.display    = "none";
+  elBtnLang.style.display = "none";
+  elBtnMode.style.display = "none";
+  elModeScreen.style.display = "flex";
+  elLangScreen.style.display = "none";
+};
+
+/* ─── MESSAGE HELPERS ───────────────────────────── */
+function fmtTime(){ var n=new Date(); return n.getHours().toString().padStart(2,"0")+":"+n.getMinutes().toString().padStart(2,"0"); }
+
+function addMsg(txt, sender){
+  var d = document.createElement("div");
+  d.className = "sr-msg " + sender;
+  if(sender === "bot"){
+    formatBotContent(d, txt);
+  } else {
+    d.textContent = txt;
+  }
+  // Timestamp
+  var ts = document.createElement("div");
+  ts.className = "sr-ts";
+  ts.textContent = fmtTime();
+  d.appendChild(ts);
+  elMsgs.appendChild(d);
+  scrollBottom();
+  return d;
+}
+
+/* Formats plain bot text into interactive, modern cards and structured lists */
+function formatBotContent(container, raw){
+  if(!raw){ container.textContent = ""; return; }
+
+  // Check if response is the all-routes table
+  if(raw.indexOf("🚌 Sreyas Bus Routes") !== -1 || (raw.indexOf("official routes") !== -1 && raw.indexOf("RT-1") !== -1)){
+    renderBusRoutesGrid(container, raw);
+    return;
+  }
+
+  // Check if response is a single route detail (e.g., RT-5)
+  if(/🚌\s*RT-\d+/i.test(raw) && raw.indexOf("Stops:") !== -1){
+    renderSingleRouteCard(container, raw);
+    return;
+  }
+
+  // Standard bot response: clean up and render into structured paragraphs and bullet lists
+  var lines = raw.split("\n");
+  var curList = null;
+
+  lines.forEach(function(line){
+    var trimmed = line.trim();
+    if(!trimmed){ curList = null; return; }
+
+    // Skip ASCII table separator lines (────, ════, ====, ----)
+    if(/^[─═=\-]{4,}/.test(trimmed)){ return; }
+
+    // Heading with icon/emoji at the start of any line
+    if(/^[\u{1F000}-\u{1FFFF}\u2600-\u27FF\u{1F300}-\u{1F9FF}]/u.test(trimmed) && !/^[•\-\*]/.test(trimmed)){
+      // Only treat as title if it's not a bullet-style emoji or part of a list
+      var looksLikeTitle = trimmed.length < 120 && !/^\p{Emoji}.*\n/u.test(trimmed);
+      if(looksLikeTitle){
+        curList = null;
+        var titleEl = document.createElement("div");
+        titleEl.className = "sr-msg-title";
+        titleEl.innerHTML = parseInline(trimmed);
+        container.appendChild(titleEl);
+        return;
+      }
+    }
+
+    // Numbered section headers (e.g. "1. Category-A Seats")
+    if(/^\d+\.\s+[A-Z\u0C00-\u0C7F\u0900-\u097F]/.test(trimmed)){
+      curList = null;
+      var numEl = document.createElement("div");
+      numEl.className = "sr-msg-title";
+      numEl.style.fontSize = "13px";
+      numEl.style.marginTop = "10px";
+      numEl.innerHTML = parseInline(trimmed);
+      container.appendChild(numEl);
+      return;
+    }
+
+    // Bullet line starting with •, -, or *
+    if(/^[•\-\*]\s+/.test(trimmed)){
+      if(!curList){
+        curList = document.createElement("div");
+        curList.className = "sr-msg-list";
+        container.appendChild(curList);
+      }
+      var itemEl = document.createElement("div");
+      itemEl.className = "sr-msg-item";
+      var contentText = trimmed.replace(/^[•\-\*]\s+/, "");
+      itemEl.innerHTML = '<span class="sr-bullet">•</span><span>' + parseInline(contentText) + '</span>';
+      curList.appendChild(itemEl);
+      return;
+    }
+
+    // Follow-up prompts / notices (English and Telugu and Hindi patterns)
+    var noticePatterns = [
+      /^(Ask for a specific|Which course|Which branch|For the current|Please contact|📧|📞)/i,
+      /^(మీరు ఏ|దయచేసి|మరింత వివరాల|మరింత సమాచారం)/,
+      /^(आप किस|कृपया|अधिक जानकारी)/,
+      /^(Select any|You can also)/i
+    ];
+    var isNotice = noticePatterns.some(function(p){ return p.test(trimmed); });
+    if(isNotice){
+      curList = null;
+      var noteEl = document.createElement("div");
+      noteEl.className = "sr-msg-notice";
+      noteEl.innerHTML = parseInline(trimmed);
+      container.appendChild(noteEl);
+      return;
+    }
+
+    // Regular paragraph
+    curList = null;
+    var pEl = document.createElement("div");
+    pEl.className = "sr-msg-p";
+    pEl.innerHTML = parseInline(trimmed);
+    container.appendChild(pEl);
+  });
+}
+
+function unescapeEntities(str){
+  if(!str) return "";
+  // Decode hex entities (e.g. &#xC05; -> అ, &#x42; -> B)
+  var s = str.replace(/&#x([0-9a-fA-F]+);/gi, function(match, hex){
+    try { return String.fromCodePoint(parseInt(hex, 16)); } catch(e){ return match; }
+  });
+  // Decode decimal entities (e.g. &#3077; -> అ)
+  s = s.replace(/&#([0-9]+);/g, function(match, dec){
+    try { return String.fromCodePoint(parseInt(dec, 10)); } catch(e){ return match; }
+  });
+  return s;
+}
+
+function parseInline(str){
+  if(!str) return "";
+  var clean = unescapeEntities(str);
+  var safe = esc(clean);
+  // If esc produced any &amp;#x entities (from already entity-encoded strings), restore them
+  safe = safe.replace(/&amp;#x([0-9a-fA-F]+);/gi, function(match, hex){
+    try { return String.fromCodePoint(parseInt(hex, 16)); } catch(e){ return match; }
+  }).replace(/&amp;#([0-9]+);/g, function(match, dec){
+    try { return String.fromCodePoint(parseInt(dec, 10)); } catch(e){ return match; }
+  });
+  // Bold **text**
+  safe = safe.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  return safe;
+}
+
+/* Renders all-routes overview as clean, interactive cards showing Route Number and Areas Covered */
+function renderBusRoutesGrid(container, raw){
+  var title = document.createElement("div");
+  title.className = "sr-msg-title";
+  title.innerHTML = '<span>🚌 Sreyas College Bus Routes</span>';
+  container.appendChild(title);
+
+  var sub = document.createElement("div");
+  sub.className = "sr-msg-p";
+  sub.style.fontSize = "12px";
+  sub.style.color = "var(--text-sub)";
+  sub.textContent = "Select any route below to view its full stop sequence and pickup time:";
+  container.appendChild(sub);
+
+  var grid = document.createElement("div");
+  grid.className = "sr-route-grid";
+
+  // Parse lines: RT-X    Name    Time    Key Stops
+  var lines = raw.split("\n");
+  lines.forEach(function(line){
+    var m = line.match(/^(RT-\d+)\s+([A-Za-z0-9\-\s]+?)\s+(\d{2}:\d{2})\s+(.+)$/);
+    if(m){
+      var rtId = m[1].trim();
+      var rtName = m[2].trim();
+      var rtTime = m[3].trim();
+      var rtStops = m[4].replace(/[…\.\?]+$/, "").trim();
+
+      var card = document.createElement("div");
+      card.className = "sr-route-card";
+      card.innerHTML =
+        '<div class="sr-route-header">' +
+          '<span class="sr-route-id">' + esc(rtId) + '</span>' +
+          '<span class="sr-route-time">⏰ ' + esc(rtTime) + '</span>' +
+        '</div>' +
+        '<div class="sr-route-name">' + esc(rtName) + '</div>' +
+        '<div class="sr-route-areas">' + esc(rtStops) + '</div>' +
+        '<div class="sr-route-click">View stops ➔</div>';
+
+      card.onclick = function(){
+        sendQuery("show " + rtId, "Route " + rtId);
+      };
+
+      grid.appendChild(card);
+    }
+  });
+
+  container.appendChild(grid);
+
+  var tip = document.createElement("div");
+  tip.className = "sr-msg-notice";
+  tip.textContent = "💡 You can also search by area, e.g. 'which bus goes to Kukatpally'.";
+  container.appendChild(tip);
+}
+
+/* Renders single route details in a dedicated, formatted card */
+function renderSingleRouteCard(container, raw){
+  var lines = raw.split("\n");
+  var titleLine = lines[0] || "";
+  var timeLine = "";
+  var stopsLine = "";
+
+  lines.forEach(function(l){
+    var trim = l.trim();
+    if(trim.indexOf("Pickup Time:") !== -1) timeLine = trim;
+    if(trim.indexOf("Stops:") !== -1) stopsLine = trim;
+  });
+
+  var card = document.createElement("div");
+  card.className = "sr-detail-card";
+
+  var titleHtml = parseInline(titleLine);
+  var timeText = timeLine.replace(/^[•\-\*]\s*/, "");
+  var stopsList = stopsLine.replace(/^[•\-\*]\s*Stops:\s*/i, "").split(/\s*[→\?,]\s*/);
+
+  var topHtml =
+    '<div class="sr-detail-top">' +
+      '<div class="sr-detail-title">' + titleHtml + '</div>' +
+      '<span class="sr-detail-badge">Verified Route</span>' +
+    '</div>';
+
+  var timeHtml = timeText ? '<div class="sr-detail-time">⏰ <strong>' + esc(timeText) + '</strong></div>' : '';
+
+  var stopsHtml = '<div style="font-size:11.5px;font-weight:700;color:#64748b;margin-top:8px;">STOPS TIMELINE (ORDER OF PICKUP):</div><div class="sr-timeline">';
+  stopsList.forEach(function(s, i){
+    var stopName = s.trim();
+    if(stopName){
+      if(i > 0) stopsHtml += '<span class="sr-stop-arrow">➔</span>';
+      stopsHtml += '<span class="sr-stop-badge">' + esc(stopName) + '</span>';
+    }
+  });
+  stopsHtml += '</div>';
+
+  card.innerHTML = topHtml + timeHtml + stopsHtml;
+  container.appendChild(card);
+}
+
+
+function addFactCard(fd){
+  var c = document.createElement("div");
+  c.className = "sr-fact-card";
+  c.innerHTML =
+    '<div class="sr-fact-header">' + esc(fd.title || "") + '</div>' +
+    '<div class="sr-fact-divider"></div>' +
+    '<div class="sr-fact-val">' + esc(fd.value || "") + '</div>' +
+    '<div class="sr-fact-sub">' + esc(fd.subtitle || "") + '</div>';
+  elMsgs.appendChild(c);
+  scrollBottom();
+}
+
+/* Safe HTML escape — only escapes & < > " — never converts non-ASCII Unicode to entities.
+   The old DOM-based version (textContent→innerHTML) caused Telugu/Hindi chars to be
+   serialised as &#xC05; etc. by some browser serialisers. */
+function esc(s){
+  if(!s) return "";
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function showTyping(){
+  var d = document.createElement("div"); d.className="sr-typing"; d.id="sr-typ";
+  d.innerHTML="<span></span><span></span><span></span>";
+  elMsgs.appendChild(d); scrollBottom();
+}
+function hideTyping(){ var e=document.getElementById("sr-typ"); if(e) e.remove(); }
+function scrollBottom(){ elMsgs.scrollTop = elMsgs.scrollHeight; }
+
+/* ─── SUGGESTION CHIPS (welcome screen & initial chips) ── */
+function addChips(chipIds, isRelated){
+  if(!chipIds || !chipIds.length) return;
+  var labels = t().chipLabels;
+  var wrap = document.createElement("div"); wrap.className = "sr-chips";
+
+  chipIds.forEach(function(id){
+    var query = CHIP_QUERY_MAP[id] || id;
+    var displayLabel = labels[id] || id;
+    var btn = document.createElement("button");
+    btn.className = "sr-chip";
+    btn.textContent = displayLabel;
+    // Pass display label as the visible text, keep internal query for backend
+    btn.onclick = function(){
+      if(isSending) return;
+      btn.disabled = true;
+      wrap.style.pointerEvents = "none";
+      sendQuery(query, displayLabel);
+    };
+    wrap.appendChild(btn);
+  });
+
+  // Only add form shortcut chips on the welcome/initial chip set (not after answers)
+  if(!isRelated){
+    var enqBtn = document.createElement("button");
+    enqBtn.className = "sr-chip enq-chip";
+    enqBtn.textContent = t().enqFormChip;
+    enqBtn.onclick = function(){
+      if(isSending) return;
+      renderEnquiryForm("GENERAL", 0, "");
+    };
+    wrap.appendChild(enqBtn);
+
+    var admBtn = document.createElement("button");
+    admBtn.className = "sr-chip adm-chip";
+    admBtn.textContent = t().admFormChip;
+    admBtn.onclick = function(){
+      if(isSending) return;
+      renderAdmissionForm();
+    };
+    wrap.appendChild(admBtn);
+  }
+
+  elMsgs.appendChild(wrap);
+  scrollBottom();
+}
+
+function enableAllChips(){
+  var chips = elMsgs.querySelectorAll(".sr-chip");
+  chips.forEach(function(c){
+    c.disabled = false;
+  });
+  var wraps = elMsgs.querySelectorAll(".sr-chips");
+  wraps.forEach(function(w){
+    w.style.pointerEvents = "auto";
+  });
+}
+
+/* ─── CONTEXT SUGGESTIONS (after RAG answer) ─────── */
+function addContextSuggestions(suggestions){
+  // suggestions = [{label:"Highest Package",query:"highest package"}, ...]
+  if(!suggestions || !suggestions.length) return;
+  var wrap = document.createElement("div"); wrap.className = "sr-chips";
+  var label = document.createElement("div"); label.className="sr-suggest-label";
+  label.textContent = t().suggestLabel || "Related:";
+  wrap.appendChild(label);
+  suggestions.forEach(function(s){
+    var btn = document.createElement("button");
+    btn.className = "sr-chip";
+    btn.textContent = s.label;
+    // Show the chip label to user, send query to backend
+    btn.onclick = function(){
+      if(isSending) return;
+      btn.disabled = true;
+      wrap.style.pointerEvents = "none";
+      sendQuery(s.query, s.label);
+    };
+    wrap.appendChild(btn);
+  });
+  elMsgs.appendChild(wrap);
+  scrollBottom();
+}
+
+/* ─── FEEDBACK BUTTONS ──────────────────────────── */
+function addFeedbackBtns(category, lastAnswer){
+  feedbackCounter++;
+  var msgId = "fb_" + feedbackCounter;
+  var u = t();
+
+  var wrap = document.createElement("div");
+  wrap.className = "sr-feedback-wrap";
+
+  var btnRow = document.createElement("div");
+  btnRow.className = "sr-feedback";
+
+  var btnYes = document.createElement("button");
+  btnYes.className = "sr-fbtn"; btnYes.textContent = "👍 " + (currentLang==="hi"?"सहायक":currentLang==="te"?"సహాయకరం":"Helpful");
+
+  var btnNo  = document.createElement("button");
+  btnNo.className  = "sr-fbtn"; btnNo.textContent  = "👎 " + (currentLang==="hi"?"नहीं":currentLang==="te"?"కాదు":"Not Helpful");
+
+  function rate(rating){
+    if(ratedMessages[msgId]) return;
+    ratedMessages[msgId] = rating;
+    btnYes.disabled = true; btnNo.disabled = true;
+
+    fetch(BACKEND + "/api/feedback", {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({rating: rating, category: category || "GENERAL"})
+    }).catch(function(){});
+
+    var resp = document.createElement("div");
+    resp.className = "sr-fb-response";
+    if(rating === "positive"){
+      btnYes.classList.add("sr-fbtn-pos");
+      resp.classList.add("positive");
+      resp.textContent = u.fbThanks;
+      wrap.appendChild(resp);
+    } else {
+      btnNo.classList.add("sr-fbtn-neg");
+      resp.classList.add("negative");
+      resp.textContent = u.fbSorry;
+      wrap.appendChild(resp);
+
+      // Immediately display general enquiry form for escalation
+      renderEnquiryForm(category || "GENERAL", 0, lastAnswer || "");
+    }
+    scrollBottom();
+  }
+
+  btnYes.onclick = function(){ rate("positive"); };
+  btnNo.onclick  = function(){ rate("negative"); };
+
+  btnRow.appendChild(btnYes);
+  btnRow.appendChild(btnNo);
+  wrap.appendChild(btnRow);
+  elMsgs.appendChild(wrap);
+  scrollBottom();
+}
+
+/* ─── 1. GENERAL ENQUIRY FORM (multilingual) ────── */
+var ENQ_FORM_I18N = {
+  en:{ title:"📋 General Enquiry Form", sub:"Ask a question and our admissions desk will reply within 24 hours.",
+       name:"Your Full Name *", phone:"Phone Number *", email:"Email Address *",
+       question:"Your Question / Query *", submit:"Submit Question", submitting:"Submitting Enquiry...",
+       success:"✅ Enquiry Submitted!", successMsg:"An acknowledgement email has been sent to",
+       successNote:"Our admissions desk will reply within 24 hours.",
+       errName:"Please enter a valid full name (at least 3 characters).",
+       errPhone:"Please enter a valid 10-digit mobile number.",
+       errEmail:"Please enter a valid email address.",
+       errQ:"Please type your question or query.", errNet:"Network error. Please try again." },
+  te:{ title:"📋 సాధారణ విచారణ ఫారం", sub:"మీ ప్రశ్నను నమోదు చేయండి - మా అడ్మిషన్స్ టీమ్ 24 గంటలలో సమాధానం ఇస్తుంది.",
+       name:"మీ పూర్తి పేరు *", phone:"ఫోన్ నంబర్ *", email:"ఇమెయిల్ చిరునామా *",
+       question:"మీ ప్రశ్న / విచారణ *", submit:"ప్రశ్న సమర్పించండి", submitting:"సమర్పిస్తున్నారు...",
+       success:"✅ విచారణ సమర్పించబడింది!", successMsg:"అనుమోద ఇమెయిల్ పంపబడింది:",
+       successNote:"మా అడ్మిషన్స్ టీమ్ 24 గంటలలో సంప్రదిస్తుంది.",
+       errName:"దయచేసి చెల్లుబాటు అయ్యే పూర్తి పేరు నమోదు చేయండి.",
+       errPhone:"దయచేసి 10-అంకెల మొబైల్ నంబర్ నమోదు చేయండి.",
+       errEmail:"దయచేసి చెల్లుబాటు అయ్యే ఇమెయిల్ చిరునామా నమోదు చేయండి.",
+       errQ:"దయచేసి మీ ప్రశ్న టైప్ చేయండి.", errNet:"నెట్‌వర్క్ లోపం. మళ్లీ ప్రయత్నించండి." },
+  hi:{ title:"📋 सामान्य पूछताछ फॉर्म", sub:"अपना प्रश्न दर्ज करें - हमारी टीम 24 घंटे में उत्तर देगी।",
+       name:"आपका पूरा नाम *", phone:"फ़ोन नंबर *", email:"ईमेल पता *",
+       question:"आपका प्रश्न / पूछताछ *", submit:"प्रश्न सबमिट करें", submitting:"सबमिट हो रहा है...",
+       success:"✅ पूछताछ सबमिट हो गई!", successMsg:"पावती ईमेल भेज दी गई:",
+       successNote:"हमारी एडमिशन टीम 24 घंटे में संपर्क करेगी।",
+       errName:"कृपया वैध पूरा नाम दर्ज करें।",
+       errPhone:"कृपया 10 अंकों का मोबाइल नंबर दर्ज करें।",
+       errEmail:"कृपया वैध ईमेल पता दर्ज करें।",
+       errQ:"कृपया अपना प्रश्न टाइप करें।", errNet:"नेटवर्क त्रुटि। पुनः प्रयास करें।" }
+};
+
+function renderEnquiryForm(category, confidence, prefillQ){
+  var i18n = ENQ_FORM_I18N[currentLang] || ENQ_FORM_I18N.en;
+  var card = document.createElement("div"); card.className = "sr-form-card";
+  card.innerHTML =
+    '<div class="sr-form-title">' + i18n.title + '</div>' +
+    '<div class="sr-form-sub">' + i18n.sub + '</div>' +
+    '<div class="sr-form-error" id="sr-ferr"></div>' +
+    '<input type="text" class="sr-form-field" id="sr-fn" placeholder="' + i18n.name + '">' +
+    '<input type="tel" class="sr-form-field" id="sr-fp" placeholder="' + i18n.phone + '">' +
+    '<input type="email" class="sr-form-field" id="sr-fe" placeholder="' + i18n.email + '">' +
+    '<textarea class="sr-form-field" id="sr-fq" rows="2" placeholder="' + i18n.question + '">' + esc(prefillQ || "") + '</textarea>' +
+    '<button class="sr-form-btn" id="sr-fsub">' + i18n.submit + '</button>';
+  elMsgs.appendChild(card);
+  scrollBottom();
+
+  var errBox = card.querySelector("#sr-ferr");
+  var subBtn = card.querySelector("#sr-fsub");
+  subBtn.onclick = function(){
+    var name  = card.querySelector("#sr-fn").value.trim();
+    var phone = card.querySelector("#sr-fp").value.trim().replace(/\s+/g,"");
+    var email = card.querySelector("#sr-fe").value.trim();
+    var q     = card.querySelector("#sr-fq").value.trim();
+    errBox.style.display="none";
+
+    if(!name || name.length<3){ showErr(i18n.errName); return; }
+    if(!phone || !/^[6-9]\d{9}$/.test(phone)){ showErr(i18n.errPhone); return; }
+    if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ showErr(i18n.errEmail); return; }
+    if(!q){ showErr(i18n.errQ); return; }
+
+    subBtn.disabled=true; subBtn.textContent=i18n.submitting;
+    fetch(BACKEND+"/api/enquiry",{
+      method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({name:name,phone:phone,email:email,question:q,category:category||"GENERAL",confidence:confidence||0.0})
+    })
+    .then(function(r){return r.json();})
+    .then(function(res){
+      if(res && res.success){
+        card.innerHTML =
+          '<div class="sr-form-success">' +
+            i18n.success + '<br><br>' +
+            i18n.successMsg + ' <strong>' + esc(email) + '</strong>.<br><br>' +
+            i18n.successNote +
+            '<br><br><div class="sr-ref-badge">' + esc(res.enquiry_id || "ENQ-REF") + '</div>' +
+          '</div>';
+      } else {
+        subBtn.disabled=false; subBtn.textContent=i18n.submit; showErr(res.message || i18n.errNet);
+      }
+    })
+    .catch(function(){ subBtn.disabled=false; subBtn.textContent=i18n.submit; showErr(i18n.errNet); });
+
+    function showErr(msg){ errBox.textContent=msg; errBox.style.display="block"; }
+  };
+}
+
+/* ─── 2. B.TECH ADMISSION APPLICATION FORM ───────── */
+var ADM_FORM_I18N = {
+  en:{ title:"🎓 B.Tech Admission Application Form", sub:"Apply directly for B.Tech Admission at Sreyas Institute.",
+       sName:"Student Full Name *", sPhone:"Student Mobile Number *",
+       pName:"Father / Mother / Guardian Name *", pPhone:"Parent Mobile Number *",
+       email:"Student / Parent Email Address *", marks:"12th / Intermediate Marks (Percentage) *",
+       rank:"TG EAPCET / Entrance Rank (Optional)", selectCourse:"Select Preferred B.Tech Branch *",
+       selectQuota:"Select Admission Quota *", submit:"Submit B.Tech Admission Form", submitting:"Submitting Application...",
+       success:"🎉 Admission Application Submitted!", successMsg:"An acknowledgement email has been sent to",
+       successNote:"Our admissions committee will reach out within 24 hours.",
+       errSName:"Please enter student full name.", errSPhone:"Please enter student 10-digit mobile number.",
+       errPName:"Please enter parent / guardian name.", errPPhone:"Please enter parent 10-digit mobile number.",
+       errEmail:"Please enter a valid email address.", errMarks:"Please enter 12th / Intermediate marks percentage.",
+       errCourse:"Please select your preferred B.Tech branch.", errQuota:"Please select your preferred admission quota.",
+       errNet:"Network error. Please try again." },
+  te:{ title:"🎓 బి.టెక్ అడ్మిషన్ అప్లికేషన్ ఫారం", sub:"శ్రేయస్ ఇన్‌స్టిట్యూట్‌లో బి.టెక్ అడ్మిషన్ కోసం నేరుగా దరఖాస్తు చేయండి.",
+       sName:"విద్యార్థి పూర్తి పేరు *", sPhone:"విద్యార్థి మొబైల్ నంబర్ *",
+       pName:"తండ్రి / తల్లి / సంరక్షకుడి పేరు *", pPhone:"తల్లిదండ్రుల మొబైల్ నంబర్ *",
+       email:"విద్యార్థి / తల్లిదండ్రుల ఇమెయిల్ *", marks:"12వ తరగతి / ఇంటర్ మార్కుల శాతం *",
+       rank:"TG EAPCET / ప్రవేశ పరీక్ష ర్యాంక్ (ఐచ్ఛికం)", selectCourse:"కోరుకున్న బి.టెక్ బ్రాంచ్ ఎంచుకోండి *",
+       selectQuota:"అడ్మిషన్ కోటా ఎంచుకోండి *", submit:"బి.టెక్ అడ్మిషన్ ఫారం సమర్పించండి", submitting:"దరఖాస్తు సమర్పిస్తున్నారు...",
+       success:"🎉 అడ్మిషన్ దరఖాస్తు సమర్పించబడింది!", successMsg:"అనుమోద ఇమెయిల్ పంపబడింది:",
+       successNote:"మా అడ్మిషన్ల కమిటీ 24 గంటలలో సంప్రదిస్తుంది.",
+       errSName:"దయచేసి విద్యార్థి పూర్తి పేరు నమోదు చేయండి.", errSPhone:"దయచేసి 10-అంకెల మొబైల్ నంబర్ నమోదు చేయండి.",
+       errPName:"దయచేసి తల్లిదండ్రుల పేరు నమోదు చేయండి.", errPPhone:"దయచేసి తల్లిదండ్రుల 10-అంకెల మొబైల్ నంబర్ నమోదు చేయండి.",
+       errEmail:"దయచేసి చెల్లుబాటు అయ్యే ఇమెయిల్ నమోదు చేయండి.", errMarks:"దయచేసి ఇంటర్ మార్కుల శాతం నమోదు చేయండి.",
+       errCourse:"దయచేసి మీ బి.టెక్ బ్రాంచ్ ఎంచుకోండి.", errQuota:"దయచేసి అడ్మిషన్ కోటా ఎంచుకోండి.",
+       errNet:"నెట్‌వర్క్ లోపం. మళ్లీ ప్రయత్నించండి." },
+  hi:{ title:"🎓 बी.टेक एडमिशन आवेदन फॉर्म", sub:"श्रेयस इंस्टीट्यूट में बी.टेक एडमिशन के लिए सीधे आवेदन करें।",
+       sName:"छात्र का पूरा नाम *", sPhone:"छात्र का मोबाइल नंबर *",
+       pName:"पिता / माता / अभिभावक का नाम *", pPhone:"अभिभावक का मोबाइल नंबर *",
+       email:"छात्र / अभिभावक का ईमेल पता *", marks:"12वीं / इंटरमीडिएट अंक (प्रतिशत) *",
+       rank:"TG EAPCET / प्रवेश रैंक (वैकल्पिक)", selectCourse:"पसंदीदा बी.टेक शाखा चुनें *",
+       selectQuota:"प्रवेश कोटा चुनें *", submit:"बी.टेक एडमिशन फॉर्म सबमिट करें", submitting:"आवेदन सबमिट हो रहा है...",
+       success:"🎉 एडमिशन आवेदन सबमिट हो गया!", successMsg:"पावती ईमेल भेज दी गई:",
+       successNote:"हमारी एडमिशन समिति 24 घंटे में संपर्क करेगी।",
+       errSName:"कृपया छात्र का पूरा नाम दर्ज करें।", errSPhone:"कृपया छात्र का 10 अंकों का मोबाइल नंबर दर्ज करें।",
+       errPName:"कृपया अभिभावक का नाम दर्ज करें।", errPPhone:"कृपया अभिभावक का 10 अंकों का मोबाइल नंबर दर्ज करें।",
+       errEmail:"कृपया वैध ईमेल पता दर्ज करें।", errMarks:"कृपया 12वीं / इंटरमीडिएट अंक दर्ज करें।",
+       errCourse:"कृपया अपनी पसंदीदा बी.टेक शाखा चुनें।", errQuota:"कृपया प्रवेश कोटा चुनें।",
+       errNet:"नेटवर्क त्रुटि। पुनः प्रयास करें।" }
+};
+
+function renderAdmissionForm(){
+  var i18n = ADM_FORM_I18N[currentLang] || ADM_FORM_I18N.en;
+  var card = document.createElement("div"); card.className = "sr-form-card adm-card";
+  card.innerHTML =
+    '<div class="sr-form-title">' + i18n.title + '</div>' +
+    '<div class="sr-form-sub">' + i18n.sub + '</div>' +
+    '<div class="sr-form-error" id="sr-aerr"></div>' +
+    '<input type="text" class="sr-form-field" id="sr-sn" placeholder="' + i18n.sName + '">' +
+    '<input type="tel" class="sr-form-field" id="sr-sp" placeholder="' + i18n.sPhone + '">' +
+    '<input type="text" class="sr-form-field" id="sr-pn" placeholder="' + i18n.pName + '">' +
+    '<input type="tel" class="sr-form-field" id="sr-pp" placeholder="' + i18n.pPhone + '">' +
+    '<input type="email" class="sr-form-field" id="sr-se" placeholder="' + i18n.email + '">' +
+    '<input type="text" class="sr-form-field" id="sr-marks" placeholder="' + i18n.marks + '">' +
+    '<input type="text" class="sr-form-field" id="sr-rank" placeholder="' + i18n.rank + '">' +
+    '<select class="sr-form-field" id="sr-course">' +
+      '<option value="">' + i18n.selectCourse + '</option>' +
+      '<option value="CSE">B.Tech Computer Science &amp; Engineering (CSE)</option>' +
+      '<option value="CSE (AI & ML)">B.Tech CSE - Artificial Intelligence &amp; ML</option>' +
+      '<option value="ECE">B.Tech Electronics &amp; Communication (ECE)</option>' +
+    '</select>' +
+    '<select class="sr-form-field" id="sr-quota">' +
+      '<option value="">' + i18n.selectQuota + '</option>' +
+      '<option value="Category-A (Convenor TG EAPCET Quota)">Category-A (Convenor Quota - TG EAPCET)</option>' +
+      '<option value="Category-B (Management / Merit Quota)">Category-B (Management / Merit Quota)</option>' +
+    '</select>' +
+    '<button class="sr-form-btn adm-btn" id="sr-asub">' + i18n.submit + '</button>';
+
+  elMsgs.appendChild(card);
+  scrollBottom();
+
+  var errBox = card.querySelector("#sr-aerr");
+  var subBtn = card.querySelector("#sr-asub");
+
+  subBtn.onclick = function(){
+    var sName  = card.querySelector("#sr-sn").value.trim();
+    var sPhone = card.querySelector("#sr-sp").value.trim().replace(/\s+/g,"");
+    var pName  = card.querySelector("#sr-pn").value.trim();
+    var pPhone = card.querySelector("#sr-pp").value.trim().replace(/\s+/g,"");
+    var email  = card.querySelector("#sr-se").value.trim();
+    var marks  = card.querySelector("#sr-marks").value.trim();
+    var rank   = card.querySelector("#sr-rank").value.trim();
+    var course = card.querySelector("#sr-course").value.trim();
+    var quota  = card.querySelector("#sr-quota").value.trim();
+
+    errBox.style.display = "none";
+
+    if(!sName || sName.length<3){ showErr(i18n.errSName); return; }
+    if(!sPhone || !/^[6-9]\d{9}$/.test(sPhone)){ showErr(i18n.errSPhone); return; }
+    if(!pName){ showErr(i18n.errPName); return; }
+    if(!pPhone || !/^[6-9]\d{9}$/.test(pPhone)){ showErr(i18n.errPPhone); return; }
+    if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ showErr(i18n.errEmail); return; }
+    if(!marks){ showErr(i18n.errMarks); return; }
+    if(!course){ showErr(i18n.errCourse); return; }
+    if(!quota){ showErr(i18n.errQuota); return; }
+
+    subBtn.disabled=true; subBtn.textContent=i18n.submitting;
+
+    fetch(BACKEND+"/api/admission-enquiry",{
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        student_name:sName, student_phone:sPhone, parent_name:pName, parent_phone:pPhone,
+        email:email, percentage:marks, entrance_rank:rank, course:course, quota:quota
+      })
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(res){
+      if(res && res.success){
+        card.innerHTML =
+          '<div class="sr-form-success">' +
+            i18n.success + '<br><br>' +
+            i18n.successMsg + ' <strong>' + esc(email) + '</strong>.<br><br>' +
+            i18n.successNote +
+            '<br><br><div class="sr-ref-badge">' + esc(res.reference_id || "ADM-REF") + '</div>' +
+          '</div>';
+      } else {
+        subBtn.disabled=false; subBtn.textContent=i18n.submit;
+        showErr(res.message || i18n.errNet);
+      }
+    })
+    .catch(function(){
+      subBtn.disabled=false; subBtn.textContent=i18n.submit;
+      showErr(i18n.errNet);
+    });
+
+    function showErr(msg){ errBox.textContent=msg; errBox.style.display="block"; }
+  };
+}
+
+/* ─── INACTIVITY TIMEOUT (45-60s) ────────────────── */
+var inactivityTimer = null;
+
+function resetInactivityTimer(){
+  if(inactivityTimer) clearTimeout(inactivityTimer);
+  inactivityTimer = setTimeout(onInactivityTimeout, 50000); // 50s
+}
+
+function onInactivityTimeout(){
+  if(!panelOpen || !elMsgs.children.length) return;
+  if(document.getElementById("sr-timeout-card")) return;
+
+  var u = t();
+  var card = document.createElement("div");
+  card.id = "sr-timeout-card";
+  card.className = "sr-msg bot";
+  
+  var pTxt = u.timeoutPrompt || "I hope I was able to clear your doubts. Do you have any other questions?";
+  var btnCont = u.btnContChat || "Continue Chat";
+  var btnEnd = u.btnEndChat || "End Chat";
+
+  card.innerHTML = esc(pTxt) +
+    '<div style="margin-top:10px; display:flex; gap:8px;">' +
+      '<button class="sr-chip" id="btn-cont-chat" style="margin:0;">' + esc(btnCont) + '</button>' +
+      '<button class="sr-chip" id="btn-end-chat" style="margin:0; background:#dc3545; color:#fff;">' + esc(btnEnd) + '</button>' +
+    '</div>';
+
+  elMsgs.appendChild(card);
+  scrollBottom();
+
+  document.getElementById("btn-cont-chat").onclick = function(){
+    card.remove();
+    resetInactivityTimer();
+  };
+  document.getElementById("btn-end-chat").onclick = function(){
+    card.remove();
+    addMsg(u.sessionGoodbye || "Thank you for visiting Sreyas Institute of Engineering & Technology. Have a wonderful day! 🎓", "bot");
+    setTimeout(closePanel, 2500);
+  };
+}
+
+/* ─── MAIN SEND ─────────────────────────────────── */
+function sendQuery(txt, displayLabel){
+  if(isSending) return;
+  var q = (txt || elInput.value || "").trim();
+  if(!q) return;
+  elInput.value = "";
+  resetInactivityTimer();
+
+  // Show chip label or typed text to user — never the raw internal query string
+  addMsg(displayLabel || q, "user");
+  isSending=true; elInput.disabled=true; elSend.disabled=true;
+  showTyping();
+
+  fetch(BACKEND+"/api/chat",{
+    method:"POST", headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({message:q, language:currentLang, mode:currentMode})
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(data){
+    hideTyping(); isSending=false; elInput.disabled=false; elSend.disabled=false; elInput.focus();
+    enableAllChips();
+    resetInactivityTimer();
+
+    // Auto session close (bye / thanks)
+    if(data.close_session){
+      addMsg(data.answer, "bot");
+      setTimeout(closePanel, 2500);
+      return;
+    }
+
+    // Fact card
+    if(data.is_fact_card && data.fact_details){
+      addFactCard(data.fact_details);
+      addFeedbackBtns(data.category || "FACTS", JSON.stringify(data.fact_details));
+      if(data.suggestions && data.suggestions.length){
+        addContextSuggestions(data.suggestions);
+      }
+      return;
+    }
+
+    // Low confidence / unsupported — show enquiry form
+    if(data.show_form || !data.answer){
+      addMsg(t().lowConfMsg, "bot");
+      renderEnquiryForm(data.category || "GENERAL", data.confidence || 0.0, q);
+      return;
+    }
+
+    // Normal answer
+    var msgEl = addMsg(data.answer, "bot");
+
+    // Read More for truncated answers
+    if(data.is_truncated){
+      var readMoreBtn = document.createElement("button");
+      readMoreBtn.className = "sr-chip";
+      readMoreBtn.style.marginTop = "4px";
+      readMoreBtn.style.display = "block";
+      readMoreBtn.textContent = currentLang==="te" ? "▼ మరింత చదవండి" : currentLang==="hi" ? "▼ और पढ़ें" : "▼ Read more";
+      readMoreBtn.onclick = function(){
+        var note = document.createElement("div");
+        note.className = "sr-msg bot";
+        note.textContent = currentLang==="te" ?
+          "పూర్తి వివరాల కోసం 9246323444 కి కాల్ చేయండి లేదా info@sreyas.ac.in కి ఇమెయిల్ చేయండి." :
+          currentLang==="hi" ?
+          "पूरी जानकारी के लिए 9246323444 पर कॉल करें या info@sreyas.ac.in पर ईमेल करें।" :
+          "For complete details, call 📞 9246323444 or email ✉️ info@sreyas.ac.in";
+        readMoreBtn.replaceWith(note);
+        scrollBottom();
+      };
+      elMsgs.appendChild(readMoreBtn);
+      scrollBottom();
+    }
+
+    addFeedbackBtns(data.category || "GENERAL", data.answer);
+
+    // Context-aware suggestions from RAG (never generic enquiry chips)
+    if(data.suggestions && data.suggestions.length){
+      addContextSuggestions(data.suggestions);
+    }
+  })
+  .catch(function(){
+    hideTyping(); isSending=false; elInput.disabled=false; elSend.disabled=false;
+    enableAllChips();
+    addMsg(t().genericErr, "bot");
+  });
+}
+
+function send(){
+  var v = elInput.value.trim();
+  if(v) sendQuery(v);
+}
+elSend.onclick = send;
+elInput.onkeydown = function(e){ if(e.key==="Enter") send(); };
+
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  sreyas-assistant:
+    build: .
+    container_name: sreyas_ai_assistant
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=5000
+      - FLASK_DEBUG=false
+    volumes:
+      # Persistent storage for enquiries, feedback, and logs
+      - ./data:/app/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s

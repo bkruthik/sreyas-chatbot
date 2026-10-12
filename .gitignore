@@ -1,0 +1,28 @@
+# Environment
+.env
+.env.local
+*.env
+
+# Python & virtual environments
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# Dynamic runtime data, personal records & backups
+data/backups/
+data/logs/
+data/enquiries_export.csv
+data/test_feedback.xlsx
+*.log
+
+# Editors & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
