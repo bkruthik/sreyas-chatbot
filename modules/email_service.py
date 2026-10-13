@@ -32,12 +32,12 @@ class EmailService:
         html_body: str,
         text_body: str,
         attempts: int = 3,
-    ) -> bool:
-        """Internal worker for sending emails with retries."""
+    ) -> Tuple[bool, str]:
+        """Internal worker for sending emails with retries and structured error classification."""
         if not config.SMTP_USER or not config.SMTP_PASS:
             logger.info("SMTP credentials not configured. Email simulation active.")
-            logger.info("[EMAIL DISPATCH] To: %s | Subject: %s", recipients, subject)
-            return True
+            logger.info("[EMAIL SIMULATION] To: %s | Subject: %s", recipients, subject)
+            return True, "Email simulation active (SMTP not configured)."
 
         msg = MIMEMultipart("alternative")
         msg["Subject"] = subject
@@ -47,27 +47,60 @@ class EmailService:
         msg.attach(MIMEText(text_body, "plain", "utf-8"))
         msg.attach(MIMEText(html_body, "html", "utf-8"))
 
+        last_error = "Unknown error"
+
         for attempt in range(1, attempts + 1):
             try:
                 if config.SMTP_PORT == 465:
-                    server = smtplib.SMTP_SSL(config.SMTP_HOST, config.SMTP_PORT, timeout=10)
+                    server = smtplib.SMTP_SSL(config.SMTP_HOST, config.SMTP_PORT, timeout=12)
                 else:
-                    server = smtplib.SMTP(config.SMTP_HOST, config.SMTP_PORT, timeout=10)
+                    server = smtplib.SMTP(config.SMTP_HOST, config.SMTP_PORT, timeout=12)
                     if config.SMTP_USE_TLS:
                         server.starttls()
 
                 server.login(config.SMTP_USER, config.SMTP_PASS)
-                server.sendmail(config.SMTP_FROM_EMAIL, recipients, msg.as_string())
+                refused = server.sendmail(config.SMTP_FROM_EMAIL, recipients, msg.as_string())
                 server.quit()
-                logger.info("Successfully sent email to %s (attempt %d).", recipients, attempt)
-                return True
-            except Exception as e:
-                logger.warning("SMTP send attempt %d/%d failed for %s: %s", attempt, attempts, recipients, e)
-                if attempt < attempts:
-                    time.sleep(2 * attempt)
 
-        logger.error("Failed to send email to %s after %d attempts.", recipients, attempts)
-        return False
+                if refused:
+                    logger.warning("SMTP server refused recipients %s: %s", recipients, refused)
+                    return False, f"Recipient address rejected by mail server: {list(refused.keys())}"
+
+                logger.info("Successfully accepted by SMTP server for %s (attempt %d).", recipients, attempt)
+                return True, "Accepted by SMTP mail server for delivery."
+
+            except smtplib.SMTPRecipientsRefused as err:
+                last_error = f"Recipient rejected by mail server: {err.recipients}"
+                logger.error("SMTP recipient refused for %s: %s", recipients, err)
+                break  # Don't retry if recipient is refused
+
+            except smtplib.SMTPAuthenticationError as err:
+                last_error = "SMTP authentication failed. Please verify credentials."
+                logger.error("SMTP authentication error: %s", err)
+                break  # Don't retry auth errors
+
+            except smtplib.SMTPSenderRefused as err:
+                last_error = f"Sender address refused by mail server: {err.sender}"
+                logger.error("SMTP sender refused: %s", err)
+                break
+
+            except smtplib.SMTPDataError as err:
+                last_error = f"Message rejected by server (code {err.smtp_code}): {err.smtp_error}"
+                logger.warning("SMTP data error on attempt %d: %s", attempt, err)
+
+            except (smtplib.SMTPConnectError, TimeoutError, OSError) as err:
+                last_error = f"Connection timeout or network failure: {type(err).__name__}"
+                logger.warning("Connection failure on attempt %d/%d for %s: %s", attempt, attempts, recipients, err)
+
+            except Exception as err:
+                last_error = f"SMTP transmission error: {type(err).__name__}"
+                logger.warning("SMTP send attempt %d/%d failed for %s: %s", attempt, attempts, recipients, err)
+
+            if attempt < attempts:
+                time.sleep(1.5 * attempt)
+
+        logger.error("Failed to send email to %s after %d attempts. Last error: %s", recipients, attempts, last_error)
+        return False, last_error
 
     @classmethod
     def send_enquiry_acknowledgement(
@@ -351,9 +384,9 @@ Phone: {config.COLLEGE_PHONE} | Email: {config.COLLEGE_EMAIL}
 </html>
 """
         # Synchronous worker call for OTP so we immediately know if delivery succeeded
-        sent = cls._send_email_task([email], subject, html_body, text_body, attempts=2)
+        sent, detail = cls._send_email_task([email], subject, html_body, text_body, attempts=2)
         if sent:
-            return True, f"Verification OTP successfully sent to {email}."
+            return True, f"Verification OTP successfully accepted by mail server for delivery to {email}."
         else:
-            return False, f"Failed to deliver email to {email}. Please check SMTP connectivity or try again later."
+            return False, f"Failed to deliver email to {email}: {detail}"
 

@@ -2153,6 +2153,10 @@ class RAGEngine:
     def get_analytics(self) -> Dict[str, Any]:
         return self.analytics.snapshot()
 
+    def rebuild(self) -> None:
+        """Alias for rebuild_index."""
+        self.rebuild_index()
+
 
 # ===========================================================================
 # STANDALONE SELF-TEST

@@ -386,7 +386,7 @@ def chat():
         "how do you do", "how is it going", "how's it going",
         "hows it going", "are you fine",
     ]
-    if any(p in low for p in _SMALL_TALK_PATTERNS):
+    if any(re.search(rf"\b{re.escape(p)}\b", low) for p in _SMALL_TALK_PATTERNS):
         res_data = {
             "answer": Localizer.localized(
                 "small_talk_reply", language,

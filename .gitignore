@@ -17,6 +17,9 @@ build/
 # Dynamic runtime data, personal records & backups
 data/backups/
 data/logs/
+data/students.db
+data/scrape_state.json
+data/.scheduler_process.lock
 data/enquiries_export.csv
 data/test_feedback.xlsx
 *.log

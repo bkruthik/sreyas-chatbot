@@ -6,4 +6,7 @@ venv
 __pycache__
 data/backups
 data/logs
+data/students.db
+data/scrape_state.json
+data/.scheduler_process.lock
 *.log

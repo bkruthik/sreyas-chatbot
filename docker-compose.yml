@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   sreyas-assistant:
     build: .
@@ -11,6 +9,9 @@ services:
       - HOST=0.0.0.0
       - PORT=5000
       - FLASK_DEBUG=false
+    env_file:
+      - path: .env
+        required: false
     volumes:
       # Persistent storage for enquiries, feedback, and logs
       - ./data:/app/data
