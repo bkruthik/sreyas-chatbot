@@ -43,9 +43,14 @@ TYPO_MAP = {
     "scholrship": "scholarship",
     "scholorship": "scholarship",
     "scholership": "scholarship",
+    "schlarship": "scholarship",
+    "schalorship": "scholarship",
+    "scholarshp": "scholarship",
+    "scolarship": "scholarship",
     "freeship": "scholarship",
     "feess": "fees",
     "tution": "tuition",
+    "wat": "what",
 
     # Courses & Branches
     "btech": "b.tech",

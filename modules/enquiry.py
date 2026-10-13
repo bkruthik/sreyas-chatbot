@@ -102,6 +102,7 @@ COLUMNS: List[str] = [
     "Assigned To",
     "Remarks",
     "Parent Email",
+    "Priority",
 ]
 
 VALID_STATUSES: List[str] = ["Pending", "In Progress", "Reviewed", "Closed"]
@@ -553,31 +554,13 @@ class EnquiryManager:
         confidence: float,
         question: str,
         parent_email: Optional[str] = None,
+        priority: Optional[str] = None,
     ) -> Dict[str, Any]:
         """
         Validate and persist a new enquiry to the Excel workbook.
 
-        Automatically fills in Date, Time, Status ("Pending"), and leaves
-        "Assigned To" / "Remarks" empty for staff to fill in later.
-
-        Args:
-            name: Enquirer's full name.
-            phone: Enquirer's 10-digit phone number.
-            email: Enquirer's email address.
-            mode: How the enquiry was raised (e.g. "Chatbot", "WhatsApp",
-                "Phone", "Walk-in").
-            category: The chatbot-detected category (e.g. "ADMISSIONS").
-            confidence: The chatbot's confidence score for the original
-                question (0.0 - 1.0).
-            question: The original question that could not be confidently
-                answered.
-
-        Returns:
-            {
-                "success": bool,
-                "message": str,
-                "enquiry_id": Optional[str],
-            }
+        Automatically fills in Date, Time, Status ("Pending"), Priority ("High" or "Normal"),
+        and leaves "Assigned To" / "Remarks" empty for staff to fill in later.
         """
         validation_errors = self._validate_enquiry_fields(name, phone, email, question)
         if validation_errors:
@@ -586,6 +569,21 @@ class EnquiryManager:
                 "message": " ".join(validation_errors),
                 "enquiry_id": None,
             }
+
+        # Auto-determine priority if not explicitly passed:
+        # If mode is Parent, or parent_email is provided, or query is about student's attendance/performance/fees by parent
+        calculated_priority = (priority or "").strip().upper()
+        if not calculated_priority:
+            mode_clean = (mode or "").strip().lower()
+            q_clean = (question or "").strip().lower()
+            if (
+                mode_clean in ("parent", "parent mode")
+                or bool(parent_email and parent_email.strip())
+                or any(kw in q_clean for kw in ["my son", "my daughter", "my child", "my ward", "parent enquiry", "parent query", "student attendance", "student marks"])
+            ):
+                calculated_priority = "HIGH"
+            else:
+                calculated_priority = "NORMAL"
 
         with self._lock:
             workbook = self._load_workbook_safely()
@@ -627,6 +625,7 @@ class EnquiryManager:
                     "",
                     "",
                     parent_email.strip() if parent_email else "",
+                    calculated_priority,
                 ]
                 worksheet.append(row)
 
@@ -637,7 +636,7 @@ class EnquiryManager:
                         "enquiry_id": None,
                     }
 
-                logger.info("Saved new enquiry '%s' for '%s'.", enquiry_id, email.strip())
+                logger.info("Saved new enquiry '%s' for '%s' (Priority: %s).", enquiry_id, email.strip(), calculated_priority)
                 return {
                     "success": True,
                     "message": "Enquiry submitted successfully.",

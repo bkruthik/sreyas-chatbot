@@ -548,6 +548,12 @@ _SECTION_TITLE_MAP: Dict[str, str] = {
     "timings": "CAMPUS FACILITIES AND INFRASTRUCTURE",
     "timing": "CAMPUS FACILITIES AND INFRASTRUCTURE",
     "about": "INSTITUTION OVERVIEW",
+    "about sreyas": "INSTITUTION OVERVIEW",
+    "about the college": "INSTITUTION OVERVIEW",
+    "sreyas institute": "INSTITUTION OVERVIEW",
+    "what is sreyas": "INSTITUTION OVERVIEW",
+    "what is sreyas institute": "INSTITUTION OVERVIEW",
+    "college overview": "INSTITUTION OVERVIEW",
     "rankings": "ACADEMIC RANKINGS & ACHIEVEMENTS",
     "events": "STUDENT CLUBS AND CO-CURRICULAR ACTIVITIES",
     "activities": "STUDENT CLUBS AND CO-CURRICULAR ACTIVITIES",
@@ -557,9 +563,10 @@ _SECTION_TITLE_MAP: Dict[str, str] = {
 }
 
 _FIELD_BOOST_MAP: Dict[str, str] = {
-    "principal": "LEADERSHIP AND MANAGEMENT", "chairman": "LEADERSHIP AND MANAGEMENT",
-    "phone": "CONTACT DETAILS", "email": "CONTACT DETAILS",
-    "address": "CONTACT DETAILS", "website": "CONTACT DETAILS",
+    "principal": "GOVERNING BODY AND MANAGEMENT", "chairman": "GOVERNING BODY AND MANAGEMENT",
+    "phone": "OFFICIAL CONTACT DETAILS", "email": "OFFICIAL CONTACT DETAILS",
+    "address": "OFFICIAL CONTACT DETAILS", "website": "OFFICIAL CONTACT DETAILS",
+    "contact": "OFFICIAL CONTACT DETAILS", "contact details": "OFFICIAL CONTACT DETAILS",
     "highest package": "TRAINING AND PLACEMENTS (T&P CELL)",
     "average package": "TRAINING AND PLACEMENTS (T&P CELL)",
     "top recruiters": "TRAINING AND PLACEMENTS (T&P CELL)",
@@ -571,18 +578,21 @@ _FIELD_BOOST_MAP: Dict[str, str] = {
     "bus routes": "TRANSPORTATION AND BUS ROUTES",
     "bus facility": "TRANSPORTATION AND BUS ROUTES",
     "college timings": "CAMPUS FACILITIES AND INFRASTRUCTURE",
-    "cutoff": "ADMISSIONS PROCESS", "attendance": "ACADEMIC CALENDAR AND EXAMINATIONS",
+    "cutoff": "ADMISSIONS AND ELIGIBILITY CRITERIA", "attendance": "ACADEMIC CALENDAR AND EXAMINATIONS",
     "r22": "ACADEMIC CALENDAR AND EXAMINATIONS", "r25": "ACADEMIC CALENDAR AND EXAMINATIONS",
     "internal marks": "ACADEMIC CALENDAR AND EXAMINATIONS", "external marks": "ACADEMIC CALENDAR AND EXAMINATIONS",
-    "annual fee": "FEE STRUCTURE", "management quota": "ADMISSIONS PROCESS",
-    "computer science": "COURSES AND BRANCHES",
-    "artificial intelligence": "COURSES AND BRANCHES",
-    "electronics": "COURSES AND BRANCHES",
-    "library": "FACILITIES", "wifi": "FACILITIES", "laboratory": "FACILITIES",
+    "annual fee": "TUITION FEES AND OTHER CHARGES", "management quota": "ADMISSIONS AND ELIGIBILITY CRITERIA",
+    "cse": "UNDERGRADUATE DEGREE PROGRAMMES (B.TECH)", "ece": "UNDERGRADUATE DEGREE PROGRAMMES (B.TECH)",
+    "aiml": "UNDERGRADUATE DEGREE PROGRAMMES (B.TECH)", "ai & ml": "UNDERGRADUATE DEGREE PROGRAMMES (B.TECH)",
+    "computer science": "UNDERGRADUATE DEGREE PROGRAMMES (B.TECH)",
+    "artificial intelligence": "UNDERGRADUATE DEGREE PROGRAMMES (B.TECH)",
+    "electronics": "UNDERGRADUATE DEGREE PROGRAMMES (B.TECH)",
+    "library": "CENTRAL LIBRARY AND E-LEARNING RESOURCES", "wifi": "CAMPUS FACILITIES AND INFRASTRUCTURE", "laboratory": "DEPARTMENTS AND LABORATORIES",
     "scholarship": "SCHOLARSHIPS AND FINANCIAL ASSISTANCE",
     "fee reimbursement": "SCHOLARSHIPS AND FINANCIAL ASSISTANCE",
     "government scholarship": "SCHOLARSHIPS AND FINANCIAL ASSISTANCE",
-    "anti ragging": "SAFETY AND SECURITY", "cctv": "SAFETY AND SECURITY",
+    "anti ragging": "CAMPUS SAFETY, SECURITY AND DISCIPLINE", "cctv": "CAMPUS SAFETY, SECURITY AND DISCIPLINE",
+    "about the college": "INSTITUTION OVERVIEW", "about sreyas": "INSTITUTION OVERVIEW", "college overview": "INSTITUTION OVERVIEW",
 }
 
 _HIGH_VALUE_PHRASES: List[str] = [
@@ -678,8 +688,8 @@ class SimilarityEngine:
     @classmethod
     def section_boost(cls, chunk_category: str, raw_query: str) -> float:
         q_low = raw_query.lower()
-        for phrase, header in _SECTION_TITLE_MAP.items():
-            if phrase in q_low and header == chunk_category:
+        for phrase, header in sorted(_SECTION_TITLE_MAP.items(), key=lambda x: len(x[0]), reverse=True):
+            if re.search(r"\b" + re.escape(phrase) + r"\b", q_low) and header == chunk_category:
                 return cls.SECTION_BOOST
         return 0.0
 
@@ -1116,6 +1126,15 @@ class RAGEngine:
 
         # 1. PLACEMENTS
         if "PLACEMENT" in cat_upper:
+            if any(k in q_low for k in ["guarantee", "100%", "every student", "every cse student", "job guarantee", "placement guarantee"]):
+                return (
+                    "ℹ️ Placement Policy & Statistics:\n"
+                    "• The college does NOT guarantee a ₹20 LPA package or 100% job placement to every student. Placements depend on individual academic performance, skills, CRT training, and company selection criteria.\n"
+                    "• Official Placement Highlights (2025-26):\n"
+                    "  - Highest Package: ₹21.18 LPA (Atomic Works)\n"
+                    "  - Average Package: ₹4.0 LPA – ₹5.0 LPA\n"
+                    "  - 558+ offers with an 85%+ placement rate for eligible registered students."
+                )
             if any(k in q_low for k in ["highest package", "maximum package", "highest salary"]):
                 return (
                     "🏆 Highest Salary Package (2025-26):\n"
@@ -1227,14 +1246,14 @@ class RAGEngine:
                     "• Total Branch Intake: 180 Seats (across all sections)\n"
                     "• Focus: AI Algorithms, Machine Learning, Deep Learning, NLP & Computer Vision"
                 )
-            if any(k in q_low for k in ["b.tech cse", "cse branch", "cse course", "btech computer science engineering"]) or q_low in ["cse", "computer science"]:
+            if any(k in q_low for k in ["b.tech cse", "cse branch", "cse course", "btech computer science engineering", "about cse", "tell me about cse", "computer science engineering"]) or q_low in ["cse", "computer science"]:
                 return (
                     "🎓 B.Tech Computer Science and Engineering (CSE):\n"
                     "• Duration: 4 Years (8 Semesters)\n"
                     "• Total Branch Intake: 240 Seats (across all sections)\n"
                     "• Focus: Software Engineering, Data Structures, Web Technologies, Databases & Cloud Computing"
                 )
-            if any(k in q_low for k in ["b.tech ece", "ece branch", "ece course", "btech electronics communication engineering", "electronics communication"]) or q_low in ["ece", "electronics"]:
+            if any(k in q_low for k in ["b.tech ece", "ece branch", "ece course", "btech electronics communication engineering", "electronics communication", "electronics branch", "interested in electronics", "electronics engineering", "interested in ece"]) or q_low in ["ece", "electronics"]:
                 return (
                     "📡 B.Tech Electronics and Communication Engineering (ECE):\n"
                     "• Duration: 4 Years (8 Semesters) — NBA Accredited Branch\n"
@@ -1454,6 +1473,29 @@ class RAGEngine:
                     "📧 exambranch@sreyas.ac.in"
                 )
 
+        # 9. SPECIFIC FACILITIES (Smart Classrooms, Auditorium, Sports, Wi-Fi)
+        if any(k in cat_upper for k in ["FACILITIES", "INFRASTRUCTURE", "GENERAL"]):
+            if any(k in q_low for k in ["smart classroom", "smart classrooms", "seminar hall", "seminar halls", "auditorium"]):
+                return (
+                    "🏫 **Smart Classrooms, Seminar Halls & Auditorium at Sreyas:**\n\n"
+                    "• **ICT-Enabled Smart Classrooms:** Equipped with overhead LCD projectors, smart interactive boards, high-speed Wi-Fi connectivity, and modern audio systems.\n"
+                    "• **Central Air-Conditioned Auditorium:** 800+ seating capacity venue for national conferences, annual technical fests, symposiums, and cultural events.\n"
+                    "• **Departmental Seminar Halls:** 3 dedicated air-conditioned seminar halls (200+ capacity each) for expert guest lectures, seminars, and technical workshops."
+                )
+
+        # 10. COLLEGE OVERVIEW & ABOUT SREYAS
+        if any(k in cat_upper for k in ["INSTITUTION", "OVERVIEW", "GENERAL"]):
+            if any(k in q_low for k in ["tell me about the college", "about the college", "about sreyas", "what is sreyas", "college overview", "college details", "tell me about college"]):
+                return (
+                    "🏛️ Sreyas Institute of Engineering and Technology (SIET):\n"
+                    "• Established in 2011, permanently affiliated to JNTUH and approved by AICTE, New Delhi.\n"
+                    "• Autonomous institution with NBA accreditation for ECE and accredited with NAAC Grade.\n"
+                    "• Campus: 10+ acres eco-friendly green campus located in Nagole, Bandlaguda, Hyderabad.\n"
+                    "• B.Tech Programmes: CSE (240 seats), CSE AI & ML (180 seats), and ECE (120 seats).\n"
+                    "• Highlights: 558+ placement offers (highest ₹21.18 LPA), 20 college bus routes across Hyderabad.\n\n"
+                    "What would you like to explore next? (Courses, Placements, Fees, or Bus Routes)"
+                )
+
         return None
 
     def _build_answer(self, top_results: List[Tuple], language: str, raw_query: str = "") -> Tuple[str, bool, bool]:
@@ -1587,6 +1629,8 @@ class RAGEngine:
 
     def _apply_typo_correction(self, query: str) -> Tuple[str, List[str]]:
         result = _safe_call(self.typo_corrector, ["correct", "correct_query", "fix", "process"], query, default=None)
+        if isinstance(result, tuple) and len(result) == 2:
+            return result[0] or query, result[1] or []
         if isinstance(result, dict):
             return result.get("query", query) or query, result.get("corrections", []) or []
         if isinstance(result, str) and result.strip():
@@ -1737,8 +1781,10 @@ class RAGEngine:
 
         search_query, follow_up, last_category = self._apply_memory_context(corrected_query, session_id)
 
+        # Use search_query (which includes conversation context for follow-ups) for category detection
+        query_for_detection = search_query if follow_up else corrected_query
         cat_result = _safe_call(
-            self.category_detector, ["detect", "detect_category", "classify", "predict"], corrected_query, default=None
+            self.category_detector, ["detect", "detect_category", "classify", "predict"], query_for_detection, default=None
         )
         detected_cat = "GENERAL"
         cat_conf = 0.0
@@ -1748,6 +1794,11 @@ class RAGEngine:
         elif isinstance(cat_result, str) and cat_result.strip():
             detected_cat = cat_result.strip().upper()
             cat_conf = 1.0
+
+        # If still GENERAL on follow-up, inherit the last_category
+        if follow_up and detected_cat == "GENERAL" and last_category and last_category != "GENERAL":
+            detected_cat = last_category
+            cat_conf = 0.85
 
         override_answer = self.override_rules.get(detected_cat, language)
 
@@ -1772,7 +1823,7 @@ class RAGEngine:
                 candidates, hard_filtered = bare_candidates, True
         boost_cat = None if hard_filtered else (detected_cat if detected_cat != "GENERAL" else None)
 
-        ranked = self._search(exp_tokens, corrected_query, candidates, boost_cat)
+        ranked = self._search(exp_tokens, search_query, candidates, boost_cat)
         top_results = ranked[: self.top_k]
 
         top_cosine = top_results[0][1] if top_results else 0.0
@@ -1818,6 +1869,7 @@ class RAGEngine:
         #      enough to narrow candidates to one section; that alone is sufficient.
         has_relevant_section = bool(top_results) and (
             top_field_boost > 0                 # exact field phrase matched ("highest package", "transport", etc.)
+            or section_boost_used > 0           # section title matched ("courses", "about the college", etc.)
             or bare_section is not None         # bare keyword resolved directly
             or (
                 detected_cat != "GENERAL"

@@ -113,14 +113,29 @@ class ConversationMemory:
 
         context = ""
 
-        if follow_up:
-
-            for item in session["history"]:
-
-                context += (
-                    f"User: {item['user']}\n"
-                    f"Bot: {item['bot']}\n"
-                )
+        if follow_up and session["history"]:
+            # Extract key subjects from the most recent user turn (e.g. branch, topic)
+            last_turn = session["history"][-1]
+            last_user_msg = last_turn.get("user", "")
+            
+            # Find specific college topics/branches in previous turn
+            topics = []
+            for branch in ["cse", "ece", "aiml", "ai & ml", "ai ml", "computer science", "electronics"]:
+                if branch in last_user_msg.lower():
+                    topics.append(branch)
+            for topic in ["placements", "fee", "fees", "hostel", "transport", "scholarship", "library", "exam"]:
+                if topic in last_user_msg.lower():
+                    topics.append(topic)
+            
+            if topics:
+                context = " ".join(topics)
+            else:
+                # Fallback to last category or last user message text
+                cat = session.get("last_category", "")
+                if cat and cat != "GENERAL":
+                    context = cat.lower()
+                else:
+                    context = last_user_msg
 
         return {
 

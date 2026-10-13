@@ -14,7 +14,7 @@ import logging
 import time
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from typing import List, Optional
+from typing import List, Optional, Tuple
 
 import config
 
@@ -262,3 +262,98 @@ Website: {config.COLLEGE_WEBSITE}
         except Exception as err:
             logger.error("Failed to start admission email thread for %s: %s", recipients, err)
             return False
+
+    @classmethod
+    def is_smtp_configured(cls) -> bool:
+        """Checks if real SMTP credentials are configured in the environment."""
+        return bool(config.SMTP_USER and config.SMTP_PASS and config.SMTP_HOST)
+
+    @classmethod
+    def send_parent_otp(
+        cls,
+        parent_email: str,
+        parent_name: str,
+        otp: str,
+        expiry_minutes: int = 5,
+    ) -> Tuple[bool, str]:
+        """
+        Dispatches a single-use verification OTP to the approved parent's real email.
+        Enforces:
+          - If SMTP is not configured, returns False with a clear honest explanation.
+            Does NOT display fake OTPs or pretend email was sent.
+          - If SMTP is configured, sends via smtplib (with TLS/SSL and retries).
+        """
+        email = (parent_email or "").strip()
+        if not email or "@" not in email:
+            return False, "Invalid email address format."
+
+        if not cls.is_smtp_configured():
+            logger.warning("Attempted to send Parent OTP to %s but SMTP is not configured.", email)
+            return False, (
+                "Email verification cannot be completed because SMTP server credentials (SMTP_USER / SMTP_PASS) "
+                "are not configured in the college server environment (.env). "
+                "Please configure valid SMTP credentials to enable live email delivery."
+            )
+
+        subject = f"🔐 Your Sreyas Parent Portal Verification Code: {otp}"
+
+        text_body = f"""Dear {parent_name or 'Parent'},
+
+Your parent registration request has been approved by the Sreyas Institute College Administration.
+
+Your one-time verification code (OTP) is:
+
+    {otp}
+
+This code is valid for {expiry_minutes} minutes. Please enter this code in the Sreyas Parent Portal to activate your account and view your student's academic records.
+
+If you did not request this code, please ignore this email or contact the college office.
+
+Best regards,
+Examination & Academic Branch
+Sreyas Institute of Engineering and Technology
+Nagole, Hyderabad - 500068
+Phone: {config.COLLEGE_PHONE} | Email: {config.COLLEGE_EMAIL}
+"""
+
+        html_body = f"""
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="font-family: Arial, sans-serif; color: #202124; line-height: 1.6; background-color: #f8fafc; padding: 20px;">
+  <div style="max-width: 560px; margin: 0 auto; background: #ffffff; border-radius: 12px; padding: 28px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+    <div style="background: linear-gradient(135deg, #1a73e8, #1557b0); padding: 18px; border-radius: 8px; text-align: center; color: #ffffff;">
+      <h2 style="margin: 0; font-size: 20px;">🎓 Sreyas Institute of Engineering & Technology</h2>
+      <p style="margin: 4px 0 0; font-size: 13px; opacity: 0.95;">Parent Academic Verification Portal</p>
+    </div>
+
+    <div style="padding: 24px 0;">
+      <p style="font-size: 15px;">Dear <strong>{parent_name or 'Parent'}</strong>,</p>
+      <p>Your parent registration request has been approved by the college administration. Please use the following one-time verification code (OTP) to activate your account and view your linked student's academic records:</p>
+
+      <div style="background: #eff6ff; border: 2px dashed #1a73e8; padding: 18px; margin: 20px 0; border-radius: 10px; text-align: center;">
+        <span style="font-size: 11px; color: #5f6368; text-transform: uppercase; font-weight: bold; letter-spacing: 1px; display: block; margin-bottom: 6px;">Single-Use Verification Code</span>
+        <span style="font-size: 32px; font-weight: 800; color: #1a73e8; letter-spacing: 6px; font-family: monospace;">{otp}</span>
+        <span style="font-size: 12px; color: #d93025; display: block; margin-top: 8px; font-weight: 600;">Valid for {expiry_minutes} minutes only</span>
+      </div>
+
+      <p style="font-size: 13px; color: #5f6368;">For your security, do not share this code with anyone. This OTP can only be used once.</p>
+    </div>
+
+    <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
+    <div style="font-size: 11.5px; color: #5f6368; text-align: center;">
+      <p style="margin: 2px 0;">Sreyas Institute of Engineering and Technology</p>
+      <p style="margin: 2px 0;">Nagole, Bandlaguda, Hyderabad, Telangana - 500068</p>
+      <p style="margin: 2px 0;">Helpline: {config.COLLEGE_PHONE} | <a href="{config.COLLEGE_WEBSITE}" style="color: #1a73e8; text-decoration: none;">www.sreyas.ac.in</a></p>
+    </div>
+  </div>
+</body>
+</html>
+"""
+        # Synchronous worker call for OTP so we immediately know if delivery succeeded
+        sent = cls._send_email_task([email], subject, html_body, text_body, attempts=2)
+        if sent:
+            return True, f"Verification OTP successfully sent to {email}."
+        else:
+            return False, f"Failed to deliver email to {email}. Please check SMTP connectivity or try again later."
+

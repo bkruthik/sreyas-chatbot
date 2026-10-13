@@ -18,31 +18,33 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root{
-  --primary:#1a73e8;
-  --primary-dark:#1557b0;
-  --primary-glow:rgba(26,115,232,.18);
+  --primary:#0d9488;
+  --primary-dark:#0f766e;
+  --primary-glow:rgba(13,148,136,.15);
+  --accent:#6d28d9;
+  --accent-light:#8b5cf6;
   --surface:#ffffff;
-  --surface-2:#f1f5f9;
-  --surface-3:#e2e8f0;
-  --border:#cbd5e1;
-  --border-subtle:#e2e8f0;
+  --surface-2:#f8fafb;
+  --surface-3:#f1f5f9;
+  --border:#e2e8f0;
+  --border-subtle:#edf2f7;
   --text:#0f172a;
-  --text-sub:#475569;
-  --text-muted:#94a3b8;
-  --success:#15803d;
+  --text-sub:#334155;
+  --text-muted:#64748b;
+  --success:#16a34a;
   --success-bg:#f0fdf4;
   --danger:#dc2626;
-  --font:'Google Sans','Inter',-apple-system,sans-serif;
-  --r-xl:24px;--r-lg:18px;--r-md:12px;--r-sm:8px;
-  --sh-sm:0 1px 3px rgba(15,23,42,.06);
-  --sh-md:0 4px 14px rgba(15,23,42,.08);
-  --sh-lg:0 20px 60px rgba(15,23,42,.12);
-  --sh-xl:0 24px 70px rgba(15,23,42,.18);
+  --font:'Google Sans','Inter',system-ui,-apple-system,sans-serif;
+  --r-xl:20px;--r-lg:14px;--r-md:10px;--r-sm:6px;
+  --sh-sm:0 1px 2px rgba(15,23,42,.04);
+  --sh-md:0 4px 12px rgba(15,23,42,.06);
+  --sh-lg:0 12px 32px rgba(15,23,42,.10);
+  --sh-xl:0 18px 48px rgba(15,23,42,.14);
 }
 
 body{
   font-family:var(--font);
-  background:linear-gradient(145deg,#e2e8f0 0%,#e0e7ff 40%,#dbeafe 100%);
+  background:linear-gradient(135deg,#e2e8f0 0%,#e2eafc 50%,#edf2f7 100%);
   min-height:100vh;display:flex;align-items:center;justify-content:center;
   overflow-x:hidden;
 }
@@ -74,16 +76,16 @@ body{
 #sr-launcher{
   position:fixed!important;right:24px!important;bottom:24px!important;
   width:62px!important;height:62px!important;border-radius:50%!important;
-  background:linear-gradient(135deg,#1a73e8,#2563eb)!important;
-  box-shadow:0 6px 24px rgba(26,115,232,.45)!important;border:none!important;
+  background:linear-gradient(135deg,#0d9488,#0f766e)!important;
+  box-shadow:0 6px 24px rgba(13,148,136,.45)!important;border:none!important;
   cursor:pointer!important;z-index:2147483647!important;
   display:flex!important;align-items:center!important;justify-content:center!important;
   transition:transform .22s cubic-bezier(.34,1.56,.64,1),box-shadow .2s!important;outline:none!important;
 }
-#sr-launcher:hover{transform:scale(1.08)!important;box-shadow:0 10px 32px rgba(26,115,232,.55)!important;}
+#sr-launcher:hover{transform:scale(1.08)!important;box-shadow:0 10px 32px rgba(13,148,136,.55)!important;}
 #sr-launcher svg{width:28px;height:28px;pointer-events:none;}
 #sr-badge{
-  position:absolute;top:-4px;right:-4px;background:linear-gradient(135deg,#ef4444,#f59e0b);
+  position:absolute;top:-4px;right:-4px;background:linear-gradient(135deg,#6d28d9,#8b5cf6);
   color:#fff;font-size:8.5px;font-weight:800;padding:3px 7px;border-radius:10px;
   pointer-events:none;letter-spacing:.4px;box-shadow:0 2px 6px rgba(0,0,0,.2);
 }
@@ -107,25 +109,25 @@ body{
    HEADER
 ═══════════════════════════════════════════════ */
 #sr-header{
-  background:linear-gradient(135deg,#1e40af 0%,#2563eb 100%);
-  padding:14px 18px;display:flex;align-items:center;gap:10px;flex-shrink:0;
-  position:relative;overflow:hidden;transition:background .4s;
-  box-shadow:0 2px 8px rgba(30,64,175,.2);
+  background:linear-gradient(135deg,#0f766e 0%,#0d9488 50%,#115e59 100%);
+  padding:13px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0;
+  position:relative;overflow:hidden;transition:background .3s;
+  box-shadow:0 1px 3px rgba(15,118,110,.15);
 }
 #sr-header-overlay{position:absolute;inset:0;pointer-events:none;z-index:1;}
 
-.sr-avatar{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.22);border:2px solid rgba(255,255,255,.45);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex-shrink:0;color:#fff;position:relative;z-index:2;}
+.sr-avatar{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.2);border:1.5px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;color:#fff;position:relative;z-index:2;}
 .sr-hinfo{flex:1;min-width:0;position:relative;z-index:2;}
-.sr-name{font-weight:700;font-size:14.5px;color:#fff;letter-spacing:-.1px;}
-.sr-status{font-size:11px;opacity:.92;display:flex;align-items:center;gap:5px;margin-top:2px;color:#fff;}
-.sr-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;display:inline-block;box-shadow:0 0 6px rgba(34,197,94,.8);animation:dotPulse 2s ease-in-out infinite;}
+.sr-name{font-weight:700;font-size:14px;color:#fff;letter-spacing:-.1px;}
+.sr-status{font-size:11px;opacity:.9;display:flex;align-items:center;gap:5px;margin-top:1px;color:#fff;}
+.sr-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;display:inline-block;box-shadow:0 0 5px rgba(34,197,94,.7);animation:dotPulse 2s ease-in-out infinite;}
 @keyframes dotPulse{0%,100%{opacity:1}50%{opacity:.4}}
 
 .sr-header-btns{display:flex;gap:5px;align-items:center;position:relative;z-index:2;}
-.sr-hbtn{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.30);color:#fff;font-size:10.5px;padding:4px 10px;border-radius:20px;cursor:pointer;font-family:var(--font);transition:background .18s;white-space:nowrap;font-weight:600;display:none;}
-.sr-hbtn:hover{background:rgba(255,255,255,.32);}
-#sr-close{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.30);color:rgba(255,255,255,.95);width:32px;height:32px;border-radius:50%;font-size:16px;cursor:pointer;padding:0;line-height:1;display:flex;align-items:center;justify-content:center;transition:background .18s;flex-shrink:0;position:relative;z-index:2;}
-#sr-close:hover{background:rgba(255,255,255,.35);}
+.sr-hbtn{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);color:#fff;font-size:10.5px;padding:3px 9px;border-radius:16px;cursor:pointer;font-family:var(--font);transition:background .18s;white-space:nowrap;font-weight:600;display:none;}
+.sr-hbtn:hover{background:rgba(255,255,255,.28);}
+#sr-close{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);color:rgba(255,255,255,.95);width:30px;height:30px;border-radius:50%;font-size:15px;cursor:pointer;padding:0;line-height:1;display:flex;align-items:center;justify-content:center;transition:background .18s;flex-shrink:0;position:relative;z-index:2;}
+#sr-close:hover{background:rgba(255,255,255,.32);}
 
 /* ═══════════════════════════════════════════════
    LANGUAGE & MODE SELECTION SCREENS
@@ -153,31 +155,31 @@ body{
    MESSAGES
 ═══════════════════════════════════════════════ */
 #sr-msgs{
-  flex:1;overflow-y:auto;padding:16px 14px;
-  background:linear-gradient(180deg,#eef2f9 0%,#f0f4fb 60%,#e8edf6 100%);
-  display:flex;flex-direction:column;gap:14px;scroll-behavior:smooth;
+  flex:1;overflow-y:auto;padding:14px 14px;
+  background:linear-gradient(180deg,#f8fafc 0%,#f1f5f9 100%);
+  display:flex;flex-direction:column;gap:12px;scroll-behavior:smooth;
 }
 #sr-msgs::-webkit-scrollbar{width:5px;}
 #sr-msgs::-webkit-scrollbar-track{background:transparent;}
 #sr-msgs::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:4px;}
 
 .sr-msg{
-  max-width:90%;padding:12px 16px 8px;border-radius:18px;
-  font-size:13.5px;line-height:1.65;word-break:break-word;
-  font-family:var(--font);animation:msgIn .24s cubic-bezier(.34,1.56,.64,1);
+  max-width:88%;padding:11px 15px 7px;border-radius:14px;
+  font-size:13.5px;line-height:1.6;word-break:break-word;
+  font-family:var(--font);animation:msgIn .2s ease-out;
   position:relative;
 }
-@keyframes msgIn{from{opacity:0;transform:translateY(10px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes msgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 
 .sr-msg.bot{
   align-self:flex-start;background:#ffffff;color:#1e293b;
-  border:1px solid #dde4f0;border-bottom-left-radius:4px;
-  border-left:3px solid #dbeafe;
-  box-shadow:0 2px 10px rgba(15,23,42,.06);
+  border:1px solid #e2e8f0;border-bottom-left-radius:3px;
+  border-left:3px solid var(--primary);
+  box-shadow:0 1px 4px rgba(15,23,42,.04);
 }
 .sr-msg.user{
-  align-self:flex-end;background:linear-gradient(135deg,#1d4ed8 0%,#2563eb 100%);color:#ffffff;
-  border-bottom-right-radius:4px;box-shadow:0 3px 12px rgba(29,78,216,.28);
+  align-self:flex-end;background:linear-gradient(135deg,#0f766e 0%,#0d9488 100%);color:#ffffff;
+  border-bottom-right-radius:3px;box-shadow:0 2px 8px rgba(13,148,136,.25);
 }
 
 /* Message timestamp */
@@ -213,13 +215,13 @@ body{
   box-shadow:0 1px 3px rgba(15,23,42,.03);
 }
 .sr-route-card:hover{
-  border-color:var(--primary);background:#eff6ff;transform:translateY(-2px);
-  box-shadow:0 4px 12px rgba(26,115,232,.15);
+  border-color:var(--primary);background:#f0fdfa;transform:translateY(-2px);
+  box-shadow:0 4px 12px rgba(13,148,136,.15);
 }
 .sr-route-card:active{transform:scale(.98);}
 .sr-route-header{display:flex;align-items:center;justify-content:space-between;}
 .sr-route-id{
-  background:#eff6ff;color:var(--primary-dark);font-weight:700;font-size:11.5px;
+  background:#f0fdfa;color:var(--primary-dark);font-weight:700;font-size:11.5px;
   padding:2px 8px;border-radius:12px;display:inline-block;
 }
 .sr-route-time{font-size:11px;font-weight:600;color:#64748b;}
@@ -232,12 +234,12 @@ body{
 
 /* Route Detail Card */
 .sr-detail-card{
-  background:#ffffff;border:1.5px solid #bfdbfe;border-radius:12px;padding:14px;
-  box-shadow:0 4px 14px rgba(26,115,232,.08);margin:8px 0;width:100%;
+  background:#ffffff;border:1.5px solid #99f6e4;border-radius:12px;padding:14px;
+  box-shadow:0 4px 14px rgba(13,148,136,.08);margin:8px 0;width:100%;
 }
 .sr-detail-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #e2e8f0;}
 .sr-detail-title{font-size:15px;font-weight:700;color:#0f172a;display:flex;align-items:center;gap:6px;}
-.sr-detail-badge{background:#e0f2fe;color:#0369a1;font-size:11px;font-weight:700;padding:3px 10px;border-radius:14px;}
+.sr-detail-badge{background:#ccfbf1;color:#0f766e;font-size:11px;font-weight:700;padding:3px 10px;border-radius:14px;}
 .sr-detail-time{font-size:12px;font-weight:600;color:#475569;margin-bottom:8px;display:flex;align-items:center;gap:4px;}
 
 /* Stop sequence timeline */
@@ -250,7 +252,7 @@ body{
 
 /* Fact Card */
 .sr-fact-card{
-  background:linear-gradient(135deg,#fff,#f8fafc);border:1.5px solid rgba(26,115,232,.25);
+  background:linear-gradient(135deg,#fff,#f8fafc);border:1.5px solid rgba(13,148,136,.3);
   border-radius:var(--r-lg);padding:16px;max-width:92%;align-self:flex-start;
   box-shadow:var(--sh-md);border-bottom-left-radius:4px;animation:msgIn .24s ease;
 }
@@ -262,26 +264,24 @@ body{
 /* ═══════════════════════════════════════════════
    SUGGESTION CHIPS
 ═══════════════════════════════════════════════ */
-.sr-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:2px;}
+.sr-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px;}
 .sr-chip{
-  background:#ffffff;border:1.5px solid #cbd5e1;color:#1d4ed8;
-  font-size:12px;padding:6px 14px;border-radius:20px;cursor:pointer;
-  font-family:var(--font);font-weight:600;transition:all .18s;box-shadow:0 1px 3px rgba(15,23,42,.05);
+  background:#ffffff;border:1px solid #cbd5e1;color:#0f766e;
+  font-size:12px;padding:6px 13px;border-radius:18px;cursor:pointer;
+  font-family:var(--font);font-weight:600;transition:all .18s ease;box-shadow:0 1px 2px rgba(15,23,42,.04);
   display:inline-flex;align-items:center;gap:4px;
 }
-.sr-chip:hover{background:#eff6ff;border-color:#2563eb;color:#1e40af;transform:translateY(-1px);box-shadow:0 4px 10px rgba(37,99,235,.15);}
-.sr-chip:active{transform:translateY(0);box-shadow:0 1px 3px rgba(15,23,42,.05);}
-.sr-chip:focus-visible{outline:2px solid var(--primary);outline-offset:2px;}
+.sr-chip:hover{background:#f0fdfa;border-color:var(--primary);color:var(--primary-dark);transform:translateY(-1px);box-shadow:0 2px 8px rgba(13,148,136,.18);}
+.sr-chip:active{transform:scale(.98);}
+.sr-chip:focus-visible{outline:2px solid var(--primary);outline-offset:1px;}
 .sr-chip.enq-chip{
-  background:linear-gradient(135deg,#eff6ff,#f1f5f9);
-  border-color:#3b82f6;color:#1d4ed8;font-weight:700;
+  background:#f0fdf4;border-color:#86efac;color:#166534;font-weight:600;
 }
-.sr-chip.enq-chip:hover{background:#dbeafe;border-color:#2563eb;}
+.sr-chip.enq-chip:hover{background:#dcfce7;border-color:#22c55e;}
 .sr-chip.adm-chip{
-  background:linear-gradient(135deg,#fefce8,#fffbeb);
-  border-color:#eab308;color:#a16207;font-weight:700;
+  background:#fefce8;border-color:#fde047;color:#854d0e;font-weight:600;
 }
-.sr-chip.adm-chip:hover{background:#fef08a;border-color:#ca8a04;}
+.sr-chip.adm-chip:hover{background:#fef9c3;border-color:#eab308;}
 
 /* ═══════════════════════════════════════════════
    TYPING INDICATOR
@@ -345,20 +345,20 @@ body{
 
 .sr-form-error{background:#fef2f2;border:1px solid rgba(220,38,38,.3);border-radius:var(--r-sm);padding:8px 12px;font-size:12px;color:var(--danger);margin-bottom:9px;display:none;}
 .sr-form-btn{
-  width:100%;background:linear-gradient(135deg,#1d4ed8,#2563eb);color:#fff;
+  width:100%;background:linear-gradient(135deg,#0f766e,#0d9488);color:#fff;
   border:none;border-radius:var(--r-sm);padding:11px;font-size:13.5px;font-weight:600;
   cursor:pointer;font-family:var(--font);transition:all .18s;margin-top:4px;
   display:flex;align-items:center;justify-content:center;gap:8px;
-  box-shadow:0 2px 8px rgba(29,78,216,.28);
+  box-shadow:0 2px 8px rgba(13,148,136,.28);
 }
 .sr-form-btn.adm-btn{
   background:linear-gradient(135deg,#d97706,#f59e0b);
   box-shadow:0 2px 8px rgba(217,119,6,.32);
 }
-.sr-form-btn:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(29,78,216,.36);}
+.sr-form-btn:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(13,148,136,.36);}
 .sr-form-btn:disabled{opacity:.65;cursor:not-allowed;transform:none;}
 .sr-form-success{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1.5px solid rgba(21,128,61,.3);border-radius:var(--r-md);padding:18px;font-size:13px;color:#15803d;text-align:center;white-space:pre-line;line-height:1.7;box-shadow:var(--sh-sm);}
-.sr-ref-badge{font-size:17px;font-weight:800;color:var(--primary);letter-spacing:1px;background:#eff6ff;padding:6px 18px;border-radius:var(--r-sm);display:inline-block;margin:10px 0;border:1px solid rgba(26,115,232,.25);}
+.sr-ref-badge{font-size:17px;font-weight:800;color:var(--primary);letter-spacing:1px;background:#f0fdfa;padding:6px 18px;border-radius:var(--r-sm);display:inline-block;margin:10px 0;border:1px solid rgba(13,148,136,.25);}
 
 /* ═══════════════════════════════════════════════
    INPUT BAR
@@ -376,11 +376,11 @@ body{
 #sr-input::placeholder{color:var(--text-muted);}
 #sr-input:disabled{background:var(--surface-3);color:var(--text-muted);cursor:not-allowed;}
 #sr-send{
-  background:linear-gradient(135deg,#1d4ed8,#2563eb);border:none;color:#fff;
+  background:linear-gradient(135deg,#0f766e,#0d9488);border:none;color:#fff;
   width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;transition:all .18s;box-shadow:0 2px 8px rgba(29,78,216,.30);
+  flex-shrink:0;transition:all .18s;box-shadow:0 2px 8px rgba(13,148,136,.30);
 }
-#sr-send:hover{transform:scale(1.06);box-shadow:0 4px 14px rgba(29,78,216,.45);}
+#sr-send:hover{transform:scale(1.06);box-shadow:0 4px 14px rgba(13,148,136,.45);}
 #sr-send:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none;}
 #sr-send svg{width:16px;height:16px;}
 #sr-foot{text-align:center;font-size:10.5px;color:var(--text-muted);padding:2px 0 8px;background:var(--surface);display:none;font-family:var(--font);}
@@ -588,9 +588,9 @@ var T = {
     modeGeneral:"Just Exploring",
     modeGeneralSub:"General information about Sreyas",
     welcome:{
-      student:"Hello! 👋 Welcome, Student!\n\nI can help you with courses, placements, exam patterns, scholarships, and more.\n\nWhat would you like to know? 😊",
-      parent:"Hello! 👋 Welcome!\n\nI'm here to help parents understand fees, safety, hostel options, transport, and admission process.\n\nWhat would you like to know? 😊",
-      general:"Hello! 👋 Welcome to SREYAS AI Assistant!\n\nAsk me anything about Sreyas Institute of Engineering & Technology. 😊"
+      student:"Hello! 👋 Welcome to Sreyas Assistant.\n\nI can help you with:\n• B.Tech Courses & Branch intake\n• Placements & Top Recruiters\n• Academic Regulations (R22/R25)\n• College Bus Routes & Timings\n\nTry asking: *'Tell me about CSE'* or *'Highest placement package'* 😊",
+      parent:"Hello! 👋 Welcome to Sreyas Assistant.\n\nI am here to guide you through:\n• Tuition Fee structure & Scholarships\n• Campus Safety, Security & Discipline\n• Transport routes across Hyderabad\n• B.Tech Admission Procedure\n\nTry asking: *'What are the college fees?'* or *'Is there hostel facility?'* 😊",
+      general:"Hello! 👋 Welcome to Sreyas AI Assistant.\n\nI can answer questions about admissions, courses, fees, placements, bus routes, and campus facilities.\n\nTry asking: *'Tell me about the college'* or *'What courses are offered?'* 😊"
     },
     fbThanks:"Thank you! I'm glad I could help. Let me know if you have any other questions. 😊",
     fbSorry:"I'm sorry I couldn't answer your question properly. Please submit your enquiry below and our team will help you directly.",
@@ -787,6 +787,10 @@ window.selectMode = function(m){
   var u = t();
   addMsg(u.welcome[m] || u.welcome.general, "bot");
   addChips(CHIP_SETS[m] || CHIP_SETS.general);
+
+  if(m === "parent"){
+    renderParentAuthCard();
+  }
 };
 
 /* Reselect via header buttons */
@@ -1059,6 +1063,33 @@ function addFactCard(fd){
     '<div class="sr-fact-sub">' + esc(fd.subtitle || "") + '</div>';
   elMsgs.appendChild(c);
   scrollBottom();
+}
+
+/* Renders compact College Location Card with verified address and map navigation */
+function renderLocationCard(container, loc){
+  var card = document.createElement("div");
+  card.className = "sr-detail-card sr-location-card";
+  card.style.background = "linear-gradient(135deg, #ffffff, #f0fdfa)";
+  card.style.border = "1.5px solid #99f6e4";
+
+  card.innerHTML =
+    '<div class="sr-detail-top" style="margin-bottom: 6px;">' +
+      '<div class="sr-detail-title" style="color: #0f766e; font-size: 14.5px;">📍 ' + esc(loc.name || "Sreyas Campus Location") + '</div>' +
+      '<span class="sr-detail-badge" style="background: #ccfbf1; color: #0f766e;">Verified Campus</span>' +
+    '</div>' +
+    '<div style="font-size: 12.5px; color: var(--text); line-height: 1.5; margin-bottom: 6px;">' +
+      '<strong>Address:</strong> ' + esc(loc.address || "") +
+    '</div>' +
+    '<div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;">' +
+      '<a href="' + esc(loc.maps_url) + '" target="_blank" rel="noopener noreferrer" class="sr-chip sr-map-link" style="background: #0d9488; color: #fff; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; font-weight: 600; padding: 7px 14px; border-radius: 20px; cursor: pointer;">' +
+        '🗺️ View on Google Maps' +
+      '</a>' +
+      '<a href="' + esc(loc.directions_url) + '" target="_blank" rel="noopener noreferrer" class="sr-chip sr-map-link" style="background: #f0fdfa; color: #0f766e; border: 1.5px solid #5eead4; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; font-weight: 600; padding: 7px 14px; border-radius: 20px; cursor: pointer;">' +
+        '🚗 Get Directions' +
+      '</a>' +
+    '</div>';
+
+  container.appendChild(card);
 }
 
 /* Safe HTML escape — only escapes & < > " — never converts non-ASCII Unicode to entities.
@@ -1437,6 +1468,379 @@ function renderAdmissionForm(){
   };
 }
 
+/* ─── PARENT MODE AUTHENTICATION & DASHBOARD ─────── */
+/* ─── PARENT MODE ONBOARDING, VERIFICATION & ACADEMIC DASHBOARD ─── */
+var parentAuthSessionToken = null;
+
+function renderParentAuthCard(){
+  var card = document.createElement("div");
+  card.className = "sr-msg bot sr-form-card";
+  card.id = "sr-parent-card";
+
+  card.innerHTML =
+    '<div class="sr-form-title">👨‍👩‍👧 Sreyas Parent Academic Portal</div>' +
+    '<div class="sr-form-sub" style="margin-bottom:12px;">' +
+      'Welcome to Parent Mode. Submit your registration request using your email address and your student\'s details. ' +
+      'The college administration will verify the parent–student relationship. After approval, verify your email to access your linked student\'s academic performance.' +
+    '</div>' +
+
+    '<!-- STEP 1: REGISTRATION FORM -->' +
+    '<div id="pr-step-register">' +
+      '<div style="font-size:12px; font-weight:700; color:var(--text); margin-bottom:6px;">1. Submit Registration Request</div>' +
+      '<input class="sr-form-field" id="pr-reg-name" type="text" placeholder="Parent Full Name *" value="K. Rama Rao Reddy"/>' +
+      '<input class="sr-form-field" id="pr-reg-email" type="email" placeholder="Parent Real Email Address *" value="parent.demo@sreyas.ac.in"/>' +
+      '<input class="sr-form-field" id="pr-reg-phone" type="tel" placeholder="Parent Mobile Number (Optional)" value="9848022338"/>' +
+      '<input class="sr-form-field" id="pr-reg-sname" type="text" placeholder="Student Full Name *" value="Sai Krishna Reddy"/>' +
+      '<input class="sr-form-field" id="pr-reg-sid" type="text" placeholder="Unique Student ID or Roll No * (e.g. SIET2023CSE001)" value="SIET2023CSE001"/>' +
+      '<select class="sr-form-field" id="pr-reg-rel">' +
+        '<option value="Father">Father</option>' +
+        '<option value="Mother">Mother</option>' +
+        '<option value="Guardian">Guardian / Sponsor</option>' +
+      '</select>' +
+      '<div class="sr-form-error" id="pr-reg-err"></div>' +
+      '<button class="sr-form-btn" id="pr-btn-submit-reg">Submit Registration Request →</button>' +
+      '<div style="text-align:center; margin-top:8px;">' +
+        '<a href="#" id="pr-link-already-approved" style="font-size:11.5px; color:var(--primary); text-decoration:none;">Already approved? Verify Email OTP →</a>' +
+      '</div>' +
+    '</div>' +
+
+    '<!-- STEP 2: PENDING ADMIN APPROVAL NOTICE -->' +
+    '<div id="pr-step-pending" style="display:none; text-align:center; padding:12px 6px;">' +
+      '<div style="font-size:32px; margin-bottom:8px;">⏳</div>' +
+      '<div style="font-size:13.5px; font-weight:700; color:var(--text); margin-bottom:6px;">Request Awaiting Admin Verification</div>' +
+      '<div style="font-size:12px; color:var(--text-sub); line-height:1.6; margin-bottom:12px;" id="pr-pending-msg">' +
+        'Your registration request has been submitted and is awaiting college administration verification.' +
+      '</div>' +
+      '<div style="background:#fef3c7; border:1px solid #fde047; padding:10px; border-radius:var(--r-sm); font-size:11.5px; color:#92400e; text-align:left; margin-bottom:12px;">' +
+        'ℹ️ The college administration verifies parent identity against authorised student enrollment records. Once verified, you can proceed to Email OTP verification.' +
+      '</div>' +
+      '<button class="sr-chip" id="pr-btn-check-approved" style="padding:8px 16px; font-weight:600;">Check Approval & Request OTP ➔</button>' +
+    '</div>' +
+
+    '<!-- STEP 3: EMAIL OTP VERIFICATION -->' +
+    '<div id="pr-step-otp" style="display:none;">' +
+      '<div style="font-size:12px; font-weight:700; color:var(--text); margin-bottom:4px;">2. Email OTP Verification</div>' +
+      '<div style="font-size:11.5px; color:var(--text-sub); margin-bottom:10px;" id="pr-otp-dest-label">' +
+        'Your registration has been approved. Enter the OTP sent to your registered email address.' +
+      '</div>' +
+      '<input class="sr-form-field" id="pr-otp-input" type="text" maxlength="6" placeholder="Enter 6-digit OTP code"/>' +
+      '<div class="sr-form-error" id="pr-otp-err"></div>' +
+      '<div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:var(--r-sm); padding:8px 10px; font-size:11px; color:#1e40af; margin-bottom:10px; display:none;" id="pr-smtp-notice"></div>' +
+      '<button class="sr-form-btn" id="pr-btn-verify-otp">Verify OTP & Open Dashboard 🎓</button>' +
+      '<div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">' +
+        '<button class="sr-chip" id="pr-btn-resend-otp" style="font-size:11px;">🔄 Resend OTP</button>' +
+        '<a href="#" id="pr-link-back-reg" style="font-size:11px; color:var(--text-sub); text-decoration:none;">Back to registration</a>' +
+      '</div>' +
+    '</div>' +
+
+    '<!-- STEP 4: ACADEMIC DASHBOARD CONTAINER -->' +
+    '<div id="pr-step-dashboard" style="display:none;"></div>';
+
+  elMsgs.appendChild(card);
+  scrollBottom();
+
+  var sReg = card.querySelector("#pr-step-register");
+  var sPend = card.querySelector("#pr-step-pending");
+  var sOtp = card.querySelector("#pr-step-otp");
+  var sDash = card.querySelector("#pr-step-dashboard");
+
+  var regErr = card.querySelector("#pr-reg-err");
+  var otpErr = card.querySelector("#pr-otp-err");
+  var smtpNotice = card.querySelector("#pr-smtp-notice");
+
+  var activeEmail = "parent.demo@sreyas.ac.in";
+
+  // Link to skip to OTP if already approved
+  card.querySelector("#pr-link-already-approved").onclick = function(e){
+    e.preventDefault();
+    activeEmail = card.querySelector("#pr-reg-email").value.trim().toLowerCase();
+    triggerOtpDispatch(activeEmail);
+  };
+
+  card.querySelector("#pr-link-back-reg").onclick = function(e){
+    e.preventDefault();
+    sOtp.style.display = "none";
+    sPend.style.display = "none";
+    sReg.style.display = "block";
+    scrollBottom();
+  };
+
+  card.querySelector("#pr-btn-check-approved").onclick = function(){
+    triggerOtpDispatch(activeEmail);
+  };
+
+  card.querySelector("#pr-btn-resend-otp").onclick = function(){
+    triggerOtpDispatch(activeEmail);
+  };
+
+  // Submit registration request
+  card.querySelector("#pr-btn-submit-reg").onclick = function(){
+    var pName = card.querySelector("#pr-reg-name").value.trim();
+    var pEmail = card.querySelector("#pr-reg-email").value.trim().toLowerCase();
+    var pPhone = card.querySelector("#pr-reg-phone").value.trim();
+    var sName = card.querySelector("#pr-reg-sname").value.trim();
+    var sId = card.querySelector("#pr-reg-sid").value.trim().toUpperCase();
+    var rel = card.querySelector("#pr-reg-rel").value;
+
+    regErr.style.display = "none";
+
+    if(!pName || pName.length < 2){
+      showErr(regErr, "Parent full name is required."); return;
+    }
+    if(!pEmail || !pEmail.includes("@")){
+      showErr(regErr, "Valid email address is required."); return;
+    }
+    if(!sName){
+      showErr(regErr, "Student name is required."); return;
+    }
+    if(!sId){
+      showErr(regErr, "Unique Student ID or Roll Number is required."); return;
+    }
+
+    var btn = card.querySelector("#pr-btn-submit-reg");
+    btn.disabled = true; btn.textContent = "Submitting...";
+
+    fetch(BACKEND + "/api/parent/register", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        parent_name: pName,
+        parent_email: pEmail,
+        parent_phone: pPhone,
+        student_name: sName,
+        student_id: sId,
+        relationship_type: rel
+      })
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(res){
+      btn.disabled = false; btn.textContent = "Submit Registration Request →";
+      if(res && res.success){
+        activeEmail = pEmail;
+        sReg.style.display = "none";
+        if(res.data && res.data.status && res.data.status.includes("Approved")){
+          // If already approved, proceed to OTP
+          triggerOtpDispatch(pEmail);
+        } else {
+          // Show Pending Verification screen
+          sPend.style.display = "block";
+          card.querySelector("#pr-pending-msg").textContent = res.message;
+          scrollBottom();
+        }
+      } else {
+        showErr(regErr, res.message || "Registration failed. Please check inputs.");
+      }
+    })
+    .catch(function(){
+      btn.disabled = false; btn.textContent = "Submit Registration Request →";
+      showErr(regErr, "Network error. Please try again.");
+    });
+  };
+
+  function triggerOtpDispatch(email){
+    if(!email){ showErr(regErr, "Please provide parent email."); return; }
+    otpErr.style.display = "none";
+    smtpNotice.style.display = "none";
+
+    fetch(BACKEND + "/api/parent/request-otp", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({email: email})
+    })
+    .then(function(r){ return r.json().then(function(d){ return {status: r.status, data: d}; }); })
+    .then(function(res){
+      if(res.status === 200 && res.data.success){
+        sReg.style.display = "none";
+        sPend.style.display = "none";
+        sOtp.style.display = "block";
+        card.querySelector("#pr-otp-dest-label").innerHTML =
+          "Your registration has been approved. Enter the OTP sent to <strong>" + esc(email) + "</strong>.";
+        scrollBottom();
+      } else if(res.status === 503){
+        // Honest SMTP reporting
+        sReg.style.display = "none";
+        sPend.style.display = "none";
+        sOtp.style.display = "block";
+        smtpNotice.textContent = res.data.message;
+        smtpNotice.style.display = "block";
+        scrollBottom();
+      } else {
+        sPend.style.display = "block";
+        sReg.style.display = "none";
+        card.querySelector("#pr-pending-msg").textContent = res.data.message || "Awaiting admin verification.";
+        scrollBottom();
+      }
+    })
+    .catch(function(){
+      showErr(regErr, "Network connection error.");
+    });
+  }
+
+  // Verify OTP button
+  card.querySelector("#pr-btn-verify-otp").onclick = function(){
+    var otp = card.querySelector("#pr-otp-input").value.trim();
+    otpErr.style.display = "none";
+
+    if(!otp || otp.length !== 6){
+      showErr(otpErr, "Please enter the valid 6-digit verification code.");
+      return;
+    }
+
+    var btn = card.querySelector("#pr-btn-verify-otp");
+    btn.disabled = true; btn.textContent = "Verifying...";
+
+    fetch(BACKEND + "/api/parent/verify-otp", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({email: activeEmail, otp: otp})
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(res){
+      btn.disabled = false; btn.textContent = "Verify OTP & Open Dashboard 🎓";
+      if(res && res.success && res.token){
+        parentAuthSessionToken = res.token;
+        sOtp.style.display = "none";
+        loadAndRenderAcademicDashboard(sDash, parentAuthSessionToken, null);
+      } else {
+        showErr(otpErr, res.message || "Invalid or expired OTP code.");
+      }
+    })
+    .catch(function(){
+      btn.disabled = false; btn.textContent = "Verify OTP & Open Dashboard 🎓";
+      showErr(otpErr, "Network connection error.");
+    });
+  };
+
+  function showErr(el, msg){
+    el.textContent = msg;
+    el.style.display = "block";
+    scrollBottom();
+  }
+}
+
+function loadAndRenderAcademicDashboard(dashContainer, token, semesterChoice){
+  dashContainer.innerHTML = '<div style="text-align:center; padding:14px; font-size:12.5px; color:var(--text-sub);">Loading verified academic records...</div>';
+  dashContainer.style.display = "block";
+  scrollBottom();
+
+  var url = BACKEND + "/api/parent/academic-records" + (semesterChoice ? "?semester=" + encodeURIComponent(semesterChoice) : "");
+  fetch(url, {
+    headers: {"Authorization": "Bearer " + token}
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(res){
+    if(res && res.success && res.data){
+      renderStudentDashboard(dashContainer, res.data, token);
+    } else {
+      dashContainer.innerHTML =
+        '<div class="sr-form-error" style="display:block;">' +
+          esc(res.message || "Access denied: Unauthorized or account revoked.") +
+        '</div>';
+      scrollBottom();
+    }
+  })
+  .catch(function(){
+    dashContainer.innerHTML = '<div class="sr-form-error" style="display:block;">Network connection error.</div>';
+    scrollBottom();
+  });
+}
+
+function renderStudentDashboard(container, data, token){
+  var s = data.student;
+  var recs = data.academic_records || [];
+  var availableSems = data.available_semesters || ["3-1", "3-2"];
+  var selectedSem = data.selected_semester || "3-1";
+  var perf = data.overall_performance || {};
+
+  // Build semester selector tabs
+  var semTabsHtml = '<div style="display:flex; gap:6px; margin:10px 0 12px; flex-wrap:wrap;">';
+  availableSems.forEach(function(sem){
+    var active = sem === selectedSem;
+    var semLabel = sem === "3-1" ? "3-1 (3rd Year, 1st Sem)" : (sem === "3-2" ? "3-2 (3rd Year, 2nd Sem)" : sem);
+    semTabsHtml +=
+      '<button class="sr-chip sem-tab-btn" data-sem="' + esc(sem) + '" style="' +
+        (active ? 'background:#1a73e8; color:#fff; font-weight:700; border:none;' : 'background:#f1f5f9; color:var(--text);') +
+        ' padding:6px 12px; font-size:11.5px; border-radius:16px; cursor:pointer;">' +
+        esc(semLabel) +
+      '</button>';
+  });
+  semTabsHtml += '</div>';
+
+  var bodyContent = "";
+  if(!recs.length){
+    bodyContent =
+      '<div style="background:#fff; border:1px dashed #cbd5e1; border-radius:var(--r-sm); padding:20px; text-align:center; color:var(--text-sub); font-size:12.5px; margin:10px 0;">' +
+        'No academic records available for this semester.' +
+      '</div>';
+  } else {
+    var rowsHtml = "";
+    recs.forEach(function(r){
+      var pass = r.status === "PASSED";
+      rowsHtml +=
+        '<tr style="border-bottom:1px solid #e2e8f0; font-size:12px;">' +
+          '<td style="padding:6px 8px; font-weight:600;">' + esc(r.subject_code) + '</td>' +
+          '<td style="padding:6px 8px;">' + esc(r.subject_name) + '</td>' +
+          '<td style="padding:6px 8px; text-align:center;">' + r.internal_marks + '/40</td>' +
+          '<td style="padding:6px 8px; text-align:center;">' + r.external_marks + '/70</td>' +
+          '<td style="padding:6px 8px; text-align:center; font-weight:700;">' + r.total_marks + '</td>' +
+          '<td style="padding:6px 8px; text-align:center; color:' + (pass ? '#16a34a' : '#dc2626') + '; font-weight:700;">' + esc(r.grade) + '</td>' +
+        '</tr>';
+    });
+
+    bodyContent =
+      '<div style="overflow-x:auto; margin-bottom:8px;">' +
+        '<table style="width:100%; border-collapse:collapse; text-align:left;">' +
+          '<thead>' +
+            '<tr style="background:#f1f5f9; font-size:11px; text-transform:uppercase; color:var(--text-muted);">' +
+              '<th style="padding:6px 8px;">Code</th><th style="padding:6px 8px;">Subject</th><th style="padding:6px 8px; text-align:center;">Internal</th><th style="padding:6px 8px; text-align:center;">External</th><th style="padding:6px 8px; text-align:center;">Total</th><th style="padding:6px 8px; text-align:center;">Grade</th>' +
+            '</tr>' +
+          '</thead>' +
+          '<tbody>' + rowsHtml + '</tbody>' +
+        '</table>' +
+      '</div>';
+  }
+
+  // Overall performance card
+  var perfHtml = "";
+  if(perf && perf.total_subjects){
+    perfHtml =
+      '<div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:var(--r-sm); padding:10px 12px; margin-top:8px; font-size:12px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;">' +
+        '<div><strong>Semester Attendance:</strong> ' + perf.average_attendance + '%</div>' +
+        '<div><strong>Total Marks:</strong> ' + perf.total_marks_obtained + ' / ' + perf.maximum_marks + ' (' + perf.percentage + '%)</div>' +
+        '<div><strong>Result:</strong> <span style="font-weight:700; color:' + (perf.status === "ALL PASSED" ? "#16a34a" : "#dc2626") + ';">' + esc(perf.status) + '</span></div>' +
+      '</div>';
+  }
+
+  container.innerHTML =
+    '<div class="sr-form-title" style="color:var(--primary); font-size:15px; justify-content:space-between;">' +
+      '<span>🎓 Student Academic Dashboard</span>' +
+      '<span style="font-size:11px; background:#e0f2fe; color:#0369a1; padding:2px 8px; border-radius:12px; font-weight:600;">Authenticated Session</span>' +
+    '</div>' +
+    '<div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:var(--r-sm); padding:10px 12px; margin:8px 0; font-size:12.5px; line-height:1.6;">' +
+      '<div><strong>Student Name:</strong> ' + esc(s.name) + '</div>' +
+      '<div><strong>Hall Ticket No / Student ID:</strong> <span style="font-family:monospace; font-weight:700; color:var(--primary);">' + esc(s.hall_ticket_no) + ' (' + esc(s.student_id) + ')</span></div>' +
+      '<div><strong>Branch / Section:</strong> B.Tech ' + esc(s.branch) + ' (Sec ' + esc(s.section) + ')</div>' +
+      '<div><strong>Academic Year:</strong> Year ' + s.academic_year + ' | Current Sem: ' + esc(s.current_semester) + '</div>' +
+    '</div>' +
+    '<div style="font-size:12px; font-weight:700; color:var(--text); margin-top:8px;">Select Semester:</div>' +
+    semTabsHtml +
+    bodyContent +
+    perfHtml +
+    '<div style="font-size:11px; color:var(--text-muted); text-align:right; margin-top:8px;">' +
+      'Strict Isolation: Access is cryptographically bound to ' + esc(data.parent.email) + ' only.' +
+    '</div>';
+
+  // Wire semester tab buttons
+  container.querySelectorAll(".sem-tab-btn").forEach(function(btn){
+    btn.onclick = function(){
+      var sChoice = btn.getAttribute("data-sem");
+      loadAndRenderAcademicDashboard(container, token, sChoice);
+    };
+  });
+
+  scrollBottom();
+}
+
 /* ─── INACTIVITY TIMEOUT (45-60s) ────────────────── */
 var inactivityTimer = null;
 
@@ -1527,6 +1931,11 @@ function sendQuery(txt, displayLabel){
 
     // Normal answer
     var msgEl = addMsg(data.answer, "bot");
+
+    // Location Card
+    if(data.is_location_card && data.location_details){
+      renderLocationCard(msgEl, data.location_details);
+    }
 
     // Read More for truncated answers
     if(data.is_truncated){

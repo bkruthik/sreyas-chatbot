@@ -14,13 +14,13 @@
 ═══════════════════════════════════════ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --primary:#1a73e8;--primary-dark:#1557b0;--primary-glow:rgba(26,115,232,.15);
+  --primary:#0d9488;--primary-dark:#0f766e;--primary-glow:rgba(13,148,136,.15);
   --sidebar-bg:#0d1117;--sidebar-text:#8b949e;--sidebar-text-active:#e6edf3;
-  --sidebar-active-bg:rgba(26,115,232,.15);--sidebar-hover-bg:rgba(255,255,255,.05);
+  --sidebar-active-bg:rgba(13,148,136,.15);--sidebar-hover-bg:rgba(255,255,255,.05);
   --page-bg:#f0f2f5;--card-bg:#ffffff;--text:#202124;--text-sub:#5f6368;
   --border:#e8eaed;--success:#1e8e3e;--success-bg:#e6f4ea;
   --warning:#f9ab00;--warning-bg:#fff8e1;--danger:#d93025;--danger-bg:#fce8e6;
-  --info:#1a73e8;--info-bg:#e8f0fe;
+  --info:#0d9488;--info-bg:#f0fdfa;
   --font:'Inter',-apple-system,sans-serif;
   --r-xl:20px;--r-lg:16px;--r-md:12px;--r-sm:8px;
   --sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 4px 16px rgba(0,0,0,.08);--sh-lg:0 12px 40px rgba(0,0,0,.12);
@@ -60,11 +60,11 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--text);line-he
   padding:11px 20px;border-radius:var(--r-md);font-size:14px;font-weight:600;
   cursor:pointer;border:none;transition:all .2s;font-family:var(--font);
 }
-.btn-primary{background:linear-gradient(135deg,#1a73e8,#4285f4);color:#fff;width:100%;
-  box-shadow:0 4px 14px rgba(26,115,232,.35);}
-.btn-primary:hover{box-shadow:0 6px 20px rgba(26,115,232,.5);transform:translateY(-1px);}
+.btn-primary{background:linear-gradient(135deg,#0d9488,#0f766e);color:#fff;width:100%;
+  box-shadow:0 4px 14px rgba(13,148,136,.35);}
+.btn-primary:hover{box-shadow:0 6px 20px rgba(13,148,136,.5);transform:translateY(-1px);}
 .btn-outline{background:#fff;color:var(--primary);border:1.5px solid var(--border);}
-.btn-outline:hover{background:#e8f0fe;border-color:var(--primary);}
+.btn-outline:hover{background:#f0fdfa;border-color:var(--primary);}
 .btn-sm{padding:7px 14px;font-size:12.5px;border-radius:var(--r-sm);}
 .btn-danger-outline{background:#fff;color:var(--danger);border:1.5px solid rgba(217,48,37,.3);}
 .btn-danger-outline:hover{background:var(--danger-bg);}
@@ -86,7 +86,7 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--text);line-he
   padding:24px 20px 20px;border-bottom:1px solid rgba(255,255,255,.06);
   display:flex;align-items:center;gap:12px;
 }
-.sidebar-logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#1a73e8,#4285f4);
+.sidebar-logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#0d9488,#0f766e);
   display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
 .sidebar-brand-text{font-size:13.5px;font-weight:700;color:#e6edf3;line-height:1.3;}
 .sidebar-brand-sub{font-size:10.5px;color:var(--sidebar-text);margin-top:1px;}
@@ -269,6 +269,14 @@ tbody tr:hover{background:#f8faff;}
           <span class="nav-icon">📈</span> Analytics
         </button>
 
+        <div class="nav-label">Academic & Parent Portal</div>
+        <button class="nav-item" onclick="showPage('parentrequests',this)" id="nav-parentrequests">
+          <span class="nav-icon">👨‍👩‍👧</span> Parent Requests
+        </button>
+        <button class="nav-item" onclick="showPage('studentrecords',this)" id="nav-studentrecords">
+          <span class="nav-icon">🎓</span> Student Records
+        </button>
+
         <div class="nav-label">System</div>
         <button class="nav-item" onclick="showPage('kbsync',this)" id="nav-kbsync">
           <span class="nav-icon">🔄</span> KB Sync
@@ -390,6 +398,11 @@ tbody tr:hover{background:#f8faff;}
           <div class="table-controls">
             <div class="card-title">📋 All Enquiries</div>
             <div class="tbl-actions">
+              <select id="priority-filter" class="status-select" onchange="renderEnquiries(document.getElementById('search-box').value)">
+                <option value="">All Priorities</option>
+                <option value="HIGH">🔥 High Priority Only (Parent)</option>
+                <option value="NORMAL">Normal Priority</option>
+              </select>
               <select id="status-filter" class="status-select" onchange="fetchEnquiries()">
                 <option value="">All Statuses</option>
                 <option value="Pending">Pending</option>
@@ -406,11 +419,11 @@ tbody tr:hover{background:#f8faff;}
             <table>
               <thead>
                 <tr>
-                  <th>Ref ID</th><th>Date & Time</th><th>Enquirer Details</th>
+                  <th>Ref ID</th><th>Date & Time</th><th>Priority</th><th>Enquirer Details</th>
                   <th>Query / Category</th><th>Status</th><th>Action</th>
                 </tr>
               </thead>
-              <tbody id="enquiries-tbody"><tr><td colspan="6" style="text-align:center">Loading...</td></tr></tbody>
+              <tbody id="enquiries-tbody"><tr><td colspan="7" style="text-align:center">Loading...</td></tr></tbody>
             </table>
           </div>
         </div>
@@ -515,6 +528,74 @@ tbody tr:hover{background:#f8faff;}
         </div>
       </div>
 
+      <!-- ── PAGE: PARENT REGISTRATION REQUESTS ── -->
+      <div class="page" id="page-parentrequests">
+        <div class="card">
+          <div class="table-controls">
+            <div class="card-title">👨‍👩‍👧 Parent Registration Requests & Verification</div>
+            <div class="tbl-actions">
+              <select id="pr-status-filter" class="status-select" onchange="fetchParentRequests()">
+                <option value="">All Verification Statuses</option>
+                <option value="Pending Verification">Pending Verification</option>
+                <option value="Approved">Approved</option>
+                <option value="Rejected">Rejected</option>
+                <option value="Suspended">Suspended</option>
+              </select>
+              <button class="btn btn-outline btn-sm" onclick="fetchParentRequests()">🔄 Refresh Requests</button>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Req ID</th><th>Date</th><th>Parent Name & Email</th>
+                  <th>Student Name & Roll No</th><th>Relationship</th><th>Status</th><th>Verification Action</th>
+                </tr>
+              </thead>
+              <tbody id="parent-requests-tbody"><tr><td colspan="7" style="text-align:center">Loading requests...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PAGE: STUDENT ACADEMIC RECORDS MANAGEMENT ── -->
+      <div class="page" id="page-studentrecords">
+        <div class="grid-2">
+          <!-- Student Directory -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">🎓 Student Academic Directory</div>
+              <button class="btn btn-primary btn-sm" onclick="openAddStudentModal()">+ Add Student</button>
+            </div>
+            <div style="padding:10px 14px 0;">
+              <input type="text" id="student-search-box" class="search-input" style="width:100%" placeholder="Search by Student ID, Hall Ticket, Name, Branch..." oninput="searchStudents(this.value)">
+            </div>
+            <div class="table-wrap" style="max-height:480px; overflow-y:auto; margin-top:10px;">
+              <table>
+                <thead>
+                  <tr><th>Student ID</th><th>Roll No</th><th>Name</th><th>Branch</th><th>Year / Sem</th><th>Action</th></tr>
+                </thead>
+                <tbody id="students-tbody"><tr><td colspan="6" style="text-align:center">Loading students...</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Semester Academic Records Inspector & Editor -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title" id="records-panel-title">📚 Semester Academic Records</div>
+              <button class="btn btn-outline btn-sm" id="btn-add-sem-record" style="display:none;" onclick="openAddRecordModal()">+ Add Course Mark</button>
+            </div>
+            <div id="student-profile-box" style="padding:12px; background:#f8fafc; border-radius:6px; margin:10px 14px; font-size:12.5px; display:none;"></div>
+            <div id="semesters-container" style="padding:10px 14px;">
+              <div style="text-align:center; padding:30px; color:var(--text-sub); font-size:13px;">
+                Select a student from the directory to view and manage their distinct semester academic records (3-1, 3-2, etc.).
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- ── PAGE: AUDIT LOGS ── -->
       <div class="page" id="page-audit">
         <div class="card">
@@ -527,6 +608,72 @@ tbody tr:hover{background:#f8faff;}
       </div>
 
     </main>
+  </div>
+</div>
+
+<!-- ─── STUDENT MODAL (ADD / EDIT) ─────────────────────────── -->
+<div id="student-modal" style="display:none; position:fixed; inset:0; background:rgba(13,17,23,.7); z-index:9999; align-items:center; justify-content:center; backdrop-filter:blur(6px);">
+  <div style="background:#fff; border-radius:16px; padding:28px; width:100%; max-width:480px; box-shadow:var(--sh-lg); border:1px solid var(--border);">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;">
+      <h3 id="student-modal-title" style="font-size:17px; font-weight:700; color:var(--text);">🎓 Add New Student</h3>
+      <button onclick="closeStudentModal()" style="background:none; border:none; font-size:20px; cursor:pointer; color:var(--text-sub);">&times;</button>
+    </div>
+    <form id="student-form" onsubmit="handleSaveStudent(event)">
+      <div class="form-group" style="margin-bottom:12px;">
+        <label>Student Full Name *</label>
+        <input type="text" id="sf-name" class="form-control" placeholder="e.g. Sai Krishna Reddy" required>
+      </div>
+      <div class="form-group" style="margin-bottom:12px;">
+        <label>Student ID (Roll Number) *</label>
+        <input type="text" id="sf-id" class="form-control" placeholder="e.g. SIET2023CSE001" required>
+      </div>
+      <div class="form-group" style="margin-bottom:12px;">
+        <label>Hall Ticket Number</label>
+        <input type="text" id="sf-ht" class="form-control" placeholder="e.g. 23VE1A0501">
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
+        <div class="form-group">
+          <label>Department / Branch *</label>
+          <select id="sf-branch" class="form-control" required>
+            <option value="">Select Department ▼</option>
+            <option value="CSE">CSE</option>
+            <option value="CSE (AI & ML)">CSE (AI & ML)</option>
+            <option value="ECE">ECE</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Academic Year *</label>
+          <select id="sf-year" class="form-control" required onchange="updateSemesterDropdown()">
+            <option value="">Select Year ▼</option>
+            <option value="1">1st Year</option>
+            <option value="2">2nd Year</option>
+            <option value="3">3rd Year</option>
+            <option value="4">4th Year</option>
+          </select>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:18px;">
+        <div class="form-group">
+          <label>Current Semester *</label>
+          <select id="sf-sem" class="form-control" required>
+            <option value="">Select Semester ▼</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Student Status *</label>
+          <select id="sf-status" class="form-control" required>
+            <option value="Active">Active</option>
+            <option value="Suspended">Suspended</option>
+            <option value="Graduated">Graduated</option>
+          </select>
+        </div>
+      </div>
+      <div id="sf-error" style="color:var(--danger); font-size:12.5px; margin-bottom:12px; display:none;"></div>
+      <div style="display:flex; justify-content:flex-end; gap:10px;">
+        <button type="button" class="btn btn-outline btn-sm" onclick="closeStudentModal()">Cancel</button>
+        <button type="submit" class="btn btn-primary btn-sm" id="btn-save-student">💾 Save Student</button>
+      </div>
+    </form>
   </div>
 </div>
 
@@ -612,7 +759,8 @@ function showDashboard(){
 // ── Sidebar navigation ───────────────────────────
 const pageTitles = {
   dashboard:'📊 Dashboard Overview',enquiries:'📋 Enquiry Management',
-  analytics:'📈 Analytics & Insights',kbsync:'🔄 Knowledge Base Sync',audit:'🛡️ Audit Logs'
+  analytics:'📈 Analytics & Insights',kbsync:'🔄 Knowledge Base Sync',audit:'🛡️ Audit Logs',
+  parentrequests:'👨‍👩‍👧 Parent Registration Requests',studentrecords:'🎓 Student Academic Records'
 };
 function showPage(name, btn){
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -623,6 +771,8 @@ function showPage(name, btn){
   if(name==='analytics') { fetchAnalyticsPage(); }
   if(name==='kbsync') { fetchSyncStatus(); fetchSources(); }
   if(name==='audit') { fetchAuditLogs(); }
+  if(name==='parentrequests') { fetchParentRequests(); }
+  if(name==='studentrecords') { searchStudents(''); }
   closeSidebar();
 }
 function openSidebar(){ document.getElementById('sidebar').classList.add('open'); document.getElementById('sidebar-overlay').classList.add('open'); }
@@ -690,9 +840,15 @@ function renderEnquiries(query){
   const tbody = document.getElementById('enquiries-tbody');
   tbody.innerHTML = '';
   let filtered = allEnquiries;
+  const prioVal = (document.getElementById('priority-filter') || {}).value || '';
+
+  if(prioVal){
+    filtered = filtered.filter(r => (r['Priority']||'NORMAL').toUpperCase() === prioVal);
+  }
+
   if(query){
     const q = query.toLowerCase();
-    filtered = allEnquiries.filter(r =>
+    filtered = filtered.filter(r =>
       (r['Enquiry ID']||'').toLowerCase().includes(q)||
       (r['Name']||'').toLowerCase().includes(q)||
       (r['Phone']||'').toLowerCase().includes(q)||
@@ -700,17 +856,23 @@ function renderEnquiries(query){
     );
   }
   if(!filtered.length){
-    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:28px;color:var(--text-sub)">No enquiries found.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:28px;color:var(--text-sub)">No enquiries found matching filter.</td></tr>';
     return;
   }
   filtered.slice().reverse().slice(0,50).forEach(r => {
     const tr = document.createElement('tr');
     const bc = (r['Status']||'Pending').toLowerCase().replace(' ','-');
+    const isHigh = (r['Priority']||'').toUpperCase() === 'HIGH';
+    const prioBadge = isHigh
+      ? '<span style="background:#fee2e2; color:#b91c1c; border:1px solid #f87171; font-weight:800; font-size:11px; padding:3px 8px; border-radius:12px; display:inline-flex; align-items:center; gap:3px;">🔥 HIGH</span>'
+      : '<span style="color:var(--text-sub); font-size:11px;">Normal</span>';
+
     let emailHtml = `<div style="font-size:12px">📧 ${r['Email']||'N/A'}</div>`;
     if(r['Parent Email']) emailHtml += `<div style="font-size:11px;color:var(--text-sub)">👨‍👩‍👧 ${r['Parent Email']}</div>`;
     tr.innerHTML = `
       <td><span class="enquiry-id">${r['Enquiry ID']||'-'}</span></td>
       <td><div>${r['Date']||''}</div><div style="font-size:11px;color:var(--text-sub)">${r['Time']||''}</div></td>
+      <td>${prioBadge}</td>
       <td>
         <div style="font-weight:600;margin-bottom:2px">${r['Name']||''}</div>
         <div style="font-size:12px">📞 ${r['Phone']||''}</div>
@@ -1031,6 +1193,488 @@ async function fetchAuditLogs(){
 
 // ── Export ───────────────────────────────────────
 function exportData(type){ window.location.href=`/api/export/${type}?token=${token}`; }
+
+// ══════════════════════════════════════════════════
+// PARENT REGISTRATION REQUESTS MANAGEMENT
+// ══════════════════════════════════════════════════
+
+let parentRequestsLoading = false;
+
+async function fetchParentRequests(){
+  if(parentRequestsLoading) return;
+  parentRequestsLoading = true;
+  const tbody = document.getElementById('parent-requests-tbody');
+  if(!tbody) { parentRequestsLoading = false; return; }
+  tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:28px;color:var(--text-sub)">⏳ Loading parent requests...</td></tr>';
+
+  const statusFilter = (document.getElementById('pr-status-filter') || {}).value || '';
+  const url = '/api/admin/parent-requests' + (statusFilter ? '?status=' + encodeURIComponent(statusFilter) : '');
+
+  try {
+    const res = await fetch(url, { headers: apiHeaders() });
+    if(!res.ok){
+      if(res.status === 401){
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:28px;color:var(--danger)">⚠️ Session expired. Please log in again. <button class="btn btn-outline btn-sm" style="margin-left:10px" onclick="logout()">Re-login</button></td></tr>';
+      } else {
+        tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;padding:28px;color:var(--danger)">❌ Unable to load parent requests (HTTP ${res.status}). <button class="btn btn-outline btn-sm" style="margin-left:10px" onclick="fetchParentRequests()">🔄 Retry</button></td></tr>`;
+      }
+      parentRequestsLoading = false;
+      return;
+    }
+    const data = await res.json();
+    const requests = data.requests || [];
+    renderParentRequests(requests);
+  } catch(err) {
+    console.error('fetchParentRequests error:', err);
+    tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:28px;color:var(--danger)">❌ Unable to load parent requests. Check the connection or admin session and try again. <button class="btn btn-outline btn-sm" style="margin-left:10px" onclick="fetchParentRequests()">🔄 Retry</button></td></tr>';
+  } finally {
+    parentRequestsLoading = false;
+  }
+}
+
+function renderParentRequests(requests){
+  const tbody = document.getElementById('parent-requests-tbody');
+  if(!tbody) return;
+  tbody.innerHTML = '';
+
+  if(!requests.length){
+    tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:28px;color:var(--text-sub)">📭 No parent registration requests found. <button class="btn btn-outline btn-sm" style="margin-left:10px" onclick="fetchParentRequests()">🔄 Refresh</button></td></tr>';
+    return;
+  }
+
+  requests.forEach(r => {
+    const tr = document.createElement('tr');
+    const status = r.approval_status || 'Unknown';
+    const statusLower = status.toLowerCase().replace(/[\s—]+/g, '-');
+
+    // Status badge styling
+    let badgeClass = 'pending';
+    if(status === 'Approved' || status === 'Active') badgeClass = 'reviewed';
+    else if(status === 'Rejected') badgeClass = 'closed';
+    else if(status === 'Suspended') badgeClass = 'closed';
+    else if(status.includes('Pending')) badgeClass = 'pending';
+
+    // Action buttons based on status
+    let actionHtml = '';
+    if(status === 'Pending Verification'){
+      actionHtml = `
+        <button class="btn btn-primary btn-sm" style="margin-right:6px;padding:5px 12px;font-size:11.5px" onclick="approveParentRequest(${r.relationship_id})">✅ Approve</button>
+        <button class="btn btn-danger-outline btn-sm" style="padding:5px 12px;font-size:11.5px" onclick="rejectParentRequest(${r.relationship_id})">❌ Reject</button>`;
+    } else if(status === 'Approved'){
+      actionHtml = `<span style="font-size:11.5px;color:var(--success);font-weight:600">✅ Approved</span>
+        <button class="btn btn-danger-outline btn-sm" style="margin-left:6px;padding:4px 10px;font-size:11px" onclick="suspendParent(${r.parent_id})">Suspend</button>`;
+    } else if(status === 'Rejected'){
+      actionHtml = `<span style="font-size:11.5px;color:var(--danger)">Rejected</span>`;
+    } else if(status === 'Suspended'){
+      actionHtml = `<span style="font-size:11.5px;color:var(--text-sub)">Suspended</span>
+        <button class="btn btn-outline btn-sm" style="margin-left:6px;padding:4px 10px;font-size:11px" onclick="reactivateParent(${r.parent_id})">Reactivate</button>`;
+    } else {
+      actionHtml = `<span style="font-size:11.5px;color:var(--text-sub)">${status}</span>`;
+    }
+
+    const dateStr = r.created_at ? r.created_at.split(' ')[0] : 'N/A';
+    const timeStr = r.created_at && r.created_at.includes(' ') ? r.created_at.split(' ')[1] : '';
+
+    tr.innerHTML = `
+      <td><span class="enquiry-id">#${r.relationship_id}</span></td>
+      <td><div>${dateStr}</div><div style="font-size:11px;color:var(--text-sub)">${timeStr}</div></td>
+      <td>
+        <div style="font-weight:600;margin-bottom:2px">${r.parent_name || 'N/A'}</div>
+        <div style="font-size:12px">📧 ${r.parent_email || 'N/A'}</div>
+        ${r.parent_phone ? `<div style="font-size:11px;color:var(--text-sub)">📞 ${r.parent_phone}</div>` : ''}
+      </td>
+      <td>
+        <div style="font-weight:600;margin-bottom:2px">${r.student_name || 'N/A'}</div>
+        <div style="font-size:12px;color:var(--primary)">${r.student_id || ''}</div>
+        <div style="font-size:11px;color:var(--text-sub)">${r.branch || ''} — Year ${r.academic_year || ''}</div>
+      </td>
+      <td>${r.relationship_type || 'N/A'}</td>
+      <td><span class="badge ${badgeClass}">${status}</span></td>
+      <td>${actionHtml}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+async function approveParentRequest(reqId){
+  if(!confirm(`Approve parent registration request #${reqId}? This will allow the parent to proceed with email OTP verification.`)) return;
+  try {
+    const res = await fetch(`/api/admin/parent-requests/${reqId}/approve`, {
+      method: 'POST', headers: apiHeaders()
+    });
+    const data = await res.json();
+    if(res.ok && data.success){
+      alert('✅ ' + (data.message || 'Request approved.'));
+      fetchParentRequests();
+      fetchAuditLogs();
+    } else {
+      alert('❌ ' + (data.message || 'Approval failed.'));
+    }
+  } catch(err){
+    alert('❌ Network error while approving request.');
+  }
+}
+
+async function rejectParentRequest(reqId){
+  const reason = prompt('Reason for rejection (optional):');
+  if(reason === null) return; // User cancelled
+  try {
+    const res = await fetch(`/api/admin/parent-requests/${reqId}/reject`, {
+      method: 'POST', headers: apiHeaders(),
+      body: JSON.stringify({ reason: reason || '' })
+    });
+    const data = await res.json();
+    if(res.ok && data.success){
+      alert('✅ ' + (data.message || 'Request rejected.'));
+      fetchParentRequests();
+      fetchAuditLogs();
+    } else {
+      alert('❌ ' + (data.message || 'Rejection failed.'));
+    }
+  } catch(err){
+    alert('❌ Network error while rejecting request.');
+  }
+}
+
+async function suspendParent(parentId){
+  if(!confirm(`Suspend parent account #${parentId}?`)) return;
+  try {
+    const res = await fetch(`/api/admin/parents/${parentId}/status`, {
+      method: 'POST', headers: apiHeaders(),
+      body: JSON.stringify({ status: 'Suspended' })
+    });
+    const data = await res.json();
+    if(res.ok && data.success){
+      alert('✅ Parent account suspended.');
+      fetchParentRequests();
+    } else {
+      alert('❌ ' + (data.message || 'Failed to suspend.'));
+    }
+  } catch(err){ alert('❌ Network error.'); }
+}
+
+async function reactivateParent(parentId){
+  if(!confirm(`Reactivate parent account #${parentId}?`)) return;
+  try {
+    const res = await fetch(`/api/admin/parents/${parentId}/status`, {
+      method: 'POST', headers: apiHeaders(),
+      body: JSON.stringify({ status: 'Active' })
+    });
+    const data = await res.json();
+    if(res.ok && data.success){
+      alert('✅ Parent account reactivated.');
+      fetchParentRequests();
+    } else {
+      alert('❌ ' + (data.message || 'Failed to reactivate.'));
+    }
+  } catch(err){ alert('❌ Network error.'); }
+}
+
+// ══════════════════════════════════════════════════
+// STUDENT RECORDS MANAGEMENT
+// ══════════════════════════════════════════════════
+
+let selectedStudentId = null;
+
+async function searchStudents(query){
+  const tbody = document.getElementById('students-tbody');
+  if(!tbody) return;
+  tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:20px;color:var(--text-sub)">⏳ Loading students...</td></tr>';
+
+  try {
+    const res = await fetch('/api/admin/students?q=' + encodeURIComponent(query || ''), { headers: apiHeaders() });
+    if(!res.ok){
+      tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:20px;color:var(--danger)">❌ Failed to load students (HTTP ${res.status}). <button class="btn btn-outline btn-sm" onclick="searchStudents('')">Retry</button></td></tr>`;
+      return;
+    }
+    const data = await res.json();
+    const students = data.students || [];
+    renderStudentsList(students);
+  } catch(err){
+    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:20px;color:var(--danger)">❌ Network error loading students. <button class="btn btn-outline btn-sm" onclick="searchStudents(\'\')">Retry</button></td></tr>';
+  }
+}
+
+function renderStudentsList(students){
+  const tbody = document.getElementById('students-tbody');
+  if(!tbody) return;
+  tbody.innerHTML = '';
+
+  if(!students.length){
+    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:20px;color:var(--text-sub)">No students found.</td></tr>';
+    return;
+  }
+
+  students.forEach(s => {
+    const tr = document.createElement('tr');
+    tr.style.cursor = 'pointer';
+    tr.onclick = () => loadStudentDetails(s.student_id);
+    if(s.student_id === selectedStudentId) tr.style.background = 'var(--primary-glow)';
+    tr.innerHTML = `
+      <td><span class="enquiry-id">${s.student_id}</span></td>
+      <td>${s.hall_ticket_no || 'N/A'}</td>
+      <td style="font-weight:600">${s.name || 'N/A'}</td>
+      <td>${s.branch || ''}</td>
+      <td>${s.academic_year || ''} / ${s.current_semester || ''}</td>
+      <td>
+        <button class="btn btn-outline btn-sm" style="font-size:11px;padding:3px 8px;margin-right:4px;" onclick="event.stopPropagation(); loadStudentDetails('${s.student_id}')">Records</button>
+        <button class="btn btn-primary btn-sm" style="font-size:11px;padding:3px 8px;" onclick="event.stopPropagation(); openEditStudentModal(${JSON.stringify(s).replace(/"/g, '&quot;')})">✏️ Edit</button>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+async function loadStudentDetails(studentId){
+  selectedStudentId = studentId;
+  const profileBox = document.getElementById('student-profile-box');
+  const semContainer = document.getElementById('semesters-container');
+  const addBtn = document.getElementById('btn-add-sem-record');
+  const titleEl = document.getElementById('records-panel-title');
+
+  if(profileBox) { profileBox.style.display = 'block'; profileBox.innerHTML = '⏳ Loading student details...'; }
+  if(semContainer) semContainer.innerHTML = '<div style="text-align:center;padding:20px;color:var(--text-sub)">Loading records...</div>';
+  if(addBtn) addBtn.style.display = 'inline-flex';
+
+  // Refresh the student list to highlight selected
+  const searchBox = document.getElementById('student-search-box');
+  if(searchBox) searchStudents(searchBox.value || '');
+
+  try {
+    const res = await fetch(`/api/admin/students/${studentId}`, { headers: apiHeaders() });
+    if(!res.ok){
+      if(profileBox) profileBox.innerHTML = '❌ Failed to load student details.';
+      return;
+    }
+    const data = await res.json();
+    const student = data.student || {};
+    const records = data.records || [];
+
+    if(titleEl) titleEl.textContent = `📚 ${student.name || studentId} — Academic Records`;
+
+    if(profileBox){
+      profileBox.innerHTML = `
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+          <div><strong>Student ID:</strong> ${student.student_id || studentId}</div>
+          <div><strong>Hall Ticket:</strong> ${student.hall_ticket_no || 'N/A'}</div>
+          <div><strong>Branch:</strong> ${student.branch || 'N/A'}</div>
+          <div><strong>Year / Sem:</strong> ${student.academic_year || ''} / ${student.current_semester || ''}</div>
+          <div><strong>Section:</strong> ${student.section || 'N/A'}</div>
+          <div><strong>Status:</strong> ${student.account_status || 'Active'}</div>
+        </div>`;
+    }
+
+    // Group records by semester
+    const bySemester = {};
+    records.forEach(r => {
+      const sem = r.semester || 'Unknown';
+      if(!bySemester[sem]) bySemester[sem] = [];
+      bySemester[sem].push(r);
+    });
+
+    const semesters = Object.keys(bySemester).sort();
+    if(!semesters.length){
+      semContainer.innerHTML = '<div style="text-align:center;padding:20px;color:var(--text-sub)">No academic records found for this student.</div>';
+      return;
+    }
+
+    let html = '<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;">';
+    semesters.forEach((sem, i) => {
+      html += `<button class="btn ${i===0?'btn-primary':'btn-outline'} btn-sm" style="font-size:11.5px" onclick="showSemesterRecords(this, '${sem}')" data-semester="${sem}">${sem}</button>`;
+    });
+    html += '</div>';
+    html += '<div id="semester-records-table"></div>';
+    semContainer.innerHTML = html;
+
+    // Store records globally for this student
+    window._currentStudentRecords = bySemester;
+    showSemesterRecords(semContainer.querySelector('[data-semester]'), semesters[0]);
+
+  } catch(err){
+    if(profileBox) profileBox.innerHTML = '❌ Network error loading student details.';
+  }
+}
+
+function showSemesterRecords(btn, semester){
+  // Update button styles
+  if(btn){
+    const parent = btn.parentElement;
+    if(parent) parent.querySelectorAll('.btn').forEach(b => { b.className = 'btn btn-outline btn-sm'; b.style.fontSize = '11.5px'; });
+    btn.className = 'btn btn-primary btn-sm';
+    btn.style.fontSize = '11.5px';
+  }
+
+  const records = (window._currentStudentRecords || {})[semester] || [];
+  const container = document.getElementById('semester-records-table');
+  if(!container) return;
+
+  if(!records.length){
+    container.innerHTML = '<div style="text-align:center;padding:16px;color:var(--text-sub)">No records for this semester.</div>';
+    return;
+  }
+
+  let html = `<table style="width:100%;font-size:12px;">
+    <thead><tr><th>Code</th><th>Subject</th><th>Internal</th><th>External</th><th>Total</th><th>Grade</th><th>Att%</th><th>Status</th></tr></thead><tbody>`;
+  records.forEach(r => {
+    const statusColor = r.status === 'Pass' ? 'var(--success)' : 'var(--danger)';
+    html += `<tr>
+      <td style="padding:8px;font-weight:600;color:var(--primary)">${r.subject_code || ''}</td>
+      <td style="padding:8px">${r.subject_name || ''}</td>
+      <td style="padding:8px;text-align:center">${r.internal_marks ?? ''}</td>
+      <td style="padding:8px;text-align:center">${r.external_marks ?? ''}</td>
+      <td style="padding:8px;text-align:center;font-weight:700">${r.total_marks ?? ''}</td>
+      <td style="padding:8px;text-align:center;font-weight:700">${r.grade || ''}</td>
+      <td style="padding:8px;text-align:center">${r.attendance_percentage ?? ''}%</td>
+      <td style="padding:8px;color:${statusColor};font-weight:600">${r.status || ''}</td>
+    </tr>`;
+  });
+  html += '</tbody></table>';
+  container.innerHTML = html;
+}
+
+let editingStudentId = null;
+
+function updateSemesterDropdown(selectedSem){
+  const yr = document.getElementById('sf-year').value;
+  const semSel = document.getElementById('sf-sem');
+  semSel.innerHTML = '<option value="">Select Semester ▼</option>';
+  if(!yr) return;
+
+  const sems = [`${yr}-1`, `${yr}-2`];
+  sems.forEach(s => {
+    const opt = document.createElement('option');
+    opt.value = s;
+    opt.textContent = `${s} (${yr === '1' ? '1st' : yr === '2' ? '2nd' : yr === '3' ? '3rd' : '4th'} Year, ${s.endsWith('1') ? '1st' : '2nd'} Sem)`;
+    if(selectedSem && selectedSem === s) opt.selected = true;
+    semSel.appendChild(opt);
+  });
+}
+
+function openAddStudentModal(){
+  editingStudentId = null;
+  document.getElementById('student-modal-title').textContent = '🎓 Add New Student';
+  document.getElementById('sf-name').value = '';
+  document.getElementById('sf-id').value = '';
+  document.getElementById('sf-id').readOnly = false;
+  document.getElementById('sf-ht').value = '';
+  document.getElementById('sf-branch').value = '';
+  document.getElementById('sf-year').value = '';
+  document.getElementById('sf-sem').innerHTML = '<option value="">Select Semester ▼</option>';
+  document.getElementById('sf-status').value = 'Active';
+  document.getElementById('sf-error').style.display = 'none';
+  document.getElementById('student-modal').style.display = 'flex';
+}
+
+function openEditStudentModal(s){
+  editingStudentId = s.student_id;
+  document.getElementById('student-modal-title').textContent = '✏️ Edit Student: ' + (s.name || s.student_id);
+  document.getElementById('sf-name').value = s.name || '';
+  document.getElementById('sf-id').value = s.student_id || '';
+  document.getElementById('sf-id').readOnly = true; // ID is primary key
+  document.getElementById('sf-ht').value = s.hall_ticket_no || '';
+  document.getElementById('sf-branch').value = s.branch || '';
+  document.getElementById('sf-year').value = s.academic_year || '';
+  updateSemesterDropdown(s.current_semester);
+  document.getElementById('sf-status').value = s.account_status || 'Active';
+  document.getElementById('sf-error').style.display = 'none';
+  document.getElementById('student-modal').style.display = 'flex';
+}
+
+function closeStudentModal(){
+  document.getElementById('student-modal').style.display = 'none';
+}
+
+async function handleSaveStudent(e){
+  e.preventDefault();
+  const errEl = document.getElementById('sf-error');
+  errEl.style.display = 'none';
+
+  const data = {
+    student_id: document.getElementById('sf-id').value.trim(),
+    name: document.getElementById('sf-name').value.trim(),
+    hall_ticket_no: document.getElementById('sf-ht').value.trim() || document.getElementById('sf-id').value.trim(),
+    branch: document.getElementById('sf-branch').value,
+    academic_year: parseInt(document.getElementById('sf-year').value),
+    current_semester: document.getElementById('sf-sem').value,
+    account_status: document.getElementById('sf-status').value,
+    section: 'A'
+  };
+
+  if(!data.student_id || !data.name || !data.branch || !data.academic_year || !data.current_semester){
+    errEl.textContent = 'Please fill in all required fields.';
+    errEl.style.display = 'block';
+    return;
+  }
+
+  const btn = document.getElementById('btn-save-student');
+  btn.disabled = true;
+  btn.textContent = '⏳ Saving...';
+
+  try {
+    const res = await fetch('/api/admin/students', {
+      method: 'POST', headers: apiHeaders(),
+      body: JSON.stringify(data)
+    });
+    const result = await res.json();
+    if(res.ok && result.success){
+      closeStudentModal();
+      searchStudents(document.getElementById('student-search-box').value || '');
+      if(selectedStudentId === data.student_id){
+        loadStudentDetails(data.student_id);
+      }
+      fetchAuditLogs();
+    } else {
+      errEl.textContent = '❌ ' + (result.message || 'Failed to save student.');
+      errEl.style.display = 'block';
+    }
+  } catch(err){
+    errEl.textContent = '❌ Network error saving student.';
+    errEl.style.display = 'block';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '💾 Save Student';
+  }
+}
+
+function openAddRecordModal(){
+  if(!selectedStudentId){ alert('Select a student first.'); return; }
+  const year = prompt('Academic Year (1-4):');
+  if(!year) return;
+  const sem = prompt('Semester (e.g. 3-1, 3-2):');
+  if(!sem) return;
+  const code = prompt('Subject Code:');
+  if(!code) return;
+  const subName = prompt('Subject Name:');
+  if(!subName) return;
+  const internal = prompt('Internal Marks (0-40):');
+  if(internal === null) return;
+  const external = prompt('External Marks (0-60):');
+  if(external === null) return;
+  const att = prompt('Attendance Percentage:');
+  if(att === null) return;
+
+  addAcademicRecord({
+    academic_year: parseInt(year), semester: sem, subject_code: code,
+    subject_name: subName, internal_marks: parseInt(internal),
+    external_marks: parseInt(external), attendance_percentage: parseFloat(att)
+  });
+}
+
+async function addAcademicRecord(data){
+  try {
+    const res = await fetch(`/api/admin/students/${selectedStudentId}/academic-records`, {
+      method: 'POST', headers: apiHeaders(),
+      body: JSON.stringify(data)
+    });
+    const result = await res.json();
+    if(res.ok && result.success){
+      alert('✅ ' + (result.message || 'Record saved.'));
+      loadStudentDetails(selectedStudentId);
+    } else {
+      alert('❌ ' + (result.message || 'Failed to save record.'));
+    }
+  } catch(err){ alert('❌ Network error saving record.'); }
+}
 
 </script>
 </body>

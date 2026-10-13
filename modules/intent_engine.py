@@ -209,8 +209,15 @@ class IntentEngine:
                 }
 
         # 3. Category B: Campus FAQ Check
+        # Transport-related keywords that should bypass college_timings FAQ
+        _TRANSPORT_KEYWORDS = {"bus", "route", "routes", "transport", "pickup", "drop"}
+        has_transport_intent = bool(set(q_low.split()) & _TRANSPORT_KEYWORDS)
+
         for keyword, faq_key in cls._CAMPUS_FAQ_MAP.items():
             if re.search(r"\b" + re.escape(keyword) + r"\b", q_low):
+                # Skip college_timings FAQ when query is actually about bus/transport
+                if faq_key == "college_timings" and has_transport_intent:
+                    continue
                 faq_data = cls.CAMPUS_FAQ_ANSWERS.get(faq_key, {})
                 ans_text = faq_data.get(language) or faq_data.get("en")
                 if ans_text:

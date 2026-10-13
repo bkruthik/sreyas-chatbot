@@ -22,15 +22,19 @@ CATEGORY_KEYWORDS: Dict[str, List[str]] = {
     "PLACEMENTS": [
         "placement", "placements", "package", "packages", "salary", "lpa", "ctc",
         "company", "companies", "recruiters", "job", "jobs", "internship", "career",
-        "highest package", "average package", "top recruiters", "training"
+        "highest package", "average package", "top recruiters", "training",
+        "guaranteed job", "guarantee job", "job guarantee", "placement guarantee", "guaranteed"
     ],
     "COURSES": [
         "course", "courses", "branch", "branches", "department", "departments",
-        "cse", "ece", "aiml", "ai & ml", "btech", "b.tech", "undergraduate", "programme"
+        "cse", "ece", "aiml", "ai & ml", "ai ml", "btech", "b.tech", "undergraduate", "programme",
+        "computer science", "electronics", "artificial intelligence", "machine learning",
+        "tell me about cse", "tell me about ece", "tell me about ai"
     ],
     "FACILITIES": [
         "library", "wifi", "wi-fi", "laboratory", "lab", "labs", "canteen",
-        "cafeteria", "sports", "gym", "campus", "facility", "facilities", "infrastructure"
+        "cafeteria", "sports", "gym", "campus", "facility", "facilities", "infrastructure",
+        "smart classroom", "smart classrooms", "classroom", "classrooms", "seminar hall", "auditorium"
     ],
     "HOSTEL": [
         "hostel", "hostels", "hostel facility", "hostel facilities", "hostel accommodation", "pg", "accommodation", "room", "stay", "boarding"
@@ -44,7 +48,8 @@ CATEGORY_KEYWORDS: Dict[str, List[str]] = {
     ],
     "SCHOLARSHIPS": [
         "scholarship", "scholarships", "reimbursement", "freeship", "financial aid", "loan",
-        "fee reimbursement", "government fee reimbursement", "government scholarship"
+        "fee reimbursement", "government fee reimbursement", "government scholarship",
+        "scholarship facility", "scholarship facilities"
     ],
     "FACULTY": [
         "faculty", "teacher", "teachers", "lecturer", "professor", "professors",

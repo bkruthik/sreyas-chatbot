@@ -50,6 +50,21 @@ try:
     from modules.enquiry    import EnquiryManager, AdmissionEnquiryManager
     from modules.intent_engine import IntentEngine
     from modules.language   import Localizer
+    from modules.student_db import (
+        init_db as init_student_db,
+        register_parent_request,
+        admin_get_parent_requests,
+        admin_approve_request,
+        admin_reject_request,
+        admin_set_parent_status,
+        create_and_store_otp,
+        verify_email_otp,
+        get_linked_student_records,
+        admin_search_students,
+        admin_add_or_edit_student,
+        admin_add_or_edit_academic_record,
+        admin_get_student_details,
+    )
 except ImportError:
     from rag        import RAGEngine         # type: ignore
     from guardrails import Guardrails        # type: ignore
@@ -58,6 +73,21 @@ except ImportError:
     from logger     import ChatLogger        # type: ignore
     from enquiry    import EnquiryManager, AdmissionEnquiryManager    # type: ignore
     from language   import Localizer          # type: ignore
+    from student_db import (                 # type: ignore
+        init_db as init_student_db,
+        register_parent_request,
+        admin_get_parent_requests,
+        admin_approve_request,
+        admin_reject_request,
+        admin_set_parent_status,
+        create_and_store_otp,
+        verify_email_otp,
+        get_linked_student_records,
+        admin_search_students,
+        admin_add_or_edit_student,
+        admin_add_or_edit_academic_record,
+        admin_get_student_details,
+    )
 
 # ── File paths ────────────────────────────────────────────────────────────────
 STATIC_DIR = os.path.join(BASE_DIR, "static")
@@ -206,6 +236,12 @@ try:
 except Exception as sched_err:
     print(f"  Scheduler Warning: {sched_err}")
 
+try:
+    init_student_db()
+    print("  Student DB: Initialized (~100 fictional student & parent records)")
+except Exception as sdb_err:
+    print(f"  Student DB Warning: {sdb_err}")
+
 print(f"  Chunks   : {len(rag_engine.chunks)}")
 print(f"  Vocab    : {len(rag_engine.vectorizer.vocabulary)}")
 print("  Server Ready!\n" + "="*55 + "\n")
@@ -343,6 +379,23 @@ def chat():
         }
         return jsonify(res_data)
 
+    # 4a — Small-Talk Patterns (how are you, what's up, etc.)
+    _SMALL_TALK_PATTERNS = [
+        "how are you", "how r u", "how r you", "how are u",
+        "what's up", "whats up", "sup", "howdy",
+        "how do you do", "how is it going", "how's it going",
+        "hows it going", "are you fine",
+    ]
+    if any(p in low for p in _SMALL_TALK_PATTERNS):
+        res_data = {
+            "answer": Localizer.localized(
+                "small_talk_reply", language,
+                "I'm doing great, thank you for asking! 😊\n\nI'm SREYAS AI Assistant — ready to help you with admissions, courses, fees, placements, transport routes, and campus facilities.\n\nHow can I assist you today?"
+            ),
+            "show_form": False, "confidence": 1.0, "category": "GENERAL"
+        }
+        return jsonify(res_data)
+
     if _is_greeting_word(low) and not _has_intent(low):
         res_data = {
             "answer": Localizer.localized("greeting_reply", language, "Hello! 👋 Welcome to Sreyas Assistant.\n\nI can help you with admissions, courses, fees, placements, and campus facilities.\n\nHow can I assist you today? 😊"),
@@ -356,6 +409,88 @@ def chat():
             "show_form": False, "confidence": 1.0, "category": "GENERAL",
             "close_session": True
         }
+        return jsonify(res_data)
+
+    # 4a.2 — General Student & Learning Guidance (Contextual Intent — Example B, C, E)
+    # Answers general academic/learning queries without forcing unrelated college profiles
+    if "manage their time" in low or "manage time" in low or "time management" in low:
+        tm_ans = {
+            "en": "💡 **Time Management Strategies for College Students:**\n\n1. **Use Time Blocking:** Allocate dedicated daily slots for lectures, lab prep, revision, and personal relaxation.\n2. **Prioritize with the Eisenhower Matrix:** Distinguish urgent assignments from long-term project and exam prep.\n3. **Follow the 25/5 Pomodoro Rule:** Study with focused 25-minute intervals followed by short 5-minute breaks to sustain concentration.\n4. **Consistent Weekly Reviews:** Spend 1–2 hours every weekend reviewing lecture notes across all subjects to prevent last-minute exam stress.",
+            "te": "💡 **కళాశాల విద్యార్థుల కోసం సమయ నిర్వహణ చిట్కాలు:**\n\n1. రోజువారీ తరగతులు, ల్యాబ్స్, మరియు పునర్విమర్శ కోసం ప్రత్యేక సమయాన్ని కేటాయించండి.\n2. ప్రాధాన్యతల వారీగా పనులను విభజించి అసైన్‌మెంట్లు పూర్తి చేయండి.\n3. 25 నిమిషాల చదువు, 5 నిమిషాల విరామం (పోమోడోరో టెక్నిక్) పాటించండి.\n4. వారాంతాల్లో వారం మొత్తంలో నేర్చుకున్న అంశాలను పునఃసమీక్షించండి.",
+            "hi": "💡 **कॉलेज छात्रों के लिए समय प्रबंधन युक्तियाँ:**\n\n1. दैनिक कक्षाओं, प्रयोगशाला और पुनरीक्षण के लिए समर्पित समय निर्धारित करें।\n2. तात्कालिक असाइनमेंट और दीर्घकालिक परीक्षा की तैयारी को प्राथमिकता दें।\n3. एकाग्रता बनाए रखने के लिए 25 मिनट अध्ययन और 5 मिनट विश्राम (पोमोडोरो विधि) अपनाएं।\n4. परीक्षा के तनाव से बचने के लिए सप्ताहांत में सभी विषयों के नोट्स की समीक्षा करें।"
+        }
+        res_data = {
+            "answer": tm_ans.get(language, tm_ans["en"]),
+            "show_form": False, "confidence": 0.95, "category": "GENERAL"
+        }
+        RESPONSE_CACHE[cache_key] = (res_data, now_ts)
+        return jsonify(res_data)
+
+    if "problem-solving" in low or "problem solving skills" in low or "improve my problem-solving" in low:
+        ps_ans = {
+            "en": "🧠 **How to Improve Problem-Solving Skills While Studying:**\n\n1. **Master Core Data Structures & Algorithms:** Strengthen fundamental problem understanding (arrays, graphs, trees, dynamic programming).\n2. **Break Down Complex Problems:** Deconstruct large problems into smaller sub-problems before writing code or solutions.\n3. **Daily Practice on Coding Platforms:** Spend 30–45 minutes daily solving curated problems on platforms like LeetCode, HackerRank, or CodeChef.\n4. **Analyze Multiple Solutions:** Don't stop at the first working solution; evaluate time and space complexity and explore alternative approaches.\n5. **Collaborative Problem Solving:** Participate in college hackathons and group peer code reviews.",
+            "te": "🧠 **సమస్య పరిష్కార నైపుణ్యాలను (Problem-Solving Skills) మెరుగుపరచుకోవడానికి సూచనలు:**\n\n1. డేటా స్ట్రక్చర్స్ మరియు అల్గారిథమ్స్ పునాదులను బలోపేతం చేయండి.\n2. పెద్ద సమస్యలను చిన్న విభాగాలుగా విభజించి విశ్లేషించండి.\n3. రోజువారీగా LeetCode లేదా HackerRank వంటి ప్లాట్‌ఫారమ్‌లలో సాధన చేయండి.\n4. కోడింగ్ హ్యాకథాన్‌లు మరియు పీర్ రివ్యూలలో చురుగ్గా పాల్గొనండి.",
+            "hi": "🧠 **अध्ययन के दौरान समस्या-समाधान कौशल (Problem-Solving Skills) को बेहतर बनाने के उपाय:**\n\n1. डेटा संरचनाओं और एल्गोरिदम के बुनियादी सिद्धांतों को मजबूत करें।\n2. जटिल समस्याओं को छोटे उप-समस्याओं में विभाजित करके हल करें।\n3. LeetCode या HackerRank पर दैनिक 30-45 मिनट अभ्यास करें।\n4. कॉलेज हैकाथॉन और सहकर्मी कोड समीक्षा में सक्रिय रूप से भाग लें।"
+        }
+        res_data = {
+            "answer": ps_ans.get(language, ps_ans["en"]),
+            "show_form": False, "confidence": 0.95, "category": "GENERAL"
+        }
+        RESPONSE_CACHE[cache_key] = (res_data, now_ts)
+        return jsonify(res_data)
+
+    if "prepare for placements" in low and ("what placement training" in low or "sreyas provide" in low or "training does sreyas" in low):
+        mixed_ans = {
+            "en": "💼 **Placement Preparation & Sreyas Campus Training:**\n\n**1. General Preparation Advice for Students:**\n• Build a strong foundation in core Data Structures, Algorithms, and Object-Oriented Programming (Java/Python/C++).\n• Complete 2–3 end-to-end practical projects on GitHub.\n• Practice Quantitative Aptitude, Logical Reasoning, and Verbal Ability regularly.\n\n**2. Institutional Training Provided by Sreyas Institute:**\n• **Campus Recruitment Training (CRT):** Structured aptitude, coding, and soft-skill modules from 2nd year onwards.\n• **Technical Finishing School:** Advanced coding bootcamps on Full-Stack, AI/ML, and Cloud technologies.\n• **Mock Interviews & Group Discussions:** Conducted by industry experts and SIET alumni.\n• **Top Placement Record:** 558+ offers with packages reaching up to ₹21.18 LPA (Atomic Works) and an average package of ₹4.0–5.0 LPA.",
+            "te": "💼 **ప్లేస్‌మెంట్ తయారీ మరియు శ్రేయస్ క్యాంపస్ శిక్షణ:**\n\n**1. విద్యార్థులకు సాధారణ కెరీర్ సూచనలు:**\n• డేటా స్ట్రక్చర్స్, అల్గారిథమ్స్ మరియు ప్రాజెక్ట్ డెవలప్‌మెంట్‌పై పట్టు సాధించండి.\n• ఆప్టిట్యూడ్ మరియు కమ్యూనికేషన్ స్కిల్స్ నిరంతరం సాధన చేయండి.\n\n**2. శ్రేయస్ ఇన్‌స్టిట్యూట్ అందించే అధికారిక శిక్షణ:**\n• 2వ సంవత్సరం నుండి ప్రారంభమయ్యే అధికారిక క్యాంపస్ రిక్రూట్‌మెంట్ ట్రైనింగ్ (CRT).\n• సాంకేతిక బూట్‌క్యాంప్‌లు, మాక్ ఇంటర్వ్యూలు మరియు గ్రూప్ డిస్కషన్స్.\n• గరిష్ట ప్యాకేజీ: ₹21.18 LPA మరియు సగటు ప్యాకేజీ: ₹4.0–₹5.0 LPA.",
+            "hi": "💼 **प्लेसमेंट तैयारी और श्रेयस परिसर प्रशिक्षण:**\n\n**1. छात्रों के लिए सामान्य करियर मार्गदर्शन:**\n• डेटा संरचनाओं, एल्गोरिदम और व्यावहारिक परियोजनाओं पर मजबूत पकड़ बनाएं।\n• दैनिक एप्टीट्यूड और संचार कौशल का अभ्यास करें।\n\n**2. श्रेयस इंस्टीट्यूट द्वारा प्रदान किया जाने वाला प्रशिक्षण:**\n• द्वितीय वर्ष से शुरू होने वाला संरचित कैंपस रिक्रूटमेंट ट्रेनिंग (CRT)।\n• उद्योग विशेषज्ञों द्वारा तकनीकी बूटकैंप और मॉक इंटरव्यू।\n• उच्चतम पैकेज: ₹21.18 LPA तथा औसत पैकेज: ₹4.0–₹5.0 LPA।"
+        }
+        res_data = {
+            "answer": mixed_ans.get(language, mixed_ans["en"]),
+            "show_form": False, "confidence": 0.98, "category": "PLACEMENTS"
+        }
+        RESPONSE_CACHE[cache_key] = (res_data, now_ts)
+        return jsonify(res_data)
+
+    # 4b — College Location & Directions Card
+    # Strict matching: query MUST explicitly ask about college location/address/directions/reach/map
+    # MUST NOT fire for bus routes or transport queries
+    _is_bus_or_transport = any(k in low for k in ["bus", "buses", "route", "routes", "pickup", "drop", "timings", "transport fee"])
+    _LOCATION_PATTERNS = [
+        "where is sreyas", "where is the college", "college address", "college location",
+        "where is it located", "how to reach sreyas", "how to reach the college",
+        "campus address", "campus location", "location of college", "location of siet",
+        "siet location", "directions to sreyas", "directions to college", "directions?",
+        "directions", "google maps", "google map", "map location", "college directions",
+        "maps?", "maps", "map?", "map link", "show on map", "open in maps", "open in map",
+        "location map", "reach the campus", "how to reach",
+        "కళాశాల ఎక్కడ ఉంది", "చిరునామా", "మ్యాప్", "దిశలు",
+        "कॉलेज कहां है", "कॉलेज का पता", "नक्शा", "दिशा-निर्देश"
+    ]
+    if not _is_bus_or_transport and any(p in low for p in _LOCATION_PATTERNS):
+        verified_address = "9-39, Sy No. 107, Tattiannaram, GSI Road, Beside Indu Aranya, Bandlaguda, Nagole, Hyderabad, Telangana - 500068"
+        loc_ans = {
+            "en": f"Sreyas Institute of Engineering and Technology is located at {verified_address}.",
+            "te": f"శ్రేయస్ ఇన్‌స్టిట్యూట్ ఆఫ్ ఇంజినీరింగ్ అండ్ టెక్నాలజీ {verified_address} వద్ద ఉంది.",
+            "hi": f"श्रेयस इंस्टीट्यूट ऑफ इंजीनियरिंग एंड टेक्नोलॉजी {verified_address} पर स्थित है।"
+        }
+        res_data = {
+            "answer": loc_ans.get(language, loc_ans["en"]),
+            "show_form": False,
+            "confidence": 1.0,
+            "category": "CONTACT",
+            "is_location_card": True,
+            "location_details": {
+                "name": "Sreyas Institute of Engineering and Technology",
+                "short_name": "SIET Nagole",
+                "address": verified_address,
+                "city": "Hyderabad, Telangana - 500068",
+                "landmark": "Beside Indu Aranya, GSI Road, Bandlaguda, Nagole",
+                "maps_url": "https://www.google.com/maps/search/?api=1&query=Sreyas+Institute+of+Engineering+and+Technology+Nagole+Hyderabad",
+                "directions_url": "https://www.google.com/maps/dir/?api=1&destination=Sreyas+Institute+of+Engineering+and+Technology+Nagole+Hyderabad"
+            }
+        }
+        RESPONSE_CACHE[cache_key] = (res_data, now_ts)
         return jsonify(res_data)
 
     # 5 — Production Intent Engine Classification (Categories A, B, C pre-RAG)
@@ -485,9 +620,11 @@ def save_enquiry():
     if not re.match(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", email):
         return jsonify({"success": False, "message": "Please enter a valid email address."}), 400
 
+    mode       = (body.get("mode")       or "Chatbot").strip()
+
     result = enquiry_mgr.save_enquiry(
         name=name, phone=phone, email=email,
-        mode="Chatbot", category=category,
+        mode=mode, category=category,
         confidence=confidence, question=question,
         parent_email=p_email
     )
@@ -893,6 +1030,244 @@ def rebuild():
     except Exception as exc:
         ChatLogger.log_error(exc)
         return jsonify({"success": False, "message": str(exc)}), 500
+
+# ── Parent Mode Authenticated Endpoints ───────────────────────────────────────
+
+# ── Parent Mode Complete Registration & Onboarding Endpoints ─────────────────
+
+@app.route("/api/parent/register", methods=["POST"])
+def parent_register():
+    """Step 1 & 2: Parent submits registration request.
+    Fields: parent_name, parent_email, student_name, student_id, relationship_type.
+    Validates inputs and saves as 'Pending Verification'. Does not grant academic access."""
+    body = request.get_json(silent=True) or {}
+    p_name = body.get("parent_name")
+    p_email = body.get("parent_email")
+    s_name = body.get("student_name")
+    s_id = body.get("student_id")
+    rel = body.get("relationship_type")
+    phone = body.get("parent_phone", "")
+
+    success, msg, data = register_parent_request(
+        parent_name=p_name,
+        parent_email=p_email,
+        student_id=s_id,
+        student_name=s_name,
+        relationship_type=rel,
+        parent_phone=phone
+    )
+
+    if not success:
+        return jsonify({"success": False, "message": msg}), 400
+
+    return jsonify({"success": True, "message": msg, "data": data})
+
+
+@app.route("/api/parent/request-otp", methods=["POST"])
+def parent_request_otp():
+    """Step 4: After admin approval, parent requests email OTP.
+    Generates OTP, stores hash, and dispatches real email via EmailService.
+    If SMTP is not configured, honestly reports error without fake activation."""
+    body = request.get_json(silent=True) or {}
+    email = (body.get("email") or "").strip().lower()
+
+    if not email:
+        return jsonify({"success": False, "message": "Parent email is required."}), 400
+
+    success, msg, raw_otp = create_and_store_otp(email)
+    if not success:
+        return jsonify({"success": False, "message": msg}), 400
+
+    # Dispatch via EmailService
+    sent, send_msg = EmailService.send_parent_otp(
+        parent_email=email,
+        parent_name="Parent",
+        otp=raw_otp
+    )
+
+    if not sent:
+        return jsonify({
+            "success": False,
+            "message": send_msg,
+            "smtp_configured": EmailService.is_smtp_configured()
+        }), 503
+
+    return jsonify({
+        "success": True,
+        "message": "Verification OTP has been dispatched to your registered email address.",
+        "smtp_configured": True
+    })
+
+
+@app.route("/api/parent/verify-otp", methods=["POST"])
+def parent_verify_otp():
+    """Step 5: Verifies single-use OTP against stored hash, activates account, and issues session token."""
+    body = request.get_json(silent=True) or {}
+    email = (body.get("email") or "").strip().lower()
+    otp = (body.get("otp") or "").strip()
+
+    if not email or not otp:
+        return jsonify({"success": False, "message": "Email and OTP are required."}), 400
+
+    success, msg, token = verify_email_otp(email, otp)
+    if not success:
+        return jsonify({"success": False, "message": msg}), 401
+
+    return jsonify({
+        "success": True,
+        "message": msg,
+        "token": token
+    })
+
+
+@app.route("/api/parent/academic-records", methods=["GET"])
+def parent_academic_records():
+    """Step 6: Strictly authorized endpoint.
+    Retrieves ONLY the linked student's records for this authenticated parent session.
+    Supports semester filtering (e.g. ?semester=3-1 or ?semester=3-2)."""
+    auth_header = request.headers.get("Authorization", "")
+    token = ""
+    if auth_header.startswith("Bearer "):
+        token = auth_header[7:].strip()
+    elif "token" in request.args:
+        token = request.args.get("token", "").strip()
+
+    if not token:
+        return jsonify({"success": False, "message": "Authorization token required."}), 401
+
+    sem = request.args.get("semester", None)
+    success, msg, data = get_linked_student_records(token, semester=sem)
+
+    if not success:
+        return jsonify({"success": False, "message": msg}), 403
+
+    return jsonify({"success": True, "data": data})
+
+
+# Backward compatible alias for parent dashboard
+@app.route("/api/parent/dashboard", methods=["GET"])
+def parent_dashboard_legacy():
+    return parent_academic_records()
+
+
+# ── Admin Parent & Student Management Endpoints (Strict Admin Auth) ───────────
+
+@app.route("/api/admin/parent-requests", methods=["GET"])
+def admin_parent_requests_list():
+    is_auth, user = _is_admin_authenticated()
+    if not is_auth:
+        return jsonify({"error": "Unauthorized"}), 401
+
+    status_filter = request.args.get("status")
+    requests_list = admin_get_parent_requests(status_filter)
+    return jsonify({"success": True, "requests": requests_list})
+
+
+@app.route("/api/admin/parent-requests/<int:req_id>/approve", methods=["POST"])
+def admin_approve_parent_request(req_id: int):
+    is_auth, user = _is_admin_authenticated()
+    if not is_auth:
+        return jsonify({"error": "Unauthorized"}), 401
+
+    success, msg = admin_approve_request(req_id, admin_user=user)
+    if success:
+        AuditLogger.log_action(user, "APPROVE_PARENT", msg, request.remote_addr)
+        return jsonify({"success": True, "message": msg})
+    return jsonify({"success": False, "message": msg}), 400
+
+
+@app.route("/api/admin/parent-requests/<int:req_id>/reject", methods=["POST"])
+def admin_reject_parent_request(req_id: int):
+    is_auth, user = _is_admin_authenticated()
+    if not is_auth:
+        return jsonify({"error": "Unauthorized"}), 401
+
+    body = request.get_json(silent=True) or {}
+    reason = body.get("reason", "")
+    success, msg = admin_reject_request(req_id, admin_user=user, reason=reason)
+    if success:
+        AuditLogger.log_action(user, "REJECT_PARENT", msg, request.remote_addr)
+        return jsonify({"success": True, "message": msg})
+    return jsonify({"success": False, "message": msg}), 400
+
+
+@app.route("/api/admin/parents/<int:parent_id>/status", methods=["POST"])
+def admin_update_parent_status(parent_id: int):
+    is_auth, user = _is_admin_authenticated()
+    if not is_auth:
+        return jsonify({"error": "Unauthorized"}), 401
+
+    body = request.get_json(silent=True) or {}
+    new_status = (body.get("status") or "").strip()
+    success, msg = admin_set_parent_status(parent_id, new_status, admin_user=user)
+    if success:
+        AuditLogger.log_action(user, "UPDATE_PARENT_STATUS", msg, request.remote_addr)
+        return jsonify({"success": True, "message": msg})
+    return jsonify({"success": False, "message": msg}), 400
+
+
+@app.route("/api/admin/students", methods=["GET", "POST"])
+def admin_students_endpoint():
+    is_auth, user = _is_admin_authenticated()
+    if not is_auth:
+        return jsonify({"error": "Unauthorized"}), 401
+
+    if request.method == "GET":
+        q = request.args.get("q", "")
+        students = admin_search_students(q)
+        return jsonify({"success": True, "students": students})
+
+    # POST: Add or edit student
+    body = request.get_json(silent=True) or {}
+    success, msg = admin_add_or_edit_student(
+        student_id=body.get("student_id"),
+        hall_ticket_no=body.get("hall_ticket_no"),
+        name=body.get("name"),
+        branch=body.get("branch"),
+        academic_year=int(body.get("academic_year") or 1),
+        current_semester=body.get("current_semester"),
+        section=body.get("section", "A"),
+        account_status=body.get("account_status", "Active")
+    )
+    if success:
+        AuditLogger.log_action(user, "SAVE_STUDENT", msg, request.remote_addr)
+        return jsonify({"success": True, "message": msg})
+    return jsonify({"success": False, "message": msg}), 400
+
+
+@app.route("/api/admin/students/<student_id>", methods=["GET"])
+def admin_student_details_endpoint(student_id: str):
+    is_auth, user = _is_admin_authenticated()
+    if not is_auth:
+        return jsonify({"error": "Unauthorized"}), 401
+
+    data = admin_get_student_details(student_id)
+    if not data:
+        return jsonify({"success": False, "message": "Student not found."}), 404
+    return jsonify({"success": True, "data": data})
+
+
+@app.route("/api/admin/students/<student_id>/academic-records", methods=["POST"])
+def admin_add_academic_record_endpoint(student_id: str):
+    is_auth, user = _is_admin_authenticated()
+    if not is_auth:
+        return jsonify({"error": "Unauthorized"}), 401
+
+    body = request.get_json(silent=True) or {}
+    success, msg = admin_add_or_edit_academic_record(
+        student_id=student_id,
+        academic_year=int(body.get("academic_year") or 3),
+        semester=body.get("semester"),
+        subject_code=body.get("subject_code"),
+        subject_name=body.get("subject_name"),
+        internal_marks=int(body.get("internal_marks") or 0),
+        external_marks=int(body.get("external_marks") or 0),
+        attendance_percentage=float(body.get("attendance_percentage") or 0.0)
+    )
+    if success:
+        AuditLogger.log_action(user, "SAVE_ACADEMIC_RECORD", msg, request.remote_addr)
+        return jsonify({"success": True, "message": msg})
+    return jsonify({"success": False, "message": msg}), 400
 
 # ── Custom Production Error Handlers ─────────────────────────────────────────
 
