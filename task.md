@@ -1,4 +1,4 @@
-# Sreyas Chatbot — Production Upgrade Tasks
+**# Sreyas Chatbot — Production Upgrade Tasks**
 
 ## Phase 1 — Config & Backend
 - [x] Create `config/facts.json` — configurable fact lookup table
